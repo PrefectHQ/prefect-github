@@ -1,4 +1,3 @@
-
 """Credential classes used to perform authenticated interactions with Twitter"""
 
 from dataclasses import dataclass
@@ -40,5 +39,7 @@ class GitHubCredentials:
             example_get_endpoint_flow()
             ```
         """
-        endpoint = HTTPEndpoint("https://api.github.com/graphql", {"Authorization": f"Bearer {self.token}"})
+        endpoint = HTTPEndpoint(
+            "https://api.github.com/graphql", {"Authorization": f"Bearer {self.token}"}
+        )
         return endpoint

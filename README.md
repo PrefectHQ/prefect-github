@@ -26,16 +26,17 @@ pip install prefect-github
 
 ```python
 from prefect import flow
-from prefect_github.tasks import (
-    goodbye_prefect_github,
-    hello_prefect_github,
-)
-
+from prefect_github import GitHubCredentials
+from prefect_github.repository import query_repository
+from prefect_github.mutations import create_issue
 
 @flow
 def example_flow():
-    hello_prefect_github
-    goodbye_prefect_github
+    token = "ghp_token"
+    github_credentials = GitHubCredentials(token)
+    repository_id = query_repository("owner", "repository", github_credentials, id=True).result()["id"]
+    issue = create_issue(repository_id, "title", assignee_ids="", label_ids="", project_ids="", github_credentials=github_credentials)
+    return issue
 
 example_flow()
 ```
