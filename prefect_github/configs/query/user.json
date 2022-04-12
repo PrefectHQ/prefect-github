@@ -160,6 +160,7 @@
     "websiteUrl",
     "estimatedNextSponsorsPayoutInCents",
     "hasSponsorsListing",
+    "isSponsoredBy",
     "isSponsoringViewer",
     "monthlyEstimatedSponsorsIncomeInCents",
     {

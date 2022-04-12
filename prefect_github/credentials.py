@@ -11,7 +11,7 @@ class GitHubCredentials:
     Dataclass used to manage GitHub authentication.
 
     Args:
-        token: the token to authenticate into GitHub
+        token: the token to authenticate into GitHub.
     """
 
     token: str
@@ -40,6 +40,6 @@ class GitHubCredentials:
             ```
         """
         endpoint = HTTPEndpoint(
-            "https://api.github.com/graphql", {"Authorization": f"Bearer {self.token}"}
+            "https://api.github.com/graphql", {"Authorization": "Bearer f{self.token}"}
         )
         return endpoint

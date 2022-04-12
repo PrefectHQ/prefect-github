@@ -29,7 +29,7 @@ def query_repository(
     op_settings = op.repository(owner=owner, name=name, follow_renames=follow_renames)
 
     if not return_fields:
-        op_stack = ("repository",)
+        op_stack = ["repository"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -58,7 +58,7 @@ def query_repository_project(
     ).project(number=project_number)
 
     if not return_fields:
-        op_stack = ("repository", "project")
+        op_stack = ["repository", "project"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -101,7 +101,7 @@ def query_repository_projects(
     )
 
     if not return_fields:
-        op_stack = ("repository", "projects")
+        op_stack = ["repository", "projects"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -149,7 +149,7 @@ def query_repository_packages(
     )
 
     if not return_fields:
-        op_stack = ("repository", "packages")
+        op_stack = ["repository", "packages"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -188,7 +188,7 @@ def query_repository_stargazers(
     )
 
     if not return_fields:
-        op_stack = ("repository", "stargazers")
+        op_stack = ["repository", "stargazers"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -216,14 +216,14 @@ def query_repository_license_info(
     )
 
     if not return_fields:
-        op_stack = ("repository", "licenseInfo")
+        op_stack = ["repository", "licenseInfo"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["license_info"]
+    return result["data"]["repository"]["licenseInfo"]
 
 
 @task
@@ -244,7 +244,7 @@ def query_repository_owner(
     )
 
     if not return_fields:
-        op_stack = ("repository", "owner")
+        op_stack = ["repository", "owner"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -283,14 +283,14 @@ def query_repository_assignable_users(
     )
 
     if not return_fields:
-        op_stack = ("repository", "assignableUsers")
+        op_stack = ["repository", "assignableUsers"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["assignable_users"]
+    return result["data"]["repository"]["assignableUsers"]
 
 
 @task
@@ -320,14 +320,14 @@ def query_repository_branch_protection_rules(
     )
 
     if not return_fields:
-        op_stack = ("repository", "branchProtectionRules")
+        op_stack = ["repository", "branchProtectionRules"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["branch_protection_rules"]
+    return result["data"]["repository"]["branchProtectionRules"]
 
 
 @task
@@ -348,14 +348,14 @@ def query_repository_code_of_conduct(
     )
 
     if not return_fields:
-        op_stack = ("repository", "codeOfConduct")
+        op_stack = ["repository", "codeOfConduct"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["code_of_conduct"]
+    return result["data"]["repository"]["codeOfConduct"]
 
 
 @task
@@ -389,7 +389,7 @@ def query_repository_collaborators(
     )
 
     if not return_fields:
-        op_stack = ("repository", "collaborators")
+        op_stack = ["repository", "collaborators"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -426,14 +426,14 @@ def query_repository_commit_comments(
     )
 
     if not return_fields:
-        op_stack = ("repository", "commitComments")
+        op_stack = ["repository", "commitComments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["commit_comments"]
+    return result["data"]["repository"]["commitComments"]
 
 
 @task
@@ -454,14 +454,14 @@ def query_repository_contact_links(
     )
 
     if not return_fields:
-        op_stack = ("repository", "contactLinks")
+        op_stack = ["repository", "contactLinks"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["contact_links"]
+    return result["data"]["repository"]["contactLinks"]
 
 
 @task
@@ -482,14 +482,14 @@ def query_repository_default_branch_ref(
     )
 
     if not return_fields:
-        op_stack = ("repository", "defaultBranchRef")
+        op_stack = ["repository", "defaultBranchRef"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["default_branch_ref"]
+    return result["data"]["repository"]["defaultBranchRef"]
 
 
 @task
@@ -519,14 +519,14 @@ def query_repository_deploy_keys(
     )
 
     if not return_fields:
-        op_stack = ("repository", "deployKeys")
+        op_stack = ["repository", "deployKeys"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["deploy_keys"]
+    return result["data"]["repository"]["deployKeys"]
 
 
 @task
@@ -563,7 +563,7 @@ def query_repository_deployments(
     )
 
     if not return_fields:
-        op_stack = ("repository", "deployments")
+        op_stack = ["repository", "deployments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -592,7 +592,7 @@ def query_repository_discussion(
     ).discussion(number=discussion_number)
 
     if not return_fields:
-        op_stack = ("repository", "discussion")
+        op_stack = ["repository", "discussion"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -631,14 +631,14 @@ def query_repository_discussion_categories(
     )
 
     if not return_fields:
-        op_stack = ("repository", "discussionCategories")
+        op_stack = ["repository", "discussionCategories"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["discussion_categories"]
+    return result["data"]["repository"]["discussionCategories"]
 
 
 @task
@@ -675,7 +675,7 @@ def query_repository_discussions(
     )
 
     if not return_fields:
-        op_stack = ("repository", "discussions")
+        op_stack = ["repository", "discussions"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -704,7 +704,7 @@ def query_repository_environment(
     ).environment(name=environment_name)
 
     if not return_fields:
-        op_stack = ("repository", "environment")
+        op_stack = ["repository", "environment"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -741,7 +741,7 @@ def query_repository_environments(
     )
 
     if not return_fields:
-        op_stack = ("repository", "environments")
+        op_stack = ["repository", "environments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -791,7 +791,7 @@ def query_repository_forks(
     )
 
     if not return_fields:
-        op_stack = ("repository", "forks")
+        op_stack = ["repository", "forks"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -819,14 +819,14 @@ def query_repository_funding_links(
     )
 
     if not return_fields:
-        op_stack = ("repository", "fundingLinks")
+        op_stack = ["repository", "fundingLinks"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["funding_links"]
+    return result["data"]["repository"]["fundingLinks"]
 
 
 @task
@@ -847,14 +847,14 @@ def query_repository_interaction_ability(
     )
 
     if not return_fields:
-        op_stack = ("repository", "interactionAbility")
+        op_stack = ["repository", "interactionAbility"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["interaction_ability"]
+    return result["data"]["repository"]["interactionAbility"]
 
 
 @task
@@ -876,7 +876,7 @@ def query_repository_issue(
     ).issue(number=issue_number)
 
     if not return_fields:
-        op_stack = ("repository", "issue")
+        op_stack = ["repository", "issue"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -905,14 +905,14 @@ def query_repository_issue_or_pull_request(
     ).issue_or_pull_request(number=issue_or_pull_request_number)
 
     if not return_fields:
-        op_stack = ("repository", "issueOrPullRequest")
+        op_stack = ["repository", "issueOrPullRequest"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["issue_or_pull_request"]
+    return result["data"]["repository"]["issueOrPullRequest"]
 
 
 @task
@@ -933,14 +933,14 @@ def query_repository_issue_templates(
     )
 
     if not return_fields:
-        op_stack = ("repository", "issueTemplates")
+        op_stack = ["repository", "issueTemplates"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["issue_templates"]
+    return result["data"]["repository"]["issueTemplates"]
 
 
 @task
@@ -978,7 +978,7 @@ def query_repository_issues(
     )
 
     if not return_fields:
-        op_stack = ("repository", "issues")
+        op_stack = ["repository", "issues"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1007,7 +1007,7 @@ def query_repository_label(
     ).label(name=label_name)
 
     if not return_fields:
-        op_stack = ("repository", "label")
+        op_stack = ["repository", "label"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1051,7 +1051,7 @@ def query_repository_labels(
     )
 
     if not return_fields:
-        op_stack = ("repository", "labels")
+        op_stack = ["repository", "labels"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1090,7 +1090,7 @@ def query_repository_languages(
     )
 
     if not return_fields:
-        op_stack = ("repository", "languages")
+        op_stack = ["repository", "languages"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1118,14 +1118,14 @@ def query_repository_latest_release(
     )
 
     if not return_fields:
-        op_stack = ("repository", "latestRelease")
+        op_stack = ["repository", "latestRelease"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["latest_release"]
+    return result["data"]["repository"]["latestRelease"]
 
 
 @task
@@ -1157,14 +1157,14 @@ def query_repository_mentionable_users(
     )
 
     if not return_fields:
-        op_stack = ("repository", "mentionableUsers")
+        op_stack = ["repository", "mentionableUsers"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["mentionable_users"]
+    return result["data"]["repository"]["mentionableUsers"]
 
 
 @task
@@ -1186,7 +1186,7 @@ def query_repository_milestone(
     ).milestone(number=milestone_number)
 
     if not return_fields:
-        op_stack = ("repository", "milestone")
+        op_stack = ["repository", "milestone"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1229,7 +1229,7 @@ def query_repository_milestones(
     )
 
     if not return_fields:
-        op_stack = ("repository", "milestones")
+        op_stack = ["repository", "milestones"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1259,7 +1259,7 @@ def query_repository_object(
     ).object(oid=object_oid, expression=object_expression)
 
     if not return_fields:
-        op_stack = ("repository", "object")
+        op_stack = ["repository", "object"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1296,14 +1296,14 @@ def query_repository_pinned_discussions(
     )
 
     if not return_fields:
-        op_stack = ("repository", "pinnedDiscussions")
+        op_stack = ["repository", "pinnedDiscussions"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["pinned_discussions"]
+    return result["data"]["repository"]["pinnedDiscussions"]
 
 
 @task
@@ -1333,14 +1333,14 @@ def query_repository_pinned_issues(
     )
 
     if not return_fields:
-        op_stack = ("repository", "pinnedIssues")
+        op_stack = ["repository", "pinnedIssues"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["pinned_issues"]
+    return result["data"]["repository"]["pinnedIssues"]
 
 
 @task
@@ -1361,14 +1361,14 @@ def query_repository_primary_language(
     )
 
     if not return_fields:
-        op_stack = ("repository", "primaryLanguage")
+        op_stack = ["repository", "primaryLanguage"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["primary_language"]
+    return result["data"]["repository"]["primaryLanguage"]
 
 
 @task
@@ -1390,14 +1390,14 @@ def query_repository_project_next(
     ).project_next(number=project_next_number)
 
     if not return_fields:
-        op_stack = ("repository", "projectNext")
+        op_stack = ["repository", "projectNext"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["project_next"]
+    return result["data"]["repository"]["projectNext"]
 
 
 @task
@@ -1431,14 +1431,14 @@ def query_repository_projects_next(
     )
 
     if not return_fields:
-        op_stack = ("repository", "projectsNext")
+        op_stack = ["repository", "projectsNext"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["projects_next"]
+    return result["data"]["repository"]["projectsNext"]
 
 
 @task
@@ -1460,14 +1460,14 @@ def query_repository_pull_request(
     ).pull_request(number=pull_request_number)
 
     if not return_fields:
-        op_stack = ("repository", "pullRequest")
+        op_stack = ["repository", "pullRequest"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["pull_request"]
+    return result["data"]["repository"]["pullRequest"]
 
 
 @task
@@ -1488,14 +1488,14 @@ def query_repository_pull_request_templates(
     )
 
     if not return_fields:
-        op_stack = ("repository", "pullRequestTemplates")
+        op_stack = ["repository", "pullRequestTemplates"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["pull_request_templates"]
+    return result["data"]["repository"]["pullRequestTemplates"]
 
 
 @task
@@ -1535,14 +1535,14 @@ def query_repository_pull_requests(
     )
 
     if not return_fields:
-        op_stack = ("repository", "pullRequests")
+        op_stack = ["repository", "pullRequests"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["pull_requests"]
+    return result["data"]["repository"]["pullRequests"]
 
 
 @task
@@ -1564,7 +1564,7 @@ def query_repository_ref(
     ).ref(qualified_name=ref_qualified_name)
 
     if not return_fields:
-        op_stack = ("repository", "ref")
+        op_stack = ["repository", "ref"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1609,7 +1609,7 @@ def query_repository_refs(
     )
 
     if not return_fields:
-        op_stack = ("repository", "refs")
+        op_stack = ["repository", "refs"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1638,7 +1638,7 @@ def query_repository_release(
     ).release(tag_name=release_tag_name)
 
     if not return_fields:
-        op_stack = ("repository", "release")
+        op_stack = ["repository", "release"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1677,7 +1677,7 @@ def query_repository_releases(
     )
 
     if not return_fields:
-        op_stack = ("repository", "releases")
+        op_stack = ["repository", "releases"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1714,14 +1714,14 @@ def query_repository_repository_topics(
     )
 
     if not return_fields:
-        op_stack = ("repository", "repositoryTopics")
+        op_stack = ["repository", "repositoryTopics"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["repository_topics"]
+    return result["data"]["repository"]["repositoryTopics"]
 
 
 @task
@@ -1751,7 +1751,7 @@ def query_repository_submodules(
     )
 
     if not return_fields:
-        op_stack = ("repository", "submodules")
+        op_stack = ["repository", "submodules"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1790,14 +1790,14 @@ def query_repository_vulnerability_alerts(
     )
 
     if not return_fields:
-        op_stack = ("repository", "vulnerabilityAlerts")
+        op_stack = ["repository", "vulnerabilityAlerts"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["repository"]["vulnerability_alerts"]
+    return result["data"]["repository"]["vulnerabilityAlerts"]
 
 
 @task
@@ -1827,7 +1827,7 @@ def query_repository_watchers(
     )
 
     if not return_fields:
-        op_stack = ("repository", "watchers")
+        op_stack = ["repository", "watchers"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }

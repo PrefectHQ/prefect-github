@@ -12316,6 +12316,12 @@ class ProjectProgress(sgqlc.types.Type):
     )
 
 
+class ProjectV2Owner(sgqlc.types.Interface):
+    __schema__ = graphql_schema
+    __field_names__ = ("id",)
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
+
+
 class ProjectViewConnection(sgqlc.types.relay.Connection):
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
@@ -18163,6 +18169,7 @@ class Issue(
     Subscribable,
     UniformResourceLocatable,
     ProjectNextOwner,
+    ProjectV2Owner,
 ):
     __schema__ = graphql_schema
     __field_names__ = (
@@ -19508,6 +19515,7 @@ class Organization(
     PackageOwner,
     ProjectOwner,
     ProjectNextOwner,
+    ProjectV2Owner,
     RepositoryDiscussionAuthor,
     RepositoryDiscussionCommentAuthor,
     RepositoryOwner,
@@ -20617,6 +20625,7 @@ class PullRequest(
     Subscribable,
     UniformResourceLocatable,
     ProjectNextOwner,
+    ProjectV2Owner,
 ):
     __schema__ = graphql_schema
     __field_names__ = (
@@ -24050,6 +24059,7 @@ class User(
     PackageOwner,
     ProjectOwner,
     ProjectNextOwner,
+    ProjectV2Owner,
     RepositoryDiscussionAuthor,
     RepositoryDiscussionCommentAuthor,
     RepositoryOwner,

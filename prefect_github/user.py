@@ -25,7 +25,7 @@ def query_user(
     op_settings = op.user(login=login)
 
     if not return_fields:
-        op_stack = ("user",)
+        op_stack = ["user"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -67,7 +67,7 @@ def query_user_packages(
     )
 
     if not return_fields:
-        op_stack = ("user", "packages")
+        op_stack = ["user", "packages"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -90,7 +90,7 @@ def query_user_project(
     op_settings = op.user(login=user_login).project(number=project_number)
 
     if not return_fields:
-        op_stack = ("user", "project")
+        op_stack = ["user", "project"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -127,7 +127,7 @@ def query_user_projects(
     )
 
     if not return_fields:
-        op_stack = ("user", "projects")
+        op_stack = ["user", "projects"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -150,14 +150,14 @@ def query_user_project_next(
     op_settings = op.user(login=user_login).project_next(number=project_next_number)
 
     if not return_fields:
-        op_stack = ("user", "projectNext")
+        op_stack = ["user", "projectNext"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["project_next"]
+    return result["data"]["user"]["projectNext"]
 
 
 @task
@@ -185,14 +185,14 @@ def query_user_projects_next(
     )
 
     if not return_fields:
-        op_stack = ("user", "projectsNext")
+        op_stack = ["user", "projectsNext"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["projects_next"]
+    return result["data"]["user"]["projectsNext"]
 
 
 @task
@@ -225,14 +225,14 @@ def query_user_repository_discussions(
     )
 
     if not return_fields:
-        op_stack = ("user", "repositoryDiscussions")
+        op_stack = ["user", "repositoryDiscussions"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["repository_discussions"]
+    return result["data"]["user"]["repositoryDiscussions"]
 
 
 @task
@@ -260,14 +260,14 @@ def query_user_repository_discussion_comments(
     )
 
     if not return_fields:
-        op_stack = ("user", "repositoryDiscussionComments")
+        op_stack = ["user", "repositoryDiscussionComments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["repository_discussion_comments"]
+    return result["data"]["user"]["repositoryDiscussionComments"]
 
 
 @task
@@ -306,7 +306,7 @@ def query_user_repositories(
     )
 
     if not return_fields:
-        op_stack = ("user", "repositories")
+        op_stack = ["user", "repositories"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -332,7 +332,7 @@ def query_user_repository(
     )
 
     if not return_fields:
-        op_stack = ("user", "repository")
+        op_stack = ["user", "repository"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -352,14 +352,14 @@ def query_user_item_showcase(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "itemShowcase")
+        op_stack = ["user", "itemShowcase"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["item_showcase"]
+    return result["data"]["user"]["itemShowcase"]
 
 
 @task
@@ -385,14 +385,14 @@ def query_user_pinnable_items(
     )
 
     if not return_fields:
-        op_stack = ("user", "pinnableItems")
+        op_stack = ["user", "pinnableItems"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["pinnable_items"]
+    return result["data"]["user"]["pinnableItems"]
 
 
 @task
@@ -418,14 +418,14 @@ def query_user_pinned_items(
     )
 
     if not return_fields:
-        op_stack = ("user", "pinnedItems")
+        op_stack = ["user", "pinnedItems"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["pinned_items"]
+    return result["data"]["user"]["pinnedItems"]
 
 
 @task
@@ -454,7 +454,7 @@ def query_user_sponsoring(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsoring")
+        op_stack = ["user", "sponsoring"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -492,7 +492,7 @@ def query_user_sponsors(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsors")
+        op_stack = ["user", "sponsors"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -530,14 +530,14 @@ def query_user_sponsors_activities(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsorsActivities")
+        op_stack = ["user", "sponsorsActivities"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsors_activities"]
+    return result["data"]["user"]["sponsorsActivities"]
 
 
 @task
@@ -550,14 +550,14 @@ def query_user_sponsors_listing(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "sponsorsListing")
+        op_stack = ["user", "sponsorsListing"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsors_listing"]
+    return result["data"]["user"]["sponsorsListing"]
 
 
 @task
@@ -570,14 +570,14 @@ def query_user_sponsorship_for_viewer_as_sponsor(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "sponsorshipForViewerAsSponsor")
+        op_stack = ["user", "sponsorshipForViewerAsSponsor"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsorship_for_viewer_as_sponsor"]
+    return result["data"]["user"]["sponsorshipForViewerAsSponsor"]
 
 
 @task
@@ -590,14 +590,14 @@ def query_user_sponsorship_for_viewer_as_sponsorable(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "sponsorshipForViewerAsSponsorable")
+        op_stack = ["user", "sponsorshipForViewerAsSponsorable"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsorship_for_viewer_as_sponsorable"]
+    return result["data"]["user"]["sponsorshipForViewerAsSponsorable"]
 
 
 @task
@@ -626,14 +626,14 @@ def query_user_sponsorship_newsletters(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsorshipNewsletters")
+        op_stack = ["user", "sponsorshipNewsletters"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsorship_newsletters"]
+    return result["data"]["user"]["sponsorshipNewsletters"]
 
 
 @task
@@ -661,14 +661,14 @@ def query_user_sponsorships_as_maintainer(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsorshipsAsMaintainer")
+        op_stack = ["user", "sponsorshipsAsMaintainer"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsorships_as_maintainer"]
+    return result["data"]["user"]["sponsorshipsAsMaintainer"]
 
 
 @task
@@ -694,14 +694,14 @@ def query_user_sponsorships_as_sponsor(
     )
 
     if not return_fields:
-        op_stack = ("user", "sponsorshipsAsSponsor")
+        op_stack = ["user", "sponsorshipsAsSponsor"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["sponsorships_as_sponsor"]
+    return result["data"]["user"]["sponsorshipsAsSponsor"]
 
 
 @task
@@ -725,14 +725,14 @@ def query_user_commit_comments(
     )
 
     if not return_fields:
-        op_stack = ("user", "commitComments")
+        op_stack = ["user", "commitComments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["commit_comments"]
+    return result["data"]["user"]["commitComments"]
 
 
 @task
@@ -754,14 +754,14 @@ def query_user_contributions_collection(
     )
 
     if not return_fields:
-        op_stack = ("user", "contributionsCollection")
+        op_stack = ["user", "contributionsCollection"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["contributions_collection"]
+    return result["data"]["user"]["contributionsCollection"]
 
 
 @task
@@ -785,7 +785,7 @@ def query_user_followers(
     )
 
     if not return_fields:
-        op_stack = ("user", "followers")
+        op_stack = ["user", "followers"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -816,7 +816,7 @@ def query_user_following(
     )
 
     if not return_fields:
-        op_stack = ("user", "following")
+        op_stack = ["user", "following"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -839,7 +839,7 @@ def query_user_gist(
     op_settings = op.user(login=user_login).gist(name=gist_name)
 
     if not return_fields:
-        op_stack = ("user", "gist")
+        op_stack = ["user", "gist"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -870,14 +870,14 @@ def query_user_gist_comments(
     )
 
     if not return_fields:
-        op_stack = ("user", "gistComments")
+        op_stack = ["user", "gistComments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["gist_comments"]
+    return result["data"]["user"]["gistComments"]
 
 
 @task
@@ -905,7 +905,7 @@ def query_user_gists(
     )
 
     if not return_fields:
-        op_stack = ("user", "gists")
+        op_stack = ["user", "gists"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -925,14 +925,14 @@ def query_user_interaction_ability(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "interactionAbility")
+        op_stack = ["user", "interactionAbility"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["interaction_ability"]
+    return result["data"]["user"]["interactionAbility"]
 
 
 @task
@@ -958,14 +958,14 @@ def query_user_issue_comments(
     )
 
     if not return_fields:
-        op_stack = ("user", "issueComments")
+        op_stack = ["user", "issueComments"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["issue_comments"]
+    return result["data"]["user"]["issueComments"]
 
 
 @task
@@ -997,7 +997,7 @@ def query_user_issues(
     )
 
     if not return_fields:
-        op_stack = ("user", "issues")
+        op_stack = ["user", "issues"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1020,7 +1020,7 @@ def query_user_organization(
     op_settings = op.user(login=user_login).organization(login=organization_login)
 
     if not return_fields:
-        op_stack = ("user", "organization")
+        op_stack = ["user", "organization"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1051,7 +1051,7 @@ def query_user_organizations(
     )
 
     if not return_fields:
-        op_stack = ("user", "organizations")
+        op_stack = ["user", "organizations"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1082,14 +1082,14 @@ def query_user_public_keys(
     )
 
     if not return_fields:
-        op_stack = ("user", "publicKeys")
+        op_stack = ["user", "publicKeys"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["public_keys"]
+    return result["data"]["user"]["publicKeys"]
 
 
 @task
@@ -1123,14 +1123,14 @@ def query_user_pull_requests(
     )
 
     if not return_fields:
-        op_stack = ("user", "pullRequests")
+        op_stack = ["user", "pullRequests"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["pull_requests"]
+    return result["data"]["user"]["pullRequests"]
 
 
 @task
@@ -1166,14 +1166,14 @@ def query_user_repositories_contributed_to(
     )
 
     if not return_fields:
-        op_stack = ("user", "repositoriesContributedTo")
+        op_stack = ["user", "repositoriesContributedTo"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["repositories_contributed_to"]
+    return result["data"]["user"]["repositoriesContributedTo"]
 
 
 @task
@@ -1202,14 +1202,14 @@ def query_user_saved_replies(
     )
 
     if not return_fields:
-        op_stack = ("user", "savedReplies")
+        op_stack = ["user", "savedReplies"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["saved_replies"]
+    return result["data"]["user"]["savedReplies"]
 
 
 @task
@@ -1237,14 +1237,14 @@ def query_user_starred_repositories(
     )
 
     if not return_fields:
-        op_stack = ("user", "starredRepositories")
+        op_stack = ["user", "starredRepositories"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["starred_repositories"]
+    return result["data"]["user"]["starredRepositories"]
 
 
 @task
@@ -1257,7 +1257,7 @@ def query_user_status(
     op_settings = op.user(login=user_login)
 
     if not return_fields:
-        op_stack = ("user", "status")
+        op_stack = ["user", "status"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
@@ -1292,14 +1292,14 @@ def query_user_top_repositories(
     )
 
     if not return_fields:
-        op_stack = ("user", "topRepositories")
+        op_stack = ["user", "topRepositories"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
     op_settings.__fields__(**return_fields)
 
     result = endpoint(op)
-    return result["data"]["user"]["top_repositories"]
+    return result["data"]["user"]["topRepositories"]
 
 
 @task
@@ -1336,7 +1336,7 @@ def query_user_watching(
     )
 
     if not return_fields:
-        op_stack = ("user", "watching")
+        op_stack = ["user", "watching"]
         return_fields = {
             return_field: True for return_field in return_fields_defaults[op_stack]
         }
