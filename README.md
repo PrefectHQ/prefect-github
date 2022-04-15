@@ -2,7 +2,7 @@
 
 ## Welcome!
 
-Prefect integrations for interacting with GitHub
+Prefect tasks and subflows for interacting with GitHub
 
 ## Getting Started
 

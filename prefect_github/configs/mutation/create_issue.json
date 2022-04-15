@@ -1,0 +1,42 @@
+{
+  "createIssue": [
+    "clientMutationId",
+    {
+      "issue": [
+        "id",
+        "closed",
+        "closedAt",
+        "authorAssociation",
+        "body",
+        "bodyHTML",
+        "bodyText",
+        "createdAt",
+        "createdViaEmail",
+        "includesCreatedEdit",
+        "lastEditedAt",
+        "publishedAt",
+        "updatedAt",
+        "viewerDidAuthor",
+        "viewerCanUpdate",
+        "viewerCannotUpdateReasons",
+        "activeLockReason",
+        "locked",
+        "databaseId",
+        "viewerCanReact",
+        "viewerCanSubscribe",
+        "viewerSubscription",
+        "resourcePath",
+        "url",
+        "bodyResourcePath",
+        "bodyUrl",
+        "isPinned",
+        "isReadByViewer",
+        "number",
+        "state",
+        "title",
+        "titleHTML",
+        "trackedIssuesCount"
+      ]
+    }
+  ]
+}

@@ -6468,6 +6468,12 @@ class ProjectProgress(sgqlc.types.Type):
     todo_percentage = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name='todoPercentage')
 
 
+class ProjectV2Owner(sgqlc.types.Interface):
+    __schema__ = graphql_schema
+    __field_names__ = ('id',)
+    id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name='id')
+
+
 class ProjectViewConnection(sgqlc.types.relay.Connection):
     __schema__ = graphql_schema
     __field_names__ = ('edges', 'nodes', 'page_info', 'total_count')
@@ -9607,7 +9613,7 @@ class IpAllowListEntry(sgqlc.types.Type, Node):
     updated_at = sgqlc.types.Field(sgqlc.types.non_null(DateTime), graphql_name='updatedAt')
 
 
-class Issue(sgqlc.types.Type, Node, Assignable, Closable, Comment, Updatable, UpdatableComment, Labelable, Lockable, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, ProjectNextOwner):
+class Issue(sgqlc.types.Type, Node, Assignable, Closable, Comment, Updatable, UpdatableComment, Labelable, Lockable, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, ProjectNextOwner, ProjectV2Owner):
     __schema__ = graphql_schema
     __field_names__ = ('body_resource_path', 'body_url', 'comments', 'hovercard', 'is_pinned', 'is_read_by_viewer', 'milestone', 'number', 'participants', 'project_cards', 'project_next_items', 'state', 'timeline', 'timeline_items', 'title', 'title_html', 'tracked_in_issues', 'tracked_issues', 'tracked_issues_count')
     body_resource_path = sgqlc.types.Field(sgqlc.types.non_null(URI), graphql_name='bodyResourcePath')
@@ -10192,7 +10198,7 @@ class OrgUpdateMemberRepositoryInvitationPermissionAuditEntry(sgqlc.types.Type, 
     can_invite_outside_collaborators_to_repositories = sgqlc.types.Field(Boolean, graphql_name='canInviteOutsideCollaboratorsToRepositories')
 
 
-class Organization(sgqlc.types.Type, Node, Actor, PackageOwner, ProjectOwner, ProjectNextOwner, RepositoryDiscussionAuthor, RepositoryDiscussionCommentAuthor, RepositoryOwner, UniformResourceLocatable, MemberStatusable, ProfileOwner, Sponsorable):
+class Organization(sgqlc.types.Type, Node, Actor, PackageOwner, ProjectOwner, ProjectNextOwner, ProjectV2Owner, RepositoryDiscussionAuthor, RepositoryDiscussionCommentAuthor, RepositoryOwner, UniformResourceLocatable, MemberStatusable, ProfileOwner, Sponsorable):
     __schema__ = graphql_schema
     __field_names__ = ('audit_log', 'created_at', 'database_id', 'description', 'description_html', 'domains', 'enterprise_owners', 'interaction_ability', 'ip_allow_list_enabled_setting', 'ip_allow_list_entries', 'ip_allow_list_for_installed_apps_enabled_setting', 'is_verified', 'members_can_fork_private_repositories', 'members_with_role', 'new_team_resource_path', 'new_team_url', 'notification_delivery_restriction_enabled_setting', 'organization_billing_email', 'pending_members', 'repository_migrations', 'requires_two_factor_authentication', 'saml_identity_provider', 'team', 'teams', 'teams_resource_path', 'teams_url', 'twitter_username', 'updated_at', 'viewer_can_administer', 'viewer_can_create_repositories', 'viewer_can_create_teams', 'viewer_is_amember')
     audit_log = sgqlc.types.Field(sgqlc.types.non_null(OrganizationAuditEntryConnection), graphql_name='auditLog', args=sgqlc.types.ArgDict((
@@ -10644,7 +10650,7 @@ class PublicKey(sgqlc.types.Type, Node):
     updated_at = sgqlc.types.Field(DateTime, graphql_name='updatedAt')
 
 
-class PullRequest(sgqlc.types.Type, Node, Assignable, Closable, Comment, Updatable, UpdatableComment, Labelable, Lockable, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, ProjectNextOwner):
+class PullRequest(sgqlc.types.Type, Node, Assignable, Closable, Comment, Updatable, UpdatableComment, Labelable, Lockable, Reactable, RepositoryNode, Subscribable, UniformResourceLocatable, ProjectNextOwner, ProjectV2Owner):
     __schema__ = graphql_schema
     __field_names__ = ('additions', 'auto_merge_request', 'base_ref', 'base_ref_name', 'base_ref_oid', 'base_repository', 'changed_files', 'checks_resource_path', 'checks_url', 'closing_issues_references', 'comments', 'commits', 'deletions', 'files', 'head_ref', 'head_ref_name', 'head_ref_oid', 'head_repository', 'head_repository_owner', 'hovercard', 'is_cross_repository', 'is_draft', 'is_read_by_viewer', 'latest_opinionated_reviews', 'latest_reviews', 'maintainer_can_modify', 'merge_commit', 'mergeable', 'merged', 'merged_at', 'merged_by', 'milestone', 'number', 'participants', 'permalink', 'potential_merge_commit', 'project_cards', 'project_next_items', 'revert_resource_path', 'revert_url', 'review_decision', 'review_requests', 'review_threads', 'reviews', 'state', 'suggested_reviewers', 'timeline', 'timeline_items', 'title', 'title_html', 'viewer_can_apply_suggestion', 'viewer_can_delete_head_ref', 'viewer_can_disable_auto_merge', 'viewer_can_enable_auto_merge', 'viewer_can_merge_as_admin', 'viewer_latest_review', 'viewer_latest_review_request', 'viewer_merge_body_text', 'viewer_merge_headline_text')
     additions = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name='additions')
@@ -12024,7 +12030,7 @@ class UnsubscribedEvent(sgqlc.types.Type, Node):
     subscribable = sgqlc.types.Field(sgqlc.types.non_null(Subscribable), graphql_name='subscribable')
 
 
-class User(sgqlc.types.Type, Node, Actor, PackageOwner, ProjectOwner, ProjectNextOwner, RepositoryDiscussionAuthor, RepositoryDiscussionCommentAuthor, RepositoryOwner, UniformResourceLocatable, ProfileOwner, Sponsorable):
+class User(sgqlc.types.Type, Node, Actor, PackageOwner, ProjectOwner, ProjectNextOwner, ProjectV2Owner, RepositoryDiscussionAuthor, RepositoryDiscussionCommentAuthor, RepositoryOwner, UniformResourceLocatable, ProfileOwner, Sponsorable):
     __schema__ = graphql_schema
     __field_names__ = ('bio', 'bio_html', 'can_receive_organization_emails_when_notifications_restricted', 'commit_comments', 'company', 'company_html', 'contributions_collection', 'created_at', 'database_id', 'followers', 'following', 'gist', 'gist_comments', 'gists', 'hovercard', 'interaction_ability', 'is_bounty_hunter', 'is_campus_expert', 'is_developer_program_member', 'is_employee', 'is_following_viewer', 'is_git_hub_star', 'is_hireable', 'is_site_admin', 'is_viewer', 'issue_comments', 'issues', 'organization', 'organization_verified_domain_emails', 'organizations', 'public_keys', 'pull_requests', 'repositories_contributed_to', 'saved_replies', 'starred_repositories', 'status', 'top_repositories', 'twitter_username', 'updated_at', 'viewer_can_follow', 'viewer_is_following', 'watching')
     bio = sgqlc.types.Field(String, graphql_name='bio')

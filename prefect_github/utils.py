@@ -1,17 +1,21 @@
+"""Utilities to assist with generating collections."""
 
-import re
 import json
+import re
 from collections import defaultdict
+from pathlib import Path
+from typing import List, Union
 
-SNAKE_CASE1 = re.compile('(.)([A-Z][a-z]+)')
-SNAKE_CASE2 = re.compile('([a-z0-9])([A-Z])')
-
-def _to_snake_case(name):
-    name = SNAKE_CASE1.sub(r'\1_\2', name)
-    return SNAKE_CASE2.sub(r'\1_\2', name).lower()
+SNAKE_CASE_REGEX1 = re.compile("(.)([A-Z][a-z]+)")
+SNAKE_CASE_REGEX2 = re.compile("([a-z0-9])([A-Z])")
 
 
-def initialize_return_fields_defaults(config_path):
+def _to_snake_case(name: str) -> str:
+    name = SNAKE_CASE_REGEX1.sub(r"\1_\2", name)
+    return SNAKE_CASE_REGEX2.sub(r"\1_\2", name).lower()
+
+
+def initialize_return_fields_defaults(config_path: Union[Path, str]) -> List:
     with open(config_path, "r") as f:
         config = json.load(f)
 
