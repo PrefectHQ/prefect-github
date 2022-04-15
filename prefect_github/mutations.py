@@ -4,7 +4,7 @@ It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, Iterable
 
 from prefect import task
 from sgqlc.operation import Operation
@@ -12,6 +12,7 @@ from sgqlc.operation import Operation
 from prefect_github import GitHubCredentials
 from prefect_github.graphql import _execute_graphql_op
 from prefect_github.schemas import graphql_schema
+from prefect_github.utils import strip_kwargs
 
 
 @task()
@@ -30,20 +31,19 @@ def create_pull_request(
 
     Args:
         repository_id: The Node ID of the repository.
-        base_ref_name: The name of the branch you want your changes pulled
-            into. This should be an existing branch on the current
-            repository. You cannot update the base branch on a pull
-            request to point to another repository.
+        base_ref_name: The name of the branch you want your changes pulled into.
+            This should be an existing branch on the current repository.
+            You cannot update the base branch on a pull request to point
+            to another repository.
         head_ref_name: The name of the branch where your changes are
-            implemented. For cross-repository pull requests in the
-            same network, namespace `head_ref_name` with a user like
-            this: `username:branch`.
+            implemented. For cross-repository pull requests in the same
+            network, namespace `head_ref_name` with a user like this:
+            `username:branch`.
         title: The title of the pull request.
-        github_credentials: github: Credentials to use for authentication with
-            GitHub.
+        github_credentials: Credentials to use for authentication with GitHub.
         body: The contents of the pull request.
-        maintainer_can_modify: Indicates whether maintainers can modify the
-            pull request.
+        maintainer_can_modify: Indicates whether maintainers can modify the pull
+            request.
         draft: Indicates whether this pull request should be a draft.
 
     Returns:
@@ -51,28 +51,30 @@ def create_pull_request(
     """
     op = Operation(graphql_schema.Mutation)
     _ = op.create_pull_request(
-        input=dict(
-            repository_id=repository_id,
-            base_ref_name=base_ref_name,
-            head_ref_name=head_ref_name,
-            title=title,
-            body=body,
-            maintainer_can_modify=maintainer_can_modify,
-            draft=draft,
+        **strip_kwargs(
+            input=dict(
+                repository_id=repository_id,
+                base_ref_name=base_ref_name,
+                head_ref_name=head_ref_name,
+                title=title,
+                body=body,
+                maintainer_can_modify=maintainer_can_modify,
+                draft=draft,
+            )
         )
     )
 
     result = _execute_graphql_op(op, github_credentials)
-    return result
+    return result["create_pull_request"]
 
 
 @task()
 def create_issue(
     repository_id: str,
     title: str,
-    assignee_ids: str,
-    label_ids: str,
-    project_ids: str,
+    assignee_ids: Iterable[str],
+    label_ids: Iterable[str],
+    project_ids: Iterable[str],
     github_credentials: GitHubCredentials,
     body: str = None,
     milestone_id: str = None,
@@ -88,33 +90,33 @@ def create_issue(
         label_ids: An array of Node IDs of labels for this issue.
         project_ids: An array of Node IDs for projects associated with this
             issue.
-        github_credentials: github: Credentials to use for authentication with
-            GitHub.
+        github_credentials: Credentials to use for authentication with GitHub.
         body: The body for the issue description.
         milestone_id: The Node ID of the milestone for this issue.
-        issue_template: The name of an issue template in the repository,
-            assigns labels and assignees from the template to the
-            issue
+        issue_template: The name of an issue template in the repository, assigns
+            labels and assignees from the template to the issue
 
     Returns:
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
     _ = op.create_issue(
-        input=dict(
-            repository_id=repository_id,
-            title=title,
-            assignee_ids=assignee_ids,
-            label_ids=label_ids,
-            project_ids=project_ids,
-            body=body,
-            milestone_id=milestone_id,
-            issue_template=issue_template,
+        **strip_kwargs(
+            input=dict(
+                repository_id=repository_id,
+                title=title,
+                assignee_ids=assignee_ids,
+                label_ids=label_ids,
+                project_ids=project_ids,
+                body=body,
+                milestone_id=milestone_id,
+                issue_template=issue_template,
+            )
         )
     )
 
     result = _execute_graphql_op(op, github_credentials)
-    return result
+    return result["create_issue"]
 
 
 @task()
@@ -127,18 +129,19 @@ def add_star(
 
     Args:
         starrable_id: The Starrable ID to star.
-        github_credentials: github: Credentials to use for authentication with
-            GitHub.
+        github_credentials: Credentials to use for authentication with GitHub.
 
     Returns:
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
     _ = op.add_star(
-        input=dict(
-            starrable_id=starrable_id,
+        **strip_kwargs(
+            input=dict(
+                starrable_id=starrable_id,
+            )
         )
     )
 
     result = _execute_graphql_op(op, github_credentials)
-    return result
+    return result["add_star"]
