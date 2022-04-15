@@ -9,11 +9,12 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from prefect import task
+from sgqlc.operation import Operation
+
 from prefect_github import GitHubCredentials
 from prefect_github.graphql import _execute_graphql_op
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults
-from sgqlc.operation import Operation
 
 config_path = Path(__file__).parent.resolve() / "configs" / "query" / "repository.json"
 return_fields_defaults = initialize_return_fields_defaults(config_path)

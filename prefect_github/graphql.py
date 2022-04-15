@@ -2,8 +2,9 @@ from pprint import pformat
 from typing import Union
 
 from prefect import task
-from prefect_github import GitHubCredentials
 from sgqlc.operation import Operation
+
+from prefect_github import GitHubCredentials
 
 
 def _execute_graphql_op(

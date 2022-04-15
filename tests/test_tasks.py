@@ -1,9 +1,6 @@
 from prefect import flow
 
-from prefect_github.tasks import (
-    goodbye_prefect_github,
-    hello_prefect_github,
-)
+from prefect_github.tasks import goodbye_prefect_github, hello_prefect_github
 
 
 def test_hello_prefect_github():

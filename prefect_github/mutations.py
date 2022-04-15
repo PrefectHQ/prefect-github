@@ -7,10 +7,11 @@ manually editing this file is not recommended.
 from typing import Any, Dict
 
 from prefect import task
+from sgqlc.operation import Operation
+
 from prefect_github import GitHubCredentials
 from prefect_github.graphql import _execute_graphql_op
 from prefect_github.schemas import graphql_schema
-from sgqlc.operation import Operation
 
 
 @task()
@@ -63,6 +64,8 @@ def create_pull_request(
 
     result = _execute_graphql_op(op, github_credentials)
     return result
+
+
 @task()
 def create_issue(
     repository_id: str,
@@ -112,6 +115,8 @@ def create_issue(
 
     result = _execute_graphql_op(op, github_credentials)
     return result
+
+
 @task()
 def add_star(
     starrable_id: str,
