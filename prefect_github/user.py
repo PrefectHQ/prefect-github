@@ -9,11 +9,12 @@ from pathlib import Path
 from typing import Any, Dict, Iterable
 
 from prefect import task
+from sgqlc.operation import Operation
+
 from prefect_github import GitHubCredentials
 from prefect_github.graphql import _execute_graphql_op
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
-from sgqlc.operation import Operation
 
 config_path = Path(__file__).parent.resolve() / "configs" / "query" / "user.json"
 return_fields_defaults = initialize_return_fields_defaults(config_path)
@@ -31,11 +32,11 @@ async def query_user(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -43,7 +44,6 @@ async def query_user(
             login=login,
         )
     )
-
     if not return_fields:
         op_stack = ("user",)
         return_fields = return_fields_defaults[op_stack]
@@ -92,11 +92,11 @@ async def query_user_packages(
         repository_id: Find packages in a repository by ID.
         package_type: Filter registry package by type.
         order_by: Ordering of the returned packages.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).packages(
@@ -111,7 +111,6 @@ async def query_user_packages(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -144,11 +143,11 @@ async def query_user_project(
         login: The user's login.
         number: The project number to find.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).project(
@@ -156,7 +155,6 @@ async def query_user_project(
             number=number,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -205,11 +203,11 @@ async def query_user_projects(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).projects(
@@ -223,7 +221,6 @@ async def query_user_projects(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -256,11 +253,11 @@ async def query_user_project_next(
         login: The user's login.
         number: The project (beta) number.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).project_next(
@@ -268,11 +265,10 @@ async def query_user_project_next(
             number=number,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "project_next",
+            "projectNext",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -284,7 +280,7 @@ async def query_user_project_next(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["project_next"]
+    return result["user"]["projectNext"]
 
 
 @task()
@@ -313,11 +309,11 @@ async def query_user_projects_next(
         last: Returns the last _n_ elements from the list.
         query: A project (beta) to search for under the the owner.
         sort_by: How to order the returned projects (beta).
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).projects_next(
@@ -330,11 +326,10 @@ async def query_user_projects_next(
             sort_by=sort_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "projects_next",
+            "projectsNext",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -346,7 +341,7 @@ async def query_user_projects_next(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["projects_next"]
+    return result["user"]["projectsNext"]
 
 
 @task()
@@ -386,11 +381,11 @@ async def query_user_repository_discussions(
         answered: Filter discussions to only those that
             have been answered or not. Defaults to including both
             answered and unanswered discussions.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).repository_discussions(
@@ -404,11 +399,10 @@ async def query_user_repository_discussions(
             answered=answered,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "repository_discussions",
+            "repositoryDiscussions",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -420,7 +414,7 @@ async def query_user_repository_discussions(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repository_discussions"]
+    return result["user"]["repositoryDiscussions"]
 
 
 @task()
@@ -453,11 +447,11 @@ async def query_user_repository_discussion_comments(
             to only those in a specific repository.
         only_answers: Filter discussion comments
             to only those that were marked as the answer
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).repository_discussion_comments(
@@ -470,11 +464,10 @@ async def query_user_repository_discussion_comments(
             only_answers=only_answers,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "repository_discussion_comments",
+            "repositoryDiscussionComments",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -486,7 +479,7 @@ async def query_user_repository_discussion_comments(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repository_discussion_comments"]
+    return result["user"]["repositoryDiscussionComments"]
 
 
 @task()
@@ -536,11 +529,11 @@ async def query_user_repositories(
         last: Returns the last _n_ elements from the list.
         is_fork: If non-null, filters repositories according to
             whether they are forks of another repository
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).repositories(
@@ -557,7 +550,6 @@ async def query_user_repositories(
             is_fork=is_fork,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -593,11 +585,11 @@ async def query_user_repository(
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).repository(
@@ -606,7 +598,6 @@ async def query_user_repository(
             follow_renames=follow_renames,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -638,11 +629,11 @@ async def query_user_item_showcase(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -650,11 +641,10 @@ async def query_user_item_showcase(
             login=login,
         )
     ).item_showcase(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
-            "item_showcase",
+            "itemShowcase",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -666,7 +656,7 @@ async def query_user_item_showcase(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["item_showcase"]
+    return result["user"]["itemShowcase"]
 
 
 @task()
@@ -694,11 +684,11 @@ async def query_user_pinnable_items(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).pinnable_items(
@@ -710,11 +700,10 @@ async def query_user_pinnable_items(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "pinnable_items",
+            "pinnableItems",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -726,7 +715,7 @@ async def query_user_pinnable_items(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pinnable_items"]
+    return result["user"]["pinnableItems"]
 
 
 @task()
@@ -753,11 +742,11 @@ async def query_user_pinned_items(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).pinned_items(
@@ -769,11 +758,10 @@ async def query_user_pinned_items(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "pinned_items",
+            "pinnedItems",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -785,7 +773,7 @@ async def query_user_pinned_items(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pinned_items"]
+    return result["user"]["pinnedItems"]
 
 
 @task()
@@ -813,11 +801,11 @@ async def query_user_sponsoring(
         last: Returns the last _n_ elements from the list.
         order_by: Ordering options for the users and organizations
             returned from the connection.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsoring(
@@ -829,7 +817,6 @@ async def query_user_sponsoring(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -877,11 +864,11 @@ async def query_user_sponsors(
             to see.
         order_by: Ordering options for sponsors returned from the
             connection.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsors(
@@ -894,7 +881,6 @@ async def query_user_sponsors(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -944,11 +930,11 @@ async def query_user_sponsors_activities(
             that occurred in a given time range.
         order_by: Ordering options for activity returned
             from the connection.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsors_activities(
@@ -961,11 +947,10 @@ async def query_user_sponsors_activities(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsors_activities",
+            "sponsorsActivities",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -977,7 +962,7 @@ async def query_user_sponsors_activities(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsors_activities"]
+    return result["user"]["sponsorsActivities"]
 
 
 @task()
@@ -992,11 +977,11 @@ async def query_user_sponsors_listing(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -1004,11 +989,10 @@ async def query_user_sponsors_listing(
             login=login,
         )
     ).sponsors_listing(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsors_listing",
+            "sponsorsListing",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1020,7 +1004,7 @@ async def query_user_sponsors_listing(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsors_listing"]
+    return result["user"]["sponsorsListing"]
 
 
 @task()
@@ -1037,11 +1021,11 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -1049,11 +1033,10 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsorship_for_viewer_as_sponsor",
+            "sponsorshipForViewerAsSponsor",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1065,7 +1048,7 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorship_for_viewer_as_sponsor"]
+    return result["user"]["sponsorshipForViewerAsSponsor"]
 
 
 @task()
@@ -1081,11 +1064,11 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -1093,11 +1076,10 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsorship_for_viewer_as_sponsorable",
+            "sponsorshipForViewerAsSponsorable",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1109,7 +1091,7 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorship_for_viewer_as_sponsorable"]
+    return result["user"]["sponsorshipForViewerAsSponsorable"]
 
 
 @task()
@@ -1142,11 +1124,11 @@ async def query_user_sponsorship_newsletters(
             list.
         order_by: Ordering options for sponsorship
             updates returned from the connection.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsorship_newsletters(
@@ -1158,11 +1140,10 @@ async def query_user_sponsorship_newsletters(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsorship_newsletters",
+            "sponsorshipNewsletters",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1174,7 +1155,7 @@ async def query_user_sponsorship_newsletters(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorship_newsletters"]
+    return result["user"]["sponsorshipNewsletters"]
 
 
 @task()
@@ -1209,11 +1190,11 @@ async def query_user_sponsorships_as_maintainer(
             returned from this connection. If left blank, the
             sponsorships will be ordered based on relevancy to the
             viewer.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsorships_as_maintainer(
@@ -1226,11 +1207,10 @@ async def query_user_sponsorships_as_maintainer(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsorships_as_maintainer",
+            "sponsorshipsAsMaintainer",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1242,7 +1222,7 @@ async def query_user_sponsorships_as_maintainer(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorships_as_maintainer"]
+    return result["user"]["sponsorshipsAsMaintainer"]
 
 
 @task()
@@ -1274,11 +1254,11 @@ async def query_user_sponsorships_as_sponsor(
             returned from this connection. If left blank, the
             sponsorships will be ordered based on relevancy to the
             viewer.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).sponsorships_as_sponsor(
@@ -1290,11 +1270,10 @@ async def query_user_sponsorships_as_sponsor(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "sponsorships_as_sponsor",
+            "sponsorshipsAsSponsor",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1306,7 +1285,7 @@ async def query_user_sponsorships_as_sponsor(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorships_as_sponsor"]
+    return result["user"]["sponsorshipsAsSponsor"]
 
 
 @task()
@@ -1331,11 +1310,11 @@ async def query_user_commit_comments(
             before the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).commit_comments(
@@ -1346,11 +1325,10 @@ async def query_user_commit_comments(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "commit_comments",
+            "commitComments",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1362,7 +1340,7 @@ async def query_user_commit_comments(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["commit_comments"]
+    return result["user"]["commitComments"]
 
 
 @task()
@@ -1388,11 +1366,11 @@ async def query_user_contributions_collection(
             (including) this time will be counted. If omitted, defaults
             to the current time or one year from the provided from
             argument.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).contributions_collection(
@@ -1402,11 +1380,10 @@ async def query_user_contributions_collection(
             to=to,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "contributions_collection",
+            "contributionsCollection",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1418,7 +1395,7 @@ async def query_user_contributions_collection(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["contributions_collection"]
+    return result["user"]["contributionsCollection"]
 
 
 @task()
@@ -1443,11 +1420,11 @@ async def query_user_followers(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).followers(
@@ -1458,7 +1435,6 @@ async def query_user_followers(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1499,11 +1475,11 @@ async def query_user_following(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).following(
@@ -1514,7 +1490,6 @@ async def query_user_following(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1547,11 +1522,11 @@ async def query_user_gist(
         login: The user's login.
         name: The gist name to find.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).gist(
@@ -1559,7 +1534,6 @@ async def query_user_gist(
             name=name,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1600,11 +1574,11 @@ async def query_user_gist_comments(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).gist_comments(
@@ -1615,11 +1589,10 @@ async def query_user_gist_comments(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "gist_comments",
+            "gistComments",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1631,7 +1604,7 @@ async def query_user_gist_comments(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["gist_comments"]
+    return result["user"]["gistComments"]
 
 
 @task()
@@ -1660,11 +1633,11 @@ async def query_user_gists(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).gists(
@@ -1677,7 +1650,6 @@ async def query_user_gists(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1708,11 +1680,11 @@ async def query_user_interaction_ability(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -1720,11 +1692,10 @@ async def query_user_interaction_ability(
             login=login,
         )
     ).interaction_ability(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
-            "interaction_ability",
+            "interactionAbility",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1736,7 +1707,7 @@ async def query_user_interaction_ability(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["interaction_ability"]
+    return result["user"]["interactionAbility"]
 
 
 @task()
@@ -1764,11 +1735,11 @@ async def query_user_issue_comments(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).issue_comments(
@@ -1780,11 +1751,10 @@ async def query_user_issue_comments(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "issue_comments",
+            "issueComments",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -1796,7 +1766,7 @@ async def query_user_issue_comments(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["issue_comments"]
+    return result["user"]["issueComments"]
 
 
 @task()
@@ -1831,11 +1801,11 @@ async def query_user_issues(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).issues(
@@ -1850,7 +1820,6 @@ async def query_user_issues(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1883,11 +1852,11 @@ async def query_user_organization(
         login: The user's login.
         organization_login: The login of the organization to find.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).organization(
@@ -1895,7 +1864,6 @@ async def query_user_organization(
             login=organization_login,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1936,11 +1904,11 @@ async def query_user_organizations(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).organizations(
@@ -1951,7 +1919,6 @@ async def query_user_organizations(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
@@ -1992,11 +1959,11 @@ async def query_user_public_keys(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).public_keys(
@@ -2007,11 +1974,10 @@ async def query_user_public_keys(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "public_keys",
+            "publicKeys",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2023,7 +1989,7 @@ async def query_user_public_keys(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["public_keys"]
+    return result["user"]["publicKeys"]
 
 
 @task()
@@ -2062,11 +2028,11 @@ async def query_user_pull_requests(
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).pull_requests(
@@ -2082,11 +2048,10 @@ async def query_user_pull_requests(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "pull_requests",
+            "pullRequests",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2098,7 +2063,7 @@ async def query_user_pull_requests(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pull_requests"]
+    return result["user"]["pullRequests"]
 
 
 @task()
@@ -2141,11 +2106,11 @@ async def query_user_repositories_contributed_to(
             the list.
         last: Returns the last _n_ elements from the
             list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).repositories_contributed_to(
@@ -2161,11 +2126,10 @@ async def query_user_repositories_contributed_to(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "repositories_contributed_to",
+            "repositoriesContributedTo",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2177,7 +2141,7 @@ async def query_user_repositories_contributed_to(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repositories_contributed_to"]
+    return result["user"]["repositoriesContributedTo"]
 
 
 @task()
@@ -2207,11 +2171,11 @@ async def query_user_saved_replies(
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         order_by: The field to order saved replies by.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).saved_replies(
@@ -2223,11 +2187,10 @@ async def query_user_saved_replies(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "saved_replies",
+            "savedReplies",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2239,7 +2202,7 @@ async def query_user_saved_replies(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["saved_replies"]
+    return result["user"]["savedReplies"]
 
 
 @task()
@@ -2270,11 +2233,11 @@ async def query_user_starred_repositories(
         owned_by_viewer: Filters starred repositories to
             only return repositories owned by the viewer.
         order_by: Order for connection
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).starred_repositories(
@@ -2287,11 +2250,10 @@ async def query_user_starred_repositories(
             order_by=order_by,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "starred_repositories",
+            "starredRepositories",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2303,7 +2265,7 @@ async def query_user_starred_repositories(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["starred_repositories"]
+    return result["user"]["starredRepositories"]
 
 
 @task()
@@ -2318,11 +2280,11 @@ async def query_user_status(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(
@@ -2330,7 +2292,6 @@ async def query_user_status(
             login=login,
         )
     ).status(**strip_kwargs())
-
     if not return_fields:
         op_stack = (
             "user",
@@ -2378,11 +2339,11 @@ async def query_user_top_repositories(
         last: Returns the last _n_ elements from the list.
         since: How far back in time to fetch contributed
             repositories
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).top_repositories(
@@ -2395,11 +2356,10 @@ async def query_user_top_repositories(
             since=since,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
-            "top_repositories",
+            "topRepositories",
         )
         return_fields = return_fields_defaults[op_stack]
     elif isinstance(return_fields, str):
@@ -2411,7 +2371,7 @@ async def query_user_top_repositories(
         op_settings.nodes().__fields__(*return_fields)
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["top_repositories"]
+    return result["user"]["topRepositories"]
 
 
 @task()
@@ -2457,11 +2417,11 @@ async def query_user_watching(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields; defaults to fields listed in
-            configs/query/*.json.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returned fields.
+        A dict of the returneds fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.user(**strip_kwargs(login=login,)).watching(
@@ -2477,7 +2437,6 @@ async def query_user_watching(
             last=last,
         )
     )
-
     if not return_fields:
         op_stack = (
             "user",
