@@ -10,9 +10,8 @@ from typing import Union
 
 from anyio import to_thread
 from prefect import task
-from sgqlc.operation import Operation
-
 from prefect_github import GitHubCredentials
+from sgqlc.operation import Operation
 
 
 async def _execute_graphql_op(
