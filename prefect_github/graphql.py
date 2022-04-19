@@ -31,7 +31,7 @@ async def _execute_graphql_op(
 
 
 @task
-def execute_graphql(
+async def execute_graphql(
     op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
 ):
     """
@@ -104,5 +104,5 @@ def execute_graphql(
         example_execute_graphql_flow()
         ```
     """
-    result = _execute_graphql_op(op, github_credentials, **vars)
+    result = await _execute_graphql_op(op, github_credentials, **vars)
     return result
