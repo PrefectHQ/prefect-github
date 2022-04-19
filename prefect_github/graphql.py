@@ -4,23 +4,26 @@ It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
 
+from functools import partial
 from pprint import pformat
 from typing import Union
 
+from anyio import to_thread
 from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
 
 
-def _execute_graphql_op(
+async def _execute_graphql_op(
     op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
 ):
     """
     Helper function for executing GraphQL operations.
     """
     endpoint = github_credentials.get_endpoint()
-    result = endpoint(op, vars)
+    partial_endpoint = partial(endpoint, op, vars)
+    result = await to_thread.run_sync(partial_endpoint)
     if "errors" in result:
         errors = pformat(result["errors"])
         raise RuntimeError(f"Errors encountered:\n{errors}")

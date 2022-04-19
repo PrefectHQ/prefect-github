@@ -16,7 +16,7 @@ from prefect_github.utils import strip_kwargs
 
 
 @task()
-def create_pull_request(
+async def create_pull_request(
     repository_id: str,
     base_ref_name: str,
     head_ref_name: str,
@@ -64,12 +64,12 @@ def create_pull_request(
         )
     )
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["create_pull_request"]
 
 
 @task()
-def create_issue(
+async def create_issue(
     repository_id: str,
     title: str,
     assignee_ids: Iterable[str],
@@ -115,12 +115,12 @@ def create_issue(
         )
     )
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["create_issue"]
 
 
 @task()
-def add_star(
+async def add_star(
     starrable_id: str,
     github_credentials: GitHubCredentials,
 ) -> Dict[str, Any]:
@@ -143,5 +143,5 @@ def add_star(
         )
     )
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["add_star"]

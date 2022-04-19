@@ -21,7 +21,7 @@ return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
 @task()
-def query_repository(
+async def query_repository(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -63,12 +63,12 @@ def query_repository(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]
 
 
 @task()
-def query_repository_project(
+async def query_repository_project(
     owner: str,
     name: str,
     number: int,
@@ -119,12 +119,12 @@ def query_repository_project(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["project"]
 
 
 @task()
-def query_repository_projects(
+async def query_repository_projects(
     owner: str,
     name: str,
     states: Iterable[graphql_schema.ProjectState],
@@ -197,12 +197,12 @@ def query_repository_projects(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["projects"]
 
 
 @task()
-def query_repository_packages(
+async def query_repository_packages(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -279,12 +279,12 @@ def query_repository_packages(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["packages"]
 
 
 @task()
-def query_repository_stargazers(
+async def query_repository_stargazers(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -349,12 +349,12 @@ def query_repository_stargazers(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["stargazers"]
 
 
 @task()
-def query_repository_license_info(
+async def query_repository_license_info(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -399,12 +399,12 @@ def query_repository_license_info(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["license_info"]
 
 
 @task()
-def query_repository_owner(
+async def query_repository_owner(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -449,12 +449,12 @@ def query_repository_owner(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["owner"]
 
 
 @task()
-def query_repository_assignable_users(
+async def query_repository_assignable_users(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -519,12 +519,12 @@ def query_repository_assignable_users(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["assignable_users"]
 
 
 @task()
-def query_repository_branch_protection_rules(
+async def query_repository_branch_protection_rules(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -588,12 +588,12 @@ def query_repository_branch_protection_rules(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["branch_protection_rules"]
 
 
 @task()
-def query_repository_code_of_conduct(
+async def query_repository_code_of_conduct(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -638,12 +638,12 @@ def query_repository_code_of_conduct(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["code_of_conduct"]
 
 
 @task()
-def query_repository_collaborators(
+async def query_repository_collaborators(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -712,12 +712,12 @@ def query_repository_collaborators(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["collaborators"]
 
 
 @task()
-def query_repository_commit_comments(
+async def query_repository_commit_comments(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -779,12 +779,12 @@ def query_repository_commit_comments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["commit_comments"]
 
 
 @task()
-def query_repository_contact_links(
+async def query_repository_contact_links(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -829,12 +829,12 @@ def query_repository_contact_links(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["contact_links"]
 
 
 @task()
-def query_repository_default_branch_ref(
+async def query_repository_default_branch_ref(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -879,12 +879,12 @@ def query_repository_default_branch_ref(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["default_branch_ref"]
 
 
 @task()
-def query_repository_deploy_keys(
+async def query_repository_deploy_keys(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -946,12 +946,12 @@ def query_repository_deploy_keys(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["deploy_keys"]
 
 
 @task()
-def query_repository_deployments(
+async def query_repository_deployments(
     owner: str,
     name: str,
     environments: Iterable[str],
@@ -1023,12 +1023,12 @@ def query_repository_deployments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["deployments"]
 
 
 @task()
-def query_repository_discussion(
+async def query_repository_discussion(
     owner: str,
     name: str,
     number: int,
@@ -1079,12 +1079,12 @@ def query_repository_discussion(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["discussion"]
 
 
 @task()
-def query_repository_discussion_categories(
+async def query_repository_discussion_categories(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1151,12 +1151,12 @@ def query_repository_discussion_categories(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["discussion_categories"]
 
 
 @task()
-def query_repository_discussions(
+async def query_repository_discussions(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1229,12 +1229,12 @@ def query_repository_discussions(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["discussions"]
 
 
 @task()
-def query_repository_environment(
+async def query_repository_environment(
     owner: str,
     name: str,
     environment_name: str,
@@ -1285,12 +1285,12 @@ def query_repository_environment(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["environment"]
 
 
 @task()
-def query_repository_environments(
+async def query_repository_environments(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1352,12 +1352,12 @@ def query_repository_environments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["environments"]
 
 
 @task()
-def query_repository_forks(
+async def query_repository_forks(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1445,12 +1445,12 @@ def query_repository_forks(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["forks"]
 
 
 @task()
-def query_repository_funding_links(
+async def query_repository_funding_links(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1495,12 +1495,12 @@ def query_repository_funding_links(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["funding_links"]
 
 
 @task()
-def query_repository_interaction_ability(
+async def query_repository_interaction_ability(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1545,12 +1545,12 @@ def query_repository_interaction_ability(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["interaction_ability"]
 
 
 @task()
-def query_repository_issue(
+async def query_repository_issue(
     owner: str,
     name: str,
     number: int,
@@ -1601,12 +1601,12 @@ def query_repository_issue(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["issue"]
 
 
 @task()
-def query_repository_issue_or_pull_request(
+async def query_repository_issue_or_pull_request(
     owner: str,
     name: str,
     number: int,
@@ -1657,12 +1657,12 @@ def query_repository_issue_or_pull_request(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["issue_or_pull_request"]
 
 
 @task()
-def query_repository_issue_templates(
+async def query_repository_issue_templates(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1707,12 +1707,12 @@ def query_repository_issue_templates(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["issue_templates"]
 
 
 @task()
-def query_repository_issues(
+async def query_repository_issues(
     owner: str,
     name: str,
     labels: Iterable[str],
@@ -1788,12 +1788,12 @@ def query_repository_issues(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["issues"]
 
 
 @task()
-def query_repository_label(
+async def query_repository_label(
     owner: str,
     name: str,
     label_name: str,
@@ -1844,12 +1844,12 @@ def query_repository_label(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["label"]
 
 
 @task()
-def query_repository_labels(
+async def query_repository_labels(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1918,12 +1918,12 @@ def query_repository_labels(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["labels"]
 
 
 @task()
-def query_repository_languages(
+async def query_repository_languages(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1988,12 +1988,12 @@ def query_repository_languages(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["languages"]
 
 
 @task()
-def query_repository_latest_release(
+async def query_repository_latest_release(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2038,12 +2038,12 @@ def query_repository_latest_release(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["latest_release"]
 
 
 @task()
-def query_repository_mentionable_users(
+async def query_repository_mentionable_users(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2108,12 +2108,12 @@ def query_repository_mentionable_users(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["mentionable_users"]
 
 
 @task()
-def query_repository_milestone(
+async def query_repository_milestone(
     owner: str,
     name: str,
     number: int,
@@ -2164,12 +2164,12 @@ def query_repository_milestone(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["milestone"]
 
 
 @task()
-def query_repository_milestones(
+async def query_repository_milestones(
     owner: str,
     name: str,
     states: Iterable[graphql_schema.MilestoneState],
@@ -2240,12 +2240,12 @@ def query_repository_milestones(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["milestones"]
 
 
 @task()
-def query_repository_object(
+async def query_repository_object(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2299,12 +2299,12 @@ def query_repository_object(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["object"]
 
 
 @task()
-def query_repository_pinned_discussions(
+async def query_repository_pinned_discussions(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2366,12 +2366,12 @@ def query_repository_pinned_discussions(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pinned_discussions"]
 
 
 @task()
-def query_repository_pinned_issues(
+async def query_repository_pinned_issues(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2433,12 +2433,12 @@ def query_repository_pinned_issues(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pinned_issues"]
 
 
 @task()
-def query_repository_primary_language(
+async def query_repository_primary_language(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2483,12 +2483,12 @@ def query_repository_primary_language(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["primary_language"]
 
 
 @task()
-def query_repository_project_next(
+async def query_repository_project_next(
     owner: str,
     name: str,
     number: int,
@@ -2540,12 +2540,12 @@ def query_repository_project_next(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["project_next"]
 
 
 @task()
-def query_repository_projects_next(
+async def query_repository_projects_next(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2613,12 +2613,12 @@ def query_repository_projects_next(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["projects_next"]
 
 
 @task()
-def query_repository_pull_request(
+async def query_repository_pull_request(
     owner: str,
     name: str,
     number: int,
@@ -2669,12 +2669,12 @@ def query_repository_pull_request(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pull_request"]
 
 
 @task()
-def query_repository_pull_request_templates(
+async def query_repository_pull_request_templates(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2719,12 +2719,12 @@ def query_repository_pull_request_templates(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pull_request_templates"]
 
 
 @task()
-def query_repository_pull_requests(
+async def query_repository_pull_requests(
     owner: str,
     name: str,
     states: Iterable[graphql_schema.PullRequestState],
@@ -2805,12 +2805,12 @@ def query_repository_pull_requests(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pull_requests"]
 
 
 @task()
-def query_repository_ref(
+async def query_repository_ref(
     owner: str,
     name: str,
     qualified_name: str,
@@ -2863,12 +2863,12 @@ def query_repository_ref(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["ref"]
 
 
 @task()
-def query_repository_refs(
+async def query_repository_refs(
     owner: str,
     name: str,
     ref_prefix: str,
@@ -2943,12 +2943,12 @@ def query_repository_refs(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["refs"]
 
 
 @task()
-def query_repository_release(
+async def query_repository_release(
     owner: str,
     name: str,
     tag_name: str,
@@ -2999,12 +2999,12 @@ def query_repository_release(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["release"]
 
 
 @task()
-def query_repository_releases(
+async def query_repository_releases(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3069,12 +3069,12 @@ def query_repository_releases(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["releases"]
 
 
 @task()
-def query_repository_repository_topics(
+async def query_repository_repository_topics(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3136,12 +3136,12 @@ def query_repository_repository_topics(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["repository_topics"]
 
 
 @task()
-def query_repository_submodules(
+async def query_repository_submodules(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3204,12 +3204,12 @@ def query_repository_submodules(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["submodules"]
 
 
 @task()
-def query_repository_vulnerability_alerts(
+async def query_repository_vulnerability_alerts(
     owner: str,
     name: str,
     states: Iterable[graphql_schema.RepositoryVulnerabilityAlertState],
@@ -3275,12 +3275,12 @@ def query_repository_vulnerability_alerts(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["vulnerability_alerts"]
 
 
 @task()
-def query_repository_watchers(
+async def query_repository_watchers(
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3342,5 +3342,5 @@ def query_repository_watchers(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["watchers"]

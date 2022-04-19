@@ -21,7 +21,7 @@ return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
 @task()
-def query_user(
+async def query_user(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -56,12 +56,12 @@ def query_user(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]
 
 
 @task()
-def query_user_packages(
+async def query_user_packages(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -127,12 +127,12 @@ def query_user_packages(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["packages"]
 
 
 @task()
-def query_user_project(
+async def query_user_project(
     login: str,
     number: int,
     github_credentials: GitHubCredentials,
@@ -172,12 +172,12 @@ def query_user_project(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["project"]
 
 
 @task()
-def query_user_projects(
+async def query_user_projects(
     login: str,
     states: Iterable[graphql_schema.ProjectState],
     github_credentials: GitHubCredentials,
@@ -239,12 +239,12 @@ def query_user_projects(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["projects"]
 
 
 @task()
-def query_user_project_next(
+async def query_user_project_next(
     login: str,
     number: int,
     github_credentials: GitHubCredentials,
@@ -284,12 +284,12 @@ def query_user_project_next(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["project_next"]
 
 
 @task()
-def query_user_projects_next(
+async def query_user_projects_next(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -346,12 +346,12 @@ def query_user_projects_next(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["projects_next"]
 
 
 @task()
-def query_user_repository_discussions(
+async def query_user_repository_discussions(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -420,12 +420,12 @@ def query_user_repository_discussions(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repository_discussions"]
 
 
 @task()
-def query_user_repository_discussion_comments(
+async def query_user_repository_discussion_comments(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -486,12 +486,12 @@ def query_user_repository_discussion_comments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repository_discussion_comments"]
 
 
 @task()
-def query_user_repositories(
+async def query_user_repositories(
     login: str,
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
@@ -573,12 +573,12 @@ def query_user_repositories(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositories"]
 
 
 @task()
-def query_user_repository(
+async def query_user_repository(
     login: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -622,12 +622,12 @@ def query_user_repository(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repository"]
 
 
 @task()
-def query_user_item_showcase(
+async def query_user_item_showcase(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -666,12 +666,12 @@ def query_user_item_showcase(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["item_showcase"]
 
 
 @task()
-def query_user_pinnable_items(
+async def query_user_pinnable_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
@@ -726,12 +726,12 @@ def query_user_pinnable_items(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pinnable_items"]
 
 
 @task()
-def query_user_pinned_items(
+async def query_user_pinned_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
@@ -785,12 +785,12 @@ def query_user_pinned_items(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pinned_items"]
 
 
 @task()
-def query_user_sponsoring(
+async def query_user_sponsoring(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -845,12 +845,12 @@ def query_user_sponsoring(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsoring"]
 
 
 @task()
-def query_user_sponsors(
+async def query_user_sponsors(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -910,12 +910,12 @@ def query_user_sponsors(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsors"]
 
 
 @task()
-def query_user_sponsors_activities(
+async def query_user_sponsors_activities(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -977,12 +977,12 @@ def query_user_sponsors_activities(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsors_activities"]
 
 
 @task()
-def query_user_sponsors_listing(
+async def query_user_sponsors_listing(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1020,12 +1020,12 @@ def query_user_sponsors_listing(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsors_listing"]
 
 
 @task()
-def query_user_sponsorship_for_viewer_as_sponsor(
+async def query_user_sponsorship_for_viewer_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1065,12 +1065,12 @@ def query_user_sponsorship_for_viewer_as_sponsor(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorship_for_viewer_as_sponsor"]
 
 
 @task()
-def query_user_sponsorship_for_viewer_as_sponsorable(
+async def query_user_sponsorship_for_viewer_as_sponsorable(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1109,12 +1109,12 @@ def query_user_sponsorship_for_viewer_as_sponsorable(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorship_for_viewer_as_sponsorable"]
 
 
 @task()
-def query_user_sponsorship_newsletters(
+async def query_user_sponsorship_newsletters(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1174,12 +1174,12 @@ def query_user_sponsorship_newsletters(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorship_newsletters"]
 
 
 @task()
-def query_user_sponsorships_as_maintainer(
+async def query_user_sponsorships_as_maintainer(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1242,12 +1242,12 @@ def query_user_sponsorships_as_maintainer(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorships_as_maintainer"]
 
 
 @task()
-def query_user_sponsorships_as_sponsor(
+async def query_user_sponsorships_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1306,12 +1306,12 @@ def query_user_sponsorships_as_sponsor(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorships_as_sponsor"]
 
 
 @task()
-def query_user_commit_comments(
+async def query_user_commit_comments(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1362,12 +1362,12 @@ def query_user_commit_comments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["commit_comments"]
 
 
 @task()
-def query_user_contributions_collection(
+async def query_user_contributions_collection(
     login: str,
     github_credentials: GitHubCredentials,
     organization_id: str = None,
@@ -1418,12 +1418,12 @@ def query_user_contributions_collection(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["contributions_collection"]
 
 
 @task()
-def query_user_followers(
+async def query_user_followers(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1474,12 +1474,12 @@ def query_user_followers(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["followers"]
 
 
 @task()
-def query_user_following(
+async def query_user_following(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1530,12 +1530,12 @@ def query_user_following(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["following"]
 
 
 @task()
-def query_user_gist(
+async def query_user_gist(
     login: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1575,12 +1575,12 @@ def query_user_gist(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gist"]
 
 
 @task()
-def query_user_gist_comments(
+async def query_user_gist_comments(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1631,12 +1631,12 @@ def query_user_gist_comments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gist_comments"]
 
 
 @task()
-def query_user_gists(
+async def query_user_gists(
     login: str,
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.GistPrivacy = None,
@@ -1693,12 +1693,12 @@ def query_user_gists(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gists"]
 
 
 @task()
-def query_user_interaction_ability(
+async def query_user_interaction_ability(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1736,12 +1736,12 @@ def query_user_interaction_ability(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["interaction_ability"]
 
 
 @task()
-def query_user_issue_comments(
+async def query_user_issue_comments(
     login: str,
     github_credentials: GitHubCredentials,
     order_by: graphql_schema.IssueCommentOrder = None,
@@ -1796,12 +1796,12 @@ def query_user_issue_comments(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["issue_comments"]
 
 
 @task()
-def query_user_issues(
+async def query_user_issues(
     login: str,
     labels: Iterable[str],
     states: Iterable[graphql_schema.IssueState],
@@ -1866,12 +1866,12 @@ def query_user_issues(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["issues"]
 
 
 @task()
-def query_user_organization(
+async def query_user_organization(
     login: str,
     organization_login: str,
     github_credentials: GitHubCredentials,
@@ -1911,12 +1911,12 @@ def query_user_organization(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["organization"]
 
 
 @task()
-def query_user_organizations(
+async def query_user_organizations(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1967,12 +1967,12 @@ def query_user_organizations(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["organizations"]
 
 
 @task()
-def query_user_public_keys(
+async def query_user_public_keys(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -2023,12 +2023,12 @@ def query_user_public_keys(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["public_keys"]
 
 
 @task()
-def query_user_pull_requests(
+async def query_user_pull_requests(
     login: str,
     states: Iterable[graphql_schema.PullRequestState],
     labels: Iterable[str],
@@ -2098,12 +2098,12 @@ def query_user_pull_requests(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pull_requests"]
 
 
 @task()
-def query_user_repositories_contributed_to(
+async def query_user_repositories_contributed_to(
     login: str,
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
@@ -2177,12 +2177,12 @@ def query_user_repositories_contributed_to(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositories_contributed_to"]
 
 
 @task()
-def query_user_saved_replies(
+async def query_user_saved_replies(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -2239,12 +2239,12 @@ def query_user_saved_replies(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["saved_replies"]
 
 
 @task()
-def query_user_starred_repositories(
+async def query_user_starred_repositories(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -2303,12 +2303,12 @@ def query_user_starred_repositories(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["starred_repositories"]
 
 
 @task()
-def query_user_status(
+async def query_user_status(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -2346,12 +2346,12 @@ def query_user_status(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["status"]
 
 
 @task()
-def query_user_top_repositories(
+async def query_user_top_repositories(
     login: str,
     order_by: graphql_schema.RepositoryOrder,
     github_credentials: GitHubCredentials,
@@ -2411,12 +2411,12 @@ def query_user_top_repositories(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["top_repositories"]
 
 
 @task()
-def query_user_watching(
+async def query_user_watching(
     login: str,
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
@@ -2493,5 +2493,5 @@ def query_user_watching(
     except KeyError:  # nested under node
         op_settings.nodes().__fields__(*return_fields)
 
-    result = _execute_graphql_op(op, github_credentials)
+    result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["watching"]

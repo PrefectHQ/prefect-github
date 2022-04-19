@@ -1314,6 +1314,24 @@ class AddProjectColumnInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class AddProjectDraftIssueInput(sgqlc.types.Input):
+    __schema__ = graphql_schema
+    __field_names__ = (
+        "project_id",
+        "title",
+        "body",
+        "assignee_ids",
+        "client_mutation_id",
+    )
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="title")
+    body = sgqlc.types.Field(String, graphql_name="body")
+    assignee_ids = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null(ID)), graphql_name="assigneeIds"
+    )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class AddProjectNextItemInput(sgqlc.types.Input):
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "content_id", "client_mutation_id")
@@ -4137,6 +4155,26 @@ class UpdateProjectColumnInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class UpdateProjectDraftIssueInput(sgqlc.types.Input):
+    __schema__ = graphql_schema
+    __field_names__ = (
+        "draft_issue_id",
+        "title",
+        "body",
+        "assignee_ids",
+        "client_mutation_id",
+    )
+    draft_issue_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="draftIssueId"
+    )
+    title = sgqlc.types.Field(String, graphql_name="title")
+    body = sgqlc.types.Field(String, graphql_name="body")
+    assignee_ids = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null(ID)), graphql_name="assigneeIds"
+    )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class UpdateProjectInput(sgqlc.types.Input):
     __schema__ = graphql_schema
     __field_names__ = (
@@ -4502,6 +4540,15 @@ class AddProjectColumnPayload(sgqlc.types.Type):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     column_edge = sgqlc.types.Field("ProjectColumnEdge", graphql_name="columnEdge")
     project = sgqlc.types.Field("Project", graphql_name="project")
+
+
+class AddProjectDraftIssuePayload(sgqlc.types.Type):
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "project_next_item")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    project_next_item = sgqlc.types.Field(
+        "ProjectNextItem", graphql_name="projectNextItem"
+    )
 
 
 class AddProjectNextItemPayload(sgqlc.types.Type):
@@ -8537,6 +8584,7 @@ class Mutation(sgqlc.types.Type):
         "add_labels_to_labelable",
         "add_project_card",
         "add_project_column",
+        "add_project_draft_issue",
         "add_project_next_item",
         "add_pull_request_review",
         "add_pull_request_review_comment",
@@ -8684,6 +8732,7 @@ class Mutation(sgqlc.types.Type):
         "update_project",
         "update_project_card",
         "update_project_column",
+        "update_project_draft_issue",
         "update_project_next",
         "update_project_next_item_field",
         "update_pull_request",
@@ -8854,6 +8903,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(AddProjectColumnInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    add_project_draft_issue = sgqlc.types.Field(
+        AddProjectDraftIssuePayload,
+        graphql_name="addProjectDraftIssue",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(AddProjectDraftIssueInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -11246,6 +11311,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(UpdateProjectColumnInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    update_project_draft_issue = sgqlc.types.Field(
+        "UpdateProjectDraftIssuePayload",
+        graphql_name="updateProjectDraftIssue",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(UpdateProjectDraftIssueInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -15684,6 +15765,13 @@ class UpdateProjectColumnPayload(sgqlc.types.Type):
     __field_names__ = ("client_mutation_id", "project_column")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     project_column = sgqlc.types.Field("ProjectColumn", graphql_name="projectColumn")
+
+
+class UpdateProjectDraftIssuePayload(sgqlc.types.Type):
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "draft_issue")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    draft_issue = sgqlc.types.Field("DraftIssue", graphql_name="draftIssue")
 
 
 class UpdateProjectNextItemFieldPayload(sgqlc.types.Type):
