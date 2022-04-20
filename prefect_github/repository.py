@@ -32,8 +32,8 @@ async def query_repository(
     The query root of GitHub's GraphQL interface.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a repository
             referenced by its old name will return an error.
@@ -79,8 +79,8 @@ async def query_repository_project(
     Find project by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The project number to find.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -140,14 +140,14 @@ async def query_repository_projects(
     A list of projects under the owner.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         states: A list of states to filter the projects by.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
         order_by: Ordering options for projects returned from the
-            connection
+            connection.
         search: Query to search projects by, currently only searching
             by name.
         after: Returns the elements in the list that come after the
@@ -221,8 +221,8 @@ async def query_repository_packages(
     A list of packages under the owner.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -296,8 +296,8 @@ async def query_repository_stargazers(
     A list of users who have starred this starrable.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -307,7 +307,7 @@ async def query_repository_stargazers(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        order_by: Order for connection
+        order_by: Order for connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -360,8 +360,8 @@ async def query_repository_license_info(
     The license associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -409,8 +409,8 @@ async def query_repository_owner(
     The User owner of the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -463,12 +463,12 @@ async def query_repository_assignable_users(
     A list of users that can be assigned to issues in this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        query: Filters users with query on user name and login
+        query: Filters users with query on user name and login.
         after: Returns the elements in the list that come after
             the specified cursor.
         before: Returns the elements in the list that come
@@ -531,8 +531,8 @@ async def query_repository_branch_protection_rules(
     A list of branch protection rules for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -595,8 +595,8 @@ async def query_repository_code_of_conduct(
     Returns the code of conduct for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -650,14 +650,14 @@ async def query_repository_collaborators(
     A list of collaborators associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
         affiliation: Collaborators affiliation level with a
             repository.
-        query: Filters users with query on user name and login
+        query: Filters users with query on user name and login.
         after: Returns the elements in the list that come after
             the specified cursor.
         before: Returns the elements in the list that come before
@@ -721,8 +721,8 @@ async def query_repository_commit_comments(
     A list of commit comments associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -783,8 +783,8 @@ async def query_repository_contact_links(
     Returns a list of contact links associated to the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -832,8 +832,8 @@ async def query_repository_default_branch_ref(
     The Ref associated with the repository's default branch.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -885,8 +885,8 @@ async def query_repository_deploy_keys(
     A list of deploy keys that are on this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -956,9 +956,9 @@ async def query_repository_deployments(
     Deployments associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
-        environments: Environments to list deployments for
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        environments: Environments to list deployments for.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1024,8 +1024,8 @@ async def query_repository_discussion(
     Returns a single discussion from the current repository by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The number for the discussion to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -1083,8 +1083,8 @@ async def query_repository_discussion_categories(
     A list of discussion categories that are available in the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1158,8 +1158,8 @@ async def query_repository_discussions(
     A list of discussions that have been opened in the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1227,8 +1227,8 @@ async def query_repository_environment(
     Returns a single active environment from the current repository by name.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         environment_name: The name of the environment to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -1285,8 +1285,8 @@ async def query_repository_environments(
     A list of environments that are in this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1359,14 +1359,14 @@ async def query_repository_forks(
     A list of direct forked repositories.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        privacy: If non-null, filters repositories according to privacy
+        privacy: If non-null, filters repositories according to privacy.
         order_by: Ordering options for repositories returned from the
-            connection
+            connection.
         affiliations: Array of viewer's affiliation options for
             repositories returned from the connection. For example,
             OWNER will include only repositories that the current viewer
@@ -1376,7 +1376,7 @@ async def query_repository_forks(
             OWNER will include only repositories that the organization
             or user being viewed owns.
         is_locked: If non-null, filters repositories according to whether
-            they have been locked
+            they have been locked.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before the
@@ -1439,8 +1439,8 @@ async def query_repository_funding_links(
     The funding links for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1488,8 +1488,8 @@ async def query_repository_interaction_ability(
     The interaction ability settings for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1538,8 +1538,8 @@ async def query_repository_issue(
     Returns a single issue from the current repository by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The number for the issue to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -1593,8 +1593,8 @@ async def query_repository_issue_or_pull_request(
     Returns a single issue-like object from the current repository by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The number for the issue to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -1647,8 +1647,8 @@ async def query_repository_issue_templates(
     Returns a list of issue templates associated to the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1704,8 +1704,8 @@ async def query_repository_issues(
     A list of issues that have been opened in the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         labels: A list of label names to filter the pull requests by.
         states: A list of states to filter the issues by.
         github_credentials: Credentials to use for authentication with GitHub.
@@ -1777,9 +1777,9 @@ async def query_repository_label(
     Returns a single label by name.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
-        label_name: Label name
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        label_name: Label name.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1837,8 +1837,8 @@ async def query_repository_labels(
     A list of labels associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1909,8 +1909,8 @@ async def query_repository_languages(
     A list containing a breakdown of the language composition of the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -1920,7 +1920,7 @@ async def query_repository_languages(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        order_by: Order for connection
+        order_by: Order for connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -1973,8 +1973,8 @@ async def query_repository_latest_release(
     Get the latest release for the repository if one exists.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2027,12 +2027,12 @@ async def query_repository_mentionable_users(
     A list of Users that can be mentioned in the context of the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        query: Filters users with query on user name and login
+        query: Filters users with query on user name and login.
         after: Returns the elements in the list that come
             after the specified cursor.
         before: Returns the elements in the list that come
@@ -2092,8 +2092,8 @@ async def query_repository_milestone(
     Returns a single milestone from the current repository by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The number for the milestone to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -2153,8 +2153,8 @@ async def query_repository_milestones(
     A list of milestones associated with the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         states: Filter by the state of the milestones.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -2166,7 +2166,7 @@ async def query_repository_milestones(
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         order_by: Ordering options for milestones.
-        query: Filters milestones with a query on the title
+        query: Filters milestones with a query on the title.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -2223,13 +2223,13 @@ async def query_repository_object(
     A Git object in the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        oid: The Git object ID
-        expression: A Git revision expression suitable for rev-parse
+        oid: The Git object ID.
+        expression: A Git revision expression suitable for rev-parse.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -2283,8 +2283,8 @@ async def query_repository_pinned_discussions(
     A list of discussions that have been pinned in this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2349,8 +2349,8 @@ async def query_repository_pinned_issues(
     A list of pinned issues for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2411,8 +2411,8 @@ async def query_repository_primary_language(
     The primary language of the repository's code.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2462,8 +2462,8 @@ async def query_repository_project_next(
     number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The ProjectNext number.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -2522,8 +2522,8 @@ async def query_repository_projects_next(
     List of projects (beta) linked to this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2589,8 +2589,8 @@ async def query_repository_pull_request(
     Returns a single pull request from the current repository by number.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         number: The number for the pull request to be returned.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -2643,8 +2643,8 @@ async def query_repository_pull_request_templates(
     Returns a list of pull request templates associated to the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2701,8 +2701,8 @@ async def query_repository_pull_requests(
     A list of pull requests that have been opened in the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         states: A list of states to filter the pull requests by.
         labels: A list of label names to filter the pull requests
             by.
@@ -2778,8 +2778,8 @@ async def query_repository_ref(
     Fetch a given ref from the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         qualified_name: The ref to retrieve. Fully qualified matches are
             checked in order (`refs/heads/master`) before falling back
             onto checks for short name matches (`master`).
@@ -2842,14 +2842,14 @@ async def query_repository_refs(
     Fetch a list of refs from the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         ref_prefix: A ref name prefix like `refs/heads/`, `refs/tags/`,
             etc.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
-        query: Filters refs with query on name
+        query: Filters refs with query on name.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before the
@@ -2914,9 +2914,9 @@ async def query_repository_release(
     Lookup a single release given various criteria.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
-        tag_name: The name of the Tag the Release was created from
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        tag_name: The name of the Tag the Release was created from.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2973,8 +2973,8 @@ async def query_repository_releases(
     List of releases which are dependent on this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2984,7 +2984,7 @@ async def query_repository_releases(
             specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        order_by: Order for connection
+        order_by: Order for connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -3041,8 +3041,8 @@ async def query_repository_repository_topics(
     A list of applied repository-topic associations for this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -3108,8 +3108,8 @@ async def query_repository_submodules(
     file as of the default branch's HEAD commit.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -3175,9 +3175,9 @@ async def query_repository_vulnerability_alerts(
     A list of vulnerability alerts that are on this repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
-        states: Filter by the state of the alert
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        states: Filter by the state of the alert.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -3244,8 +3244,8 @@ async def query_repository_watchers(
     A list of users watching the repository.
 
     Args:
-        owner: The login field of a user or organization
-        name: The name of the repository
+        owner: The login field of a user or organization.
+        name: The name of the repository.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.

@@ -194,7 +194,7 @@ async def query_user_projects(
         states: A list of states to filter the projects by.
         github_credentials: Credentials to use for authentication with GitHub.
         order_by: Ordering options for projects returned from the
-            connection
+            connection.
         search: Query to search projects by, currently only searching
             by name.
         after: Returns the elements in the list that come after the
@@ -446,7 +446,7 @@ async def query_user_repository_discussion_comments(
         repository_id: Filter discussion comments
             to only those in a specific repository.
         only_answers: Filter discussion comments
-            to only those that were marked as the answer
+            to only those that were marked as the answer.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -508,9 +508,9 @@ async def query_user_repositories(
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: If non-null, filters repositories according to
-            privacy
+            privacy.
         order_by: Ordering options for repositories returned from
-            the connection
+            the connection.
         affiliations: Array of viewer's affiliation options for
             repositories returned from the connection. For example,
             OWNER will include only repositories that the current viewer
@@ -520,7 +520,7 @@ async def query_user_repositories(
             OWNER will include only repositories that the organization
             or user being viewed owns.
         is_locked: If non-null, filters repositories according to
-            whether they have been locked
+            whether they have been locked.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before
@@ -528,7 +528,7 @@ async def query_user_repositories(
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         is_fork: If non-null, filters repositories according to
-            whether they are forks of another repository
+            whether they are forks of another repository.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -1185,7 +1185,7 @@ async def query_user_sponsorships_as_maintainer(
         last: Returns the last _n_ elements from the
             list.
         include_private: Whether or not to include
-            private sponsorships in the result set
+            private sponsorships in the result set.
         order_by: Ordering options for sponsorships
             returned from this connection. If left blank, the
             sponsorships will be ordered based on relevancy to the
@@ -1626,7 +1626,7 @@ async def query_user_gists(
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: Filters Gists according to privacy.
-        order_by: Ordering options for gists returned from the connection
+        order_by: Ordering options for gists returned from the connection.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before the
@@ -2088,16 +2088,16 @@ async def query_user_repositories_contributed_to(
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: If non-null, filters repositories
-            according to privacy
+            according to privacy.
         order_by: Ordering options for repositories
-            returned from the connection
+            returned from the connection.
         is_locked: If non-null, filters repositories
-            according to whether they have been locked
+            according to whether they have been locked.
         include_user_repositories: If true, include
-            user repositories
+            user repositories.
         contribution_types: If non-null, include
             only the specified types of contributions. The GitHub.com UI
-            uses [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
+            uses [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY].
         after: Returns the elements in the list that
             come after the specified cursor.
         before: Returns the elements in the list
@@ -2232,7 +2232,7 @@ async def query_user_starred_repositories(
         last: Returns the last _n_ elements from the list.
         owned_by_viewer: Filters starred repositories to
             only return repositories owned by the viewer.
-        order_by: Order for connection
+        order_by: Order for connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -2329,7 +2329,7 @@ async def query_user_top_repositories(
     Args:
         login: The user's login.
         order_by: Ordering options for repositories returned
-            from the connection
+            from the connection.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -2338,7 +2338,7 @@ async def query_user_top_repositories(
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         since: How far back in time to fetch contributed
-            repositories
+            repositories.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -2398,9 +2398,9 @@ async def query_user_watching(
     Args:
         login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        privacy: If non-null, filters repositories according to privacy
+        privacy: If non-null, filters repositories according to privacy.
         order_by: Ordering options for repositories returned from the
-            connection
+            connection.
         affiliations: Affiliation options for repositories returned
             from the connection. If none specified, the results will
             include repositories for which the current viewer is an
@@ -2410,7 +2410,7 @@ async def query_user_watching(
             OWNER will include only repositories that the organization
             or user being viewed owns.
         is_locked: If non-null, filters repositories according to
-            whether they have been locked
+            whether they have been locked.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before the

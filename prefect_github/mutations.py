@@ -117,7 +117,7 @@ async def create_issue(
         body: The body for the issue description.
         milestone_id: The Node ID of the milestone for this issue.
         issue_template: The name of an issue template in the repository, assigns
-            labels and assignees from the template to the issue
+            labels and assignees from the template to the issue.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/mutation/*.json.
 
