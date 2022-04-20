@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from prefect_github.utils import (
@@ -13,7 +15,9 @@ def test_camel_to_snake_case(string):
 
 
 def test_initialize_return_fields_defaults():
-    return_fields_defaults = initialize_return_fields_defaults("test_config.json")
+    return_fields_defaults = initialize_return_fields_defaults(
+        Path(__file__).parent.resolve().absolute() / "test_config.json"
+    )
     assert return_fields_defaults == {
         ("categories",): ["total"],
         ("categories", "category"): ["title", "alias"],
