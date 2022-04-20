@@ -6,17 +6,18 @@ manually editing this file is not recommended.
 
 from functools import partial
 from pprint import pformat
-from typing import Union
+from typing import Any, Dict, Union
 
 from anyio import to_thread
 from prefect import task
-from prefect_github import GitHubCredentials
 from sgqlc.operation import Operation
+
+from prefect_github import GitHubCredentials
 
 
 async def _execute_graphql_op(
     op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
-):
+) -> Dict[str, Any]:
     """
     Helper function for executing GraphQL operations.
     """
@@ -32,7 +33,7 @@ async def _execute_graphql_op(
 @task
 async def execute_graphql(
     op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
-):
+) -> Dict[str, Any]:
     """
     Generic function for executing GraphQL operations.
 

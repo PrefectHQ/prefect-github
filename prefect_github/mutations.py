@@ -1,5 +1,5 @@
 """
-This is a module for interacting with GitHub Mutation tasks.
+This is a module for interacting with GitHub Mutation  tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -56,7 +56,7 @@ async def create_pull_request(
             fields listed in configs/mutation/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
     op_settings = op.create_pull_request(
@@ -72,6 +72,7 @@ async def create_pull_request(
             )
         )
     ).pull_request(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "createPullRequest",
@@ -88,6 +89,51 @@ async def create_pull_request(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["createPullRequest"]["pullRequest"]
+
+
+@task()
+async def close_pull_request(
+    pull_request_id: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Close a pull request.
+
+    Args:
+        pull_request_id: ID of the pull request to be closed.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.close_pull_request(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+            )
+        )
+    ).pull_request(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "closePullRequest",
+            "pullRequest",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["closePullRequest"]["pullRequest"]
 
 
 @task()
@@ -122,7 +168,7 @@ async def create_issue(
             fields listed in configs/mutation/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
     op_settings = op.create_issue(
@@ -139,6 +185,7 @@ async def create_issue(
             )
         )
     ).issue(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "createIssue",
@@ -158,6 +205,51 @@ async def create_issue(
 
 
 @task()
+async def close_issue(
+    issue_id: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Close an issue.
+
+    Args:
+        issue_id: ID of the issue to be closed.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.close_issue(
+        **strip_kwargs(
+            input=dict(
+                issue_id=issue_id,
+            )
+        )
+    ).issue(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "closeIssue",
+            "issue",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["closeIssue"]["issue"]
+
+
+@task()
 async def add_star_starrable(
     starrable_id: str,
     github_credentials: GitHubCredentials,
@@ -173,7 +265,7 @@ async def add_star_starrable(
             fields listed in configs/mutation/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
     op_settings = op.add_star(
@@ -183,6 +275,7 @@ async def add_star_starrable(
             )
         )
     ).starrable(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "addStar",
@@ -199,3 +292,399 @@ async def add_star_starrable(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addStar"]["starrable"]
+
+
+@task()
+async def remove_star_starrable(
+    starrable_id: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Removes a star from a Starrable.
+
+    Args:
+        starrable_id: The Starrable ID to unstar.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.remove_star(
+        **strip_kwargs(
+            input=dict(
+                starrable_id=starrable_id,
+            )
+        )
+    ).starrable(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "removeStar",
+            "starrable",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["removeStar"]["starrable"]
+
+
+@task()
+async def add_reaction(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a reaction to a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji to react with.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.add_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).reaction(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "addReaction",
+            "reaction",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addReaction"]["reaction"]
+
+
+@task()
+async def add_reaction_subject(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a reaction to a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji to react with.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.add_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).subject(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "addReaction",
+            "subject",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addReaction"]["subject"]
+
+
+@task()
+async def remove_reaction(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Removes a reaction from a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji reaction to remove.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.remove_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).reaction(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "removeReaction",
+            "reaction",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["removeReaction"]["reaction"]
+
+
+@task()
+async def remove_reaction_subject(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Removes a reaction from a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji reaction to remove.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.remove_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).subject(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "removeReaction",
+            "subject",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["removeReaction"]["subject"]
+
+
+@task()
+async def request_reviews(
+    pull_request_id: str,
+    user_ids: Iterable[str],
+    team_ids: Iterable[str],
+    github_credentials: GitHubCredentials,
+    union: bool = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Set review requests on a pull request.
+
+    Args:
+        pull_request_id: The Node ID of the pull request to modify.
+        user_ids: The Node IDs of the user to request.
+        team_ids: The Node IDs of the team to request.
+        github_credentials: Credentials to use for authentication with GitHub.
+        union: Add users to the set rather than replace.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.request_reviews(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+                user_ids=user_ids,
+                team_ids=team_ids,
+                union=union,
+            )
+        )
+    )
+
+    if not return_fields:
+        op_stack = ("requestReviews",)
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["requestReviews"]
+
+
+@task()
+async def request_reviews_pull_request(
+    pull_request_id: str,
+    user_ids: Iterable[str],
+    team_ids: Iterable[str],
+    github_credentials: GitHubCredentials,
+    union: bool = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Set review requests on a pull request.
+
+    Args:
+        pull_request_id: The Node ID of the pull request to modify.
+        user_ids: The Node IDs of the user to request.
+        team_ids: The Node IDs of the team to request.
+        github_credentials: Credentials to use for authentication with GitHub.
+        union: Add users to the set rather than replace.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.request_reviews(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+                user_ids=user_ids,
+                team_ids=team_ids,
+                union=union,
+            )
+        )
+    ).pull_request(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "requestReviews",
+            "pullRequest",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["requestReviews"]["pullRequest"]
+
+
+@task()
+async def request_reviews_requested_reviewers_edge(
+    pull_request_id: str,
+    user_ids: Iterable[str],
+    team_ids: Iterable[str],
+    github_credentials: GitHubCredentials,
+    union: bool = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Set review requests on a pull request.
+
+    Args:
+        pull_request_id: The Node ID of the pull request to modify.
+        user_ids: The Node IDs of the user to request.
+        team_ids: The Node IDs of the team to request.
+        github_credentials: Credentials to use for authentication with GitHub.
+        union: Add users to the set rather than replace.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_settings = op.request_reviews(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+                user_ids=user_ids,
+                team_ids=team_ids,
+                union=union,
+            )
+        )
+    ).requested_reviewers_edge(**strip_kwargs())
+
+    if not return_fields:
+        op_stack = (
+            "requestReviews",
+            "requestedReviewersEdge",
+        )
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    try:
+        op_settings.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_settings.nodes().__fields__(*return_fields)
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["requestReviews"]["requestedReviewersEdge"]

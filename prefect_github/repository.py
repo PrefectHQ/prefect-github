@@ -1,5 +1,5 @@
 """
-This is a module for interacting with GitHub Queryrepository tasks.
+This is a module for interacting with GitHub Query repository tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -41,7 +41,7 @@ async def query_repository(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -51,6 +51,7 @@ async def query_repository(
             follow_renames=follow_renames,
         )
     )
+
     if not return_fields:
         op_stack = ("repository",)
         return_fields = return_fields_defaults[op_stack]
@@ -89,7 +90,7 @@ async def query_repository_project(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -103,6 +104,7 @@ async def query_repository_project(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -160,7 +162,7 @@ async def query_repository_projects(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -180,6 +182,7 @@ async def query_repository_projects(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -240,7 +243,7 @@ async def query_repository_packages(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -261,6 +264,7 @@ async def query_repository_packages(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -312,7 +316,7 @@ async def query_repository_stargazers(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -330,6 +334,7 @@ async def query_repository_stargazers(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -369,7 +374,7 @@ async def query_repository_license_info(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -379,6 +384,7 @@ async def query_repository_license_info(
             follow_renames=follow_renames,
         )
     ).license_info(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -418,7 +424,7 @@ async def query_repository_owner(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -428,6 +434,7 @@ async def query_repository_owner(
             follow_renames=follow_renames,
         )
     ).owner(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -479,7 +486,7 @@ async def query_repository_assignable_users(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -497,6 +504,7 @@ async def query_repository_assignable_users(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -548,7 +556,7 @@ async def query_repository_branch_protection_rules(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -565,6 +573,7 @@ async def query_repository_branch_protection_rules(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -604,7 +613,7 @@ async def query_repository_code_of_conduct(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -614,6 +623,7 @@ async def query_repository_code_of_conduct(
             follow_renames=follow_renames,
         )
     ).code_of_conduct(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -668,7 +678,7 @@ async def query_repository_collaborators(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -687,6 +697,7 @@ async def query_repository_collaborators(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -736,7 +747,7 @@ async def query_repository_commit_comments(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -753,6 +764,7 @@ async def query_repository_commit_comments(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -792,7 +804,7 @@ async def query_repository_contact_links(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -802,6 +814,7 @@ async def query_repository_contact_links(
             follow_renames=follow_renames,
         )
     ).contact_links(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -841,7 +854,7 @@ async def query_repository_default_branch_ref(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -851,6 +864,7 @@ async def query_repository_default_branch_ref(
             follow_renames=follow_renames,
         )
     ).default_branch_ref(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -900,7 +914,7 @@ async def query_repository_deploy_keys(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -917,6 +931,7 @@ async def query_repository_deploy_keys(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -974,7 +989,7 @@ async def query_repository_deployments(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -993,6 +1008,7 @@ async def query_repository_deployments(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1034,7 +1050,7 @@ async def query_repository_discussion(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1048,6 +1064,7 @@ async def query_repository_discussion(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1101,7 +1118,7 @@ async def query_repository_discussion_categories(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1119,6 +1136,7 @@ async def query_repository_discussion_categories(
             filter_by_assignable=filter_by_assignable,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1177,7 +1195,7 @@ async def query_repository_discussions(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1196,6 +1214,7 @@ async def query_repository_discussions(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1237,7 +1256,7 @@ async def query_repository_environment(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1251,6 +1270,7 @@ async def query_repository_environment(
             name=environment_name,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1300,7 +1320,7 @@ async def query_repository_environments(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1317,6 +1337,7 @@ async def query_repository_environments(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1387,7 +1408,7 @@ async def query_repository_forks(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1409,6 +1430,7 @@ async def query_repository_forks(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1448,7 +1470,7 @@ async def query_repository_funding_links(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1458,6 +1480,7 @@ async def query_repository_funding_links(
             follow_renames=follow_renames,
         )
     ).funding_links(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1497,7 +1520,7 @@ async def query_repository_interaction_ability(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1507,6 +1530,7 @@ async def query_repository_interaction_ability(
             follow_renames=follow_renames,
         )
     ).interaction_ability(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1548,7 +1572,7 @@ async def query_repository_issue(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1562,6 +1586,7 @@ async def query_repository_issue(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1603,7 +1628,7 @@ async def query_repository_issue_or_pull_request(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1617,6 +1642,7 @@ async def query_repository_issue_or_pull_request(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1656,7 +1682,7 @@ async def query_repository_issue_templates(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1666,6 +1692,7 @@ async def query_repository_issue_templates(
             follow_renames=follow_renames,
         )
     ).issue_templates(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1725,7 +1752,7 @@ async def query_repository_issues(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1746,6 +1773,7 @@ async def query_repository_issues(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1787,7 +1815,7 @@ async def query_repository_label(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1801,6 +1829,7 @@ async def query_repository_label(
             name=label_name,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1855,7 +1884,7 @@ async def query_repository_labels(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1874,6 +1903,7 @@ async def query_repository_labels(
             query=query,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1925,7 +1955,7 @@ async def query_repository_languages(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1943,6 +1973,7 @@ async def query_repository_languages(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -1982,7 +2013,7 @@ async def query_repository_latest_release(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -1992,6 +2023,7 @@ async def query_repository_latest_release(
             follow_renames=follow_renames,
         )
     ).latest_release(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2043,7 +2075,7 @@ async def query_repository_mentionable_users(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2061,6 +2093,7 @@ async def query_repository_mentionable_users(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2102,7 +2135,7 @@ async def query_repository_milestone(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2116,6 +2149,7 @@ async def query_repository_milestone(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2171,7 +2205,7 @@ async def query_repository_milestones(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2191,6 +2225,7 @@ async def query_repository_milestones(
             query=query,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2234,7 +2269,7 @@ async def query_repository_object(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2249,6 +2284,7 @@ async def query_repository_object(
             expression=expression,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2298,7 +2334,7 @@ async def query_repository_pinned_discussions(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2315,6 +2351,7 @@ async def query_repository_pinned_discussions(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2364,7 +2401,7 @@ async def query_repository_pinned_issues(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2381,6 +2418,7 @@ async def query_repository_pinned_issues(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2420,7 +2458,7 @@ async def query_repository_primary_language(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2430,6 +2468,7 @@ async def query_repository_primary_language(
             follow_renames=follow_renames,
         )
     ).primary_language(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2472,7 +2511,7 @@ async def query_repository_project_next(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2486,6 +2525,7 @@ async def query_repository_project_next(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2539,7 +2579,7 @@ async def query_repository_projects_next(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2558,6 +2598,7 @@ async def query_repository_projects_next(
             sort_by=sort_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2599,7 +2640,7 @@ async def query_repository_pull_request(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2613,6 +2654,7 @@ async def query_repository_pull_request(
             number=number,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2652,7 +2694,7 @@ async def query_repository_pull_request_templates(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2662,6 +2704,7 @@ async def query_repository_pull_request_templates(
             follow_renames=follow_renames,
         )
     ).pull_request_templates(**strip_kwargs())
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2725,7 +2768,7 @@ async def query_repository_pull_requests(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2747,6 +2790,7 @@ async def query_repository_pull_requests(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2790,7 +2834,7 @@ async def query_repository_ref(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2804,6 +2848,7 @@ async def query_repository_ref(
             qualified_name=qualified_name,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2862,7 +2907,7 @@ async def query_repository_refs(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2883,6 +2928,7 @@ async def query_repository_refs(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2924,7 +2970,7 @@ async def query_repository_release(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -2938,6 +2984,7 @@ async def query_repository_release(
             tag_name=tag_name,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -2989,7 +3036,7 @@ async def query_repository_releases(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -3007,6 +3054,7 @@ async def query_repository_releases(
             order_by=order_by,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -3056,7 +3104,7 @@ async def query_repository_repository_topics(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -3073,6 +3121,7 @@ async def query_repository_repository_topics(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -3123,7 +3172,7 @@ async def query_repository_submodules(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -3140,6 +3189,7 @@ async def query_repository_submodules(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -3192,7 +3242,7 @@ async def query_repository_vulnerability_alerts(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -3210,6 +3260,7 @@ async def query_repository_vulnerability_alerts(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",
@@ -3259,7 +3310,7 @@ async def query_repository_watchers(
             fields listed in configs/query/*.json.
 
     Returns:
-        A dict of the returneds fields.
+        A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
     op_settings = op.repository(
@@ -3276,6 +3327,7 @@ async def query_repository_watchers(
             last=last,
         )
     )
+
     if not return_fields:
         op_stack = (
             "repository",

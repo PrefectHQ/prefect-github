@@ -1,5 +1,4 @@
 site_name: prefect-github
-repo_url: https://github.com/PrefectHQ/prefect-github
 theme:
   name: material
   palette:
@@ -36,6 +35,13 @@ plugins:
 
 nav:
     - Home: index.md
-    - Tasks: tasks.md
-    - Flows: flows.md
-
+    - Credentials: credentials.md
+    - Graphql: graphql.md
+    - Mutations: mutations.md
+    - Organization: organization.md
+    - Repository: repository.md
+    - Repository Owner: repository_owner.md
+    - User: user.md
+    - Viewer: viewer.md
+    
+    - Utils: utils.md
