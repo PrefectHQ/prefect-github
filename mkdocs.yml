@@ -42,6 +42,5 @@ nav:
     - Repository: repository.md
     - Repository Owner: repository_owner.md
     - User: user.md
-    - Viewer: viewer.md
-    
+    - Viewer: viewer.md    
     - Utils: utils.md
