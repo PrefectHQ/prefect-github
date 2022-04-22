@@ -20,7 +20,7 @@ config_path = Path(__file__).parent.resolve() / "configs" / "query" / "viewer.js
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
-@task()
+@task
 async def query_viewer(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -48,7 +48,7 @@ async def query_viewer(
     return result["viewer"]
 
 
-@task()
+@task
 async def query_viewer_packages(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -111,7 +111,7 @@ async def query_viewer_packages(
     return result["viewer"]["packages"]
 
 
-@task()
+@task
 async def query_viewer_project(
     number: int,
     github_credentials: GitHubCredentials,
@@ -148,7 +148,7 @@ async def query_viewer_project(
     return result["viewer"]["project"]
 
 
-@task()
+@task
 async def query_viewer_projects(
     states: Iterable[graphql_schema.ProjectState],
     github_credentials: GitHubCredentials,
@@ -207,7 +207,7 @@ async def query_viewer_projects(
     return result["viewer"]["projects"]
 
 
-@task()
+@task
 async def query_viewer_project_next(
     number: int,
     github_credentials: GitHubCredentials,
@@ -244,7 +244,7 @@ async def query_viewer_project_next(
     return result["viewer"]["projectNext"]
 
 
-@task()
+@task
 async def query_viewer_projects_next(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -298,7 +298,7 @@ async def query_viewer_projects_next(
     return result["viewer"]["projectsNext"]
 
 
-@task()
+@task
 async def query_viewer_repository_discussions(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -364,7 +364,7 @@ async def query_viewer_repository_discussions(
     return result["viewer"]["repositoryDiscussions"]
 
 
-@task()
+@task
 async def query_viewer_repository_discussion_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -422,7 +422,7 @@ async def query_viewer_repository_discussion_comments(
     return result["viewer"]["repositoryDiscussionComments"]
 
 
-@task()
+@task
 async def query_viewer_repositories(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
@@ -501,7 +501,7 @@ async def query_viewer_repositories(
     return result["viewer"]["repositories"]
 
 
-@task()
+@task
 async def query_viewer_repository(
     name: str,
     github_credentials: GitHubCredentials,
@@ -542,7 +542,7 @@ async def query_viewer_repository(
     return result["viewer"]["repository"]
 
 
-@task()
+@task
 async def query_viewer_item_showcase(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -574,7 +574,7 @@ async def query_viewer_item_showcase(
     return result["viewer"]["itemShowcase"]
 
 
-@task()
+@task
 async def query_viewer_pinnable_items(
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
@@ -626,7 +626,7 @@ async def query_viewer_pinnable_items(
     return result["viewer"]["pinnableItems"]
 
 
-@task()
+@task
 async def query_viewer_pinned_items(
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
@@ -677,7 +677,7 @@ async def query_viewer_pinned_items(
     return result["viewer"]["pinnedItems"]
 
 
-@task()
+@task
 async def query_viewer_sponsoring(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -729,7 +729,7 @@ async def query_viewer_sponsoring(
     return result["viewer"]["sponsoring"]
 
 
-@task()
+@task
 async def query_viewer_sponsors(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -786,7 +786,7 @@ async def query_viewer_sponsors(
     return result["viewer"]["sponsors"]
 
 
-@task()
+@task
 async def query_viewer_sponsors_activities(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -845,7 +845,7 @@ async def query_viewer_sponsors_activities(
     return result["viewer"]["sponsorsActivities"]
 
 
-@task()
+@task
 async def query_viewer_sponsors_listing(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -876,7 +876,7 @@ async def query_viewer_sponsors_listing(
     return result["viewer"]["sponsorsListing"]
 
 
-@task()
+@task
 async def query_viewer_sponsorship_for_viewer_as_sponsor(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -911,7 +911,7 @@ async def query_viewer_sponsorship_for_viewer_as_sponsor(
     return result["viewer"]["sponsorshipForViewerAsSponsor"]
 
 
-@task()
+@task
 async def query_viewer_sponsorship_for_viewer_as_sponsorable(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -945,7 +945,7 @@ async def query_viewer_sponsorship_for_viewer_as_sponsorable(
     return result["viewer"]["sponsorshipForViewerAsSponsorable"]
 
 
-@task()
+@task
 async def query_viewer_sponsorship_newsletters(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1002,7 +1002,7 @@ async def query_viewer_sponsorship_newsletters(
     return result["viewer"]["sponsorshipNewsletters"]
 
 
-@task()
+@task
 async def query_viewer_sponsorships_as_maintainer(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1062,7 +1062,7 @@ async def query_viewer_sponsorships_as_maintainer(
     return result["viewer"]["sponsorshipsAsMaintainer"]
 
 
-@task()
+@task
 async def query_viewer_sponsorships_as_sponsor(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1118,7 +1118,7 @@ async def query_viewer_sponsorships_as_sponsor(
     return result["viewer"]["sponsorshipsAsSponsor"]
 
 
-@task()
+@task
 async def query_viewer_commit_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1166,7 +1166,7 @@ async def query_viewer_commit_comments(
     return result["viewer"]["commitComments"]
 
 
-@task()
+@task
 async def query_viewer_contributions_collection(
     github_credentials: GitHubCredentials,
     organization_id: str = None,
@@ -1214,7 +1214,7 @@ async def query_viewer_contributions_collection(
     return result["viewer"]["contributionsCollection"]
 
 
-@task()
+@task
 async def query_viewer_followers(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1262,7 +1262,7 @@ async def query_viewer_followers(
     return result["viewer"]["followers"]
 
 
-@task()
+@task
 async def query_viewer_following(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1310,7 +1310,7 @@ async def query_viewer_following(
     return result["viewer"]["following"]
 
 
-@task()
+@task
 async def query_viewer_gist(
     name: str,
     github_credentials: GitHubCredentials,
@@ -1347,7 +1347,7 @@ async def query_viewer_gist(
     return result["viewer"]["gist"]
 
 
-@task()
+@task
 async def query_viewer_gist_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1395,7 +1395,7 @@ async def query_viewer_gist_comments(
     return result["viewer"]["gistComments"]
 
 
-@task()
+@task
 async def query_viewer_gists(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.GistPrivacy = None,
@@ -1449,7 +1449,7 @@ async def query_viewer_gists(
     return result["viewer"]["gists"]
 
 
-@task()
+@task
 async def query_viewer_interaction_ability(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1480,7 +1480,7 @@ async def query_viewer_interaction_ability(
     return result["viewer"]["interactionAbility"]
 
 
-@task()
+@task
 async def query_viewer_issue_comments(
     github_credentials: GitHubCredentials,
     order_by: graphql_schema.IssueCommentOrder = None,
@@ -1532,7 +1532,7 @@ async def query_viewer_issue_comments(
     return result["viewer"]["issueComments"]
 
 
-@task()
+@task
 async def query_viewer_issues(
     labels: Iterable[str],
     states: Iterable[graphql_schema.IssueState],
@@ -1594,7 +1594,7 @@ async def query_viewer_issues(
     return result["viewer"]["issues"]
 
 
-@task()
+@task
 async def query_viewer_organization(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1631,7 +1631,7 @@ async def query_viewer_organization(
     return result["viewer"]["organization"]
 
 
-@task()
+@task
 async def query_viewer_organizations(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1679,7 +1679,7 @@ async def query_viewer_organizations(
     return result["viewer"]["organizations"]
 
 
-@task()
+@task
 async def query_viewer_public_keys(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1727,7 +1727,7 @@ async def query_viewer_public_keys(
     return result["viewer"]["publicKeys"]
 
 
-@task()
+@task
 async def query_viewer_pull_requests(
     states: Iterable[graphql_schema.PullRequestState],
     labels: Iterable[str],
@@ -1794,7 +1794,7 @@ async def query_viewer_pull_requests(
     return result["viewer"]["pullRequests"]
 
 
-@task()
+@task
 async def query_viewer_repositories_contributed_to(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
@@ -1865,7 +1865,7 @@ async def query_viewer_repositories_contributed_to(
     return result["viewer"]["repositoriesContributedTo"]
 
 
-@task()
+@task
 async def query_viewer_saved_replies(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1919,7 +1919,7 @@ async def query_viewer_saved_replies(
     return result["viewer"]["savedReplies"]
 
 
-@task()
+@task
 async def query_viewer_starred_repositories(
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -1975,7 +1975,7 @@ async def query_viewer_starred_repositories(
     return result["viewer"]["starredRepositories"]
 
 
-@task()
+@task
 async def query_viewer_status(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -2006,7 +2006,7 @@ async def query_viewer_status(
     return result["viewer"]["status"]
 
 
-@task()
+@task
 async def query_viewer_top_repositories(
     order_by: graphql_schema.RepositoryOrder,
     github_credentials: GitHubCredentials,
@@ -2063,7 +2063,7 @@ async def query_viewer_top_repositories(
     return result["viewer"]["topRepositories"]
 
 
-@task()
+@task
 async def query_viewer_watching(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,

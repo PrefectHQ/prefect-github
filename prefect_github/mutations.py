@@ -21,7 +21,133 @@ for config_path in config_dir.glob("*.json"):
     return_fields_defaults.update(initialize_return_fields_defaults(config_path))
 
 
-@task()
+@task
+async def add_comment_comment_edge(
+    subject_id: str,
+    body: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a comment to an Issue or Pull Request.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        body: The contents of the comment.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.add_comment(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                body=body,
+            )
+        )
+    ).comment_edge(**strip_kwargs())
+
+    op_stack = (
+        "addComment",
+        "commentEdge",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addComment"]["commentEdge"]
+
+
+@task
+async def add_comment_subject(
+    subject_id: str,
+    body: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a comment to an Issue or Pull Request.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        body: The contents of the comment.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.add_comment(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                body=body,
+            )
+        )
+    ).subject(**strip_kwargs())
+
+    op_stack = (
+        "addComment",
+        "subject",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addComment"]["subject"]
+
+
+@task
+async def add_comment_timeline_edge(
+    subject_id: str,
+    body: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a comment to an Issue or Pull Request.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        body: The contents of the comment.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.add_comment(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                body=body,
+            )
+        )
+    ).timeline_edge(**strip_kwargs())
+
+    op_stack = (
+        "addComment",
+        "timelineEdge",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addComment"]["timelineEdge"]
+
+
+@task
 async def create_pull_request(
     repository_id: str,
     base_ref_name: str,
@@ -85,7 +211,7 @@ async def create_pull_request(
     return result["createPullRequest"]["pullRequest"]
 
 
-@task()
+@task
 async def close_pull_request(
     pull_request_id: str,
     github_credentials: GitHubCredentials,
@@ -124,7 +250,7 @@ async def close_pull_request(
     return result["closePullRequest"]["pullRequest"]
 
 
-@task()
+@task
 async def create_issue(
     repository_id: str,
     title: str,
@@ -186,7 +312,7 @@ async def create_issue(
     return result["createIssue"]["issue"]
 
 
-@task()
+@task
 async def close_issue(
     issue_id: str,
     github_credentials: GitHubCredentials,
@@ -225,7 +351,7 @@ async def close_issue(
     return result["closeIssue"]["issue"]
 
 
-@task()
+@task
 async def add_star_starrable(
     starrable_id: str,
     github_credentials: GitHubCredentials,
@@ -264,7 +390,7 @@ async def add_star_starrable(
     return result["addStar"]["starrable"]
 
 
-@task()
+@task
 async def remove_star_starrable(
     starrable_id: str,
     github_credentials: GitHubCredentials,
@@ -303,7 +429,7 @@ async def remove_star_starrable(
     return result["removeStar"]["starrable"]
 
 
-@task()
+@task
 async def add_reaction(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -345,7 +471,7 @@ async def add_reaction(
     return result["addReaction"]["reaction"]
 
 
-@task()
+@task
 async def add_reaction_subject(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -387,7 +513,7 @@ async def add_reaction_subject(
     return result["addReaction"]["subject"]
 
 
-@task()
+@task
 async def remove_reaction(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -429,7 +555,7 @@ async def remove_reaction(
     return result["removeReaction"]["reaction"]
 
 
-@task()
+@task
 async def remove_reaction_subject(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -471,7 +597,7 @@ async def remove_reaction_subject(
     return result["removeReaction"]["subject"]
 
 
-@task()
+@task
 async def request_reviews(
     pull_request_id: str,
     user_ids: Iterable[str],
@@ -516,7 +642,7 @@ async def request_reviews(
     return result["requestReviews"]
 
 
-@task()
+@task
 async def request_reviews_pull_request(
     pull_request_id: str,
     user_ids: Iterable[str],
@@ -564,7 +690,7 @@ async def request_reviews_pull_request(
     return result["requestReviews"]["pullRequest"]
 
 
-@task()
+@task
 async def request_reviews_requested_reviewers_edge(
     pull_request_id: str,
     user_ids: Iterable[str],

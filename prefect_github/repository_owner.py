@@ -21,7 +21,7 @@ config_path = (
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
-@task()
+@task
 async def query_repository_owner(
     login: str,
     github_credentials: GitHubCredentials,
@@ -55,7 +55,7 @@ async def query_repository_owner(
     return result["repositoryOwner"]
 
 
-@task()
+@task
 async def query_repository_owner_repositories(
     login: str,
     github_credentials: GitHubCredentials,
@@ -136,7 +136,7 @@ async def query_repository_owner_repositories(
     return result["repositoryOwner"]["repositories"]
 
 
-@task()
+@task
 async def query_repository_owner_repository(
     login: str,
     name: str,

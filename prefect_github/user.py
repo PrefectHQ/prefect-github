@@ -20,7 +20,7 @@ config_path = Path(__file__).parent.resolve() / "configs" / "query" / "user.json
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
-@task()
+@task
 async def query_user(
     login: str,
     github_credentials: GitHubCredentials,
@@ -54,7 +54,7 @@ async def query_user(
     return result["user"]
 
 
-@task()
+@task
 async def query_user_packages(
     login: str,
     github_credentials: GitHubCredentials,
@@ -119,7 +119,7 @@ async def query_user_packages(
     return result["user"]["packages"]
 
 
-@task()
+@task
 async def query_user_project(
     login: str,
     number: int,
@@ -158,7 +158,7 @@ async def query_user_project(
     return result["user"]["project"]
 
 
-@task()
+@task
 async def query_user_projects(
     login: str,
     states: Iterable[graphql_schema.ProjectState],
@@ -219,7 +219,7 @@ async def query_user_projects(
     return result["user"]["projects"]
 
 
-@task()
+@task
 async def query_user_project_next(
     login: str,
     number: int,
@@ -258,7 +258,7 @@ async def query_user_project_next(
     return result["user"]["projectNext"]
 
 
-@task()
+@task
 async def query_user_projects_next(
     login: str,
     github_credentials: GitHubCredentials,
@@ -314,7 +314,7 @@ async def query_user_projects_next(
     return result["user"]["projectsNext"]
 
 
-@task()
+@task
 async def query_user_repository_discussions(
     login: str,
     github_credentials: GitHubCredentials,
@@ -382,7 +382,7 @@ async def query_user_repository_discussions(
     return result["user"]["repositoryDiscussions"]
 
 
-@task()
+@task
 async def query_user_repository_discussion_comments(
     login: str,
     github_credentials: GitHubCredentials,
@@ -442,7 +442,7 @@ async def query_user_repository_discussion_comments(
     return result["user"]["repositoryDiscussionComments"]
 
 
-@task()
+@task
 async def query_user_repositories(
     login: str,
     github_credentials: GitHubCredentials,
@@ -523,7 +523,7 @@ async def query_user_repositories(
     return result["user"]["repositories"]
 
 
-@task()
+@task
 async def query_user_repository(
     login: str,
     name: str,
@@ -566,7 +566,7 @@ async def query_user_repository(
     return result["user"]["repository"]
 
 
-@task()
+@task
 async def query_user_item_showcase(
     login: str,
     github_credentials: GitHubCredentials,
@@ -604,7 +604,7 @@ async def query_user_item_showcase(
     return result["user"]["itemShowcase"]
 
 
-@task()
+@task
 async def query_user_pinnable_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
@@ -658,7 +658,7 @@ async def query_user_pinnable_items(
     return result["user"]["pinnableItems"]
 
 
-@task()
+@task
 async def query_user_pinned_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
@@ -711,7 +711,7 @@ async def query_user_pinned_items(
     return result["user"]["pinnedItems"]
 
 
-@task()
+@task
 async def query_user_sponsoring(
     login: str,
     github_credentials: GitHubCredentials,
@@ -765,7 +765,7 @@ async def query_user_sponsoring(
     return result["user"]["sponsoring"]
 
 
-@task()
+@task
 async def query_user_sponsors(
     login: str,
     github_credentials: GitHubCredentials,
@@ -824,7 +824,7 @@ async def query_user_sponsors(
     return result["user"]["sponsors"]
 
 
-@task()
+@task
 async def query_user_sponsors_activities(
     login: str,
     github_credentials: GitHubCredentials,
@@ -885,7 +885,7 @@ async def query_user_sponsors_activities(
     return result["user"]["sponsorsActivities"]
 
 
-@task()
+@task
 async def query_user_sponsors_listing(
     login: str,
     github_credentials: GitHubCredentials,
@@ -922,7 +922,7 @@ async def query_user_sponsors_listing(
     return result["user"]["sponsorsListing"]
 
 
-@task()
+@task
 async def query_user_sponsorship_for_viewer_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
@@ -961,7 +961,7 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
     return result["user"]["sponsorshipForViewerAsSponsor"]
 
 
-@task()
+@task
 async def query_user_sponsorship_for_viewer_as_sponsorable(
     login: str,
     github_credentials: GitHubCredentials,
@@ -999,7 +999,7 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
     return result["user"]["sponsorshipForViewerAsSponsorable"]
 
 
-@task()
+@task
 async def query_user_sponsorship_newsletters(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1058,7 +1058,7 @@ async def query_user_sponsorship_newsletters(
     return result["user"]["sponsorshipNewsletters"]
 
 
-@task()
+@task
 async def query_user_sponsorships_as_maintainer(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1120,7 +1120,7 @@ async def query_user_sponsorships_as_maintainer(
     return result["user"]["sponsorshipsAsMaintainer"]
 
 
-@task()
+@task
 async def query_user_sponsorships_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1178,7 +1178,7 @@ async def query_user_sponsorships_as_sponsor(
     return result["user"]["sponsorshipsAsSponsor"]
 
 
-@task()
+@task
 async def query_user_commit_comments(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1228,7 +1228,7 @@ async def query_user_commit_comments(
     return result["user"]["commitComments"]
 
 
-@task()
+@task
 async def query_user_contributions_collection(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1278,7 +1278,7 @@ async def query_user_contributions_collection(
     return result["user"]["contributionsCollection"]
 
 
-@task()
+@task
 async def query_user_followers(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1328,7 +1328,7 @@ async def query_user_followers(
     return result["user"]["followers"]
 
 
-@task()
+@task
 async def query_user_following(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1378,7 +1378,7 @@ async def query_user_following(
     return result["user"]["following"]
 
 
-@task()
+@task
 async def query_user_gist(
     login: str,
     name: str,
@@ -1417,7 +1417,7 @@ async def query_user_gist(
     return result["user"]["gist"]
 
 
-@task()
+@task
 async def query_user_gist_comments(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1467,7 +1467,7 @@ async def query_user_gist_comments(
     return result["user"]["gistComments"]
 
 
-@task()
+@task
 async def query_user_gists(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1523,7 +1523,7 @@ async def query_user_gists(
     return result["user"]["gists"]
 
 
-@task()
+@task
 async def query_user_interaction_ability(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1560,7 +1560,7 @@ async def query_user_interaction_ability(
     return result["user"]["interactionAbility"]
 
 
-@task()
+@task
 async def query_user_issue_comments(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1614,7 +1614,7 @@ async def query_user_issue_comments(
     return result["user"]["issueComments"]
 
 
-@task()
+@task
 async def query_user_issues(
     login: str,
     labels: Iterable[str],
@@ -1678,7 +1678,7 @@ async def query_user_issues(
     return result["user"]["issues"]
 
 
-@task()
+@task
 async def query_user_organization(
     login: str,
     organization_login: str,
@@ -1717,7 +1717,7 @@ async def query_user_organization(
     return result["user"]["organization"]
 
 
-@task()
+@task
 async def query_user_organizations(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1767,7 +1767,7 @@ async def query_user_organizations(
     return result["user"]["organizations"]
 
 
-@task()
+@task
 async def query_user_public_keys(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1817,7 +1817,7 @@ async def query_user_public_keys(
     return result["user"]["publicKeys"]
 
 
-@task()
+@task
 async def query_user_pull_requests(
     login: str,
     states: Iterable[graphql_schema.PullRequestState],
@@ -1886,7 +1886,7 @@ async def query_user_pull_requests(
     return result["user"]["pullRequests"]
 
 
-@task()
+@task
 async def query_user_repositories_contributed_to(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1959,7 +1959,7 @@ async def query_user_repositories_contributed_to(
     return result["user"]["repositoriesContributedTo"]
 
 
-@task()
+@task
 async def query_user_saved_replies(
     login: str,
     github_credentials: GitHubCredentials,
@@ -2015,7 +2015,7 @@ async def query_user_saved_replies(
     return result["user"]["savedReplies"]
 
 
-@task()
+@task
 async def query_user_starred_repositories(
     login: str,
     github_credentials: GitHubCredentials,
@@ -2073,7 +2073,7 @@ async def query_user_starred_repositories(
     return result["user"]["starredRepositories"]
 
 
-@task()
+@task
 async def query_user_status(
     login: str,
     github_credentials: GitHubCredentials,
@@ -2110,7 +2110,7 @@ async def query_user_status(
     return result["user"]["status"]
 
 
-@task()
+@task
 async def query_user_top_repositories(
     login: str,
     order_by: graphql_schema.RepositoryOrder,
@@ -2169,7 +2169,7 @@ async def query_user_top_repositories(
     return result["user"]["topRepositories"]
 
 
-@task()
+@task
 async def query_user_watching(
     login: str,
     github_credentials: GitHubCredentials,

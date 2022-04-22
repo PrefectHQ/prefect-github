@@ -21,7 +21,7 @@ config_path = (
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
-@task()
+@task
 async def query_organization(
     login: str,
     github_credentials: GitHubCredentials,
@@ -55,7 +55,7 @@ async def query_organization(
     return result["organization"]
 
 
-@task()
+@task
 async def query_organization_packages(
     login: str,
     github_credentials: GitHubCredentials,
@@ -120,7 +120,7 @@ async def query_organization_packages(
     return result["organization"]["packages"]
 
 
-@task()
+@task
 async def query_organization_project(
     login: str,
     number: int,
@@ -159,7 +159,7 @@ async def query_organization_project(
     return result["organization"]["project"]
 
 
-@task()
+@task
 async def query_organization_projects(
     login: str,
     states: Iterable[graphql_schema.ProjectState],
@@ -220,7 +220,7 @@ async def query_organization_projects(
     return result["organization"]["projects"]
 
 
-@task()
+@task
 async def query_organization_project_next(
     login: str,
     number: int,
@@ -259,7 +259,7 @@ async def query_organization_project_next(
     return result["organization"]["projectNext"]
 
 
-@task()
+@task
 async def query_organization_projects_next(
     login: str,
     github_credentials: GitHubCredentials,
@@ -315,7 +315,7 @@ async def query_organization_projects_next(
     return result["organization"]["projectsNext"]
 
 
-@task()
+@task
 async def query_organization_repository_discussions(
     login: str,
     github_credentials: GitHubCredentials,
@@ -383,7 +383,7 @@ async def query_organization_repository_discussions(
     return result["organization"]["repositoryDiscussions"]
 
 
-@task()
+@task
 async def query_organization_repository_discussion_comments(
     login: str,
     github_credentials: GitHubCredentials,
@@ -447,7 +447,7 @@ async def query_organization_repository_discussion_comments(
     return result["organization"]["repositoryDiscussionComments"]
 
 
-@task()
+@task
 async def query_organization_repositories(
     login: str,
     github_credentials: GitHubCredentials,
@@ -528,7 +528,7 @@ async def query_organization_repositories(
     return result["organization"]["repositories"]
 
 
-@task()
+@task
 async def query_organization_repository(
     login: str,
     name: str,
@@ -571,7 +571,7 @@ async def query_organization_repository(
     return result["organization"]["repository"]
 
 
-@task()
+@task
 async def query_organization_member_statuses(
     login: str,
     github_credentials: GitHubCredentials,
@@ -629,7 +629,7 @@ async def query_organization_member_statuses(
     return result["organization"]["memberStatuses"]
 
 
-@task()
+@task
 async def query_organization_item_showcase(
     login: str,
     github_credentials: GitHubCredentials,
@@ -667,7 +667,7 @@ async def query_organization_item_showcase(
     return result["organization"]["itemShowcase"]
 
 
-@task()
+@task
 async def query_organization_pinnable_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
@@ -721,7 +721,7 @@ async def query_organization_pinnable_items(
     return result["organization"]["pinnableItems"]
 
 
-@task()
+@task
 async def query_organization_pinned_items(
     login: str,
     types: Iterable[graphql_schema.PinnableItemType],
@@ -774,7 +774,7 @@ async def query_organization_pinned_items(
     return result["organization"]["pinnedItems"]
 
 
-@task()
+@task
 async def query_organization_sponsoring(
     login: str,
     github_credentials: GitHubCredentials,
@@ -828,7 +828,7 @@ async def query_organization_sponsoring(
     return result["organization"]["sponsoring"]
 
 
-@task()
+@task
 async def query_organization_sponsors(
     login: str,
     github_credentials: GitHubCredentials,
@@ -887,7 +887,7 @@ async def query_organization_sponsors(
     return result["organization"]["sponsors"]
 
 
-@task()
+@task
 async def query_organization_sponsors_activities(
     login: str,
     github_credentials: GitHubCredentials,
@@ -948,7 +948,7 @@ async def query_organization_sponsors_activities(
     return result["organization"]["sponsorsActivities"]
 
 
-@task()
+@task
 async def query_organization_sponsors_listing(
     login: str,
     github_credentials: GitHubCredentials,
@@ -985,7 +985,7 @@ async def query_organization_sponsors_listing(
     return result["organization"]["sponsorsListing"]
 
 
-@task()
+@task
 async def query_organization_sponsorship_for_viewer_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1024,7 +1024,7 @@ async def query_organization_sponsorship_for_viewer_as_sponsor(
     return result["organization"]["sponsorshipForViewerAsSponsor"]
 
 
-@task()
+@task
 async def query_organization_sponsorship_for_viewer_as_sponsorable(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1062,7 +1062,7 @@ async def query_organization_sponsorship_for_viewer_as_sponsorable(
     return result["organization"]["sponsorshipForViewerAsSponsorable"]
 
 
-@task()
+@task
 async def query_organization_sponsorship_newsletters(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1125,7 +1125,7 @@ async def query_organization_sponsorship_newsletters(
     return result["organization"]["sponsorshipNewsletters"]
 
 
-@task()
+@task
 async def query_organization_sponsorships_as_maintainer(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1191,7 +1191,7 @@ async def query_organization_sponsorships_as_maintainer(
     return result["organization"]["sponsorshipsAsMaintainer"]
 
 
-@task()
+@task
 async def query_organization_sponsorships_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1253,7 +1253,7 @@ async def query_organization_sponsorships_as_sponsor(
     return result["organization"]["sponsorshipsAsSponsor"]
 
 
-@task()
+@task
 async def query_organization_audit_log(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1312,7 +1312,7 @@ async def query_organization_audit_log(
     return result["organization"]["auditLog"]
 
 
-@task()
+@task
 async def query_organization_domains(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1374,7 +1374,7 @@ async def query_organization_domains(
     return result["organization"]["domains"]
 
 
-@task()
+@task
 async def query_organization_enterprise_owners(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1437,7 +1437,7 @@ async def query_organization_enterprise_owners(
     return result["organization"]["enterpriseOwners"]
 
 
-@task()
+@task
 async def query_organization_interaction_ability(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1474,7 +1474,7 @@ async def query_organization_interaction_ability(
     return result["organization"]["interactionAbility"]
 
 
-@task()
+@task
 async def query_organization_ip_allow_list_entries(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1532,7 +1532,7 @@ async def query_organization_ip_allow_list_entries(
     return result["organization"]["ipAllowListEntries"]
 
 
-@task()
+@task
 async def query_organization_members_with_role(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1582,7 +1582,7 @@ async def query_organization_members_with_role(
     return result["organization"]["membersWithRole"]
 
 
-@task()
+@task
 async def query_organization_pending_members(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1632,7 +1632,7 @@ async def query_organization_pending_members(
     return result["organization"]["pendingMembers"]
 
 
-@task()
+@task
 async def query_organization_repository_migrations(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1693,7 +1693,7 @@ async def query_organization_repository_migrations(
     return result["organization"]["repositoryMigrations"]
 
 
-@task()
+@task
 async def query_organization_saml_identity_provider(
     login: str,
     github_credentials: GitHubCredentials,
@@ -1730,7 +1730,7 @@ async def query_organization_saml_identity_provider(
     return result["organization"]["samlIdentityProvider"]
 
 
-@task()
+@task
 async def query_organization_team(
     login: str,
     slug: str,
@@ -1769,7 +1769,7 @@ async def query_organization_team(
     return result["organization"]["team"]
 
 
-@task()
+@task
 async def query_organization_teams(
     login: str,
     user_logins: Iterable[str],

@@ -20,7 +20,7 @@ config_path = Path(__file__).parent.resolve() / "configs" / "query" / "repositor
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
-@task()
+@task
 async def query_repository(
     owner: str,
     name: str,
@@ -61,7 +61,7 @@ async def query_repository(
     return result["repository"]
 
 
-@task()
+@task
 async def query_repository_project(
     owner: str,
     name: str,
@@ -111,7 +111,7 @@ async def query_repository_project(
     return result["repository"]["project"]
 
 
-@task()
+@task
 async def query_repository_projects(
     owner: str,
     name: str,
@@ -183,7 +183,7 @@ async def query_repository_projects(
     return result["repository"]["projects"]
 
 
-@task()
+@task
 async def query_repository_packages(
     owner: str,
     name: str,
@@ -259,7 +259,7 @@ async def query_repository_packages(
     return result["repository"]["packages"]
 
 
-@task()
+@task
 async def query_repository_stargazers(
     owner: str,
     name: str,
@@ -323,7 +323,7 @@ async def query_repository_stargazers(
     return result["repository"]["stargazers"]
 
 
-@task()
+@task
 async def query_repository_license_info(
     owner: str,
     name: str,
@@ -367,7 +367,7 @@ async def query_repository_license_info(
     return result["repository"]["licenseInfo"]
 
 
-@task()
+@task
 async def query_repository_owner(
     owner: str,
     name: str,
@@ -411,7 +411,7 @@ async def query_repository_owner(
     return result["repository"]["owner"]
 
 
-@task()
+@task
 async def query_repository_assignable_users(
     owner: str,
     name: str,
@@ -475,7 +475,7 @@ async def query_repository_assignable_users(
     return result["repository"]["assignableUsers"]
 
 
-@task()
+@task
 async def query_repository_branch_protection_rules(
     owner: str,
     name: str,
@@ -538,7 +538,7 @@ async def query_repository_branch_protection_rules(
     return result["repository"]["branchProtectionRules"]
 
 
-@task()
+@task
 async def query_repository_code_of_conduct(
     owner: str,
     name: str,
@@ -582,7 +582,7 @@ async def query_repository_code_of_conduct(
     return result["repository"]["codeOfConduct"]
 
 
-@task()
+@task
 async def query_repository_collaborators(
     owner: str,
     name: str,
@@ -650,7 +650,7 @@ async def query_repository_collaborators(
     return result["repository"]["collaborators"]
 
 
-@task()
+@task
 async def query_repository_commit_comments(
     owner: str,
     name: str,
@@ -711,7 +711,7 @@ async def query_repository_commit_comments(
     return result["repository"]["commitComments"]
 
 
-@task()
+@task
 async def query_repository_contact_links(
     owner: str,
     name: str,
@@ -755,7 +755,7 @@ async def query_repository_contact_links(
     return result["repository"]["contactLinks"]
 
 
-@task()
+@task
 async def query_repository_default_branch_ref(
     owner: str,
     name: str,
@@ -799,7 +799,7 @@ async def query_repository_default_branch_ref(
     return result["repository"]["defaultBranchRef"]
 
 
-@task()
+@task
 async def query_repository_deploy_keys(
     owner: str,
     name: str,
@@ -860,7 +860,7 @@ async def query_repository_deploy_keys(
     return result["repository"]["deployKeys"]
 
 
-@task()
+@task
 async def query_repository_deployments(
     owner: str,
     name: str,
@@ -931,7 +931,7 @@ async def query_repository_deployments(
     return result["repository"]["deployments"]
 
 
-@task()
+@task
 async def query_repository_discussion(
     owner: str,
     name: str,
@@ -981,7 +981,7 @@ async def query_repository_discussion(
     return result["repository"]["discussion"]
 
 
-@task()
+@task
 async def query_repository_discussion_categories(
     owner: str,
     name: str,
@@ -1047,7 +1047,7 @@ async def query_repository_discussion_categories(
     return result["repository"]["discussionCategories"]
 
 
-@task()
+@task
 async def query_repository_discussions(
     owner: str,
     name: str,
@@ -1119,7 +1119,7 @@ async def query_repository_discussions(
     return result["repository"]["discussions"]
 
 
-@task()
+@task
 async def query_repository_environment(
     owner: str,
     name: str,
@@ -1169,7 +1169,7 @@ async def query_repository_environment(
     return result["repository"]["environment"]
 
 
-@task()
+@task
 async def query_repository_environments(
     owner: str,
     name: str,
@@ -1230,7 +1230,7 @@ async def query_repository_environments(
     return result["repository"]["environments"]
 
 
-@task()
+@task
 async def query_repository_forks(
     owner: str,
     name: str,
@@ -1317,7 +1317,7 @@ async def query_repository_forks(
     return result["repository"]["forks"]
 
 
-@task()
+@task
 async def query_repository_funding_links(
     owner: str,
     name: str,
@@ -1361,7 +1361,7 @@ async def query_repository_funding_links(
     return result["repository"]["fundingLinks"]
 
 
-@task()
+@task
 async def query_repository_interaction_ability(
     owner: str,
     name: str,
@@ -1405,7 +1405,7 @@ async def query_repository_interaction_ability(
     return result["repository"]["interactionAbility"]
 
 
-@task()
+@task
 async def query_repository_issue(
     owner: str,
     name: str,
@@ -1455,7 +1455,7 @@ async def query_repository_issue(
     return result["repository"]["issue"]
 
 
-@task()
+@task
 async def query_repository_issue_or_pull_request(
     owner: str,
     name: str,
@@ -1505,7 +1505,7 @@ async def query_repository_issue_or_pull_request(
     return result["repository"]["issueOrPullRequest"]
 
 
-@task()
+@task
 async def query_repository_issue_templates(
     owner: str,
     name: str,
@@ -1549,7 +1549,7 @@ async def query_repository_issue_templates(
     return result["repository"]["issueTemplates"]
 
 
-@task()
+@task
 async def query_repository_issues(
     owner: str,
     name: str,
@@ -1624,7 +1624,7 @@ async def query_repository_issues(
     return result["repository"]["issues"]
 
 
-@task()
+@task
 async def query_repository_label(
     owner: str,
     name: str,
@@ -1674,7 +1674,7 @@ async def query_repository_label(
     return result["repository"]["label"]
 
 
-@task()
+@task
 async def query_repository_labels(
     owner: str,
     name: str,
@@ -1742,7 +1742,7 @@ async def query_repository_labels(
     return result["repository"]["labels"]
 
 
-@task()
+@task
 async def query_repository_languages(
     owner: str,
     name: str,
@@ -1806,7 +1806,7 @@ async def query_repository_languages(
     return result["repository"]["languages"]
 
 
-@task()
+@task
 async def query_repository_latest_release(
     owner: str,
     name: str,
@@ -1850,7 +1850,7 @@ async def query_repository_latest_release(
     return result["repository"]["latestRelease"]
 
 
-@task()
+@task
 async def query_repository_mentionable_users(
     owner: str,
     name: str,
@@ -1914,7 +1914,7 @@ async def query_repository_mentionable_users(
     return result["repository"]["mentionableUsers"]
 
 
-@task()
+@task
 async def query_repository_milestone(
     owner: str,
     name: str,
@@ -1964,7 +1964,7 @@ async def query_repository_milestone(
     return result["repository"]["milestone"]
 
 
-@task()
+@task
 async def query_repository_milestones(
     owner: str,
     name: str,
@@ -2034,7 +2034,7 @@ async def query_repository_milestones(
     return result["repository"]["milestones"]
 
 
-@task()
+@task
 async def query_repository_object(
     owner: str,
     name: str,
@@ -2087,7 +2087,7 @@ async def query_repository_object(
     return result["repository"]["object"]
 
 
-@task()
+@task
 async def query_repository_pinned_discussions(
     owner: str,
     name: str,
@@ -2148,7 +2148,7 @@ async def query_repository_pinned_discussions(
     return result["repository"]["pinnedDiscussions"]
 
 
-@task()
+@task
 async def query_repository_pinned_issues(
     owner: str,
     name: str,
@@ -2209,7 +2209,7 @@ async def query_repository_pinned_issues(
     return result["repository"]["pinnedIssues"]
 
 
-@task()
+@task
 async def query_repository_primary_language(
     owner: str,
     name: str,
@@ -2253,7 +2253,7 @@ async def query_repository_primary_language(
     return result["repository"]["primaryLanguage"]
 
 
-@task()
+@task
 async def query_repository_project_next(
     owner: str,
     name: str,
@@ -2304,7 +2304,7 @@ async def query_repository_project_next(
     return result["repository"]["projectNext"]
 
 
-@task()
+@task
 async def query_repository_projects_next(
     owner: str,
     name: str,
@@ -2371,7 +2371,7 @@ async def query_repository_projects_next(
     return result["repository"]["projectsNext"]
 
 
-@task()
+@task
 async def query_repository_pull_request(
     owner: str,
     name: str,
@@ -2421,7 +2421,7 @@ async def query_repository_pull_request(
     return result["repository"]["pullRequest"]
 
 
-@task()
+@task
 async def query_repository_pull_request_templates(
     owner: str,
     name: str,
@@ -2465,7 +2465,7 @@ async def query_repository_pull_request_templates(
     return result["repository"]["pullRequestTemplates"]
 
 
-@task()
+@task
 async def query_repository_pull_requests(
     owner: str,
     name: str,
@@ -2545,7 +2545,7 @@ async def query_repository_pull_requests(
     return result["repository"]["pullRequests"]
 
 
-@task()
+@task
 async def query_repository_ref(
     owner: str,
     name: str,
@@ -2597,7 +2597,7 @@ async def query_repository_ref(
     return result["repository"]["ref"]
 
 
-@task()
+@task
 async def query_repository_refs(
     owner: str,
     name: str,
@@ -2671,7 +2671,7 @@ async def query_repository_refs(
     return result["repository"]["refs"]
 
 
-@task()
+@task
 async def query_repository_release(
     owner: str,
     name: str,
@@ -2721,7 +2721,7 @@ async def query_repository_release(
     return result["repository"]["release"]
 
 
-@task()
+@task
 async def query_repository_releases(
     owner: str,
     name: str,
@@ -2785,7 +2785,7 @@ async def query_repository_releases(
     return result["repository"]["releases"]
 
 
-@task()
+@task
 async def query_repository_repository_topics(
     owner: str,
     name: str,
@@ -2846,7 +2846,7 @@ async def query_repository_repository_topics(
     return result["repository"]["repositoryTopics"]
 
 
-@task()
+@task
 async def query_repository_submodules(
     owner: str,
     name: str,
@@ -2908,7 +2908,7 @@ async def query_repository_submodules(
     return result["repository"]["submodules"]
 
 
-@task()
+@task
 async def query_repository_vulnerability_alerts(
     owner: str,
     name: str,
@@ -2973,7 +2973,7 @@ async def query_repository_vulnerability_alerts(
     return result["repository"]["vulnerabilityAlerts"]
 
 
-@task()
+@task
 async def query_repository_watchers(
     owner: str,
     name: str,
