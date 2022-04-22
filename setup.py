@@ -13,9 +13,9 @@ with open("README.md") as readme_file:
 
 setup(
     name="prefect-github",
-    description="Prefect integrations for interacting with GitHub",
+    description="Prefect tasks and subflows for GitHub.",
     license="Apache License 2.0",
-    author="Prefect Technologies, Inc.",
+    author="Prefect Technologies Inc.",
     author_email="help@prefect.io",
     keywords="prefect",
     url="https://github.com/PrefectHQ/prefect-github",

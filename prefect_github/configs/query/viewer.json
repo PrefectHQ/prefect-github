@@ -1,5 +1,5 @@
 {
-  "user": [
+  "viewer": [
     "id",
     "avatarUrl",
     "login",

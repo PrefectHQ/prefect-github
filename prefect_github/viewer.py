@@ -1,5 +1,5 @@
 """
-This is a module for interacting with GitHub Query user tasks.
+This is a module for interacting with GitHub Query viewer tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -16,13 +16,12 @@ from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
-config_path = Path(__file__).parent.resolve() / "configs" / "query" / "user.json"
+config_path = Path(__file__).parent.resolve() / "configs" / "query" / "viewer.json"
 return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
 @task
-async def query_user(
-    login: str,
+async def query_viewer(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -30,7 +29,6 @@ async def query_user(
     The query root of GitHub's GraphQL interface.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -39,24 +37,19 @@ async def query_user(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    )
+    op_selection = op.viewer(**strip_kwargs())
 
-    op_stack = ("user",)
+    op_stack = ("viewer",)
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]
+    return result["viewer"]
 
 
 @task
-async def query_user_packages(
-    login: str,
+async def query_viewer_packages(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -75,7 +68,6 @@ async def query_user_packages(
     A list of packages under the owner.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -94,7 +86,7 @@ async def query_user_packages(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).packages(
+    op_selection = op.viewer(**strip_kwargs()).packages(
         **strip_kwargs(
             after=after,
             before=before,
@@ -108,7 +100,7 @@ async def query_user_packages(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "packages",
     )
     op_selection = _subset_return_fields(
@@ -116,12 +108,11 @@ async def query_user_packages(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["packages"]
+    return result["viewer"]["packages"]
 
 
 @task
-async def query_user_project(
-    login: str,
+async def query_viewer_project(
     number: int,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -130,7 +121,6 @@ async def query_user_project(
     Find project by number.
 
     Args:
-        login: The user's login.
         number: The project number to find.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -140,14 +130,14 @@ async def query_user_project(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).project(
+    op_selection = op.viewer(**strip_kwargs()).project(
         **strip_kwargs(
             number=number,
         )
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "project",
     )
     op_selection = _subset_return_fields(
@@ -155,12 +145,11 @@ async def query_user_project(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["project"]
+    return result["viewer"]["project"]
 
 
 @task
-async def query_user_projects(
-    login: str,
+async def query_viewer_projects(
     states: Iterable[graphql_schema.ProjectState],
     github_credentials: GitHubCredentials,
     order_by: graphql_schema.ProjectOrder = None,
@@ -175,7 +164,6 @@ async def query_user_projects(
     A list of projects under the owner.
 
     Args:
-        login: The user's login.
         states: A list of states to filter the projects by.
         github_credentials: Credentials to use for authentication with GitHub.
         order_by: Ordering options for projects returned from the
@@ -195,7 +183,7 @@ async def query_user_projects(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).projects(
+    op_selection = op.viewer(**strip_kwargs()).projects(
         **strip_kwargs(
             states=states,
             order_by=order_by,
@@ -208,7 +196,7 @@ async def query_user_projects(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "projects",
     )
     op_selection = _subset_return_fields(
@@ -216,12 +204,11 @@ async def query_user_projects(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["projects"]
+    return result["viewer"]["projects"]
 
 
 @task
-async def query_user_project_next(
-    login: str,
+async def query_viewer_project_next(
     number: int,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -230,7 +217,6 @@ async def query_user_project_next(
     Find a project by project (beta) number.
 
     Args:
-        login: The user's login.
         number: The project (beta) number.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -240,14 +226,14 @@ async def query_user_project_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).project_next(
+    op_selection = op.viewer(**strip_kwargs()).project_next(
         **strip_kwargs(
             number=number,
         )
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "projectNext",
     )
     op_selection = _subset_return_fields(
@@ -255,12 +241,11 @@ async def query_user_project_next(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["projectNext"]
+    return result["viewer"]["projectNext"]
 
 
 @task
-async def query_user_projects_next(
-    login: str,
+async def query_viewer_projects_next(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -274,7 +259,6 @@ async def query_user_projects_next(
     A list of projects (beta) under the owner.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -291,7 +275,7 @@ async def query_user_projects_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).projects_next(
+    op_selection = op.viewer(**strip_kwargs()).projects_next(
         **strip_kwargs(
             after=after,
             before=before,
@@ -303,7 +287,7 @@ async def query_user_projects_next(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "projectsNext",
     )
     op_selection = _subset_return_fields(
@@ -311,12 +295,11 @@ async def query_user_projects_next(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["projectsNext"]
+    return result["viewer"]["projectsNext"]
 
 
 @task
-async def query_user_repository_discussions(
-    login: str,
+async def query_viewer_repository_discussions(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -334,7 +317,6 @@ async def query_user_repository_discussions(
     Discussions this user has started.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come
             after the specified cursor.
@@ -358,7 +340,7 @@ async def query_user_repository_discussions(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).repository_discussions(
+    op_selection = op.viewer(**strip_kwargs()).repository_discussions(
         **strip_kwargs(
             after=after,
             before=before,
@@ -371,7 +353,7 @@ async def query_user_repository_discussions(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "repositoryDiscussions",
     )
     op_selection = _subset_return_fields(
@@ -379,12 +361,11 @@ async def query_user_repository_discussions(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repositoryDiscussions"]
+    return result["viewer"]["repositoryDiscussions"]
 
 
 @task
-async def query_user_repository_discussion_comments(
-    login: str,
+async def query_viewer_repository_discussion_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -398,7 +379,6 @@ async def query_user_repository_discussion_comments(
     Discussion comments this user has authored.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list
             that come after the specified cursor.
@@ -419,7 +399,7 @@ async def query_user_repository_discussion_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).repository_discussion_comments(
+    op_selection = op.viewer(**strip_kwargs()).repository_discussion_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -431,7 +411,7 @@ async def query_user_repository_discussion_comments(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "repositoryDiscussionComments",
     )
     op_selection = _subset_return_fields(
@@ -439,12 +419,11 @@ async def query_user_repository_discussion_comments(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repositoryDiscussionComments"]
+    return result["viewer"]["repositoryDiscussionComments"]
 
 
 @task
-async def query_user_repositories(
-    login: str,
+async def query_viewer_repositories(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
     order_by: graphql_schema.RepositoryOrder = None,
@@ -465,7 +444,6 @@ async def query_user_repositories(
     A list of repositories that the user owns.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: If non-null, filters repositories according to
             privacy.
@@ -496,7 +474,7 @@ async def query_user_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).repositories(
+    op_selection = op.viewer(**strip_kwargs()).repositories(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -512,7 +490,7 @@ async def query_user_repositories(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "repositories",
     )
     op_selection = _subset_return_fields(
@@ -520,12 +498,11 @@ async def query_user_repositories(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repositories"]
+    return result["viewer"]["repositories"]
 
 
 @task
-async def query_user_repository(
-    login: str,
+async def query_viewer_repository(
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
@@ -535,7 +512,6 @@ async def query_user_repository(
     Find Repository.
 
     Args:
-        login: The user's login.
         name: Name of Repository to find.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
@@ -547,7 +523,7 @@ async def query_user_repository(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).repository(
+    op_selection = op.viewer(**strip_kwargs()).repository(
         **strip_kwargs(
             name=name,
             follow_renames=follow_renames,
@@ -555,7 +531,7 @@ async def query_user_repository(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "repository",
     )
     op_selection = _subset_return_fields(
@@ -563,12 +539,11 @@ async def query_user_repository(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repository"]
+    return result["viewer"]["repository"]
 
 
 @task
-async def query_user_item_showcase(
-    login: str,
+async def query_viewer_item_showcase(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -577,7 +552,6 @@ async def query_user_item_showcase(
     either curated or that have been selected automatically based on popularity.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -586,14 +560,10 @@ async def query_user_item_showcase(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).item_showcase(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).item_showcase(**strip_kwargs())
 
     op_stack = (
-        "user",
+        "viewer",
         "itemShowcase",
     )
     op_selection = _subset_return_fields(
@@ -601,12 +571,11 @@ async def query_user_item_showcase(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["itemShowcase"]
+    return result["viewer"]["itemShowcase"]
 
 
 @task
-async def query_user_pinnable_items(
-    login: str,
+async def query_viewer_pinnable_items(
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -619,7 +588,6 @@ async def query_user_pinnable_items(
     A list of repositories and gists this profile owner can pin to their profile.
 
     Args:
-        login: The user's login.
         types: Filter the types of pinnable items that are
             returned.
         github_credentials: Credentials to use for authentication with GitHub.
@@ -636,7 +604,7 @@ async def query_user_pinnable_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).pinnable_items(
+    op_selection = op.viewer(**strip_kwargs()).pinnable_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -647,7 +615,7 @@ async def query_user_pinnable_items(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "pinnableItems",
     )
     op_selection = _subset_return_fields(
@@ -655,12 +623,11 @@ async def query_user_pinnable_items(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pinnableItems"]
+    return result["viewer"]["pinnableItems"]
 
 
 @task
-async def query_user_pinned_items(
-    login: str,
+async def query_viewer_pinned_items(
     types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -673,7 +640,6 @@ async def query_user_pinned_items(
     A list of repositories and gists this profile owner has pinned to their profile.
 
     Args:
-        login: The user's login.
         types: Filter the types of pinned items that are returned.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
@@ -689,7 +655,7 @@ async def query_user_pinned_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).pinned_items(
+    op_selection = op.viewer(**strip_kwargs()).pinned_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -700,7 +666,7 @@ async def query_user_pinned_items(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "pinnedItems",
     )
     op_selection = _subset_return_fields(
@@ -708,12 +674,11 @@ async def query_user_pinned_items(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pinnedItems"]
+    return result["viewer"]["pinnedItems"]
 
 
 @task
-async def query_user_sponsoring(
-    login: str,
+async def query_viewer_sponsoring(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -726,7 +691,6 @@ async def query_user_sponsoring(
     List of users and organizations this entity is sponsoring.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -743,7 +707,7 @@ async def query_user_sponsoring(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsoring(
+    op_selection = op.viewer(**strip_kwargs()).sponsoring(
         **strip_kwargs(
             after=after,
             before=before,
@@ -754,7 +718,7 @@ async def query_user_sponsoring(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsoring",
     )
     op_selection = _subset_return_fields(
@@ -762,12 +726,11 @@ async def query_user_sponsoring(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsoring"]
+    return result["viewer"]["sponsoring"]
 
 
 @task
-async def query_user_sponsors(
-    login: str,
+async def query_viewer_sponsors(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -781,7 +744,6 @@ async def query_user_sponsors(
     List of sponsors for this user or organization.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -801,7 +763,7 @@ async def query_user_sponsors(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsors(
+    op_selection = op.viewer(**strip_kwargs()).sponsors(
         **strip_kwargs(
             after=after,
             before=before,
@@ -813,7 +775,7 @@ async def query_user_sponsors(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsors",
     )
     op_selection = _subset_return_fields(
@@ -821,12 +783,11 @@ async def query_user_sponsors(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsors"]
+    return result["viewer"]["sponsors"]
 
 
 @task
-async def query_user_sponsors_activities(
-    login: str,
+async def query_viewer_sponsors_activities(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -843,7 +804,6 @@ async def query_user_sponsors_activities(
     Events involving this sponsorable, such as new sponsorships.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come
             after the specified cursor.
@@ -862,7 +822,7 @@ async def query_user_sponsors_activities(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsors_activities(
+    op_selection = op.viewer(**strip_kwargs()).sponsors_activities(
         **strip_kwargs(
             after=after,
             before=before,
@@ -874,7 +834,7 @@ async def query_user_sponsors_activities(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorsActivities",
     )
     op_selection = _subset_return_fields(
@@ -882,12 +842,11 @@ async def query_user_sponsors_activities(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorsActivities"]
+    return result["viewer"]["sponsorsActivities"]
 
 
 @task
-async def query_user_sponsors_listing(
-    login: str,
+async def query_viewer_sponsors_listing(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -895,7 +854,6 @@ async def query_user_sponsors_listing(
     The GitHub Sponsors listing for this user or organization.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -904,14 +862,10 @@ async def query_user_sponsors_listing(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).sponsors_listing(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).sponsors_listing(**strip_kwargs())
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorsListing",
     )
     op_selection = _subset_return_fields(
@@ -919,12 +873,11 @@ async def query_user_sponsors_listing(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorsListing"]
+    return result["viewer"]["sponsorsListing"]
 
 
 @task
-async def query_user_sponsorship_for_viewer_as_sponsor(
-    login: str,
+async def query_viewer_sponsorship_for_viewer_as_sponsor(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -934,7 +887,6 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
     active.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -943,14 +895,12 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsor(
+        **strip_kwargs()
+    )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorshipForViewerAsSponsor",
     )
     op_selection = _subset_return_fields(
@@ -958,12 +908,11 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorshipForViewerAsSponsor"]
+    return result["viewer"]["sponsorshipForViewerAsSponsor"]
 
 
 @task
-async def query_user_sponsorship_for_viewer_as_sponsorable(
-    login: str,
+async def query_viewer_sponsorship_for_viewer_as_sponsorable(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -972,7 +921,6 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
     sponsorship you're receiving. Only returns a sponsorship if it is active.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -981,14 +929,12 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsorable(
+        **strip_kwargs()
+    )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorshipForViewerAsSponsorable",
     )
     op_selection = _subset_return_fields(
@@ -996,12 +942,11 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorshipForViewerAsSponsorable"]
+    return result["viewer"]["sponsorshipForViewerAsSponsorable"]
 
 
 @task
-async def query_user_sponsorship_newsletters(
-    login: str,
+async def query_viewer_sponsorship_newsletters(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1017,7 +962,6 @@ async def query_user_sponsorship_newsletters(
     List of sponsorship updates sent from this sponsorable to sponsors.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that
             come after the specified cursor.
@@ -1036,7 +980,7 @@ async def query_user_sponsorship_newsletters(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsorship_newsletters(
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_newsletters(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1047,7 +991,7 @@ async def query_user_sponsorship_newsletters(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorshipNewsletters",
     )
     op_selection = _subset_return_fields(
@@ -1055,12 +999,11 @@ async def query_user_sponsorship_newsletters(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorshipNewsletters"]
+    return result["viewer"]["sponsorshipNewsletters"]
 
 
 @task
-async def query_user_sponsorships_as_maintainer(
-    login: str,
+async def query_viewer_sponsorships_as_maintainer(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1074,7 +1017,6 @@ async def query_user_sponsorships_as_maintainer(
     This object's sponsorships as the maintainer.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that
             come after the specified cursor.
@@ -1097,7 +1039,7 @@ async def query_user_sponsorships_as_maintainer(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsorships_as_maintainer(
+    op_selection = op.viewer(**strip_kwargs()).sponsorships_as_maintainer(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1109,7 +1051,7 @@ async def query_user_sponsorships_as_maintainer(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorshipsAsMaintainer",
     )
     op_selection = _subset_return_fields(
@@ -1117,12 +1059,11 @@ async def query_user_sponsorships_as_maintainer(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorshipsAsMaintainer"]
+    return result["viewer"]["sponsorshipsAsMaintainer"]
 
 
 @task
-async def query_user_sponsorships_as_sponsor(
-    login: str,
+async def query_viewer_sponsorships_as_sponsor(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1135,7 +1076,6 @@ async def query_user_sponsorships_as_sponsor(
     This object's sponsorships as the sponsor.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that
             come after the specified cursor.
@@ -1156,7 +1096,7 @@ async def query_user_sponsorships_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).sponsorships_as_sponsor(
+    op_selection = op.viewer(**strip_kwargs()).sponsorships_as_sponsor(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1167,7 +1107,7 @@ async def query_user_sponsorships_as_sponsor(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "sponsorshipsAsSponsor",
     )
     op_selection = _subset_return_fields(
@@ -1175,12 +1115,11 @@ async def query_user_sponsorships_as_sponsor(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["sponsorshipsAsSponsor"]
+    return result["viewer"]["sponsorshipsAsSponsor"]
 
 
 @task
-async def query_user_commit_comments(
-    login: str,
+async def query_viewer_commit_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1192,7 +1131,6 @@ async def query_user_commit_comments(
     A list of commit comments made by this user.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -1207,7 +1145,7 @@ async def query_user_commit_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).commit_comments(
+    op_selection = op.viewer(**strip_kwargs()).commit_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1217,7 +1155,7 @@ async def query_user_commit_comments(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "commitComments",
     )
     op_selection = _subset_return_fields(
@@ -1225,12 +1163,11 @@ async def query_user_commit_comments(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["commitComments"]
+    return result["viewer"]["commitComments"]
 
 
 @task
-async def query_user_contributions_collection(
-    login: str,
+async def query_viewer_contributions_collection(
     github_credentials: GitHubCredentials,
     organization_id: str = None,
     from_: datetime = None,
@@ -1241,7 +1178,6 @@ async def query_user_contributions_collection(
     The collection of contributions this user has made to different repositories.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         organization_id: The ID of the organization
             used to filter contributions.
@@ -1258,7 +1194,7 @@ async def query_user_contributions_collection(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).contributions_collection(
+    op_selection = op.viewer(**strip_kwargs()).contributions_collection(
         **strip_kwargs(
             organization_id=organization_id,
             from_=from_,
@@ -1267,7 +1203,7 @@ async def query_user_contributions_collection(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "contributionsCollection",
     )
     op_selection = _subset_return_fields(
@@ -1275,12 +1211,11 @@ async def query_user_contributions_collection(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["contributionsCollection"]
+    return result["viewer"]["contributionsCollection"]
 
 
 @task
-async def query_user_followers(
-    login: str,
+async def query_viewer_followers(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1292,7 +1227,6 @@ async def query_user_followers(
     A list of users the given user is followed by.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -1307,7 +1241,7 @@ async def query_user_followers(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).followers(
+    op_selection = op.viewer(**strip_kwargs()).followers(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1317,7 +1251,7 @@ async def query_user_followers(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "followers",
     )
     op_selection = _subset_return_fields(
@@ -1325,12 +1259,11 @@ async def query_user_followers(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["followers"]
+    return result["viewer"]["followers"]
 
 
 @task
-async def query_user_following(
-    login: str,
+async def query_viewer_following(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1342,7 +1275,6 @@ async def query_user_following(
     A list of users the given user is following.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -1357,7 +1289,7 @@ async def query_user_following(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).following(
+    op_selection = op.viewer(**strip_kwargs()).following(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1367,7 +1299,7 @@ async def query_user_following(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "following",
     )
     op_selection = _subset_return_fields(
@@ -1375,12 +1307,11 @@ async def query_user_following(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["following"]
+    return result["viewer"]["following"]
 
 
 @task
-async def query_user_gist(
-    login: str,
+async def query_viewer_gist(
     name: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
@@ -1389,7 +1320,6 @@ async def query_user_gist(
     Find gist by repo name.
 
     Args:
-        login: The user's login.
         name: The gist name to find.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -1399,14 +1329,14 @@ async def query_user_gist(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).gist(
+    op_selection = op.viewer(**strip_kwargs()).gist(
         **strip_kwargs(
             name=name,
         )
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "gist",
     )
     op_selection = _subset_return_fields(
@@ -1414,12 +1344,11 @@ async def query_user_gist(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["gist"]
+    return result["viewer"]["gist"]
 
 
 @task
-async def query_user_gist_comments(
-    login: str,
+async def query_viewer_gist_comments(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1431,7 +1360,6 @@ async def query_user_gist_comments(
     A list of gist comments made by this user.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -1446,7 +1374,7 @@ async def query_user_gist_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).gist_comments(
+    op_selection = op.viewer(**strip_kwargs()).gist_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1456,7 +1384,7 @@ async def query_user_gist_comments(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "gistComments",
     )
     op_selection = _subset_return_fields(
@@ -1464,12 +1392,11 @@ async def query_user_gist_comments(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["gistComments"]
+    return result["viewer"]["gistComments"]
 
 
 @task
-async def query_user_gists(
-    login: str,
+async def query_viewer_gists(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.GistPrivacy = None,
     order_by: graphql_schema.GistOrder = None,
@@ -1483,7 +1410,6 @@ async def query_user_gists(
     A list of the Gists the user has created.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: Filters Gists according to privacy.
         order_by: Ordering options for gists returned from the connection.
@@ -1500,7 +1426,7 @@ async def query_user_gists(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).gists(
+    op_selection = op.viewer(**strip_kwargs()).gists(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -1512,7 +1438,7 @@ async def query_user_gists(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "gists",
     )
     op_selection = _subset_return_fields(
@@ -1520,12 +1446,11 @@ async def query_user_gists(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["gists"]
+    return result["viewer"]["gists"]
 
 
 @task
-async def query_user_interaction_ability(
-    login: str,
+async def query_viewer_interaction_ability(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -1533,7 +1458,6 @@ async def query_user_interaction_ability(
     The interaction ability settings for this user.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -1542,14 +1466,10 @@ async def query_user_interaction_ability(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).interaction_ability(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).interaction_ability(**strip_kwargs())
 
     op_stack = (
-        "user",
+        "viewer",
         "interactionAbility",
     )
     op_selection = _subset_return_fields(
@@ -1557,12 +1477,11 @@ async def query_user_interaction_ability(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["interactionAbility"]
+    return result["viewer"]["interactionAbility"]
 
 
 @task
-async def query_user_issue_comments(
-    login: str,
+async def query_viewer_issue_comments(
     github_credentials: GitHubCredentials,
     order_by: graphql_schema.IssueCommentOrder = None,
     after: str = None,
@@ -1575,7 +1494,6 @@ async def query_user_issue_comments(
     A list of issue comments made by this user.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         order_by: Ordering options for issue comments returned
             from the connection.
@@ -1592,7 +1510,7 @@ async def query_user_issue_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).issue_comments(
+    op_selection = op.viewer(**strip_kwargs()).issue_comments(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -1603,7 +1521,7 @@ async def query_user_issue_comments(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "issueComments",
     )
     op_selection = _subset_return_fields(
@@ -1611,12 +1529,11 @@ async def query_user_issue_comments(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["issueComments"]
+    return result["viewer"]["issueComments"]
 
 
 @task
-async def query_user_issues(
-    login: str,
+async def query_viewer_issues(
     labels: Iterable[str],
     states: Iterable[graphql_schema.IssueState],
     github_credentials: GitHubCredentials,
@@ -1632,7 +1549,6 @@ async def query_user_issues(
     A list of issues associated with this user.
 
     Args:
-        login: The user's login.
         labels: A list of label names to filter the pull requests by.
         states: A list of states to filter the issues by.
         github_credentials: Credentials to use for authentication with GitHub.
@@ -1653,7 +1569,7 @@ async def query_user_issues(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).issues(
+    op_selection = op.viewer(**strip_kwargs()).issues(
         **strip_kwargs(
             labels=labels,
             states=states,
@@ -1667,7 +1583,7 @@ async def query_user_issues(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "issues",
     )
     op_selection = _subset_return_fields(
@@ -1675,13 +1591,12 @@ async def query_user_issues(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["issues"]
+    return result["viewer"]["issues"]
 
 
 @task
-async def query_user_organization(
+async def query_viewer_organization(
     login: str,
-    organization_login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -1689,8 +1604,7 @@ async def query_user_organization(
     Find an organization by its login that the user belongs to.
 
     Args:
-        login: The user's login.
-        organization_login: The login of the organization to find.
+        login: The login of the organization to find.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -1699,14 +1613,14 @@ async def query_user_organization(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).organization(
+    op_selection = op.viewer(**strip_kwargs()).organization(
         **strip_kwargs(
-            login=organization_login,
+            login=login,
         )
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "organization",
     )
     op_selection = _subset_return_fields(
@@ -1714,12 +1628,11 @@ async def query_user_organization(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["organization"]
+    return result["viewer"]["organization"]
 
 
 @task
-async def query_user_organizations(
-    login: str,
+async def query_viewer_organizations(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1731,7 +1644,6 @@ async def query_user_organizations(
     A list of organizations the user belongs to.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -1746,7 +1658,7 @@ async def query_user_organizations(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).organizations(
+    op_selection = op.viewer(**strip_kwargs()).organizations(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1756,7 +1668,7 @@ async def query_user_organizations(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "organizations",
     )
     op_selection = _subset_return_fields(
@@ -1764,12 +1676,11 @@ async def query_user_organizations(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["organizations"]
+    return result["viewer"]["organizations"]
 
 
 @task
-async def query_user_public_keys(
-    login: str,
+async def query_viewer_public_keys(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1781,7 +1692,6 @@ async def query_user_public_keys(
     A list of public keys associated with this user.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after the
             specified cursor.
@@ -1796,7 +1706,7 @@ async def query_user_public_keys(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).public_keys(
+    op_selection = op.viewer(**strip_kwargs()).public_keys(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1806,7 +1716,7 @@ async def query_user_public_keys(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "publicKeys",
     )
     op_selection = _subset_return_fields(
@@ -1814,12 +1724,11 @@ async def query_user_public_keys(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["publicKeys"]
+    return result["viewer"]["publicKeys"]
 
 
 @task
-async def query_user_pull_requests(
-    login: str,
+async def query_viewer_pull_requests(
     states: Iterable[graphql_schema.PullRequestState],
     labels: Iterable[str],
     github_credentials: GitHubCredentials,
@@ -1836,7 +1745,6 @@ async def query_user_pull_requests(
     A list of pull requests associated with this user.
 
     Args:
-        login: The user's login.
         states: A list of states to filter the pull requests by.
         labels: A list of label names to filter the pull requests
             by.
@@ -1860,7 +1768,7 @@ async def query_user_pull_requests(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).pull_requests(
+    op_selection = op.viewer(**strip_kwargs()).pull_requests(
         **strip_kwargs(
             states=states,
             labels=labels,
@@ -1875,7 +1783,7 @@ async def query_user_pull_requests(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "pullRequests",
     )
     op_selection = _subset_return_fields(
@@ -1883,12 +1791,11 @@ async def query_user_pull_requests(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["pullRequests"]
+    return result["viewer"]["pullRequests"]
 
 
 @task
-async def query_user_repositories_contributed_to(
-    login: str,
+async def query_viewer_repositories_contributed_to(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
     order_by: graphql_schema.RepositoryOrder = None,
@@ -1905,7 +1812,6 @@ async def query_user_repositories_contributed_to(
     A list of repositories that the user recently contributed to.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: If non-null, filters repositories
             according to privacy.
@@ -1933,7 +1839,7 @@ async def query_user_repositories_contributed_to(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).repositories_contributed_to(
+    op_selection = op.viewer(**strip_kwargs()).repositories_contributed_to(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -1948,7 +1854,7 @@ async def query_user_repositories_contributed_to(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "repositoriesContributedTo",
     )
     op_selection = _subset_return_fields(
@@ -1956,12 +1862,11 @@ async def query_user_repositories_contributed_to(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["repositoriesContributedTo"]
+    return result["viewer"]["repositoriesContributedTo"]
 
 
 @task
-async def query_user_saved_replies(
-    login: str,
+async def query_viewer_saved_replies(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -1977,7 +1882,6 @@ async def query_user_saved_replies(
     Replies this user has saved.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come after
             the specified cursor.
@@ -1993,7 +1897,7 @@ async def query_user_saved_replies(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).saved_replies(
+    op_selection = op.viewer(**strip_kwargs()).saved_replies(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2004,7 +1908,7 @@ async def query_user_saved_replies(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "savedReplies",
     )
     op_selection = _subset_return_fields(
@@ -2012,12 +1916,11 @@ async def query_user_saved_replies(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["savedReplies"]
+    return result["viewer"]["savedReplies"]
 
 
 @task
-async def query_user_starred_repositories(
-    login: str,
+async def query_viewer_starred_repositories(
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -2031,7 +1934,6 @@ async def query_user_starred_repositories(
     Repositories the user has starred.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come
             after the specified cursor.
@@ -2050,7 +1952,7 @@ async def query_user_starred_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).starred_repositories(
+    op_selection = op.viewer(**strip_kwargs()).starred_repositories(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2062,7 +1964,7 @@ async def query_user_starred_repositories(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "starredRepositories",
     )
     op_selection = _subset_return_fields(
@@ -2070,12 +1972,11 @@ async def query_user_starred_repositories(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["starredRepositories"]
+    return result["viewer"]["starredRepositories"]
 
 
 @task
-async def query_user_status(
-    login: str,
+async def query_viewer_status(
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
@@ -2083,7 +1984,6 @@ async def query_user_status(
     The user's description of what they're currently doing.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
@@ -2092,14 +1992,10 @@ async def query_user_status(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(
-        **strip_kwargs(
-            login=login,
-        )
-    ).status(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).status(**strip_kwargs())
 
     op_stack = (
-        "user",
+        "viewer",
         "status",
     )
     op_selection = _subset_return_fields(
@@ -2107,12 +2003,11 @@ async def query_user_status(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["status"]
+    return result["viewer"]["status"]
 
 
 @task
-async def query_user_top_repositories(
-    login: str,
+async def query_viewer_top_repositories(
     order_by: graphql_schema.RepositoryOrder,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -2127,7 +2022,6 @@ async def query_user_top_repositories(
     repositories the user has created.
 
     Args:
-        login: The user's login.
         order_by: Ordering options for repositories returned
             from the connection.
         github_credentials: Credentials to use for authentication with GitHub.
@@ -2146,7 +2040,7 @@ async def query_user_top_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).top_repositories(
+    op_selection = op.viewer(**strip_kwargs()).top_repositories(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -2158,7 +2052,7 @@ async def query_user_top_repositories(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "topRepositories",
     )
     op_selection = _subset_return_fields(
@@ -2166,12 +2060,11 @@ async def query_user_top_repositories(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["topRepositories"]
+    return result["viewer"]["topRepositories"]
 
 
 @task
-async def query_user_watching(
-    login: str,
+async def query_viewer_watching(
     github_credentials: GitHubCredentials,
     privacy: graphql_schema.RepositoryPrivacy = None,
     order_by: graphql_schema.RepositoryOrder = None,
@@ -2191,7 +2084,6 @@ async def query_user_watching(
     A list of repositories the given user is watching.
 
     Args:
-        login: The user's login.
         github_credentials: Credentials to use for authentication with GitHub.
         privacy: If non-null, filters repositories according to privacy.
         order_by: Ordering options for repositories returned from the
@@ -2219,7 +2111,7 @@ async def query_user_watching(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.user(**strip_kwargs(login=login,)).watching(
+    op_selection = op.viewer(**strip_kwargs()).watching(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -2234,7 +2126,7 @@ async def query_user_watching(
     )
 
     op_stack = (
-        "user",
+        "viewer",
         "watching",
     )
     op_selection = _subset_return_fields(
@@ -2242,4 +2134,4 @@ async def query_user_watching(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["user"]["watching"]
+    return result["viewer"]["watching"]

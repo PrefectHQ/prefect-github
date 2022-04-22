@@ -36,6 +36,13 @@ plugins:
 
 nav:
     - Home: index.md
-    - Tasks: tasks.md
-    - Flows: flows.md
-
+    - Credentials: credentials.md
+    - Graphql: graphql.md
+    - Mutations: mutations.md
+    - Organization: organization.md
+    - Repository: repository.md
+    - Repository Owner: repository_owner.md
+    - User: user.md
+    - Utils: utils.md
+    - Viewer: viewer.md
+    
