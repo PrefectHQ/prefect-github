@@ -6,13 +6,14 @@ manually editing this file is not recommended.
 
 from functools import partial
 from pprint import pformat
-from typing import Any, Dict, Union
+from typing import Any, Dict, Iterable, List, Tuple, Union
 
 from anyio import to_thread
 from prefect import task
-from sgqlc.operation import Operation
+from sgqlc.operation import Operation, Selection
 
 from prefect_github import GitHubCredentials
+from prefect_github.utils import camel_to_snake_case
 
 
 async def _execute_graphql_op(
@@ -28,6 +29,31 @@ async def _execute_graphql_op(
         errors = pformat(result["errors"])
         raise RuntimeError(f"Errors encountered:\n{errors}")
     return result["data"]
+
+
+def _subset_return_fields(
+    op_selection: Selection,
+    op_stack: List[str],
+    return_fields: Iterable[str],
+    return_fields_defaults: Dict[Tuple, Tuple],
+):
+    """
+    Helper function to subset return fields.
+    """
+    if not return_fields:
+        return_fields = return_fields_defaults[op_stack]
+    elif isinstance(return_fields, str):
+        return_fields = (return_fields,)
+
+    return_fields = tuple(
+        camel_to_snake_case(return_field) for return_field in return_fields
+    )
+
+    try:
+        op_selection.__fields__(*return_fields)
+    except KeyError:  # nested under node
+        op_selection.nodes().__fields__(*return_fields)
+    return op_selection
 
 
 @task

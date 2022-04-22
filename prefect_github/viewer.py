@@ -12,7 +12,7 @@ from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
-from prefect_github.graphql import _execute_graphql_op
+from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
@@ -37,18 +37,12 @@ async def query_viewer(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = ("viewer",)
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = ("viewer",)
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]
@@ -92,7 +86,7 @@ async def query_viewer_packages(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).packages(
+    op_selection = op.viewer(**strip_kwargs()).packages(
         **strip_kwargs(
             after=after,
             before=before,
@@ -105,19 +99,13 @@ async def query_viewer_packages(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "packages",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "packages",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["packages"]
@@ -142,25 +130,19 @@ async def query_viewer_project(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).project(
+    op_selection = op.viewer(**strip_kwargs()).project(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "project",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "project",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["project"]
@@ -201,7 +183,7 @@ async def query_viewer_projects(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).projects(
+    op_selection = op.viewer(**strip_kwargs()).projects(
         **strip_kwargs(
             states=states,
             order_by=order_by,
@@ -213,19 +195,13 @@ async def query_viewer_projects(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "projects",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "projects",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["projects"]
@@ -250,25 +226,19 @@ async def query_viewer_project_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).project_next(
+    op_selection = op.viewer(**strip_kwargs()).project_next(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "projectNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "projectNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["projectNext"]
@@ -305,7 +275,7 @@ async def query_viewer_projects_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).projects_next(
+    op_selection = op.viewer(**strip_kwargs()).projects_next(
         **strip_kwargs(
             after=after,
             before=before,
@@ -316,19 +286,13 @@ async def query_viewer_projects_next(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "projectsNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "projectsNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["projectsNext"]
@@ -376,7 +340,7 @@ async def query_viewer_repository_discussions(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).repository_discussions(
+    op_selection = op.viewer(**strip_kwargs()).repository_discussions(
         **strip_kwargs(
             after=after,
             before=before,
@@ -388,19 +352,13 @@ async def query_viewer_repository_discussions(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "repositoryDiscussions",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "repositoryDiscussions",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["repositoryDiscussions"]
@@ -441,7 +399,7 @@ async def query_viewer_repository_discussion_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).repository_discussion_comments(
+    op_selection = op.viewer(**strip_kwargs()).repository_discussion_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -452,19 +410,13 @@ async def query_viewer_repository_discussion_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "repositoryDiscussionComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "repositoryDiscussionComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["repositoryDiscussionComments"]
@@ -522,7 +474,7 @@ async def query_viewer_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).repositories(
+    op_selection = op.viewer(**strip_kwargs()).repositories(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -537,19 +489,13 @@ async def query_viewer_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "repositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "repositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["repositories"]
@@ -577,26 +523,20 @@ async def query_viewer_repository(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).repository(
+    op_selection = op.viewer(**strip_kwargs()).repository(
         **strip_kwargs(
             name=name,
             follow_renames=follow_renames,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "repository",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["repository"]
@@ -620,21 +560,15 @@ async def query_viewer_item_showcase(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).item_showcase(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).item_showcase(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "itemShowcase",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "itemShowcase",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["itemShowcase"]
@@ -670,7 +604,7 @@ async def query_viewer_pinnable_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).pinnable_items(
+    op_selection = op.viewer(**strip_kwargs()).pinnable_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -680,19 +614,13 @@ async def query_viewer_pinnable_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "pinnableItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "pinnableItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["pinnableItems"]
@@ -727,7 +655,7 @@ async def query_viewer_pinned_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).pinned_items(
+    op_selection = op.viewer(**strip_kwargs()).pinned_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -737,19 +665,13 @@ async def query_viewer_pinned_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "pinnedItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "pinnedItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["pinnedItems"]
@@ -785,7 +707,7 @@ async def query_viewer_sponsoring(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsoring(
+    op_selection = op.viewer(**strip_kwargs()).sponsoring(
         **strip_kwargs(
             after=after,
             before=before,
@@ -795,19 +717,13 @@ async def query_viewer_sponsoring(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsoring",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsoring",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsoring"]
@@ -847,7 +763,7 @@ async def query_viewer_sponsors(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsors(
+    op_selection = op.viewer(**strip_kwargs()).sponsors(
         **strip_kwargs(
             after=after,
             before=before,
@@ -858,19 +774,13 @@ async def query_viewer_sponsors(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsors",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsors",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsors"]
@@ -912,7 +822,7 @@ async def query_viewer_sponsors_activities(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsors_activities(
+    op_selection = op.viewer(**strip_kwargs()).sponsors_activities(
         **strip_kwargs(
             after=after,
             before=before,
@@ -923,19 +833,13 @@ async def query_viewer_sponsors_activities(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorsActivities",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorsActivities",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorsActivities"]
@@ -958,21 +862,15 @@ async def query_viewer_sponsors_listing(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsors_listing(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).sponsors_listing(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorsListing",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorsListing",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorsListing"]
@@ -997,23 +895,17 @@ async def query_viewer_sponsorship_for_viewer_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsor(
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsor(
         **strip_kwargs()
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorshipForViewerAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorshipForViewerAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorshipForViewerAsSponsor"]
@@ -1037,23 +929,17 @@ async def query_viewer_sponsorship_for_viewer_as_sponsorable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsorable(
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_for_viewer_as_sponsorable(
         **strip_kwargs()
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorshipForViewerAsSponsorable",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorshipForViewerAsSponsorable",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorshipForViewerAsSponsorable"]
@@ -1094,7 +980,7 @@ async def query_viewer_sponsorship_newsletters(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsorship_newsletters(
+    op_selection = op.viewer(**strip_kwargs()).sponsorship_newsletters(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1104,19 +990,13 @@ async def query_viewer_sponsorship_newsletters(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorshipNewsletters",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorshipNewsletters",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorshipNewsletters"]
@@ -1159,7 +1039,7 @@ async def query_viewer_sponsorships_as_maintainer(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsorships_as_maintainer(
+    op_selection = op.viewer(**strip_kwargs()).sponsorships_as_maintainer(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1170,19 +1050,13 @@ async def query_viewer_sponsorships_as_maintainer(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorshipsAsMaintainer",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorshipsAsMaintainer",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorshipsAsMaintainer"]
@@ -1222,7 +1096,7 @@ async def query_viewer_sponsorships_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).sponsorships_as_sponsor(
+    op_selection = op.viewer(**strip_kwargs()).sponsorships_as_sponsor(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1232,19 +1106,13 @@ async def query_viewer_sponsorships_as_sponsor(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "sponsorshipsAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "sponsorshipsAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["sponsorshipsAsSponsor"]
@@ -1277,7 +1145,7 @@ async def query_viewer_commit_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).commit_comments(
+    op_selection = op.viewer(**strip_kwargs()).commit_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1286,19 +1154,13 @@ async def query_viewer_commit_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "commitComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "commitComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["commitComments"]
@@ -1332,7 +1194,7 @@ async def query_viewer_contributions_collection(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).contributions_collection(
+    op_selection = op.viewer(**strip_kwargs()).contributions_collection(
         **strip_kwargs(
             organization_id=organization_id,
             from_=from_,
@@ -1340,19 +1202,13 @@ async def query_viewer_contributions_collection(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "contributionsCollection",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "contributionsCollection",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["contributionsCollection"]
@@ -1385,7 +1241,7 @@ async def query_viewer_followers(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).followers(
+    op_selection = op.viewer(**strip_kwargs()).followers(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1394,19 +1250,13 @@ async def query_viewer_followers(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "followers",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "followers",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["followers"]
@@ -1439,7 +1289,7 @@ async def query_viewer_following(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).following(
+    op_selection = op.viewer(**strip_kwargs()).following(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1448,19 +1298,13 @@ async def query_viewer_following(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "following",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "following",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["following"]
@@ -1485,25 +1329,19 @@ async def query_viewer_gist(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).gist(
+    op_selection = op.viewer(**strip_kwargs()).gist(
         **strip_kwargs(
             name=name,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "gist",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "gist",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["gist"]
@@ -1536,7 +1374,7 @@ async def query_viewer_gist_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).gist_comments(
+    op_selection = op.viewer(**strip_kwargs()).gist_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1545,19 +1383,13 @@ async def query_viewer_gist_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "gistComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "gistComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["gistComments"]
@@ -1594,7 +1426,7 @@ async def query_viewer_gists(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).gists(
+    op_selection = op.viewer(**strip_kwargs()).gists(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -1605,19 +1437,13 @@ async def query_viewer_gists(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "gists",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "gists",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["gists"]
@@ -1640,21 +1466,15 @@ async def query_viewer_interaction_ability(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).interaction_ability(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).interaction_ability(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "interactionAbility",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "interactionAbility",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["interactionAbility"]
@@ -1690,7 +1510,7 @@ async def query_viewer_issue_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).issue_comments(
+    op_selection = op.viewer(**strip_kwargs()).issue_comments(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -1700,19 +1520,13 @@ async def query_viewer_issue_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "issueComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "issueComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["issueComments"]
@@ -1755,7 +1569,7 @@ async def query_viewer_issues(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).issues(
+    op_selection = op.viewer(**strip_kwargs()).issues(
         **strip_kwargs(
             labels=labels,
             states=states,
@@ -1768,19 +1582,13 @@ async def query_viewer_issues(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "issues",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "issues",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["issues"]
@@ -1805,25 +1613,19 @@ async def query_viewer_organization(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).organization(
+    op_selection = op.viewer(**strip_kwargs()).organization(
         **strip_kwargs(
             login=login,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "organization",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "organization",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["organization"]
@@ -1856,7 +1658,7 @@ async def query_viewer_organizations(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).organizations(
+    op_selection = op.viewer(**strip_kwargs()).organizations(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1865,19 +1667,13 @@ async def query_viewer_organizations(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "organizations",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "organizations",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["organizations"]
@@ -1910,7 +1706,7 @@ async def query_viewer_public_keys(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).public_keys(
+    op_selection = op.viewer(**strip_kwargs()).public_keys(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1919,19 +1715,13 @@ async def query_viewer_public_keys(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "publicKeys",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "publicKeys",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["publicKeys"]
@@ -1978,7 +1768,7 @@ async def query_viewer_pull_requests(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).pull_requests(
+    op_selection = op.viewer(**strip_kwargs()).pull_requests(
         **strip_kwargs(
             states=states,
             labels=labels,
@@ -1992,19 +1782,13 @@ async def query_viewer_pull_requests(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "pullRequests",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "pullRequests",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["pullRequests"]
@@ -2055,7 +1839,7 @@ async def query_viewer_repositories_contributed_to(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).repositories_contributed_to(
+    op_selection = op.viewer(**strip_kwargs()).repositories_contributed_to(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -2069,19 +1853,13 @@ async def query_viewer_repositories_contributed_to(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "repositoriesContributedTo",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "repositoriesContributedTo",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["repositoriesContributedTo"]
@@ -2119,7 +1897,7 @@ async def query_viewer_saved_replies(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).saved_replies(
+    op_selection = op.viewer(**strip_kwargs()).saved_replies(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2129,19 +1907,13 @@ async def query_viewer_saved_replies(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "savedReplies",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "savedReplies",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["savedReplies"]
@@ -2180,7 +1952,7 @@ async def query_viewer_starred_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).starred_repositories(
+    op_selection = op.viewer(**strip_kwargs()).starred_repositories(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2191,19 +1963,13 @@ async def query_viewer_starred_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "starredRepositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "starredRepositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["starredRepositories"]
@@ -2226,21 +1992,15 @@ async def query_viewer_status(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).status(**strip_kwargs())
+    op_selection = op.viewer(**strip_kwargs()).status(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "status",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "status",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["status"]
@@ -2280,7 +2040,7 @@ async def query_viewer_top_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).top_repositories(
+    op_selection = op.viewer(**strip_kwargs()).top_repositories(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -2291,19 +2051,13 @@ async def query_viewer_top_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "topRepositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "topRepositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["topRepositories"]
@@ -2357,7 +2111,7 @@ async def query_viewer_watching(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.viewer(**strip_kwargs()).watching(
+    op_selection = op.viewer(**strip_kwargs()).watching(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -2371,19 +2125,13 @@ async def query_viewer_watching(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "viewer",
-            "watching",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "viewer",
+        "watching",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["viewer"]["watching"]

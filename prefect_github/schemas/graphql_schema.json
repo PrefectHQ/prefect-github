@@ -25645,7 +25645,7 @@
             {
               "args": [],
               "deprecationReason": null,
-              "description": "The project that contains this draft issue.",
+              "description": "The project (beta) that contains this draft issue.",
               "isDeprecated": false,
               "name": "project",
               "type": {
@@ -25661,7 +25661,7 @@
             {
               "args": [],
               "deprecationReason": null,
-              "description": "The project item that wraps this draft issue.",
+              "description": "The project (beta) item that wraps this draft issue.",
               "isDeprecated": false,
               "name": "projectItem",
               "type": {
@@ -27046,22 +27046,6 @@
             },
             {
               "args": [],
-              "deprecationReason": "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.",
-              "description": "The number of available seats across all owned organizations based on the unique number of billable users.",
-              "isDeprecated": true,
-              "name": "availableSeats",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
               "deprecationReason": null,
               "description": "The bandwidth quota in GB for all organizations owned by the enterprise.",
               "isDeprecated": false,
@@ -27098,22 +27082,6 @@
               "description": "The bandwidth usage as a percentage of the bandwidth quota.",
               "isDeprecated": false,
               "name": "bandwidthUsagePercentage",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.",
-              "description": "The total seats across all organizations owned by the enterprise.",
-              "isDeprecated": true,
-              "name": "seats",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -27634,22 +27602,6 @@
             },
             {
               "args": [],
-              "deprecationReason": "All members consume a license Removal on 2021-01-01 UTC.",
-              "description": "Whether the user does not have a license for the enterprise.",
-              "isDeprecated": true,
-              "name": "isUnlicensed",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
               "deprecationReason": null,
               "description": "The item at the end of the edge.",
               "isDeprecated": false,
@@ -28014,22 +27966,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": "All outside collaborators consume a license Removal on 2021-01-01 UTC.",
-              "description": "Whether the outside collaborator does not have a license for the enterprise.",
-              "isDeprecated": true,
-              "name": "isUnlicensed",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
                   "ofType": null
                 }
               }
@@ -30518,22 +30454,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": "All pending members consume a license Removal on 2020-07-01 UTC.",
-              "description": "Whether the invitation has a license for the enterprise.",
-              "isDeprecated": true,
-              "name": "isUnlicensed",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
                   "ofType": null
                 }
               }

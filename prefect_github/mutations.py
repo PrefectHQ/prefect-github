@@ -11,7 +11,7 @@ from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
-from prefect_github.graphql import _execute_graphql_op
+from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
@@ -59,7 +59,7 @@ async def create_pull_request(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.create_pull_request(
+    op_selection = op.create_pull_request(
         **strip_kwargs(
             input=dict(
                 repository_id=repository_id,
@@ -73,19 +73,13 @@ async def create_pull_request(
         )
     ).pull_request(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "createPullRequest",
-            "pullRequest",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "createPullRequest",
+        "pullRequest",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["createPullRequest"]["pullRequest"]
@@ -110,7 +104,7 @@ async def close_pull_request(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.close_pull_request(
+    op_selection = op.close_pull_request(
         **strip_kwargs(
             input=dict(
                 pull_request_id=pull_request_id,
@@ -118,19 +112,13 @@ async def close_pull_request(
         )
     ).pull_request(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "closePullRequest",
-            "pullRequest",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "closePullRequest",
+        "pullRequest",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["closePullRequest"]["pullRequest"]
@@ -171,7 +159,7 @@ async def create_issue(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.create_issue(
+    op_selection = op.create_issue(
         **strip_kwargs(
             input=dict(
                 repository_id=repository_id,
@@ -186,19 +174,13 @@ async def create_issue(
         )
     ).issue(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "createIssue",
-            "issue",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "createIssue",
+        "issue",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["createIssue"]["issue"]
@@ -223,7 +205,7 @@ async def close_issue(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.close_issue(
+    op_selection = op.close_issue(
         **strip_kwargs(
             input=dict(
                 issue_id=issue_id,
@@ -231,19 +213,13 @@ async def close_issue(
         )
     ).issue(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "closeIssue",
-            "issue",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "closeIssue",
+        "issue",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["closeIssue"]["issue"]
@@ -268,7 +244,7 @@ async def add_star_starrable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.add_star(
+    op_selection = op.add_star(
         **strip_kwargs(
             input=dict(
                 starrable_id=starrable_id,
@@ -276,19 +252,13 @@ async def add_star_starrable(
         )
     ).starrable(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "addStar",
-            "starrable",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "addStar",
+        "starrable",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addStar"]["starrable"]
@@ -313,7 +283,7 @@ async def remove_star_starrable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.remove_star(
+    op_selection = op.remove_star(
         **strip_kwargs(
             input=dict(
                 starrable_id=starrable_id,
@@ -321,19 +291,13 @@ async def remove_star_starrable(
         )
     ).starrable(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "removeStar",
-            "starrable",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "removeStar",
+        "starrable",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["removeStar"]["starrable"]
@@ -360,7 +324,7 @@ async def add_reaction(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.add_reaction(
+    op_selection = op.add_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -369,19 +333,13 @@ async def add_reaction(
         )
     ).reaction(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "addReaction",
-            "reaction",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "addReaction",
+        "reaction",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addReaction"]["reaction"]
@@ -408,7 +366,7 @@ async def add_reaction_subject(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.add_reaction(
+    op_selection = op.add_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -417,19 +375,13 @@ async def add_reaction_subject(
         )
     ).subject(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "addReaction",
-            "subject",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "addReaction",
+        "subject",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addReaction"]["subject"]
@@ -456,7 +408,7 @@ async def remove_reaction(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.remove_reaction(
+    op_selection = op.remove_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -465,19 +417,13 @@ async def remove_reaction(
         )
     ).reaction(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "removeReaction",
-            "reaction",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "removeReaction",
+        "reaction",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["removeReaction"]["reaction"]
@@ -504,7 +450,7 @@ async def remove_reaction_subject(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.remove_reaction(
+    op_selection = op.remove_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -513,19 +459,13 @@ async def remove_reaction_subject(
         )
     ).subject(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "removeReaction",
-            "subject",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "removeReaction",
+        "subject",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["removeReaction"]["subject"]
@@ -556,7 +496,7 @@ async def request_reviews(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.request_reviews(
+    op_selection = op.request_reviews(
         **strip_kwargs(
             input=dict(
                 pull_request_id=pull_request_id,
@@ -567,16 +507,10 @@ async def request_reviews(
         )
     )
 
-    if not return_fields:
-        op_stack = ("requestReviews",)
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = ("requestReviews",)
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["requestReviews"]
@@ -607,7 +541,7 @@ async def request_reviews_pull_request(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.request_reviews(
+    op_selection = op.request_reviews(
         **strip_kwargs(
             input=dict(
                 pull_request_id=pull_request_id,
@@ -618,19 +552,13 @@ async def request_reviews_pull_request(
         )
     ).pull_request(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "requestReviews",
-            "pullRequest",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "requestReviews",
+        "pullRequest",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["requestReviews"]["pullRequest"]
@@ -661,7 +589,7 @@ async def request_reviews_requested_reviewers_edge(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_settings = op.request_reviews(
+    op_selection = op.request_reviews(
         **strip_kwargs(
             input=dict(
                 pull_request_id=pull_request_id,
@@ -672,19 +600,13 @@ async def request_reviews_requested_reviewers_edge(
         )
     ).requested_reviewers_edge(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "requestReviews",
-            "requestedReviewersEdge",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "requestReviews",
+        "requestedReviewersEdge",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["requestReviews"]["requestedReviewersEdge"]

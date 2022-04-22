@@ -6588,11 +6588,9 @@ class EnterpriseBillingInfo(sgqlc.types.Type):
     __field_names__ = (
         "all_licensable_users_count",
         "asset_packs",
-        "available_seats",
         "bandwidth_quota",
         "bandwidth_usage",
         "bandwidth_usage_percentage",
-        "seats",
         "storage_quota",
         "storage_usage",
         "storage_usage_percentage",
@@ -6605,9 +6603,6 @@ class EnterpriseBillingInfo(sgqlc.types.Type):
     asset_packs = sgqlc.types.Field(
         sgqlc.types.non_null(Int), graphql_name="assetPacks"
     )
-    available_seats = sgqlc.types.Field(
-        sgqlc.types.non_null(Int), graphql_name="availableSeats"
-    )
     bandwidth_quota = sgqlc.types.Field(
         sgqlc.types.non_null(Float), graphql_name="bandwidthQuota"
     )
@@ -6617,7 +6612,6 @@ class EnterpriseBillingInfo(sgqlc.types.Type):
     bandwidth_usage_percentage = sgqlc.types.Field(
         sgqlc.types.non_null(Int), graphql_name="bandwidthUsagePercentage"
     )
-    seats = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="seats")
     storage_quota = sgqlc.types.Field(
         sgqlc.types.non_null(Float), graphql_name="storageQuota"
     )
@@ -6654,11 +6648,8 @@ class EnterpriseMemberConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseMemberEdge(sgqlc.types.Type):
     __schema__ = graphql_schema
-    __field_names__ = ("cursor", "is_unlicensed", "node")
+    __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
-    is_unlicensed = sgqlc.types.Field(
-        sgqlc.types.non_null(Boolean), graphql_name="isUnlicensed"
-    )
     node = sgqlc.types.Field("EnterpriseMember", graphql_name="node")
 
 
@@ -6705,11 +6696,8 @@ class EnterpriseOutsideCollaboratorConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseOutsideCollaboratorEdge(sgqlc.types.Type):
     __schema__ = graphql_schema
-    __field_names__ = ("cursor", "is_unlicensed", "node", "repositories")
+    __field_names__ = ("cursor", "node", "repositories")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
-    is_unlicensed = sgqlc.types.Field(
-        sgqlc.types.non_null(Boolean), graphql_name="isUnlicensed"
-    )
     node = sgqlc.types.Field("User", graphql_name="node")
     repositories = sgqlc.types.Field(
         sgqlc.types.non_null("EnterpriseRepositoryInfoConnection"),
@@ -7600,11 +7588,8 @@ class EnterprisePendingMemberInvitationConnection(sgqlc.types.relay.Connection):
 
 class EnterprisePendingMemberInvitationEdge(sgqlc.types.Type):
     __schema__ = graphql_schema
-    __field_names__ = ("cursor", "is_unlicensed", "node")
+    __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
-    is_unlicensed = sgqlc.types.Field(
-        sgqlc.types.non_null(Boolean), graphql_name="isUnlicensed"
-    )
     node = sgqlc.types.Field("OrganizationInvitation", graphql_name="node")
 
 

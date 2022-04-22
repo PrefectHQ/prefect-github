@@ -2,7 +2,7 @@
 
 ## Welcome!
 
-Prefect tasks and subflows for interacting with GitHub
+Prefect tasks and subflows for GitHub.
 
 ## Getting Started
 
@@ -26,18 +26,29 @@ pip install prefect-github
 
 ```python
 from prefect import flow
-from prefect_github.tasks import (
-    goodbye_prefect_github,
-    hello_prefect_github,
-)
+from prefect_github import GitHubCredentials
+from prefect_github.repository import query_repository
+from prefect_github.mutations import add_star_starrable
 
 
-@flow
-def example_flow():
-    hello_prefect_github
-    goodbye_prefect_github
+@flow()
+def github_add_star_flow():
+    token = "ghp_..."
+    github_credentials = GitHubCredentials(token)
+    repository_id = query_repository(
+        "PrefectHQ",
+        "Prefect",
+        github_credentials=github_credentials,
+        return_fields="id"
+    ).result()["id"]
+    starrable = add_star_starrable(
+        repository_id,
+        github_credentials
+    )
+    return starrable
 
-example_flow()
+
+github_add_star_flow()
 ```
 
 ## Resources

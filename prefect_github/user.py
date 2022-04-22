@@ -12,7 +12,7 @@ from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
-from prefect_github.graphql import _execute_graphql_op
+from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
@@ -39,22 +39,16 @@ async def query_user(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     )
 
-    if not return_fields:
-        op_stack = ("user",)
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = ("user",)
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]
@@ -100,7 +94,7 @@ async def query_user_packages(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).packages(
+    op_selection = op.user(**strip_kwargs(login=login,)).packages(
         **strip_kwargs(
             after=after,
             before=before,
@@ -113,19 +107,13 @@ async def query_user_packages(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "packages",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "packages",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["packages"]
@@ -152,25 +140,19 @@ async def query_user_project(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).project(
+    op_selection = op.user(**strip_kwargs(login=login,)).project(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "project",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "project",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["project"]
@@ -213,7 +195,7 @@ async def query_user_projects(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).projects(
+    op_selection = op.user(**strip_kwargs(login=login,)).projects(
         **strip_kwargs(
             states=states,
             order_by=order_by,
@@ -225,19 +207,13 @@ async def query_user_projects(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "projects",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "projects",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["projects"]
@@ -264,25 +240,19 @@ async def query_user_project_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).project_next(
+    op_selection = op.user(**strip_kwargs(login=login,)).project_next(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "projectNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "projectNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["projectNext"]
@@ -321,7 +291,7 @@ async def query_user_projects_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).projects_next(
+    op_selection = op.user(**strip_kwargs(login=login,)).projects_next(
         **strip_kwargs(
             after=after,
             before=before,
@@ -332,19 +302,13 @@ async def query_user_projects_next(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "projectsNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "projectsNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["projectsNext"]
@@ -394,7 +358,7 @@ async def query_user_repository_discussions(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).repository_discussions(
+    op_selection = op.user(**strip_kwargs(login=login,)).repository_discussions(
         **strip_kwargs(
             after=after,
             before=before,
@@ -406,19 +370,13 @@ async def query_user_repository_discussions(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "repositoryDiscussions",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "repositoryDiscussions",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositoryDiscussions"]
@@ -461,7 +419,7 @@ async def query_user_repository_discussion_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).repository_discussion_comments(
+    op_selection = op.user(**strip_kwargs(login=login,)).repository_discussion_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -472,19 +430,13 @@ async def query_user_repository_discussion_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "repositoryDiscussionComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "repositoryDiscussionComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositoryDiscussionComments"]
@@ -544,7 +496,7 @@ async def query_user_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).repositories(
+    op_selection = op.user(**strip_kwargs(login=login,)).repositories(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -559,19 +511,13 @@ async def query_user_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "repositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "repositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositories"]
@@ -601,26 +547,20 @@ async def query_user_repository(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).repository(
+    op_selection = op.user(**strip_kwargs(login=login,)).repository(
         **strip_kwargs(
             name=name,
             follow_renames=follow_renames,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "repository",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repository"]
@@ -646,25 +586,19 @@ async def query_user_item_showcase(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).item_showcase(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "itemShowcase",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "itemShowcase",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["itemShowcase"]
@@ -702,7 +636,7 @@ async def query_user_pinnable_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).pinnable_items(
+    op_selection = op.user(**strip_kwargs(login=login,)).pinnable_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -712,19 +646,13 @@ async def query_user_pinnable_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "pinnableItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "pinnableItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pinnableItems"]
@@ -761,7 +689,7 @@ async def query_user_pinned_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).pinned_items(
+    op_selection = op.user(**strip_kwargs(login=login,)).pinned_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -771,19 +699,13 @@ async def query_user_pinned_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "pinnedItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "pinnedItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pinnedItems"]
@@ -821,7 +743,7 @@ async def query_user_sponsoring(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsoring(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsoring(
         **strip_kwargs(
             after=after,
             before=before,
@@ -831,19 +753,13 @@ async def query_user_sponsoring(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsoring",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsoring",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsoring"]
@@ -885,7 +801,7 @@ async def query_user_sponsors(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsors(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsors(
         **strip_kwargs(
             after=after,
             before=before,
@@ -896,19 +812,13 @@ async def query_user_sponsors(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsors",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsors",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsors"]
@@ -952,7 +862,7 @@ async def query_user_sponsors_activities(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsors_activities(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsors_activities(
         **strip_kwargs(
             after=after,
             before=before,
@@ -963,19 +873,13 @@ async def query_user_sponsors_activities(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorsActivities",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorsActivities",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorsActivities"]
@@ -1000,25 +904,19 @@ async def query_user_sponsors_listing(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).sponsors_listing(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorsListing",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorsListing",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorsListing"]
@@ -1045,25 +943,19 @@ async def query_user_sponsorship_for_viewer_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorshipForViewerAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorshipForViewerAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorshipForViewerAsSponsor"]
@@ -1089,25 +981,19 @@ async def query_user_sponsorship_for_viewer_as_sponsorable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorshipForViewerAsSponsorable",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorshipForViewerAsSponsorable",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorshipForViewerAsSponsorable"]
@@ -1150,7 +1036,7 @@ async def query_user_sponsorship_newsletters(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsorship_newsletters(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsorship_newsletters(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1160,19 +1046,13 @@ async def query_user_sponsorship_newsletters(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorshipNewsletters",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorshipNewsletters",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorshipNewsletters"]
@@ -1217,7 +1097,7 @@ async def query_user_sponsorships_as_maintainer(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsorships_as_maintainer(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsorships_as_maintainer(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1228,19 +1108,13 @@ async def query_user_sponsorships_as_maintainer(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorshipsAsMaintainer",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorshipsAsMaintainer",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorshipsAsMaintainer"]
@@ -1282,7 +1156,7 @@ async def query_user_sponsorships_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).sponsorships_as_sponsor(
+    op_selection = op.user(**strip_kwargs(login=login,)).sponsorships_as_sponsor(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1292,19 +1166,13 @@ async def query_user_sponsorships_as_sponsor(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "sponsorshipsAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "sponsorshipsAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["sponsorshipsAsSponsor"]
@@ -1339,7 +1207,7 @@ async def query_user_commit_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).commit_comments(
+    op_selection = op.user(**strip_kwargs(login=login,)).commit_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1348,19 +1216,13 @@ async def query_user_commit_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "commitComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "commitComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["commitComments"]
@@ -1396,7 +1258,7 @@ async def query_user_contributions_collection(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).contributions_collection(
+    op_selection = op.user(**strip_kwargs(login=login,)).contributions_collection(
         **strip_kwargs(
             organization_id=organization_id,
             from_=from_,
@@ -1404,19 +1266,13 @@ async def query_user_contributions_collection(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "contributionsCollection",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "contributionsCollection",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["contributionsCollection"]
@@ -1451,7 +1307,7 @@ async def query_user_followers(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).followers(
+    op_selection = op.user(**strip_kwargs(login=login,)).followers(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1460,19 +1316,13 @@ async def query_user_followers(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "followers",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "followers",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["followers"]
@@ -1507,7 +1357,7 @@ async def query_user_following(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).following(
+    op_selection = op.user(**strip_kwargs(login=login,)).following(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1516,19 +1366,13 @@ async def query_user_following(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "following",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "following",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["following"]
@@ -1555,25 +1399,19 @@ async def query_user_gist(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).gist(
+    op_selection = op.user(**strip_kwargs(login=login,)).gist(
         **strip_kwargs(
             name=name,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "gist",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "gist",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gist"]
@@ -1608,7 +1446,7 @@ async def query_user_gist_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).gist_comments(
+    op_selection = op.user(**strip_kwargs(login=login,)).gist_comments(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1617,19 +1455,13 @@ async def query_user_gist_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "gistComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "gistComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gistComments"]
@@ -1668,7 +1500,7 @@ async def query_user_gists(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).gists(
+    op_selection = op.user(**strip_kwargs(login=login,)).gists(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -1679,19 +1511,13 @@ async def query_user_gists(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "gists",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "gists",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["gists"]
@@ -1716,25 +1542,19 @@ async def query_user_interaction_ability(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).interaction_ability(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "interactionAbility",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "interactionAbility",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["interactionAbility"]
@@ -1772,7 +1592,7 @@ async def query_user_issue_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).issue_comments(
+    op_selection = op.user(**strip_kwargs(login=login,)).issue_comments(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -1782,19 +1602,13 @@ async def query_user_issue_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "issueComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "issueComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["issueComments"]
@@ -1839,7 +1653,7 @@ async def query_user_issues(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).issues(
+    op_selection = op.user(**strip_kwargs(login=login,)).issues(
         **strip_kwargs(
             labels=labels,
             states=states,
@@ -1852,19 +1666,13 @@ async def query_user_issues(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "issues",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "issues",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["issues"]
@@ -1891,25 +1699,19 @@ async def query_user_organization(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).organization(
+    op_selection = op.user(**strip_kwargs(login=login,)).organization(
         **strip_kwargs(
             login=organization_login,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "organization",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "organization",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["organization"]
@@ -1944,7 +1746,7 @@ async def query_user_organizations(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).organizations(
+    op_selection = op.user(**strip_kwargs(login=login,)).organizations(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1953,19 +1755,13 @@ async def query_user_organizations(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "organizations",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "organizations",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["organizations"]
@@ -2000,7 +1796,7 @@ async def query_user_public_keys(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).public_keys(
+    op_selection = op.user(**strip_kwargs(login=login,)).public_keys(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2009,19 +1805,13 @@ async def query_user_public_keys(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "publicKeys",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "publicKeys",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["publicKeys"]
@@ -2070,7 +1860,7 @@ async def query_user_pull_requests(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).pull_requests(
+    op_selection = op.user(**strip_kwargs(login=login,)).pull_requests(
         **strip_kwargs(
             states=states,
             labels=labels,
@@ -2084,19 +1874,13 @@ async def query_user_pull_requests(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "pullRequests",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "pullRequests",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["pullRequests"]
@@ -2149,7 +1933,7 @@ async def query_user_repositories_contributed_to(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).repositories_contributed_to(
+    op_selection = op.user(**strip_kwargs(login=login,)).repositories_contributed_to(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -2163,19 +1947,13 @@ async def query_user_repositories_contributed_to(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "repositoriesContributedTo",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "repositoriesContributedTo",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["repositoriesContributedTo"]
@@ -2215,7 +1993,7 @@ async def query_user_saved_replies(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).saved_replies(
+    op_selection = op.user(**strip_kwargs(login=login,)).saved_replies(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2225,19 +2003,13 @@ async def query_user_saved_replies(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "savedReplies",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "savedReplies",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["savedReplies"]
@@ -2278,7 +2050,7 @@ async def query_user_starred_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).starred_repositories(
+    op_selection = op.user(**strip_kwargs(login=login,)).starred_repositories(
         **strip_kwargs(
             after=after,
             before=before,
@@ -2289,19 +2061,13 @@ async def query_user_starred_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "starredRepositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "starredRepositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["starredRepositories"]
@@ -2326,25 +2092,19 @@ async def query_user_status(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(
+    op_selection = op.user(
         **strip_kwargs(
             login=login,
         )
     ).status(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "status",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "status",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["status"]
@@ -2386,7 +2146,7 @@ async def query_user_top_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).top_repositories(
+    op_selection = op.user(**strip_kwargs(login=login,)).top_repositories(
         **strip_kwargs(
             order_by=order_by,
             after=after,
@@ -2397,19 +2157,13 @@ async def query_user_top_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "topRepositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "topRepositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["topRepositories"]
@@ -2465,7 +2219,7 @@ async def query_user_watching(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.user(**strip_kwargs(login=login,)).watching(
+    op_selection = op.user(**strip_kwargs(login=login,)).watching(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -2479,19 +2233,13 @@ async def query_user_watching(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "user",
-            "watching",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "user",
+        "watching",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["user"]["watching"]

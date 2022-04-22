@@ -1,4 +1,5 @@
 site_name: prefect-github
+repo_url: https://github.com/PrefectHQ/prefect-github
 theme:
   name: material
   palette:
@@ -42,5 +43,6 @@ nav:
     - Repository: repository.md
     - Repository Owner: repository_owner.md
     - User: user.md
-    - Viewer: viewer.md    
     - Utils: utils.md
+    - Viewer: viewer.md
+    

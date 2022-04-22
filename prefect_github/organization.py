@@ -11,7 +11,7 @@ from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
-from prefect_github.graphql import _execute_graphql_op
+from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
@@ -40,22 +40,16 @@ async def query_organization(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     )
 
-    if not return_fields:
-        op_stack = ("organization",)
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = ("organization",)
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]
@@ -101,7 +95,7 @@ async def query_organization_packages(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).packages(
+    op_selection = op.organization(**strip_kwargs(login=login,)).packages(
         **strip_kwargs(
             after=after,
             before=before,
@@ -114,19 +108,13 @@ async def query_organization_packages(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "packages",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "packages",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["packages"]
@@ -153,25 +141,19 @@ async def query_organization_project(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).project(
+    op_selection = op.organization(**strip_kwargs(login=login,)).project(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "project",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "project",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["project"]
@@ -214,7 +196,7 @@ async def query_organization_projects(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).projects(
+    op_selection = op.organization(**strip_kwargs(login=login,)).projects(
         **strip_kwargs(
             states=states,
             order_by=order_by,
@@ -226,19 +208,13 @@ async def query_organization_projects(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "projects",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "projects",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["projects"]
@@ -265,25 +241,19 @@ async def query_organization_project_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).project_next(
+    op_selection = op.organization(**strip_kwargs(login=login,)).project_next(
         **strip_kwargs(
             number=number,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "projectNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "projectNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["projectNext"]
@@ -322,7 +292,7 @@ async def query_organization_projects_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).projects_next(
+    op_selection = op.organization(**strip_kwargs(login=login,)).projects_next(
         **strip_kwargs(
             after=after,
             before=before,
@@ -333,19 +303,13 @@ async def query_organization_projects_next(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "projectsNext",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "projectsNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["projectsNext"]
@@ -395,7 +359,7 @@ async def query_organization_repository_discussions(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).repository_discussions(
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository_discussions(
         **strip_kwargs(
             after=after,
             before=before,
@@ -407,19 +371,13 @@ async def query_organization_repository_discussions(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "repositoryDiscussions",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "repositoryDiscussions",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repositoryDiscussions"]
@@ -462,7 +420,7 @@ async def query_organization_repository_discussion_comments(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
@@ -477,19 +435,13 @@ async def query_organization_repository_discussion_comments(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "repositoryDiscussionComments",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "repositoryDiscussionComments",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repositoryDiscussionComments"]
@@ -549,7 +501,7 @@ async def query_organization_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).repositories(
+    op_selection = op.organization(**strip_kwargs(login=login,)).repositories(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -564,19 +516,13 @@ async def query_organization_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "repositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "repositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repositories"]
@@ -606,26 +552,20 @@ async def query_organization_repository(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).repository(
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository(
         **strip_kwargs(
             name=name,
             follow_renames=follow_renames,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "repository",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repository"]
@@ -667,7 +607,7 @@ async def query_organization_member_statuses(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).member_statuses(
+    op_selection = op.organization(**strip_kwargs(login=login,)).member_statuses(
         **strip_kwargs(
             after=after,
             before=before,
@@ -677,19 +617,13 @@ async def query_organization_member_statuses(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "memberStatuses",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "memberStatuses",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["memberStatuses"]
@@ -715,25 +649,19 @@ async def query_organization_item_showcase(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).item_showcase(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "itemShowcase",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "itemShowcase",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["itemShowcase"]
@@ -771,7 +699,7 @@ async def query_organization_pinnable_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).pinnable_items(
+    op_selection = op.organization(**strip_kwargs(login=login,)).pinnable_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -781,19 +709,13 @@ async def query_organization_pinnable_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "pinnableItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "pinnableItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["pinnableItems"]
@@ -830,7 +752,7 @@ async def query_organization_pinned_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).pinned_items(
+    op_selection = op.organization(**strip_kwargs(login=login,)).pinned_items(
         **strip_kwargs(
             types=types,
             after=after,
@@ -840,19 +762,13 @@ async def query_organization_pinned_items(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "pinnedItems",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "pinnedItems",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["pinnedItems"]
@@ -890,7 +806,7 @@ async def query_organization_sponsoring(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).sponsoring(
+    op_selection = op.organization(**strip_kwargs(login=login,)).sponsoring(
         **strip_kwargs(
             after=after,
             before=before,
@@ -900,19 +816,13 @@ async def query_organization_sponsoring(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsoring",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsoring",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsoring"]
@@ -954,7 +864,7 @@ async def query_organization_sponsors(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).sponsors(
+    op_selection = op.organization(**strip_kwargs(login=login,)).sponsors(
         **strip_kwargs(
             after=after,
             before=before,
@@ -965,19 +875,13 @@ async def query_organization_sponsors(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsors",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsors",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsors"]
@@ -1021,7 +925,7 @@ async def query_organization_sponsors_activities(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).sponsors_activities(
+    op_selection = op.organization(**strip_kwargs(login=login,)).sponsors_activities(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1032,19 +936,13 @@ async def query_organization_sponsors_activities(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorsActivities",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorsActivities",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorsActivities"]
@@ -1069,25 +967,19 @@ async def query_organization_sponsors_listing(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).sponsors_listing(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorsListing",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorsListing",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorsListing"]
@@ -1114,25 +1006,19 @@ async def query_organization_sponsorship_for_viewer_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorshipForViewerAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorshipForViewerAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorshipForViewerAsSponsor"]
@@ -1158,25 +1044,19 @@ async def query_organization_sponsorship_for_viewer_as_sponsorable(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorshipForViewerAsSponsorable",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorshipForViewerAsSponsorable",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorshipForViewerAsSponsorable"]
@@ -1219,7 +1099,11 @@ async def query_organization_sponsorship_newsletters(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).sponsorship_newsletters(
+    op_selection = op.organization(
+        **strip_kwargs(
+            login=login,
+        )
+    ).sponsorship_newsletters(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1229,19 +1113,13 @@ async def query_organization_sponsorship_newsletters(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorshipNewsletters",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorshipNewsletters",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorshipNewsletters"]
@@ -1286,7 +1164,7 @@ async def query_organization_sponsorships_as_maintainer(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
@@ -1301,19 +1179,13 @@ async def query_organization_sponsorships_as_maintainer(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorshipsAsMaintainer",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorshipsAsMaintainer",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorshipsAsMaintainer"]
@@ -1355,7 +1227,11 @@ async def query_organization_sponsorships_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).sponsorships_as_sponsor(
+    op_selection = op.organization(
+        **strip_kwargs(
+            login=login,
+        )
+    ).sponsorships_as_sponsor(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1365,19 +1241,13 @@ async def query_organization_sponsorships_as_sponsor(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "sponsorshipsAsSponsor",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "sponsorshipsAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["sponsorshipsAsSponsor"]
@@ -1419,7 +1289,7 @@ async def query_organization_audit_log(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).audit_log(
+    op_selection = op.organization(**strip_kwargs(login=login,)).audit_log(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1430,19 +1300,13 @@ async def query_organization_audit_log(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "auditLog",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "auditLog",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["auditLog"]
@@ -1486,7 +1350,7 @@ async def query_organization_domains(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).domains(
+    op_selection = op.organization(**strip_kwargs(login=login,)).domains(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1498,19 +1362,13 @@ async def query_organization_domains(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "domains",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "domains",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["domains"]
@@ -1555,7 +1413,7 @@ async def query_organization_enterprise_owners(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).enterprise_owners(
+    op_selection = op.organization(**strip_kwargs(login=login,)).enterprise_owners(
         **strip_kwargs(
             query=query,
             organization_role=organization_role,
@@ -1567,19 +1425,13 @@ async def query_organization_enterprise_owners(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "enterpriseOwners",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "enterpriseOwners",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["enterpriseOwners"]
@@ -1604,25 +1456,19 @@ async def query_organization_interaction_ability(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).interaction_ability(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "interactionAbility",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "interactionAbility",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["interactionAbility"]
@@ -1664,7 +1510,7 @@ async def query_organization_ip_allow_list_entries(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).ip_allow_list_entries(
+    op_selection = op.organization(**strip_kwargs(login=login,)).ip_allow_list_entries(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1674,19 +1520,13 @@ async def query_organization_ip_allow_list_entries(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "ipAllowListEntries",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "ipAllowListEntries",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["ipAllowListEntries"]
@@ -1721,7 +1561,7 @@ async def query_organization_members_with_role(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).members_with_role(
+    op_selection = op.organization(**strip_kwargs(login=login,)).members_with_role(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1730,19 +1570,13 @@ async def query_organization_members_with_role(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "membersWithRole",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "membersWithRole",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["membersWithRole"]
@@ -1777,7 +1611,7 @@ async def query_organization_pending_members(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).pending_members(
+    op_selection = op.organization(**strip_kwargs(login=login,)).pending_members(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1786,19 +1620,13 @@ async def query_organization_pending_members(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "pendingMembers",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "pendingMembers",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["pendingMembers"]
@@ -1842,7 +1670,7 @@ async def query_organization_repository_migrations(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).repository_migrations(
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository_migrations(
         **strip_kwargs(
             after=after,
             before=before,
@@ -1853,19 +1681,13 @@ async def query_organization_repository_migrations(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "repositoryMigrations",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "repositoryMigrations",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repositoryMigrations"]
@@ -1890,25 +1712,19 @@ async def query_organization_saml_identity_provider(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(
+    op_selection = op.organization(
         **strip_kwargs(
             login=login,
         )
     ).saml_identity_provider(**strip_kwargs())
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "samlIdentityProvider",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "samlIdentityProvider",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["samlIdentityProvider"]
@@ -1935,25 +1751,19 @@ async def query_organization_team(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).team(
+    op_selection = op.organization(**strip_kwargs(login=login,)).team(
         **strip_kwargs(
             slug=slug,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "team",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "team",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["team"]
@@ -2005,7 +1815,7 @@ async def query_organization_teams(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.organization(**strip_kwargs(login=login,)).teams(
+    op_selection = op.organization(**strip_kwargs(login=login,)).teams(
         **strip_kwargs(
             user_logins=user_logins,
             privacy=privacy,
@@ -2021,19 +1831,13 @@ async def query_organization_teams(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "organization",
-            "teams",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "organization",
+        "teams",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["teams"]

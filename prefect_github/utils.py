@@ -1,4 +1,4 @@
-"""Utilities to assist with generating collections."""
+"""Utilities to assist with using generated collections."""
 
 import json
 import re
@@ -13,10 +13,8 @@ SNAKE_CASE_REGEX2 = re.compile("([a-z0-9])([A-Z])")
 def camel_to_snake_case(string: str) -> str:
     """
     Converts CamelCase and lowerCamelCase to snake_case.
-
     Args:
         string: The string in CamelCase or lowerCamelCase to convert.
-
     Returns:
         A snake_case version of the string.
     """
@@ -27,7 +25,6 @@ def camel_to_snake_case(string: str) -> str:
 def initialize_return_fields_defaults(config_path: Union[Path, str]) -> List:
     """
     Reads config_path to parse out the desired default fields to return.
-
     Args:
         config_path: The path to the config file.
     """

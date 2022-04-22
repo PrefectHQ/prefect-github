@@ -11,7 +11,7 @@ from prefect import task
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials
-from prefect_github.graphql import _execute_graphql_op
+from prefect_github.graphql import _execute_graphql_op, _subset_return_fields
 from prefect_github.schemas import graphql_schema
 from prefect_github.utils import initialize_return_fields_defaults, strip_kwargs
 
@@ -40,22 +40,16 @@ async def query_repository_owner(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.repository_owner(
+    op_selection = op.repository_owner(
         **strip_kwargs(
             login=login,
         )
     )
 
-    if not return_fields:
-        op_stack = ("repositoryOwner",)
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = ("repositoryOwner",)
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repositoryOwner"]
@@ -115,7 +109,7 @@ async def query_repository_owner_repositories(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.repository_owner(**strip_kwargs(login=login,)).repositories(
+    op_selection = op.repository_owner(**strip_kwargs(login=login,)).repositories(
         **strip_kwargs(
             privacy=privacy,
             order_by=order_by,
@@ -130,19 +124,13 @@ async def query_repository_owner_repositories(
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "repositoryOwner",
-            "repositories",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "repositoryOwner",
+        "repositories",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repositoryOwner"]["repositories"]
@@ -172,26 +160,20 @@ async def query_repository_owner_repository(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_settings = op.repository_owner(**strip_kwargs(login=login,)).repository(
+    op_selection = op.repository_owner(**strip_kwargs(login=login,)).repository(
         **strip_kwargs(
             name=name,
             follow_renames=follow_renames,
         )
     )
 
-    if not return_fields:
-        op_stack = (
-            "repositoryOwner",
-            "repository",
-        )
-        return_fields = return_fields_defaults[op_stack]
-    elif isinstance(return_fields, str):
-        return_fields = (return_fields,)
-
-    try:
-        op_settings.__fields__(*return_fields)
-    except KeyError:  # nested under node
-        op_settings.nodes().__fields__(*return_fields)
+    op_stack = (
+        "repositoryOwner",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repositoryOwner"]["repository"]
