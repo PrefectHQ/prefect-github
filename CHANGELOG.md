@@ -21,8 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.1.0
 
-Released on ????? ?th, 20??.
+Released on April 27th, 2022.
 
 ### Added
 
-- `task_name` task - [#1](https://github.com/PrefectHQ/prefect-github/pull/1)
+- `execute_graphql`, `query_repository*`, `query_user*`, `query_viewer*`, `query_organization*`, `query_repository_owner*`, `add_comment*`, `create_pull_request`, `close_pull_request`, `create_issue`, `close_issue`, `add_star_starrable`, `remove_star_starrable`, `add_reaction*`, `remove_reaction*`, `request_reviews*` tasks - [#5](https://github.com/PrefectHQ/prefect-github/pull/5)
