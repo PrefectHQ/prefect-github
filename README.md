@@ -4,9 +4,7 @@
 
 Prefect tasks and subflows for GitHub.
 
-## Note
-
-The tasks within this collection were created by a code generator using the GitHub GraphQL schema. Thus, tests are primarily located in the `prefect-collection-generator` and `sgqlc` repositorires.
+The tasks within this collection were created by a code generator using the GitHub GraphQL schema.
 
 ## Getting Started
 
