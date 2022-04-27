@@ -4,8 +4,6 @@
 
 Prefect tasks and subflows for GitHub.
 
-## Note
-
 The tasks within this collection were created by a code generator using the GitHub GraphQL schema.
 
 ## Getting Started
