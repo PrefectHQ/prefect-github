@@ -1,0 +1,2817 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Mutations - prefect-github</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prefect_github.mutations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="prefect-github" class="md-header__button md-logo" aria-label="prefect-github" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            prefect-github
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mutations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PrefectHQ/prefect-github" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="prefect-github" class="md-nav__button md-logo" aria-label="prefect-github" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    prefect-github
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PrefectHQ/prefect-github" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credentials/" class="md-nav__link">
+        Credentials
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql/" class="md-nav__link">
+        Graphql
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mutations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mutations
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_comment_edge" class="md-nav__link">
+    add_comment_comment_edge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_subject" class="md-nav__link">
+    add_comment_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_timeline_edge" class="md-nav__link">
+    add_comment_timeline_edge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_reaction" class="md-nav__link">
+    add_reaction()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_reaction_subject" class="md-nav__link">
+    add_reaction_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_star_starrable" class="md-nav__link">
+    add_star_starrable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.close_issue" class="md-nav__link">
+    close_issue()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.close_pull_request" class="md-nav__link">
+    close_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.create_issue" class="md-nav__link">
+    create_issue()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.create_pull_request" class="md-nav__link">
+    create_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_reaction" class="md-nav__link">
+    remove_reaction()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_reaction_subject" class="md-nav__link">
+    remove_reaction_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_star_starrable" class="md-nav__link">
+    remove_star_starrable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews" class="md-nav__link">
+    request_reviews()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews_pull_request" class="md-nav__link">
+    request_reviews_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews_requested_reviewers_edge" class="md-nav__link">
+    request_reviews_requested_reviewers_edge()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organization/" class="md-nav__link">
+        Organization
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repository/" class="md-nav__link">
+        Repository
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repository_owner/" class="md-nav__link">
+        Repository Owner
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        Utils
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viewer/" class="md-nav__link">
+        Viewer
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_comment_edge" class="md-nav__link">
+    add_comment_comment_edge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_subject" class="md-nav__link">
+    add_comment_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_comment_timeline_edge" class="md-nav__link">
+    add_comment_timeline_edge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_reaction" class="md-nav__link">
+    add_reaction()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_reaction_subject" class="md-nav__link">
+    add_reaction_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.add_star_starrable" class="md-nav__link">
+    add_star_starrable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.close_issue" class="md-nav__link">
+    close_issue()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.close_pull_request" class="md-nav__link">
+    close_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.create_issue" class="md-nav__link">
+    create_issue()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.create_pull_request" class="md-nav__link">
+    create_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_reaction" class="md-nav__link">
+    remove_reaction()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_reaction_subject" class="md-nav__link">
+    remove_reaction_subject()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.remove_star_starrable" class="md-nav__link">
+    remove_star_starrable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews" class="md-nav__link">
+    request_reviews()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews_pull_request" class="md-nav__link">
+    request_reviews_pull_request()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefect_github.mutations.request_reviews_requested_reviewers_edge" class="md-nav__link">
+    request_reviews_requested_reviewers_edge()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/PrefectHQ/prefect-github/edit/master/docs/mutations.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h1 id="prefect_github.mutations" class="doc doc-heading">
+        <code>prefect_github.mutations</code>
+
+
+
+</h1>
+
+    <div class="doc doc-contents first">
+
+      <p>This is a module for interacting with GitHub Mutation  tasks.
+It was auto-generated using prefect-collection-generator so
+manually editing this file is not recommended.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_comment_comment_edge" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_comment_comment_edge</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a comment to an Issue or Pull Request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>body</code></td>
+        <td><code>str</code></td>
+        <td><p>The contents of the comment.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_comment_comment_edge</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a comment to an Issue or Pull Request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        body: The contents of the comment.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">comment_edge</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addComment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;commentEdge&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addComment&quot;</span><span class="p">][</span><span class="s2">&quot;commentEdge&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_comment_subject" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_comment_subject</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a comment to an Issue or Pull Request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>body</code></td>
+        <td><code>str</code></td>
+        <td><p>The contents of the comment.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_comment_subject</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a comment to an Issue or Pull Request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        body: The contents of the comment.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">subject</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addComment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addComment&quot;</span><span class="p">][</span><span class="s2">&quot;subject&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_comment_timeline_edge" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_comment_timeline_edge</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a comment to an Issue or Pull Request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>body</code></td>
+        <td><code>str</code></td>
+        <td><p>The contents of the comment.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_comment_timeline_edge</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a comment to an Issue or Pull Request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        body: The contents of the comment.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">timeline_edge</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addComment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timelineEdge&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addComment&quot;</span><span class="p">][</span><span class="s2">&quot;timelineEdge&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_reaction" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_reaction</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a reaction to a subject.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>content</code></td>
+        <td><code>ReactionContent</code></td>
+        <td><p>The name of the emoji to react with.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_reaction</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">content</span><span class="p">:</span> <span class="n">graphql_schema</span><span class="o">.</span><span class="n">ReactionContent</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a reaction to a subject.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        content: The name of the emoji to react with.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_reaction</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reaction</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addReaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;reaction&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addReaction&quot;</span><span class="p">][</span><span class="s2">&quot;reaction&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_reaction_subject" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_reaction_subject</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a reaction to a subject.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>content</code></td>
+        <td><code>ReactionContent</code></td>
+        <td><p>The name of the emoji to react with.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_reaction_subject</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">content</span><span class="p">:</span> <span class="n">graphql_schema</span><span class="o">.</span><span class="n">ReactionContent</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a reaction to a subject.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        content: The name of the emoji to react with.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_reaction</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">subject</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addReaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addReaction&quot;</span><span class="p">][</span><span class="s2">&quot;subject&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.add_star_starrable" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_star_starrable</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a star to a Starrable.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>starrable_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Starrable ID to star.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_star_starrable</span><span class="p">(</span>
+    <span class="n">starrable_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a star to a Starrable.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        starrable_id: The Starrable ID to star.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">add_star</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">starrable_id</span><span class="o">=</span><span class="n">starrable_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">starrable</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;addStar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;starrable&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;addStar&quot;</span><span class="p">][</span><span class="s2">&quot;starrable&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.close_issue" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">close_issue</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Close an issue.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>issue_id</code></td>
+        <td><code>str</code></td>
+        <td><p>ID of the issue to be closed.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">close_issue</span><span class="p">(</span>
+    <span class="n">issue_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Close an issue.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        issue_id: ID of the issue to be closed.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">close_issue</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">issue_id</span><span class="o">=</span><span class="n">issue_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">issue</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;closeIssue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;issue&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;closeIssue&quot;</span><span class="p">][</span><span class="s2">&quot;issue&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.close_pull_request" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">close_pull_request</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Close a pull request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>pull_request_id</code></td>
+        <td><code>str</code></td>
+        <td><p>ID of the pull request to be closed.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">close_pull_request</span><span class="p">(</span>
+    <span class="n">pull_request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Close a pull request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pull_request_id: ID of the pull request to be closed.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">close_pull_request</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pull_request_id</span><span class="o">=</span><span class="n">pull_request_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">pull_request</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;closePullRequest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pullRequest&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;closePullRequest&quot;</span><span class="p">][</span><span class="s2">&quot;pullRequest&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.create_issue" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_issue</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a new issue.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>repository_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>title</code></td>
+        <td><code>str</code></td>
+        <td><p>The title for the issue.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>assignee_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node ID for the user assignee for this issue.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>label_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>An array of Node IDs of labels for this issue.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>project_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>An array of Node IDs for projects associated with this
+issue.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>body</code></td>
+        <td><code>str</code></td>
+        <td><p>The body for the issue description.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>milestone_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the milestone for this issue.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>issue_template</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of an issue template in the repository, assigns
+labels and assignees from the template to the issue.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_issue</span><span class="p">(</span>
+    <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">assignee_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">label_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">project_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">milestone_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">issue_template</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a new issue.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        repository_id: The Node ID of the repository.</span>
+<span class="sd">        title: The title for the issue.</span>
+<span class="sd">        assignee_ids: The Node ID for the user assignee for this issue.</span>
+<span class="sd">        label_ids: An array of Node IDs of labels for this issue.</span>
+<span class="sd">        project_ids: An array of Node IDs for projects associated with this</span>
+<span class="sd">            issue.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        body: The body for the issue description.</span>
+<span class="sd">        milestone_id: The Node ID of the milestone for this issue.</span>
+<span class="sd">        issue_template: The name of an issue template in the repository, assigns</span>
+<span class="sd">            labels and assignees from the template to the issue.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">create_issue</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">repository_id</span><span class="o">=</span><span class="n">repository_id</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">assignee_ids</span><span class="o">=</span><span class="n">assignee_ids</span><span class="p">,</span>
+                <span class="n">label_ids</span><span class="o">=</span><span class="n">label_ids</span><span class="p">,</span>
+                <span class="n">project_ids</span><span class="o">=</span><span class="n">project_ids</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+                <span class="n">milestone_id</span><span class="o">=</span><span class="n">milestone_id</span><span class="p">,</span>
+                <span class="n">issue_template</span><span class="o">=</span><span class="n">issue_template</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">issue</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;createIssue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;issue&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;createIssue&quot;</span><span class="p">][</span><span class="s2">&quot;issue&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.create_pull_request" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_pull_request</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Create a new pull request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>repository_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>base_ref_name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the branch you want your changes pulled into.
+This should be an existing branch on the current repository.
+You cannot update the base branch on a pull request to point
+to another repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>head_ref_name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the branch where your changes are
+implemented. For cross-repository pull requests in the same
+network, namespace <code>head_ref_name</code> with a user like this:
+<code>username:branch</code>.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>title</code></td>
+        <td><code>str</code></td>
+        <td><p>The title of the pull request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>body</code></td>
+        <td><code>str</code></td>
+        <td><p>The contents of the pull request.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>maintainer_can_modify</code></td>
+        <td><code>bool</code></td>
+        <td><p>Indicates whether maintainers can modify the pull
+request.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>draft</code></td>
+        <td><code>bool</code></td>
+        <td><p>Indicates whether this pull request should be a draft.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_pull_request</span><span class="p">(</span>
+    <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">base_ref_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">head_ref_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">maintainer_can_modify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">draft</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a new pull request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        repository_id: The Node ID of the repository.</span>
+<span class="sd">        base_ref_name: The name of the branch you want your changes pulled into.</span>
+<span class="sd">            This should be an existing branch on the current repository.</span>
+<span class="sd">            You cannot update the base branch on a pull request to point</span>
+<span class="sd">            to another repository.</span>
+<span class="sd">        head_ref_name: The name of the branch where your changes are</span>
+<span class="sd">            implemented. For cross-repository pull requests in the same</span>
+<span class="sd">            network, namespace `head_ref_name` with a user like this:</span>
+<span class="sd">            `username:branch`.</span>
+<span class="sd">        title: The title of the pull request.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        body: The contents of the pull request.</span>
+<span class="sd">        maintainer_can_modify: Indicates whether maintainers can modify the pull</span>
+<span class="sd">            request.</span>
+<span class="sd">        draft: Indicates whether this pull request should be a draft.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">create_pull_request</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">repository_id</span><span class="o">=</span><span class="n">repository_id</span><span class="p">,</span>
+                <span class="n">base_ref_name</span><span class="o">=</span><span class="n">base_ref_name</span><span class="p">,</span>
+                <span class="n">head_ref_name</span><span class="o">=</span><span class="n">head_ref_name</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+                <span class="n">maintainer_can_modify</span><span class="o">=</span><span class="n">maintainer_can_modify</span><span class="p">,</span>
+                <span class="n">draft</span><span class="o">=</span><span class="n">draft</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">pull_request</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;createPullRequest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pullRequest&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;createPullRequest&quot;</span><span class="p">][</span><span class="s2">&quot;pullRequest&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.remove_reaction" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">remove_reaction</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Removes a reaction from a subject.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>content</code></td>
+        <td><code>ReactionContent</code></td>
+        <td><p>The name of the emoji reaction to remove.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">remove_reaction</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">content</span><span class="p">:</span> <span class="n">graphql_schema</span><span class="o">.</span><span class="n">ReactionContent</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes a reaction from a subject.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        content: The name of the emoji reaction to remove.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">remove_reaction</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reaction</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;removeReaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;reaction&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;removeReaction&quot;</span><span class="p">][</span><span class="s2">&quot;reaction&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.remove_reaction_subject" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">remove_reaction_subject</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Removes a reaction from a subject.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>subject_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the subject to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>content</code></td>
+        <td><code>ReactionContent</code></td>
+        <td><p>The name of the emoji reaction to remove.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">remove_reaction_subject</span><span class="p">(</span>
+    <span class="n">subject_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">content</span><span class="p">:</span> <span class="n">graphql_schema</span><span class="o">.</span><span class="n">ReactionContent</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes a reaction from a subject.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        subject_id: The Node ID of the subject to modify.</span>
+<span class="sd">        content: The name of the emoji reaction to remove.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">remove_reaction</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">subject</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;removeReaction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;removeReaction&quot;</span><span class="p">][</span><span class="s2">&quot;subject&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.remove_star_starrable" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">remove_star_starrable</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Removes a star from a Starrable.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>starrable_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Starrable ID to unstar.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">remove_star_starrable</span><span class="p">(</span>
+    <span class="n">starrable_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes a star from a Starrable.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        starrable_id: The Starrable ID to unstar.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">remove_star</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">starrable_id</span><span class="o">=</span><span class="n">starrable_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">starrable</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;removeStar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;starrable&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;removeStar&quot;</span><span class="p">][</span><span class="s2">&quot;starrable&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.request_reviews" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">request_reviews</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Set review requests on a pull request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>pull_request_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the pull request to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>user_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the user to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>team_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the team to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>union</code></td>
+        <td><code>bool</code></td>
+        <td><p>Add users to the set rather than replace.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">request_reviews</span><span class="p">(</span>
+    <span class="n">pull_request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">user_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">team_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set review requests on a pull request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pull_request_id: The Node ID of the pull request to modify.</span>
+<span class="sd">        user_ids: The Node IDs of the user to request.</span>
+<span class="sd">        team_ids: The Node IDs of the team to request.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        union: Add users to the set rather than replace.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">request_reviews</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pull_request_id</span><span class="o">=</span><span class="n">pull_request_id</span><span class="p">,</span>
+                <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span>
+                <span class="n">team_ids</span><span class="o">=</span><span class="n">team_ids</span><span class="p">,</span>
+                <span class="n">union</span><span class="o">=</span><span class="n">union</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;requestReviews&quot;</span><span class="p">,)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;requestReviews&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.request_reviews_pull_request" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">request_reviews_pull_request</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Set review requests on a pull request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>pull_request_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the pull request to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>user_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the user to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>team_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the team to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>union</code></td>
+        <td><code>bool</code></td>
+        <td><p>Add users to the set rather than replace.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">request_reviews_pull_request</span><span class="p">(</span>
+    <span class="n">pull_request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">user_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">team_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set review requests on a pull request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pull_request_id: The Node ID of the pull request to modify.</span>
+<span class="sd">        user_ids: The Node IDs of the user to request.</span>
+<span class="sd">        team_ids: The Node IDs of the team to request.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        union: Add users to the set rather than replace.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">request_reviews</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pull_request_id</span><span class="o">=</span><span class="n">pull_request_id</span><span class="p">,</span>
+                <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span>
+                <span class="n">team_ids</span><span class="o">=</span><span class="n">team_ids</span><span class="p">,</span>
+                <span class="n">union</span><span class="o">=</span><span class="n">union</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">pull_request</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;requestReviews&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pullRequest&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;requestReviews&quot;</span><span class="p">][</span><span class="s2">&quot;pullRequest&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="prefect_github.mutations.request_reviews_requested_reviewers_edge" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">request_reviews_requested_reviewers_edge</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Set review requests on a pull request.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>pull_request_id</code></td>
+        <td><code>str</code></td>
+        <td><p>The Node ID of the pull request to modify.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>user_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the user to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>team_ids</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>The Node IDs of the team to request.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>github_credentials</code></td>
+        <td><code>GitHubCredentials</code></td>
+        <td><p>Credentials to use for authentication with GitHub.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>union</code></td>
+        <td><code>bool</code></td>
+        <td><p>Add users to the set rather than replace.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>return_fields</code></td>
+        <td><code>Iterable[str]</code></td>
+        <td><p>Subset the return fields (as snake_case); defaults to
+fields listed in configs/mutation/*.json.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Dict[str, Any]</code></td>
+      <td><p>A dict of the returned fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>prefect_github/mutations.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">request_reviews_requested_reviewers_edge</span><span class="p">(</span>
+    <span class="n">pull_request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">user_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">team_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">github_credentials</span><span class="p">:</span> <span class="n">GitHubCredentials</span><span class="p">,</span>
+    <span class="n">union</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_fields</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set review requests on a pull request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pull_request_id: The Node ID of the pull request to modify.</span>
+<span class="sd">        user_ids: The Node IDs of the user to request.</span>
+<span class="sd">        team_ids: The Node IDs of the team to request.</span>
+<span class="sd">        github_credentials: Credentials to use for authentication with GitHub.</span>
+<span class="sd">        union: Add users to the set rather than replace.</span>
+<span class="sd">        return_fields: Subset the return fields (as snake_case); defaults to</span>
+<span class="sd">            fields listed in configs/mutation/*.json.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the returned fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">graphql_schema</span><span class="o">.</span><span class="n">Mutation</span><span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">request_reviews</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">strip_kwargs</span><span class="p">(</span>
+            <span class="nb">input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pull_request_id</span><span class="o">=</span><span class="n">pull_request_id</span><span class="p">,</span>
+                <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span>
+                <span class="n">team_ids</span><span class="o">=</span><span class="n">team_ids</span><span class="p">,</span>
+                <span class="n">union</span><span class="o">=</span><span class="n">union</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">requested_reviewers_edge</span><span class="p">(</span><span class="o">**</span><span class="n">strip_kwargs</span><span class="p">())</span>
+
+    <span class="n">op_stack</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;requestReviews&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;requestedReviewersEdge&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">op_selection</span> <span class="o">=</span> <span class="n">_subset_return_fields</span><span class="p">(</span>
+        <span class="n">op_selection</span><span class="p">,</span> <span class="n">op_stack</span><span class="p">,</span> <span class="n">return_fields</span><span class="p">,</span> <span class="n">return_fields_defaults</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_execute_graphql_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">github_credentials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;requestReviews&quot;</span><span class="p">][</span><span class="s2">&quot;requestedReviewersEdge&quot;</span><span class="p">]</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../graphql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graphql" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Graphql
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../organization/" class="md-footer__link md-footer__link--next" aria-label="Next: Organization" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Organization
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+    
+  </body>
+</html>
