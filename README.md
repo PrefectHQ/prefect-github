@@ -4,6 +4,8 @@
 
 Prefect tasks and subflows for GitHub.
 
+The tasks within this collection were created by a code generator using the GitHub GraphQL schema.
+
 ## Getting Started
 
 ### Python setup
@@ -32,23 +34,23 @@ from prefect_github.mutations import add_star_starrable
 
 
 @flow()
-def github_add_star_flow():
-    token = "ghp_..."
+async def github_add_star_flow():
     github_credentials = GitHubCredentials(token)
-    repository_id = query_repository(
+    repository_id_future = await query_repository(
         "PrefectHQ",
         "Prefect",
         github_credentials=github_credentials,
         return_fields="id"
-    ).result()["id"]
-    starrable = add_star_starrable(
+    )
+    repository_id = (await repository_id_future.result())["id"]
+    starrable = await add_star_starrable(
         repository_id,
         github_credentials
     )
     return starrable
 
 
-github_add_star_flow()
+await github_add_star_flow()
 ```
 
 ## Resources
