@@ -1,2 +1,3 @@
 include versioneer.py
 include prefect_github/_version.py
+include prefect_github/configs/*/*.json

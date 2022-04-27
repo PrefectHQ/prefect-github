@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.1
+
+Released on April 27th, 2022.
+
+### Fixed
+
+- Fix missing modules and config JSON in egg.
+
 ## 0.1.0
 
 Released on April 27th, 2022.
