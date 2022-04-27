@@ -19,13 +19,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.2
+
+Released on April 27th, 2022.
+
+### Fixed
+
+- Fix config JSON in egg by adding `include_package_data=True` in setup.py.
+
 ## 0.1.1
 
 Released on April 27th, 2022.
 
 ### Fixed
 
-- Fix missing modules and config JSON in egg.
+- Fix missing modules in egg.
 
 ## 0.1.0
 
