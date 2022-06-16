@@ -6,14 +6,13 @@ from pathlib import Path
 # from cookiecutter.main import cookiecutter
 from prefect_collection_generator.gql import populate_collection_repo
 
-
 # USE THIS IF NEED TO REGENERATE FROM SCRATCH; IF NOT SKIP TO NEXT SECTION
 # extra_context = {
 #     "full_name":  "Arthur Dent",  # e.g. "Prefect Technologies, Inc.",
 #     "email": "arthur.dent@example.com",  # e.g. "help@prefect.io",
 #     "github_organization": "arthur_dent",  # e.g. "PrefectHQ",
 #     "collection_name": "prefect-collection",
-#     "collection_short_description": "Prefect integrations interacting with prefect-collection",
+#     "collection_short_description": "Prefect integrations interacting with prefect-collection",  # noqa
 # }
 
 # collection_template_url = "https://github.com/PrefectHQ/prefect-collection-template"
@@ -38,9 +37,5 @@ root_to_op_types = {
 overwrite = True
 
 populate_collection_repo(
-    service_name,
-    service_url,
-    token,
-    root_to_op_types,
-    repo_directory=".."
+    service_name, service_url, token, root_to_op_types, repo_directory=".."
 )
