@@ -30,3 +30,4 @@ def test_strip_kwargs():
     assert strip_kwargs(**{"a": "abc", "b": "def"}) == {"a": "abc", "b": "def"}
     assert strip_kwargs(a="abc", b="def") == {"a": "abc", "b": "def"}
     assert strip_kwargs(**dict(a=[])) == {"a": []}
+    assert strip_kwargs(**dict(input=dict(a=[]))) == {"input": {"a": []}}
