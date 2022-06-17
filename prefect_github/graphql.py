@@ -71,8 +71,6 @@ async def execute_graphql(
         A dict of the returned fields.
 
     Examples:
-        # NOTE: Maintainers can update these examples to match their collection!
-
         Queries the first three issues from the Prefect repository
         using a string query.
         ```python
