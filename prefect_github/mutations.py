@@ -4,6 +4,7 @@ It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
 
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable
 
@@ -736,3 +737,111 @@ async def request_reviews_requested_reviewers_edge(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["requestReviews"]["requestedReviewersEdge"]
+
+
+@task
+async def add_pull_request_review(
+    pull_request_id: str,
+    github_credentials: GitHubCredentials,
+    commit_oid: datetime = None,
+    body: str = None,
+    event: graphql_schema.PullRequestReviewEvent = None,
+    comments: Iterable[graphql_schema.DraftPullRequestReviewComment] = None,
+    threads: Iterable[graphql_schema.DraftPullRequestReviewThread] = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a review to a Pull Request.
+
+    Args:
+        pull_request_id: The Node ID of the pull request to modify.
+        github_credentials: Credentials to use for authentication with GitHub.
+        commit_oid: The commit OID the review pertains to.
+        body: The contents of the review body comment.
+        event: The event to perform on the pull request review.
+        comments: The review line comments.
+        threads: The review line comment threads.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.add_pull_request_review(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+                commit_oid=commit_oid,
+                body=body,
+                event=event,
+                comments=comments,
+                threads=threads,
+            )
+        )
+    ).pull_request_review(**strip_kwargs())
+
+    op_stack = (
+        "addPullRequestReview",
+        "pullRequestReview",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addPullRequestReview"]["pullRequestReview"]
+
+
+@task
+async def add_pull_request_review_review_edge(
+    pull_request_id: str,
+    github_credentials: GitHubCredentials,
+    commit_oid: datetime = None,
+    body: str = None,
+    event: graphql_schema.PullRequestReviewEvent = None,
+    comments: Iterable[graphql_schema.DraftPullRequestReviewComment] = None,
+    threads: Iterable[graphql_schema.DraftPullRequestReviewThread] = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Adds a review to a Pull Request.
+
+    Args:
+        pull_request_id: The Node ID of the pull request to modify.
+        github_credentials: Credentials to use for authentication with GitHub.
+        commit_oid: The commit OID the review pertains to.
+        body: The contents of the review body comment.
+        event: The event to perform on the pull request review.
+        comments: The review line comments.
+        threads: The review line comment threads.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.add_pull_request_review(
+        **strip_kwargs(
+            input=dict(
+                pull_request_id=pull_request_id,
+                commit_oid=commit_oid,
+                body=body,
+                event=event,
+                comments=comments,
+                threads=threads,
+            )
+        )
+    ).review_edge(**strip_kwargs())
+
+    op_stack = (
+        "addPullRequestReview",
+        "reviewEdge",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["addPullRequestReview"]["reviewEdge"]
