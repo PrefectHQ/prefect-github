@@ -25,17 +25,18 @@ from prefect_collection_generator.gql import populate_collection_repo
 # )
 
 # UPDATE THESE AS DESIRED
-service_name = "GitHub"  # e.g. GitHub
-service_url = "https://api.github.com/graphql"  # e.g. https://api.github.com/graphql
-token_path = Path("~/.secrets/github").expanduser()
-with open(token_path) as f:
-    token = f.read().strip()
-root_to_op_types = {
-    "query": None,  # e.g. ["repository", "pull_requests"]
-    "mutation": None,  # e.g. ["add_star", "remove_star"]
-}
-overwrite = True
+if __name__ == "__main__":
+    service_name = "GitHub"  # e.g. GitHub
+    service_url = "https://api.github.com/graphql"  # e.g. https://api.github.com/graphql
+    token_path = Path("~/.secrets/github").expanduser()
+    with open(token_path) as f:
+        token = f.read().strip()
+    root_to_op_types = {
+        "query": None,  # e.g. ["repository", "pull_requests"]
+        "mutation": None,  # e.g. ["add_star", "remove_star"]
+    }
+    overwrite = True
 
-populate_collection_repo(
-    service_name, service_url, token, root_to_op_types, repo_directory=".."
-)
+    populate_collection_repo(
+        service_name, service_url, token, root_to_op_types, repo_directory=".."
+    )
