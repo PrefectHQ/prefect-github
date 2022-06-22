@@ -57,4 +57,10 @@ def strip_kwargs(**kwargs: Dict) -> Dict:
     Returns:
         Stripped version of kwargs.
     """
-    return {key: val for key, val in kwargs.items() if val is not None}
+    stripped_dict = {}
+    for k, v in kwargs.items():
+        if isinstance(v, dict):
+            v = strip_kwargs(**v)
+        if v is not None:
+            stripped_dict[k] = v
+    return stripped_dict or {}
