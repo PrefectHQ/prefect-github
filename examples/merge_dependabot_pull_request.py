@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from prefect import flow, task
+from prefect import flow, get_run_logger, task
 
 from prefect_github import GitHubCredentials
 from prefect_github.mutations import add_comment_subject, add_pull_request_review
@@ -15,14 +15,18 @@ from prefect_github.repository import (
 
 
 PREFECT_COLLECTIONS = [
+    "prefect-airbyte",
     "prefect-aws",
     "prefect-azure",
     "prefect-email",
     "prefect-gcp",
     "prefect-github",
     "prefect-great-expectations",
+    "prefect-openmetadata",
     "prefect-shell",
     "prefect-slack",
+    "prefect-dask",
+    "prefect-ray",
     "prefect-snowflake",
     "prefect-sqlalchemy",
     "prefect-twitter",
@@ -42,6 +46,9 @@ def get_github_credentials():
 def merge_dependabot_pull_request(
     repository_name: str, pull_request_title: str, repository_owner: str = "PrefectHQ"
 ) -> Dict[str, Any]:
+    logger = get_run_logger()
+    logger.info(f"Locating {pull_request_title} PR for {repository_name}...")
+
     github_credentials = get_github_credentials()
 
     # subset pull requests by labels
@@ -74,7 +81,7 @@ def merge_dependabot_pull_request(
         pull_request_id=pull_request_id,
         github_credentials=github_credentials,
         event="APPROVE",
-        body="Approved through a prefect-github flow!",
+        body="Approval done through a prefect-github flow!",
         return_fields=["id"],
     )
 
@@ -90,11 +97,12 @@ def merge_dependabot_pull_request(
 
 if __name__ == "__main__":
     for repository_name in PREFECT_COLLECTIONS:
-        pull_request = merge_dependabot_pull_request(
+        param_flow_name = f"{merge_dependabot_pull_request}_{repository_name}"
+        pull_request = merge_dependabot_pull_request.with_options(name=param_flow_name)(
             repository_name=repository_name,
             repository_owner="PrefectHQ",
-            pull_request_title="__ENTER_SOMETHING__",
-        ).result()
+            pull_request_title="__ENTER_SOMETHING_HERE__",
+        )
 
 # DeploymentSpec(
 #     flow=merge_dependabot_pull_request,
