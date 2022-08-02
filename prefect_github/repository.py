@@ -62,6 +62,67 @@ async def query_repository(
 
 
 @task
+async def query_repository_recent_projects(
+    owner: str,
+    name: str,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Recent projects that this user has modified in the context of the owner.
+
+    Args:
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        after: Returns the elements in the list that come after
+            the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.repository(
+        **strip_kwargs(
+            owner=owner,
+            name=name,
+            follow_renames=follow_renames,
+        )
+    ).recent_projects(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+        )
+    )
+
+    op_stack = (
+        "repository",
+        "recentProjects",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["repository"]["recentProjects"]
+
+
+@task
 async def query_repository_project(
     owner: str,
     name: str,
@@ -2305,6 +2366,56 @@ async def query_repository_project_next(
 
 
 @task
+async def query_repository_project_v2(
+    owner: str,
+    name: str,
+    number: int,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Finds and returns the Project according to the provided Project number.
+
+    Args:
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        number: The Project number.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.repository(
+        **strip_kwargs(
+            owner=owner,
+            name=name,
+            follow_renames=follow_renames,
+        )
+    ).project_v2(
+        **strip_kwargs(
+            number=number,
+        )
+    )
+
+    op_stack = (
+        "repository",
+        "projectV2",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["repository"]["projectV2"]
+
+
+@task
 async def query_repository_projects_next(
     owner: str,
     name: str,
@@ -2369,6 +2480,73 @@ async def query_repository_projects_next(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["projectsNext"]
+
+
+@task
+async def query_repository_projects_v2(
+    owner: str,
+    name: str,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    query: str = None,
+    order_by: graphql_schema.ProjectV2Order = {"field": "NUMBER", "direction": "DESC"},
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    List of projects linked to this repository.
+
+    Args:
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before
+            the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        query: A project to search for linked to the repo.
+        order_by: How to order the returned projects.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.repository(
+        **strip_kwargs(
+            owner=owner,
+            name=name,
+            follow_renames=follow_renames,
+        )
+    ).projects_v2(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            query=query,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "repository",
+        "projectsV2",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["repository"]["projectsV2"]
 
 
 @task
@@ -2913,6 +3091,9 @@ async def query_repository_vulnerability_alerts(
     owner: str,
     name: str,
     states: Iterable[graphql_schema.RepositoryVulnerabilityAlertState],
+    dependency_scopes: Iterable[
+        graphql_schema.RepositoryVulnerabilityAlertDependencyScope
+    ],
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     after: str = None,
@@ -2928,6 +3109,8 @@ async def query_repository_vulnerability_alerts(
         owner: The login field of a user or organization.
         name: The name of the repository.
         states: Filter by the state of the alert.
+        dependency_scopes: Filter by the scope of the
+            alert's dependency.
         github_credentials: Credentials to use for authentication with GitHub.
         follow_renames: Follow repository renames. If disabled, a
             repository referenced by its old name will return an error.
@@ -2954,6 +3137,7 @@ async def query_repository_vulnerability_alerts(
     ).vulnerability_alerts(
         **strip_kwargs(
             states=states,
+            dependency_scopes=dependency_scopes,
             after=after,
             before=before,
             first=first,

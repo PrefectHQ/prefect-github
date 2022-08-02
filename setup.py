@@ -13,7 +13,7 @@ with open("README.md") as readme_file:
 
 setup(
     name="prefect-github",
-    description="Prefect tasks and subflows for GitHub.",
+    description="Prefect integrations interacting with GitHub",
     license="Apache License 2.0",
     author="Prefect Technologies Inc.",
     author_email="help@prefect.io",
@@ -28,6 +28,11 @@ setup(
     install_requires=install_requires,
     include_package_data=True,
     extras_require={"dev": dev_requires},
+    entry_points={
+        "prefect.collections": [
+            "GitHubCredentials = prefect_github.credentials",
+        ]
+    },
     classifiers=[
         "Natural Language :: English",
         "Intended Audience :: Developers",

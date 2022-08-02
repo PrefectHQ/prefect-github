@@ -60,6 +60,34 @@
       ]
     },
     {
+      "projectV2": [
+        "closed",
+        "closedAt",
+        "viewerCanUpdate",
+        "id",
+        "createdAt",
+        "databaseId",
+        "number",
+        "public",
+        "readme",
+        "resourcePath",
+        "shortDescription",
+        "title",
+        "updatedAt",
+        "url"
+      ]
+    },
+    {
+      "projectsV2": [
+        "totalCount"
+      ]
+    },
+    {
+      "recentProjects": [
+        "totalCount"
+      ]
+    },
+    {
       "repositoryDiscussions": [
         "totalCount"
       ]
@@ -112,6 +140,7 @@
         "updatedAt",
         "usesCustomOpenGraphImage",
         "visibility",
+        "allowUpdateBranch",
         "autoMergeAllowed",
         "databaseId",
         "deleteBranchOnMerge",
@@ -126,6 +155,7 @@
         "rebaseMergeAllowed",
         "securityPolicyUrl",
         "squashMergeAllowed",
+        "squashPrTitleUsedAsDefault",
         "sshUrl",
         "tempCloneToken",
         "viewerCanAdminister",
@@ -374,7 +404,8 @@
         "viewerCanAdminister",
         "viewerCanCreateRepositories",
         "viewerCanCreateTeams",
-        "viewerIsAMember"
+        "viewerIsAMember",
+        "viewerIsFollowing"
       ]
     },
     "organizationVerifiedDomainEmails",

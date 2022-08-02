@@ -316,6 +316,151 @@ async def query_organization_projects_next(
 
 
 @task
+async def query_organization_project_v2(
+    login: str,
+    number: int,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find a project by number.
+
+    Args:
+        login: The organization's login.
+        number: The project number.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).project_v2(
+        **strip_kwargs(
+            number=number,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "projectV2",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["projectV2"]
+
+
+@task
+async def query_organization_projects_v2(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    query: str = None,
+    order_by: graphql_schema.ProjectV2Order = {"field": "NUMBER", "direction": "DESC"},
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of projects under the owner.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before
+            the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        query: A project to search for under the the owner.
+        order_by: How to order the returned projects.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).projects_v2(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            query=query,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "projectsV2",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["projectsV2"]
+
+
+@task
+async def query_organization_recent_projects(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Recent projects that this user has modified in the context of the owner.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after
+            the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).recent_projects(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "recentProjects",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["recentProjects"]
+
+
+@task
 async def query_organization_repository_discussions(
     login: str,
     github_credentials: GitHubCredentials,
@@ -890,6 +1035,7 @@ async def query_organization_sponsors(
 @task
 async def query_organization_sponsors_activities(
     login: str,
+    actions: Iterable[graphql_schema.SponsorsActivityAction],
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -907,6 +1053,8 @@ async def query_organization_sponsors_activities(
 
     Args:
         login: The organization's login.
+        actions: Filter activities to only the specified
+            actions.
         github_credentials: Credentials to use for authentication with GitHub.
         after: Returns the elements in the list that come
             after the specified cursor.
@@ -915,7 +1063,8 @@ async def query_organization_sponsors_activities(
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         period: Filter activities returned to only those
-            that occurred in a given time range.
+            that occurred in the most recent specified time period. Set
+            to ALL to avoid filtering by when the activity occurred.
         order_by: Ordering options for activity returned
             from the connection.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -927,6 +1076,7 @@ async def query_organization_sponsors_activities(
     op = Operation(graphql_schema.Query)
     op_selection = op.organization(**strip_kwargs(login=login,)).sponsors_activities(
         **strip_kwargs(
+            actions=actions,
             after=after,
             before=before,
             first=first,
@@ -1641,6 +1791,7 @@ async def query_organization_repository_migrations(
     first: int = None,
     last: int = None,
     state: graphql_schema.MigrationState = None,
+    repository_name: str = None,
     order_by: graphql_schema.RepositoryMigrationOrder = {
         "field": "CREATED_AT",
         "direction": "ASC",
@@ -1661,6 +1812,8 @@ async def query_organization_repository_migrations(
             list.
         last: Returns the last _n_ elements from the list.
         state: Filter repository migrations by state.
+        repository_name: Filter repository migrations by
+            repository name.
         order_by: Ordering options for repository
             migrations returned.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -1677,6 +1830,7 @@ async def query_organization_repository_migrations(
             first=first,
             last=last,
             state=state,
+            repository_name=repository_name,
             order_by=order_by,
         )
     )
