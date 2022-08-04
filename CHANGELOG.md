@@ -36,7 +36,6 @@ Convert credentials to blocks - [#20](https://github.com/PrefectHQ/prefect-githu
 `scripts/update.py` so `scripts/generate.py` is the sole source of regeneration - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 `*_edge` tasks to prevent duplicate tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
-
 ## 0.1.2
 
 Released on April 27th, 2022.
