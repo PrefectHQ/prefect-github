@@ -2,6 +2,11 @@
   "repository": [
     "id",
     {
+      "recentProjects": [
+        "totalCount"
+      ]
+    },
+    {
       "project": [
         "id",
         "closed",
@@ -93,6 +98,7 @@
     "updatedAt",
     "usesCustomOpenGraphImage",
     "visibility",
+    "allowUpdateBranch",
     {
       "assignableUsers": [
         "totalCount"
@@ -262,6 +268,7 @@
         "isReadByViewer",
         "number",
         "state",
+        "stateReason",
         "title",
         "titleHTML",
         "trackedIssuesCount"
@@ -402,7 +409,30 @@
       ]
     },
     {
+      "projectV2": [
+        "closed",
+        "closedAt",
+        "viewerCanUpdate",
+        "id",
+        "createdAt",
+        "databaseId",
+        "number",
+        "public",
+        "readme",
+        "resourcePath",
+        "shortDescription",
+        "title",
+        "updatedAt",
+        "url"
+      ]
+    },
+    {
       "projectsNext": [
+        "totalCount"
+      ]
+    },
+    {
+      "projectsV2": [
         "totalCount"
       ]
     },
@@ -459,6 +489,7 @@
         "viewerCanApplySuggestion",
         "viewerCanDeleteHeadRef",
         "viewerCanDisableAutoMerge",
+        "viewerCanEditFiles",
         "viewerCanEnableAutoMerge",
         "viewerCanMergeAsAdmin",
         "viewerMergeBodyText",
@@ -521,6 +552,7 @@
     },
     "securityPolicyUrl",
     "squashMergeAllowed",
+    "squashPrTitleUsedAsDefault",
     "sshUrl",
     {
       "submodules": [

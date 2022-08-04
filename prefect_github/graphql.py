@@ -1,5 +1,7 @@
 """
-This is a module for interacting with generic GraphQL tasks.
+This is a module containing:
+generic GraphQL tasks
+
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -60,6 +62,7 @@ def _subset_return_fields(
 async def execute_graphql(
     op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
 ) -> Dict[str, Any]:
+    # NOTE: Maintainers can update these examples to match their collection!
     """
     Generic function for executing GraphQL operations.
 
@@ -71,8 +74,6 @@ async def execute_graphql(
         A dict of the returned fields.
 
     Examples:
-        # NOTE: Maintainers can update these examples to match their collection!
-
         Queries the first three issues from the Prefect repository
         using a string query.
         ```python
@@ -95,7 +96,7 @@ async def execute_graphql(
                 }
             '''
             token = "ghp_..."
-            github_credentials = GitHubCredentials(token)
+            github_credentials = GitHubCredentials(token=token)
             params = dict(owner="PrefectHQ", name="Prefect")
             result = execute_graphql(op, github_credentials, **params)
             return result
@@ -122,7 +123,7 @@ async def execute_graphql(
             ).nodes()
             op_settings.__fields__("id", "title")
             token = "ghp_..."
-            github_credentials = GitHubCredentials(token)
+            github_credentials = GitHubCredentials(token=token)
             result = execute_graphql(
                 op,
                 github_credentials,

@@ -9,12 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 `add_pull_request_review*` task - [#16](https://github.com/PrefectHQ/prefect-github/pull/16)
+`*_v2` tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
 ### Changed
+Convert credentials to blocks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
 ### Deprecated
 
 ### Removed
+`scripts/update.py` so `scripts/generate.py` is the sole source of regeneration - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
+`*_edge` tasks to prevent duplicate tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
 ### Fixed
 

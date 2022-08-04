@@ -62,6 +62,7 @@
         "viewerCanApplySuggestion",
         "viewerCanDeleteHeadRef",
         "viewerCanDisableAutoMerge",
+        "viewerCanEditFiles",
         "viewerCanEnableAutoMerge",
         "viewerCanMergeAsAdmin",
         "viewerMergeBodyText",

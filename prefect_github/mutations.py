@@ -1,7 +1,11 @@
 """
-This is a module for interacting with GitHub Mutation  tasks.
+This is a module containing:
+GitHub mutation tasks
+
+
 It was auto-generated using prefect-collection-generator so
-manually editing this file is not recommended.
+manually editing this file is not recommended. If this module
+is outdated, rerun scripts/generate.py.
 """
 
 from datetime import datetime
@@ -20,48 +24,6 @@ config_dir = Path(__file__).parent.resolve() / "configs" / "mutation"
 return_fields_defaults = {}
 for config_path in config_dir.glob("*.json"):
     return_fields_defaults.update(initialize_return_fields_defaults(config_path))
-
-
-@task
-async def add_comment_comment_edge(
-    subject_id: str,
-    body: str,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Adds a comment to an Issue or Pull Request.
-
-    Args:
-        subject_id: The Node ID of the subject to modify.
-        body: The contents of the comment.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.add_comment(
-        **strip_kwargs(
-            input=dict(
-                subject_id=subject_id,
-                body=body,
-            )
-        )
-    ).comment_edge(**strip_kwargs())
-
-    op_stack = (
-        "addComment",
-        "commentEdge",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["addComment"]["commentEdge"]
 
 
 @task
@@ -104,48 +66,6 @@ async def add_comment_subject(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addComment"]["subject"]
-
-
-@task
-async def add_comment_timeline_edge(
-    subject_id: str,
-    body: str,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Adds a comment to an Issue or Pull Request.
-
-    Args:
-        subject_id: The Node ID of the subject to modify.
-        body: The contents of the comment.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.add_comment(
-        **strip_kwargs(
-            input=dict(
-                subject_id=subject_id,
-                body=body,
-            )
-        )
-    ).timeline_edge(**strip_kwargs())
-
-    op_stack = (
-        "addComment",
-        "timelineEdge",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["addComment"]["timelineEdge"]
 
 
 @task
@@ -317,6 +237,7 @@ async def create_issue(
 async def close_issue(
     issue_id: str,
     github_credentials: GitHubCredentials,
+    state_reason: graphql_schema.IssueClosedStateReason = None,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
@@ -325,6 +246,7 @@ async def close_issue(
     Args:
         issue_id: ID of the issue to be closed.
         github_credentials: Credentials to use for authentication with GitHub.
+        state_reason: The reason the issue is to be closed.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/mutation/*.json.
 
@@ -336,6 +258,7 @@ async def close_issue(
         **strip_kwargs(
             input=dict(
                 issue_id=issue_id,
+                state_reason=state_reason,
             )
         )
     ).issue(**strip_kwargs())
@@ -431,48 +354,6 @@ async def remove_star_starrable(
 
 
 @task
-async def add_reaction(
-    subject_id: str,
-    content: graphql_schema.ReactionContent,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Adds a reaction to a subject.
-
-    Args:
-        subject_id: The Node ID of the subject to modify.
-        content: The name of the emoji to react with.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.add_reaction(
-        **strip_kwargs(
-            input=dict(
-                subject_id=subject_id,
-                content=content,
-            )
-        )
-    ).reaction(**strip_kwargs())
-
-    op_stack = (
-        "addReaction",
-        "reaction",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["addReaction"]["reaction"]
-
-
-@task
 async def add_reaction_subject(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -515,18 +396,18 @@ async def add_reaction_subject(
 
 
 @task
-async def remove_reaction(
+async def add_reaction(
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    Removes a reaction from a subject.
+    Adds a reaction to a subject.
 
     Args:
         subject_id: The Node ID of the subject to modify.
-        content: The name of the emoji reaction to remove.
+        content: The name of the emoji to react with.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/mutation/*.json.
@@ -535,7 +416,7 @@ async def remove_reaction(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_selection = op.remove_reaction(
+    op_selection = op.add_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -545,7 +426,7 @@ async def remove_reaction(
     ).reaction(**strip_kwargs())
 
     op_stack = (
-        "removeReaction",
+        "addReaction",
         "reaction",
     )
     op_selection = _subset_return_fields(
@@ -553,7 +434,7 @@ async def remove_reaction(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["removeReaction"]["reaction"]
+    return result["addReaction"]["reaction"]
 
 
 @task
@@ -596,6 +477,48 @@ async def remove_reaction_subject(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["removeReaction"]["subject"]
+
+
+@task
+async def remove_reaction(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Removes a reaction from a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji reaction to remove.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.remove_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).reaction(**strip_kwargs())
+
+    op_stack = (
+        "removeReaction",
+        "reaction",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["removeReaction"]["reaction"]
 
 
 @task
@@ -692,54 +615,6 @@ async def request_reviews_pull_request(
 
 
 @task
-async def request_reviews_requested_reviewers_edge(
-    pull_request_id: str,
-    user_ids: Iterable[str],
-    team_ids: Iterable[str],
-    github_credentials: GitHubCredentials,
-    union: bool = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Set review requests on a pull request.
-
-    Args:
-        pull_request_id: The Node ID of the pull request to modify.
-        user_ids: The Node IDs of the user to request.
-        team_ids: The Node IDs of the team to request.
-        github_credentials: Credentials to use for authentication with GitHub.
-        union: Add users to the set rather than replace.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.request_reviews(
-        **strip_kwargs(
-            input=dict(
-                pull_request_id=pull_request_id,
-                user_ids=user_ids,
-                team_ids=team_ids,
-                union=union,
-            )
-        )
-    ).requested_reviewers_edge(**strip_kwargs())
-
-    op_stack = (
-        "requestReviews",
-        "requestedReviewersEdge",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["requestReviews"]["requestedReviewersEdge"]
-
-
-@task
 async def add_pull_request_review(
     pull_request_id: str,
     github_credentials: GitHubCredentials,
@@ -791,57 +666,3 @@ async def add_pull_request_review(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["addPullRequestReview"]["pullRequestReview"]
-
-
-@task
-async def add_pull_request_review_review_edge(
-    pull_request_id: str,
-    github_credentials: GitHubCredentials,
-    commit_oid: datetime = None,
-    body: str = None,
-    event: graphql_schema.PullRequestReviewEvent = None,
-    comments: Iterable[graphql_schema.DraftPullRequestReviewComment] = None,
-    threads: Iterable[graphql_schema.DraftPullRequestReviewThread] = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Adds a review to a Pull Request.
-
-    Args:
-        pull_request_id: The Node ID of the pull request to modify.
-        github_credentials: Credentials to use for authentication with GitHub.
-        commit_oid: The commit OID the review pertains to.
-        body: The contents of the review body comment.
-        event: The event to perform on the pull request review.
-        comments: The review line comments.
-        threads: The review line comment threads.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.add_pull_request_review(
-        **strip_kwargs(
-            input=dict(
-                pull_request_id=pull_request_id,
-                commit_oid=commit_oid,
-                body=body,
-                event=event,
-                comments=comments,
-                threads=threads,
-            )
-        )
-    ).review_edge(**strip_kwargs())
-
-    op_stack = (
-        "addPullRequestReview",
-        "reviewEdge",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["addPullRequestReview"]["reviewEdge"]

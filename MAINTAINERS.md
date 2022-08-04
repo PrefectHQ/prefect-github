@@ -81,6 +81,8 @@ To add a new page for a module in your collection, create a new markdown file in
 
 You can also refer to the `flows.md` and `tasks.md` files included in your generated project as examples.
 
+Once you have working code, replace the default "Write and run a flow" example in `README.md` to match your collection.
+
 ## Development lifecycle
 
 ### CI Pipeline
@@ -101,7 +103,9 @@ Once you've obtained a PyPI API token, [create a GitHub secret](https://docs.git
 
 To create publish a new version of your collection, [create a new GitHub release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) and tag it with the version that you want to deploy (e.g. v0.3.2). This will trigger workflow to publish the new version on PyPI and deploy the updated docs to GitHub pages.
 
-Upon publishing, a `docs` branch is automatically created. To hook this up to GitHub Pages, simply head over to https://github.com/PrefectHQ/prefect-github/settings/pages, select `docs` under the dropdown menu, keep the default `/root` folder, `Save`, and upon refresh, you should see a prompt stating "Your site is published at https://<username>.github.io/<repository>".
+Upon publishing, a `docs` branch is automatically created. To hook this up to GitHub Pages, simply head over to https://github.com/PrefectHQ/prefect-github/settings/pages, select `docs` under the dropdown menu, keep the default `/root` folder, `Save`, and upon refresh, you should see a prompt stating "Your site is published at https://PrefectHQ.github.io/prefect-github".
+
+Feel free to [submit your collection](https://orion-docs.prefect.io/collections/overview/#listing-in-the-collections-catalog) to the Prefect [Collections Catalog](https://orion-docs.prefect.io/collections/catalog/)!
 
 ## Further guidance
 

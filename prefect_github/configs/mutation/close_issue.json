@@ -33,6 +33,7 @@
         "isReadByViewer",
         "number",
         "state",
+        "stateReason",
         "title",
         "titleHTML",
         "trackedIssuesCount"

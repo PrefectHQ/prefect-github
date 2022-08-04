@@ -1,7 +1,10 @@
 """
-This is a module for interacting with GitHub Query repository_owner tasks.
+This is a module containing:
+GitHub query_repository_owner* tasks
+
 It was auto-generated using prefect-collection-generator so
-manually editing this file is not recommended.
+manually editing this file is not recommended. If this module
+is outdated, rerun scripts/generate.py.
 """
 
 from pathlib import Path
@@ -53,6 +56,49 @@ async def query_repository_owner(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repositoryOwner"]
+
+
+@task
+async def query_repository_owner_repository(
+    login: str,
+    name: str,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find Repository.
+
+    Args:
+        login: The username to lookup the owner by.
+        name: Name of Repository to find.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.repository_owner(**strip_kwargs(login=login,)).repository(
+        **strip_kwargs(
+            name=name,
+            follow_renames=follow_renames,
+        )
+    )
+
+    op_stack = (
+        "repositoryOwner",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["repositoryOwner"]["repository"]
 
 
 @task
@@ -134,46 +180,3 @@ async def query_repository_owner_repositories(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repositoryOwner"]["repositories"]
-
-
-@task
-async def query_repository_owner_repository(
-    login: str,
-    name: str,
-    github_credentials: GitHubCredentials,
-    follow_renames: bool = True,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Find Repository.
-
-    Args:
-        login: The username to lookup the owner by.
-        name: Name of Repository to find.
-        github_credentials: Credentials to use for authentication with GitHub.
-        follow_renames: Follow repository renames. If disabled, a
-            repository referenced by its old name will return an error.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.repository_owner(**strip_kwargs(login=login,)).repository(
-        **strip_kwargs(
-            name=name,
-            follow_renames=follow_renames,
-        )
-    )
-
-    op_stack = (
-        "repositoryOwner",
-        "repository",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["repositoryOwner"]["repository"]
