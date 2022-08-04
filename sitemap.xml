@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/credentials/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/graphql/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/mutations/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/organization/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/repository/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/repository_owner/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/user/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/utils/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-04-27</lastmod>
+         <loc>https://prefecthq.github.io/prefect-github/viewer/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
