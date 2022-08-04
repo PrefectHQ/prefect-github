@@ -1,5 +1,5 @@
 """
-This is a module for interacting with GitHub Mutation  tasks.
+This is a module for interacting with GitHub  tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -350,48 +350,6 @@ async def remove_star_starrable(
 
 
 @task
-async def add_reaction(
-    subject_id: str,
-    content: graphql_schema.ReactionContent,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Adds a reaction to a subject.
-
-    Args:
-        subject_id: The Node ID of the subject to modify.
-        content: The name of the emoji to react with.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/mutation/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Mutation)
-    op_selection = op.add_reaction(
-        **strip_kwargs(
-            input=dict(
-                subject_id=subject_id,
-                content=content,
-            )
-        )
-    ).reaction(**strip_kwargs())
-
-    op_stack = (
-        "addReaction",
-        "reaction",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["addReaction"]["reaction"]
-
-
-@task
 async def add_reaction_subject(
     subject_id: str,
     content: graphql_schema.ReactionContent,
@@ -434,18 +392,18 @@ async def add_reaction_subject(
 
 
 @task
-async def remove_reaction(
+async def add_reaction(
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    Removes a reaction from a subject.
+    Adds a reaction to a subject.
 
     Args:
         subject_id: The Node ID of the subject to modify.
-        content: The name of the emoji reaction to remove.
+        content: The name of the emoji to react with.
         github_credentials: Credentials to use for authentication with GitHub.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/mutation/*.json.
@@ -454,7 +412,7 @@ async def remove_reaction(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Mutation)
-    op_selection = op.remove_reaction(
+    op_selection = op.add_reaction(
         **strip_kwargs(
             input=dict(
                 subject_id=subject_id,
@@ -464,7 +422,7 @@ async def remove_reaction(
     ).reaction(**strip_kwargs())
 
     op_stack = (
-        "removeReaction",
+        "addReaction",
         "reaction",
     )
     op_selection = _subset_return_fields(
@@ -472,7 +430,7 @@ async def remove_reaction(
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["removeReaction"]["reaction"]
+    return result["addReaction"]["reaction"]
 
 
 @task
@@ -515,6 +473,48 @@ async def remove_reaction_subject(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["removeReaction"]["subject"]
+
+
+@task
+async def remove_reaction(
+    subject_id: str,
+    content: graphql_schema.ReactionContent,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Removes a reaction from a subject.
+
+    Args:
+        subject_id: The Node ID of the subject to modify.
+        content: The name of the emoji reaction to remove.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/mutation/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Mutation)
+    op_selection = op.remove_reaction(
+        **strip_kwargs(
+            input=dict(
+                subject_id=subject_id,
+                content=content,
+            )
+        )
+    ).reaction(**strip_kwargs())
+
+    op_stack = (
+        "removeReaction",
+        "reaction",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["removeReaction"]["reaction"]
 
 
 @task

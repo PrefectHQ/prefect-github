@@ -16537,6 +16537,7 @@ class TreeEntry(sgqlc.types.Type):
         "oid",
         "path",
         "repository",
+        "size",
         "submodule",
         "type",
     )
@@ -16553,6 +16554,7 @@ class TreeEntry(sgqlc.types.Type):
     repository = sgqlc.types.Field(
         sgqlc.types.non_null("Repository"), graphql_name="repository"
     )
+    size = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="size")
     submodule = sgqlc.types.Field(Submodule, graphql_name="submodule")
     type = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="type")
 
@@ -22103,6 +22105,7 @@ class ProjectV2Item(sgqlc.types.Type, Node):
         "created_at",
         "creator",
         "database_id",
+        "field_value_by_name",
         "field_values",
         "is_archived",
         "project",
@@ -22115,6 +22118,20 @@ class ProjectV2Item(sgqlc.types.Type, Node):
     )
     creator = sgqlc.types.Field(Actor, graphql_name="creator")
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
+    field_value_by_name = sgqlc.types.Field(
+        "ProjectV2ItemFieldValue",
+        graphql_name="fieldValueByName",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "name",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(String), graphql_name="name", default=None
+                    ),
+                ),
+            )
+        ),
+    )
     field_values = sgqlc.types.Field(
         sgqlc.types.non_null(ProjectV2ItemFieldValueConnection),
         graphql_name="fieldValues",

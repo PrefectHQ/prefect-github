@@ -1,5 +1,5 @@
 """
-This is a module for interacting with GitHub Query organization tasks.
+This is a module for interacting with GitHub organization tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """
@@ -53,6 +53,220 @@ async def query_organization(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]
+
+
+@task
+async def query_organization_team(
+    login: str,
+    slug: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find an organization's team by its slug.
+
+    Args:
+        login: The organization's login.
+        slug: The name or slug of the team to find.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).team(
+        **strip_kwargs(
+            slug=slug,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "team",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["team"]
+
+
+@task
+async def query_organization_teams(
+    login: str,
+    user_logins: Iterable[str],
+    github_credentials: GitHubCredentials,
+    privacy: graphql_schema.TeamPrivacy = None,
+    role: graphql_schema.TeamRole = None,
+    query: str = None,
+    order_by: graphql_schema.TeamOrder = None,
+    ldap_mapped: bool = None,
+    root_teams_only: bool = False,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of teams in this organization.
+
+    Args:
+        login: The organization's login.
+        user_logins: User logins to filter by.
+        github_credentials: Credentials to use for authentication with GitHub.
+        privacy: If non-null, filters teams according to privacy.
+        role: If non-null, filters teams according to whether the viewer
+            is an admin or member on team.
+        query: If non-null, filters teams with query on team name and team
+            slug.
+        order_by: Ordering options for teams returned from the connection.
+        ldap_mapped: If true, filters teams that are mapped to an LDAP
+            Group (Enterprise only).
+        root_teams_only: If true, restrict to only root teams.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before the
+            specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).teams(
+        **strip_kwargs(
+            user_logins=user_logins,
+            privacy=privacy,
+            role=role,
+            query=query,
+            order_by=order_by,
+            ldap_mapped=ldap_mapped,
+            root_teams_only=root_teams_only,
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "teams",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["teams"]
+
+
+@task
+async def query_organization_project(
+    login: str,
+    number: int,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find project by number.
+
+    Args:
+        login: The organization's login.
+        number: The project number to find.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).project(
+        **strip_kwargs(
+            number=number,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "project",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["project"]
+
+
+@task
+async def query_organization_domains(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    is_verified: bool = None,
+    is_approved: bool = None,
+    order_by: graphql_schema.VerifiableDomainOrder = {
+        "field": "DOMAIN",
+        "direction": "ASC",
+    },
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of domains owned by the organization.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before the
+            specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        is_verified: Filter by if the domain is verified.
+        is_approved: Filter by if the domain is approved.
+        order_by: Ordering options for verifiable domains returned.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).domains(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            is_verified=is_verified,
+            is_approved=is_approved,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "domains",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["domains"]
 
 
 @task
@@ -121,45 +335,6 @@ async def query_organization_packages(
 
 
 @task
-async def query_organization_project(
-    login: str,
-    number: int,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Find project by number.
-
-    Args:
-        login: The organization's login.
-        number: The project number to find.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).project(
-        **strip_kwargs(
-            number=number,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "project",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["project"]
-
-
-@task
 async def query_organization_projects(
     login: str,
     states: Iterable[graphql_schema.ProjectState],
@@ -221,19 +396,34 @@ async def query_organization_projects(
 
 
 @task
-async def query_organization_project_next(
+async def query_organization_sponsors(
     login: str,
-    number: int,
     github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    tier_id: str = None,
+    order_by: graphql_schema.SponsorOrder = {"field": "RELEVANCE", "direction": "DESC"},
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    Find a project by project (beta) number.
+    List of sponsors for this user or organization.
 
     Args:
         login: The organization's login.
-        number: The project (beta) number.
         github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before the
+            specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        tier_id: If given, will filter for sponsors at the given tier.
+            Will only return sponsors whose tier the viewer is permitted
+            to see.
+        order_by: Ordering options for sponsors returned from the
+            connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -241,26 +431,31 @@ async def query_organization_project_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).project_next(
+    op_selection = op.organization(**strip_kwargs(login=login,)).sponsors(
         **strip_kwargs(
-            number=number,
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            tier_id=tier_id,
+            order_by=order_by,
         )
     )
 
     op_stack = (
         "organization",
-        "projectNext",
+        "sponsors",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["projectNext"]
+    return result["organization"]["sponsors"]
 
 
 @task
-async def query_organization_projects_next(
+async def query_organization_audit_log(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
@@ -268,23 +463,26 @@ async def query_organization_projects_next(
     first: int = None,
     last: int = None,
     query: str = None,
-    sort_by: graphql_schema.ProjectNextOrderField = "TITLE",
+    order_by: graphql_schema.AuditLogOrder = {
+        "field": "CREATED_AT",
+        "direction": "DESC",
+    },
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    A list of projects (beta) under the owner.
+    Audit log entries of the organization.
 
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after
-            the specified cursor.
-        before: Returns the elements in the list that come before
-            the specified cursor.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before the
+            specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        query: A project (beta) to search for under the the owner.
-        sort_by: How to order the returned projects (beta).
+        query: The query string to filter audit entries.
+        order_by: Ordering options for the returned audit log entries.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -292,27 +490,27 @@ async def query_organization_projects_next(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).projects_next(
+    op_selection = op.organization(**strip_kwargs(login=login,)).audit_log(
         **strip_kwargs(
             after=after,
             before=before,
             first=first,
             last=last,
             query=query,
-            sort_by=sort_by,
+            order_by=order_by,
         )
     )
 
     op_stack = (
         "organization",
-        "projectsNext",
+        "auditLog",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["projectsNext"]
+    return result["organization"]["auditLog"]
 
 
 @task
@@ -411,8 +609,145 @@ async def query_organization_projects_v2(
 
 
 @task
-async def query_organization_recent_projects(
+async def query_organization_repository(
     login: str,
+    name: str,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find Repository.
+
+    Args:
+        login: The organization's login.
+        name: Name of Repository to find.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository(
+        **strip_kwargs(
+            name=name,
+            follow_renames=follow_renames,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "repository",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["repository"]
+
+
+@task
+async def query_organization_sponsoring(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    order_by: graphql_schema.SponsorOrder = {"field": "RELEVANCE", "direction": "DESC"},
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    List of users and organizations this entity is sponsoring.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before the
+            specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        order_by: Ordering options for the users and organizations
+            returned from the connection.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).sponsoring(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "sponsoring",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["sponsoring"]
+
+
+@task
+async def query_organization_project_next(
+    login: str,
+    number: int,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Find a project by project (beta) number.
+
+    Args:
+        login: The organization's login.
+        number: The project (beta) number.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).project_next(
+        **strip_kwargs(
+            number=number,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "projectNext",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["projectNext"]
+
+
+@task
+async def query_organization_pinned_items(
+    login: str,
+    types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -421,15 +756,16 @@ async def query_organization_recent_projects(
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    Recent projects that this user has modified in the context of the owner.
+    A list of repositories and gists this profile owner has pinned to their profile.
 
     Args:
         login: The organization's login.
+        types: Filter the types of pinned items that are returned.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after
+        after: Returns the elements in the list that come after the
+            specified cursor.
+        before: Returns the elements in the list that come before
             the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -439,8 +775,9 @@ async def query_organization_recent_projects(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).recent_projects(
+    op_selection = op.organization(**strip_kwargs(login=login,)).pinned_items(
         **strip_kwargs(
+            types=types,
             after=after,
             before=before,
             first=first,
@@ -450,53 +787,42 @@ async def query_organization_recent_projects(
 
     op_stack = (
         "organization",
-        "recentProjects",
+        "pinnedItems",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["recentProjects"]
+    return result["organization"]["pinnedItems"]
 
 
 @task
-async def query_organization_repository_discussions(
+async def query_organization_projects_next(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
-    order_by: graphql_schema.DiscussionOrder = {
-        "field": "CREATED_AT",
-        "direction": "DESC",
-    },
-    repository_id: str = None,
-    answered: bool = None,
+    query: str = None,
+    sort_by: graphql_schema.ProjectNextOrderField = "TITLE",
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    Discussions this user has started.
+    A list of projects (beta) under the owner.
 
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come
-            after the specified cursor.
-        before: Returns the elements in the list that
-            come before the specified cursor.
-        first: Returns the first _n_ elements from the
-            list.
-        last: Returns the last _n_ elements from the
-            list.
-        order_by: Ordering options for discussions
-            returned from the connection.
-        repository_id: Filter discussions to only those
-            in a specific repository.
-        answered: Filter discussions to only those that
-            have been answered or not. Defaults to including both
-            answered and unanswered discussions.
+        after: Returns the elements in the list that come after
+            the specified cursor.
+        before: Returns the elements in the list that come before
+            the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        query: A project (beta) to search for under the the owner.
+        sort_by: How to order the returned projects (beta).
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -504,92 +830,27 @@ async def query_organization_repository_discussions(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).repository_discussions(
+    op_selection = op.organization(**strip_kwargs(login=login,)).projects_next(
         **strip_kwargs(
             after=after,
             before=before,
             first=first,
             last=last,
-            order_by=order_by,
-            repository_id=repository_id,
-            answered=answered,
+            query=query,
+            sort_by=sort_by,
         )
     )
 
     op_stack = (
         "organization",
-        "repositoryDiscussions",
+        "projectsNext",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["repositoryDiscussions"]
-
-
-@task
-async def query_organization_repository_discussion_comments(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    repository_id: str = None,
-    only_answers: bool = False,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Discussion comments this user has authored.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list
-            that come after the specified cursor.
-        before: Returns the elements in the list
-            that come before the specified cursor.
-        first: Returns the first _n_ elements
-            from the list.
-        last: Returns the last _n_ elements from
-            the list.
-        repository_id: Filter discussion comments
-            to only those in a specific repository.
-        only_answers: Filter discussion comments
-            to only those that were marked as the answer.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(
-        **strip_kwargs(
-            login=login,
-        )
-    ).repository_discussion_comments(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            repository_id=repository_id,
-            only_answers=only_answers,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "repositoryDiscussionComments",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["repositoryDiscussionComments"]
+    return result["organization"]["projectsNext"]
 
 
 @task
@@ -671,107 +932,6 @@ async def query_organization_repositories(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["organization"]["repositories"]
-
-
-@task
-async def query_organization_repository(
-    login: str,
-    name: str,
-    github_credentials: GitHubCredentials,
-    follow_renames: bool = True,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Find Repository.
-
-    Args:
-        login: The organization's login.
-        name: Name of Repository to find.
-        github_credentials: Credentials to use for authentication with GitHub.
-        follow_renames: Follow repository renames. If disabled, a
-            repository referenced by its old name will return an error.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).repository(
-        **strip_kwargs(
-            name=name,
-            follow_renames=follow_renames,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "repository",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["repository"]
-
-
-@task
-async def query_organization_member_statuses(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    order_by: graphql_schema.UserStatusOrder = {
-        "field": "UPDATED_AT",
-        "direction": "DESC",
-    },
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Get the status messages members of this entity have set that are either public
-    or visible only to the organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after
-            the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        order_by: Ordering options for user statuses returned
-            from the connection.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).member_statuses(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "memberStatuses",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["memberStatuses"]
 
 
 @task
@@ -867,9 +1027,8 @@ async def query_organization_pinnable_items(
 
 
 @task
-async def query_organization_pinned_items(
+async def query_organization_recent_projects(
     login: str,
-    types: Iterable[graphql_schema.PinnableItemType],
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
@@ -878,16 +1037,15 @@ async def query_organization_pinned_items(
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    A list of repositories and gists this profile owner has pinned to their profile.
+    Recent projects that this user has modified in the context of the owner.
 
     Args:
         login: The organization's login.
-        types: Filter the types of pinned items that are returned.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before
+        after: Returns the elements in the list that come after
             the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -897,9 +1055,8 @@ async def query_organization_pinned_items(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).pinned_items(
+    op_selection = op.organization(**strip_kwargs(login=login,)).recent_projects(
         **strip_kwargs(
-            types=types,
             after=after,
             before=before,
             first=first,
@@ -909,99 +1066,243 @@ async def query_organization_pinned_items(
 
     op_stack = (
         "organization",
-        "pinnedItems",
+        "recentProjects",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["pinnedItems"]
+    return result["organization"]["recentProjects"]
 
 
 @task
-async def query_organization_sponsoring(
+async def query_organization_member_statuses(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
-    order_by: graphql_schema.SponsorOrder = {"field": "RELEVANCE", "direction": "DESC"},
+    order_by: graphql_schema.UserStatusOrder = {
+        "field": "UPDATED_AT",
+        "direction": "DESC",
+    },
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    List of users and organizations this entity is sponsoring.
+    Get the status messages members of this entity have set that are either public
+    or visible only to the organization.
 
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before the
-            specified cursor.
+        after: Returns the elements in the list that come after
+            the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        order_by: Ordering options for the users and organizations
+        order_by: Ordering options for user statuses returned
+            from the connection.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).member_statuses(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "memberStatuses",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["memberStatuses"]
+
+
+@task
+async def query_organization_pending_members(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of users who have been invited to join this organization.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come after
+            the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).pending_members(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "pendingMembers",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["pendingMembers"]
+
+
+@task
+async def query_organization_sponsors_listing(
+    login: str,
+    github_credentials: GitHubCredentials,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    The GitHub Sponsors listing for this user or organization.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(
+        **strip_kwargs(
+            login=login,
+        )
+    ).sponsors_listing(**strip_kwargs())
+
+    op_stack = (
+        "organization",
+        "sponsorsListing",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["sponsorsListing"]
+
+
+@task
+async def query_organization_members_with_role(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of users who are members of this organization.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come
+            after the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the list.
+        last: Returns the last _n_ elements from the list.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).members_with_role(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "membersWithRole",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["membersWithRole"]
+
+
+@task
+async def query_organization_enterprise_owners(
+    login: str,
+    github_credentials: GitHubCredentials,
+    query: str = None,
+    organization_role: graphql_schema.RoleInOrganization = None,
+    order_by: graphql_schema.OrgEnterpriseOwnerOrder = {
+        "field": "LOGIN",
+        "direction": "ASC",
+    },
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of owners of the organization's enterprise account.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        query: The search string to look for.
+        organization_role: The organization role to filter by.
+        order_by: Ordering options for enterprise owners
             returned from the connection.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).sponsoring(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "sponsoring",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsoring"]
-
-
-@task
-async def query_organization_sponsors(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    tier_id: str = None,
-    order_by: graphql_schema.SponsorOrder = {"field": "RELEVANCE", "direction": "DESC"},
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    List of sponsors for this user or organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before the
-            specified cursor.
+        after: Returns the elements in the list that come
+            after the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        tier_id: If given, will filter for sponsors at the given tier.
-            Will only return sponsors whose tier the viewer is permitted
-            to see.
-        order_by: Ordering options for sponsors returned from the
-            connection.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -1009,27 +1310,28 @@ async def query_organization_sponsors(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).sponsors(
+    op_selection = op.organization(**strip_kwargs(login=login,)).enterprise_owners(
         **strip_kwargs(
+            query=query,
+            organization_role=organization_role,
+            order_by=order_by,
             after=after,
             before=before,
             first=first,
             last=last,
-            tier_id=tier_id,
-            order_by=order_by,
         )
     )
 
     op_stack = (
         "organization",
-        "sponsors",
+        "enterpriseOwners",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsors"]
+    return result["organization"]["enterpriseOwners"]
 
 
 @task
@@ -1099,13 +1401,13 @@ async def query_organization_sponsors_activities(
 
 
 @task
-async def query_organization_sponsors_listing(
+async def query_organization_interaction_ability(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    The GitHub Sponsors listing for this user or organization.
+    The interaction ability settings for this organization.
 
     Args:
         login: The organization's login.
@@ -1121,34 +1423,49 @@ async def query_organization_sponsors_listing(
         **strip_kwargs(
             login=login,
         )
-    ).sponsors_listing(**strip_kwargs())
+    ).interaction_ability(**strip_kwargs())
 
     op_stack = (
         "organization",
-        "sponsorsListing",
+        "interactionAbility",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsorsListing"]
+    return result["organization"]["interactionAbility"]
 
 
 @task
-async def query_organization_sponsorship_for_viewer_as_sponsor(
+async def query_organization_ip_allow_list_entries(
     login: str,
     github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    order_by: graphql_schema.IpAllowListEntryOrder = {
+        "field": "ALLOW_LIST_VALUE",
+        "direction": "ASC",
+    },
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    The sponsorship from the viewer to this user/organization; that is, the
-    sponsorship where you're the sponsor. Only returns a sponsorship if it is
-    active.
+    The IP addresses that are allowed to access resources owned by the organization.
 
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come
+            after the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the
+            list.
+        last: Returns the last _n_ elements from the list.
+        order_by: Ordering options for IP allow list
+            entries returned.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -1156,33 +1473,101 @@ async def query_organization_sponsorship_for_viewer_as_sponsor(
         A dict of the returned fields.
     """
     op = Operation(graphql_schema.Query)
-    op_selection = op.organization(
+    op_selection = op.organization(**strip_kwargs(login=login,)).ip_allow_list_entries(
         **strip_kwargs(
-            login=login,
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            order_by=order_by,
         )
-    ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
+    )
 
     op_stack = (
         "organization",
-        "sponsorshipForViewerAsSponsor",
+        "ipAllowListEntries",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsorshipForViewerAsSponsor"]
+    return result["organization"]["ipAllowListEntries"]
 
 
 @task
-async def query_organization_sponsorship_for_viewer_as_sponsorable(
+async def query_organization_repository_migrations(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    state: graphql_schema.MigrationState = None,
+    repository_name: str = None,
+    order_by: graphql_schema.RepositoryMigrationOrder = {
+        "field": "CREATED_AT",
+        "direction": "ASC",
+    },
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A list of all repository migrations for this organization.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come
+            after the specified cursor.
+        before: Returns the elements in the list that come
+            before the specified cursor.
+        first: Returns the first _n_ elements from the
+            list.
+        last: Returns the last _n_ elements from the list.
+        state: Filter repository migrations by state.
+        repository_name: Filter repository migrations by
+            repository name.
+        order_by: Ordering options for repository
+            migrations returned.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository_migrations(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            state=state,
+            repository_name=repository_name,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "repositoryMigrations",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["repositoryMigrations"]
+
+
+@task
+async def query_organization_saml_identity_provider(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    The sponsorship from this user/organization to the viewer; that is, the
-    sponsorship you're receiving. Only returns a sponsorship if it is active.
+    The Organization's SAML identity providers.
 
     Args:
         login: The organization's login.
@@ -1198,18 +1583,148 @@ async def query_organization_sponsorship_for_viewer_as_sponsorable(
         **strip_kwargs(
             login=login,
         )
-    ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
+    ).saml_identity_provider(**strip_kwargs())
 
     op_stack = (
         "organization",
-        "sponsorshipForViewerAsSponsorable",
+        "samlIdentityProvider",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsorshipForViewerAsSponsorable"]
+    return result["organization"]["samlIdentityProvider"]
+
+
+@task
+async def query_organization_repository_discussions(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    order_by: graphql_schema.DiscussionOrder = {
+        "field": "CREATED_AT",
+        "direction": "DESC",
+    },
+    repository_id: str = None,
+    answered: bool = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    Discussions this user has started.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that come
+            after the specified cursor.
+        before: Returns the elements in the list that
+            come before the specified cursor.
+        first: Returns the first _n_ elements from the
+            list.
+        last: Returns the last _n_ elements from the
+            list.
+        order_by: Ordering options for discussions
+            returned from the connection.
+        repository_id: Filter discussions to only those
+            in a specific repository.
+        answered: Filter discussions to only those that
+            have been answered or not. Defaults to including both
+            answered and unanswered discussions.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(**strip_kwargs(login=login,)).repository_discussions(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            order_by=order_by,
+            repository_id=repository_id,
+            answered=answered,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "repositoryDiscussions",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["repositoryDiscussions"]
+
+
+@task
+async def query_organization_sponsorships_as_sponsor(
+    login: str,
+    github_credentials: GitHubCredentials,
+    after: str = None,
+    before: str = None,
+    first: int = None,
+    last: int = None,
+    order_by: graphql_schema.SponsorshipOrder = None,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    This object's sponsorships as the sponsor.
+
+    Args:
+        login: The organization's login.
+        github_credentials: Credentials to use for authentication with GitHub.
+        after: Returns the elements in the list that
+            come after the specified cursor.
+        before: Returns the elements in the list that
+            come before the specified cursor.
+        first: Returns the first _n_ elements from the
+            list.
+        last: Returns the last _n_ elements from the
+            list.
+        order_by: Ordering options for sponsorships
+            returned from this connection. If left blank, the
+            sponsorships will be ordered based on relevancy to the
+            viewer.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.organization(
+        **strip_kwargs(
+            login=login,
+        )
+    ).sponsorships_as_sponsor(
+        **strip_kwargs(
+            after=after,
+            before=before,
+            first=first,
+            last=last,
+            order_by=order_by,
+        )
+    )
+
+    op_stack = (
+        "organization",
+        "sponsorshipsAsSponsor",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["organization"]["sponsorshipsAsSponsor"]
 
 
 @task
@@ -1342,34 +1857,35 @@ async def query_organization_sponsorships_as_maintainer(
 
 
 @task
-async def query_organization_sponsorships_as_sponsor(
+async def query_organization_repository_discussion_comments(
     login: str,
     github_credentials: GitHubCredentials,
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
-    order_by: graphql_schema.SponsorshipOrder = None,
+    repository_id: str = None,
+    only_answers: bool = False,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    This object's sponsorships as the sponsor.
+    Discussion comments this user has authored.
 
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that
-            come after the specified cursor.
-        before: Returns the elements in the list that
-            come before the specified cursor.
-        first: Returns the first _n_ elements from the
-            list.
-        last: Returns the last _n_ elements from the
-            list.
-        order_by: Ordering options for sponsorships
-            returned from this connection. If left blank, the
-            sponsorships will be ordered based on relevancy to the
-            viewer.
+        after: Returns the elements in the list
+            that come after the specified cursor.
+        before: Returns the elements in the list
+            that come before the specified cursor.
+        first: Returns the first _n_ elements
+            from the list.
+        last: Returns the last _n_ elements from
+            the list.
+        repository_id: Filter discussion comments
+            to only those in a specific repository.
+        only_answers: Filter discussion comments
+            to only those that were marked as the answer.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -1381,220 +1897,39 @@ async def query_organization_sponsorships_as_sponsor(
         **strip_kwargs(
             login=login,
         )
-    ).sponsorships_as_sponsor(
+    ).repository_discussion_comments(
         **strip_kwargs(
             after=after,
             before=before,
             first=first,
             last=last,
-            order_by=order_by,
+            repository_id=repository_id,
+            only_answers=only_answers,
         )
     )
 
     op_stack = (
         "organization",
-        "sponsorshipsAsSponsor",
+        "repositoryDiscussionComments",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["sponsorshipsAsSponsor"]
+    return result["organization"]["repositoryDiscussionComments"]
 
 
 @task
-async def query_organization_audit_log(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    query: str = None,
-    order_by: graphql_schema.AuditLogOrder = {
-        "field": "CREATED_AT",
-        "direction": "DESC",
-    },
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Audit log entries of the organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before the
-            specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        query: The query string to filter audit entries.
-        order_by: Ordering options for the returned audit log entries.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).audit_log(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            query=query,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "auditLog",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["auditLog"]
-
-
-@task
-async def query_organization_domains(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    is_verified: bool = None,
-    is_approved: bool = None,
-    order_by: graphql_schema.VerifiableDomainOrder = {
-        "field": "DOMAIN",
-        "direction": "ASC",
-    },
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of domains owned by the organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before the
-            specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        is_verified: Filter by if the domain is verified.
-        is_approved: Filter by if the domain is approved.
-        order_by: Ordering options for verifiable domains returned.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).domains(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            is_verified=is_verified,
-            is_approved=is_approved,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "domains",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["domains"]
-
-
-@task
-async def query_organization_enterprise_owners(
-    login: str,
-    github_credentials: GitHubCredentials,
-    query: str = None,
-    organization_role: graphql_schema.RoleInOrganization = None,
-    order_by: graphql_schema.OrgEnterpriseOwnerOrder = {
-        "field": "LOGIN",
-        "direction": "ASC",
-    },
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of owners of the organization's enterprise account.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        query: The search string to look for.
-        organization_role: The organization role to filter by.
-        order_by: Ordering options for enterprise owners
-            returned from the connection.
-        after: Returns the elements in the list that come
-            after the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).enterprise_owners(
-        **strip_kwargs(
-            query=query,
-            organization_role=organization_role,
-            order_by=order_by,
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "enterpriseOwners",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["enterpriseOwners"]
-
-
-@task
-async def query_organization_interaction_ability(
+async def query_organization_sponsorship_for_viewer_as_sponsor(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    The interaction ability settings for this organization.
+    The sponsorship from the viewer to this user/organization; that is, the
+    sponsorship where you're the sponsor. Only returns a sponsorship if it is
+    active.
 
     Args:
         login: The organization's login.
@@ -1610,251 +1945,29 @@ async def query_organization_interaction_ability(
         **strip_kwargs(
             login=login,
         )
-    ).interaction_ability(**strip_kwargs())
+    ).sponsorship_for_viewer_as_sponsor(**strip_kwargs())
 
     op_stack = (
         "organization",
-        "interactionAbility",
+        "sponsorshipForViewerAsSponsor",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["interactionAbility"]
+    return result["organization"]["sponsorshipForViewerAsSponsor"]
 
 
 @task
-async def query_organization_ip_allow_list_entries(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    order_by: graphql_schema.IpAllowListEntryOrder = {
-        "field": "ALLOW_LIST_VALUE",
-        "direction": "ASC",
-    },
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    The IP addresses that are allowed to access resources owned by the organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come
-            after the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the
-            list.
-        last: Returns the last _n_ elements from the list.
-        order_by: Ordering options for IP allow list
-            entries returned.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).ip_allow_list_entries(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "ipAllowListEntries",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["ipAllowListEntries"]
-
-
-@task
-async def query_organization_members_with_role(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of users who are members of this organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come
-            after the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).members_with_role(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "membersWithRole",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["membersWithRole"]
-
-
-@task
-async def query_organization_pending_members(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of users who have been invited to join this organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come after
-            the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).pending_members(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "pendingMembers",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["pendingMembers"]
-
-
-@task
-async def query_organization_repository_migrations(
-    login: str,
-    github_credentials: GitHubCredentials,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    state: graphql_schema.MigrationState = None,
-    repository_name: str = None,
-    order_by: graphql_schema.RepositoryMigrationOrder = {
-        "field": "CREATED_AT",
-        "direction": "ASC",
-    },
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of all repository migrations for this organization.
-
-    Args:
-        login: The organization's login.
-        github_credentials: Credentials to use for authentication with GitHub.
-        after: Returns the elements in the list that come
-            after the specified cursor.
-        before: Returns the elements in the list that come
-            before the specified cursor.
-        first: Returns the first _n_ elements from the
-            list.
-        last: Returns the last _n_ elements from the list.
-        state: Filter repository migrations by state.
-        repository_name: Filter repository migrations by
-            repository name.
-        order_by: Ordering options for repository
-            migrations returned.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).repository_migrations(
-        **strip_kwargs(
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-            state=state,
-            repository_name=repository_name,
-            order_by=order_by,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "repositoryMigrations",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["repositoryMigrations"]
-
-
-@task
-async def query_organization_saml_identity_provider(
+async def query_organization_sponsorship_for_viewer_as_sponsorable(
     login: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
-    The Organization's SAML identity providers.
+    The sponsorship from this user/organization to the viewer; that is, the
+    sponsorship you're receiving. Only returns a sponsorship if it is active.
 
     Args:
         login: The organization's login.
@@ -1870,128 +1983,15 @@ async def query_organization_saml_identity_provider(
         **strip_kwargs(
             login=login,
         )
-    ).saml_identity_provider(**strip_kwargs())
+    ).sponsorship_for_viewer_as_sponsorable(**strip_kwargs())
 
     op_stack = (
         "organization",
-        "samlIdentityProvider",
+        "sponsorshipForViewerAsSponsorable",
     )
     op_selection = _subset_return_fields(
         op_selection, op_stack, return_fields, return_fields_defaults
     )
 
     result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["samlIdentityProvider"]
-
-
-@task
-async def query_organization_team(
-    login: str,
-    slug: str,
-    github_credentials: GitHubCredentials,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    Find an organization's team by its slug.
-
-    Args:
-        login: The organization's login.
-        slug: The name or slug of the team to find.
-        github_credentials: Credentials to use for authentication with GitHub.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).team(
-        **strip_kwargs(
-            slug=slug,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "team",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["team"]
-
-
-@task
-async def query_organization_teams(
-    login: str,
-    user_logins: Iterable[str],
-    github_credentials: GitHubCredentials,
-    privacy: graphql_schema.TeamPrivacy = None,
-    role: graphql_schema.TeamRole = None,
-    query: str = None,
-    order_by: graphql_schema.TeamOrder = None,
-    ldap_mapped: bool = None,
-    root_teams_only: bool = False,
-    after: str = None,
-    before: str = None,
-    first: int = None,
-    last: int = None,
-    return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
-    """
-    A list of teams in this organization.
-
-    Args:
-        login: The organization's login.
-        user_logins: User logins to filter by.
-        github_credentials: Credentials to use for authentication with GitHub.
-        privacy: If non-null, filters teams according to privacy.
-        role: If non-null, filters teams according to whether the viewer
-            is an admin or member on team.
-        query: If non-null, filters teams with query on team name and team
-            slug.
-        order_by: Ordering options for teams returned from the connection.
-        ldap_mapped: If true, filters teams that are mapped to an LDAP
-            Group (Enterprise only).
-        root_teams_only: If true, restrict to only root teams.
-        after: Returns the elements in the list that come after the
-            specified cursor.
-        before: Returns the elements in the list that come before the
-            specified cursor.
-        first: Returns the first _n_ elements from the list.
-        last: Returns the last _n_ elements from the list.
-        return_fields: Subset the return fields (as snake_case); defaults to
-            fields listed in configs/query/*.json.
-
-    Returns:
-        A dict of the returned fields.
-    """
-    op = Operation(graphql_schema.Query)
-    op_selection = op.organization(**strip_kwargs(login=login,)).teams(
-        **strip_kwargs(
-            user_logins=user_logins,
-            privacy=privacy,
-            role=role,
-            query=query,
-            order_by=order_by,
-            ldap_mapped=ldap_mapped,
-            root_teams_only=root_teams_only,
-            after=after,
-            before=before,
-            first=first,
-            last=last,
-        )
-    )
-
-    op_stack = (
-        "organization",
-        "teams",
-    )
-    op_selection = _subset_return_fields(
-        op_selection, op_stack, return_fields, return_fields_defaults
-    )
-
-    result = await _execute_graphql_op(op, github_credentials)
-    return result["organization"]["teams"]
+    return result["organization"]["sponsorshipForViewerAsSponsorable"]
