@@ -30,8 +30,8 @@ REPO_DIRECTORY = THIS_DIRECTORY.parent
 
 # UPDATE THESE AS DESIRED
 
-service_name = "GitHub"  # e.g. GitHub
-service_url = "https://api.github.com/graphql"  # e.g. https://api.github.com/graphql
+service_name = "GitHub"
+service_url = "https://api.github.com/graphql"
 token_path = Path("~/.secrets/github").expanduser()
 with open(token_path, "r") as f:
     token = f.read().strip()

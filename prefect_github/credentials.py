@@ -40,7 +40,7 @@ class GitHubCredentials(Block):
 
             @flow
             def example_get_endpoint_flow():
-                token = "consumer_key"
+                token = "token_xxxxxxx"
                 github_credentials = GitHubCredentials(token=token)
                 endpoint = github_credentials.get_endpoint()
                 return endpoint

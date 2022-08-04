@@ -1,5 +1,6 @@
 """
-This is a module for interacting with GitHub organization tasks.
+This is a module for interacting with
+GitHub Query organization tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """

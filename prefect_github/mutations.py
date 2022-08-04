@@ -1,5 +1,6 @@
 """
-This is a module for interacting with GitHub  tasks.
+This is a module for interacting with
+GitHub Mutation  tasks.
 It was auto-generated using prefect-collection-generator so
 manually editing this file is not recommended.
 """

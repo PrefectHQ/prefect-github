@@ -1123,6 +1123,7 @@ class SecurityAdvisoryClassification(sgqlc.types.Enum):
 class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
     __schema__ = graphql_schema
     __choices__ = (
+        "ACTIONS",
         "COMPOSER",
         "ERLANG",
         "GO",
