@@ -8,6 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## 0.1.3
+
+Released on August 4th, 2022.
+
+### Added
 `add_pull_request_review*` task - [#16](https://github.com/PrefectHQ/prefect-github/pull/16)
 `*_v2` tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
@@ -20,9 +36,6 @@ Convert credentials to blocks - [#20](https://github.com/PrefectHQ/prefect-githu
 `scripts/update.py` so `scripts/generate.py` is the sole source of regeneration - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 `*_edge` tasks to prevent duplicate tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
 
-### Fixed
-
-### Security
 
 ## 0.1.2
 
