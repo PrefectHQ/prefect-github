@@ -34,23 +34,22 @@ from prefect_github.mutations import add_star_starrable
 
 
 @flow()
-async def github_add_star_flow():
-    github_credentials = GitHubCredentials(token)
-    repository_id_future = await query_repository(
+def github_add_star_flow():
+    github_credentials = GitHubCredentials.load("github-token")
+    repository_id = query_repository(
         "PrefectHQ",
         "Prefect",
         github_credentials=github_credentials,
         return_fields="id"
-    )
-    repository_id = (await repository_id_future.result())["id"]
-    starrable = await add_star_starrable(
+    )["id"]
+    starrable = add_star_starrable(
         repository_id,
         github_credentials
     )
     return starrable
 
 
-await github_add_star_flow()
+github_add_star_flow()
 ```
 
 ## Resources
