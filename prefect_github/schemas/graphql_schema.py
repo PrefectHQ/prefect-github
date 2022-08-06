@@ -736,9 +736,9 @@ class ProjectNextFieldType(sgqlc.types.Enum):
         "REPOSITORY",
         "REVIEWERS",
         "SINGLE_SELECT",
+        "TASKS",
         "TEXT",
         "TITLE",
-        "TRACKS",
     )
 
 
@@ -785,9 +785,9 @@ class ProjectV2FieldType(sgqlc.types.Enum):
         "REPOSITORY",
         "REVIEWERS",
         "SINGLE_SELECT",
+        "TASKS",
         "TEXT",
         "TITLE",
-        "TRACKS",
     )
 
 
