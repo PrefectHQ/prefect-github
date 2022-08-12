@@ -3,13 +3,14 @@ Used for generating the repository from scratch.
 """
 from pathlib import Path
 
-# from cookiecutter.main import cookiecutter
 from prefect_collection_generator.gql import populate_collection_repo
 
 THIS_DIRECTORY = Path(__file__).parent.absolute()
 REPO_DIRECTORY = THIS_DIRECTORY.parent
 
 # USE THIS IF NEED TO REGENERATE FROM SCRATCH; IF NOT SKIP TO NEXT SECTION
+# from cookiecutter.main import cookiecutter
+
 # extra_context = {
 #     "full_name":  "Prefect Technologies, Inc.",
 #     "email": "help@prefect.io",
