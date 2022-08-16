@@ -29,7 +29,7 @@ async def _execute_graphql_op(
     result = await to_thread.run_sync(partial_endpoint)
     if "errors" in result:
         errors = pformat(result["errors"])
-        raise RuntimeError(f"Errors encountered:\n{errors}")
+        raise RuntimeError(f"Error encountered:\n{errors}")
     return result["data"]
 
 

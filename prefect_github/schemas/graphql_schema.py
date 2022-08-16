@@ -14,16 +14,28 @@ graphql_schema -= sgqlc.types.relay.PageInfo
 # Scalars and Enumerations
 ########################################################################
 class ActorType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("TEAM", "USER")
 
 
 class AuditLogOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class Base64String(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
@@ -31,11 +43,19 @@ Boolean = sgqlc.types.Boolean
 
 
 class CheckAnnotationLevel(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("FAILURE", "NOTICE", "WARNING")
 
 
 class CheckConclusionState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ACTION_REQUIRED",
@@ -51,11 +71,19 @@ class CheckConclusionState(sgqlc.types.Enum):
 
 
 class CheckRunType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "LATEST")
 
 
 class CheckStatusState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "COMPLETED",
@@ -68,11 +96,19 @@ class CheckStatusState(sgqlc.types.Enum):
 
 
 class CollaboratorAffiliation(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "DIRECT", "OUTSIDE")
 
 
 class CommentAuthorAssociation(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "COLLABORATOR",
@@ -87,6 +123,10 @@ class CommentAuthorAssociation(sgqlc.types.Enum):
 
 
 class CommentCannotUpdateReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ARCHIVED",
@@ -100,11 +140,19 @@ class CommentCannotUpdateReason(sgqlc.types.Enum):
 
 
 class CommitContributionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COMMIT_COUNT", "OCCURRED_AT")
 
 
 class ContributionLevel(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "FIRST_QUARTILE",
@@ -121,11 +169,19 @@ DateTime = sgqlc.types.datetime.DateTime
 
 
 class DefaultRepositoryPermissionField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "NONE", "READ", "WRITE")
 
 
 class DependencyGraphEcosystem(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ACTIONS",
@@ -141,21 +197,37 @@ class DependencyGraphEcosystem(sgqlc.types.Enum):
 
 
 class DeploymentOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class DeploymentProtectionRuleType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("REQUIRED_REVIEWERS", "WAIT_TIMER")
 
 
 class DeploymentReviewState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("APPROVED", "REJECTED")
 
 
 class DeploymentState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ABANDONED",
@@ -172,6 +244,10 @@ class DeploymentState(sgqlc.types.Enum):
 
 
 class DeploymentStatusState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ERROR",
@@ -186,21 +262,37 @@ class DeploymentStatusState(sgqlc.types.Enum):
 
 
 class DiffSide(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("LEFT", "RIGHT")
 
 
 class DiscussionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "UPDATED_AT")
 
 
 class DiscussionPollOptionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("AUTHORED_ORDER", "VOTE_COUNT")
 
 
 class DismissReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "FIX_STARTED",
@@ -212,81 +304,145 @@ class DismissReason(sgqlc.types.Enum):
 
 
 class EnterpriseAdministratorInvitationOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class EnterpriseAdministratorRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BILLING_MANAGER", "OWNER")
 
 
 class EnterpriseDefaultRepositoryPermissionSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "NONE", "NO_POLICY", "READ", "WRITE")
 
 
 class EnterpriseEnabledDisabledSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISABLED", "ENABLED", "NO_POLICY")
 
 
 class EnterpriseEnabledSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ENABLED", "NO_POLICY")
 
 
 class EnterpriseMemberOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "LOGIN")
 
 
 class EnterpriseMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "DISABLED", "NO_POLICY", "PRIVATE", "PUBLIC")
 
 
 class EnterpriseMembersCanMakePurchasesSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISABLED", "ENABLED")
 
 
 class EnterpriseServerInstallationOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "CUSTOMER_NAME", "HOST_NAME")
 
 
 class EnterpriseServerUserAccountEmailOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("EMAIL",)
 
 
 class EnterpriseServerUserAccountOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("LOGIN", "REMOTE_CREATED_AT")
 
 
 class EnterpriseServerUserAccountsUploadOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class EnterpriseServerUserAccountsUploadSyncState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("FAILURE", "PENDING", "SUCCESS")
 
 
 class EnterpriseUserAccountMembershipRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("MEMBER", "OWNER")
 
 
 class EnterpriseUserDeployment(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOUD", "SERVER")
 
 
 class FileViewedState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISMISSED", "UNVIEWED", "VIEWED")
 
@@ -295,6 +451,10 @@ Float = sgqlc.types.Float
 
 
 class FundingPlatform(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "COMMUNITY_BRIDGE",
@@ -312,24 +472,44 @@ class FundingPlatform(sgqlc.types.Enum):
 
 
 class GistOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "PUSHED_AT", "UPDATED_AT")
 
 
 class GistPrivacy(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "PUBLIC", "SECRET")
 
 
 class GitObjectID(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
 class GitSSHRemote(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
 class GitSignatureState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "BAD_CERT",
@@ -353,10 +533,18 @@ class GitSignatureState(sgqlc.types.Enum):
 
 
 class GitTimestamp(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
 class HTML(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
@@ -364,6 +552,10 @@ ID = sgqlc.types.ID
 
 
 class IdentityProviderConfigurationState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CONFIGURED", "ENFORCED", "UNCONFIGURED")
 
@@ -372,46 +564,82 @@ Int = sgqlc.types.Int
 
 
 class IpAllowListEnabledSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISABLED", "ENABLED")
 
 
 class IpAllowListEntryOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALLOW_LIST_VALUE", "CREATED_AT")
 
 
 class IpAllowListForInstalledAppsEnabledSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISABLED", "ENABLED")
 
 
 class IssueClosedStateReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COMPLETED", "NOT_PLANNED")
 
 
 class IssueCommentOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("UPDATED_AT",)
 
 
 class IssueOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COMMENTS", "CREATED_AT", "UPDATED_AT")
 
 
 class IssueState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "OPEN")
 
 
 class IssueStateReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COMPLETED", "NOT_PLANNED", "REOPENED")
 
 
 class IssueTimelineItemsItemType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ADDED_TO_PROJECT_EVENT",
@@ -449,26 +677,46 @@ class IssueTimelineItemsItemType(sgqlc.types.Enum):
 
 
 class LabelOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME")
 
 
 class LanguageOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("SIZE",)
 
 
 class LockReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("OFF_TOPIC", "RESOLVED", "SPAM", "TOO_HEATED")
 
 
 class MergeableState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CONFLICTING", "MERGEABLE", "UNKNOWN")
 
 
 class MigrationSourceType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "AZURE_DEVOPS",
@@ -480,6 +728,10 @@ class MigrationSourceType(sgqlc.types.Enum):
 
 
 class MigrationState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "FAILED",
@@ -493,31 +745,55 @@ class MigrationState(sgqlc.types.Enum):
 
 
 class MilestoneOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "DUE_DATE", "NUMBER", "UPDATED_AT")
 
 
 class MilestoneState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "OPEN")
 
 
 class NotificationRestrictionSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISABLED", "ENABLED")
 
 
 class OIDCProviderType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("AAD",)
 
 
 class OauthApplicationCreateAuditEntryState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ACTIVE", "PENDING_DELETION", "SUSPENDED")
 
 
 class OperationType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ACCESS",
@@ -531,26 +807,46 @@ class OperationType(sgqlc.types.Enum):
 
 
 class OrderDirection(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ASC", "DESC")
 
 
 class OrgAddMemberAuditEntryPermission(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "READ")
 
 
 class OrgCreateAuditEntryBillingPlan(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BUSINESS", "BUSINESS_PLUS", "FREE", "TIERED_PER_SEAT", "UNLIMITED")
 
 
 class OrgEnterpriseOwnerOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("LOGIN",)
 
 
 class OrgRemoveBillingManagerAuditEntryReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -560,6 +856,10 @@ class OrgRemoveBillingManagerAuditEntryReason(sgqlc.types.Enum):
 
 
 class OrgRemoveMemberAuditEntryMembershipType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ADMIN",
@@ -572,6 +872,10 @@ class OrgRemoveMemberAuditEntryMembershipType(sgqlc.types.Enum):
 
 
 class OrgRemoveMemberAuditEntryReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -583,11 +887,19 @@ class OrgRemoveMemberAuditEntryReason(sgqlc.types.Enum):
 
 
 class OrgRemoveOutsideCollaboratorAuditEntryMembershipType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BILLING_MANAGER", "OUTSIDE_COLLABORATOR", "UNAFFILIATED")
 
 
 class OrgRemoveOutsideCollaboratorAuditEntryReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "SAML_EXTERNAL_IDENTITY_MISSING",
@@ -596,16 +908,28 @@ class OrgRemoveOutsideCollaboratorAuditEntryReason(sgqlc.types.Enum):
 
 
 class OrgUpdateDefaultRepositoryPermissionAuditEntryPermission(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "NONE", "READ", "WRITE")
 
 
 class OrgUpdateMemberAuditEntryPermission(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "READ")
 
 
 class OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ALL",
@@ -620,56 +944,100 @@ class OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility(sgqlc.type
 
 
 class OrganizationInvitationRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "BILLING_MANAGER", "DIRECT_MEMBER", "REINSTATE")
 
 
 class OrganizationInvitationType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("EMAIL", "USER")
 
 
 class OrganizationMemberRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "MEMBER")
 
 
 class OrganizationMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "DISABLED", "INTERNAL", "PRIVATE")
 
 
 class OrganizationOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "LOGIN")
 
 
 class PackageFileOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class PackageOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class PackageType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DEBIAN", "DOCKER", "MAVEN", "NPM", "NUGET", "PYPI", "RUBYGEMS")
 
 
 class PackageVersionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class PatchStatus(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADDED", "CHANGED", "COPIED", "DELETED", "MODIFIED", "RENAMED")
 
 
 class PinnableItemType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "GIST",
@@ -684,6 +1052,10 @@ class PinnableItemType(sgqlc.types.Enum):
 
 
 class PinnedDiscussionGradient(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "BLUE_MINT",
@@ -695,35 +1067,63 @@ class PinnedDiscussionGradient(sgqlc.types.Enum):
 
 
 class PinnedDiscussionPattern(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CHEVRON_UP", "DOT", "DOT_FILL", "HEART_FILL", "PLUS", "ZAP")
 
 
 class PreciseDateTime(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
 class ProjectCardArchivedState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ARCHIVED", "NOT_ARCHIVED")
 
 
 class ProjectCardState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CONTENT_ONLY", "NOTE_ONLY", "REDACTED")
 
 
 class ProjectColumnPurpose(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DONE", "IN_PROGRESS", "TODO")
 
 
 class ProjectItemType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DRAFT_ISSUE", "ISSUE", "PULL_REQUEST", "REDACTED")
 
 
 class ProjectNextFieldType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ASSIGNEES",
@@ -743,21 +1143,37 @@ class ProjectNextFieldType(sgqlc.types.Enum):
 
 
 class ProjectNextOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NUMBER", "TITLE", "UPDATED_AT")
 
 
 class ProjectOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME", "UPDATED_AT")
 
 
 class ProjectState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "OPEN")
 
 
 class ProjectTemplate(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "AUTOMATED_KANBAN_V2",
@@ -768,11 +1184,19 @@ class ProjectTemplate(sgqlc.types.Enum):
 
 
 class ProjectV2FieldOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME", "POSITION")
 
 
 class ProjectV2FieldType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ASSIGNEES",
@@ -792,76 +1216,136 @@ class ProjectV2FieldType(sgqlc.types.Enum):
 
 
 class ProjectV2ItemFieldValueOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("POSITION",)
 
 
 class ProjectV2ItemOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("POSITION",)
 
 
 class ProjectV2ItemType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DRAFT_ISSUE", "ISSUE", "PULL_REQUEST", "REDACTED")
 
 
 class ProjectV2OrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NUMBER", "TITLE", "UPDATED_AT")
 
 
 class ProjectV2ViewLayout(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BOARD_LAYOUT", "TABLE_LAYOUT")
 
 
 class ProjectV2ViewOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME", "POSITION")
 
 
 class ProjectViewLayout(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BOARD_LAYOUT", "TABLE_LAYOUT")
 
 
 class PullRequestMergeMethod(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("MERGE", "REBASE", "SQUASH")
 
 
 class PullRequestOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "UPDATED_AT")
 
 
 class PullRequestReviewCommentState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("PENDING", "SUBMITTED")
 
 
 class PullRequestReviewDecision(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("APPROVED", "CHANGES_REQUESTED", "REVIEW_REQUIRED")
 
 
 class PullRequestReviewEvent(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("APPROVE", "COMMENT", "DISMISS", "REQUEST_CHANGES")
 
 
 class PullRequestReviewState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("APPROVED", "CHANGES_REQUESTED", "COMMENTED", "DISMISSED", "PENDING")
 
 
 class PullRequestState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "MERGED", "OPEN")
 
 
 class PullRequestTimelineItemsItemType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ADDED_TO_MERGE_QUEUE_EVENT",
@@ -926,11 +1410,19 @@ class PullRequestTimelineItemsItemType(sgqlc.types.Enum):
 
 
 class PullRequestUpdateState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "OPEN")
 
 
 class ReactionContent(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "CONFUSED",
@@ -945,66 +1437,118 @@ class ReactionContent(sgqlc.types.Enum):
 
 
 class ReactionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class RefOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALPHABETICAL", "TAG_COMMIT_DATE")
 
 
 class ReleaseOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME")
 
 
 class RepoAccessAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepoAddMemberAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepoArchivedAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepoChangeMergeSettingAuditEntryMergeType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("MERGE", "REBASE", "SQUASH")
 
 
 class RepoCreateAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepoDestroyAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepoRemoveMemberAuditEntryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class ReportedContentClassifiers(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ABUSE", "DUPLICATE", "OFF_TOPIC", "OUTDATED", "RESOLVED", "SPAM")
 
 
 class RepositoryAffiliation(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COLLABORATOR", "ORGANIZATION_MEMBER", "OWNER")
 
 
 class RepositoryContributionType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "COMMIT",
@@ -1016,6 +1560,10 @@ class RepositoryContributionType(sgqlc.types.Enum):
 
 
 class RepositoryInteractionLimit(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "COLLABORATORS_ONLY",
@@ -1026,101 +1574,181 @@ class RepositoryInteractionLimit(sgqlc.types.Enum):
 
 
 class RepositoryInteractionLimitExpiry(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ONE_DAY", "ONE_MONTH", "ONE_WEEK", "SIX_MONTHS", "THREE_DAYS")
 
 
 class RepositoryInteractionLimitOrigin(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ORGANIZATION", "REPOSITORY", "USER")
 
 
 class RepositoryInvitationOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class RepositoryLockReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("BILLING", "MIGRATING", "MOVING", "RENAME")
 
 
 class RepositoryMigrationOrderDirection(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ASC", "DESC")
 
 
 class RepositoryMigrationOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class RepositoryOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "NAME", "PUSHED_AT", "STARGAZERS", "UPDATED_AT")
 
 
 class RepositoryPermission(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "MAINTAIN", "READ", "TRIAGE", "WRITE")
 
 
 class RepositoryPrivacy(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("PRIVATE", "PUBLIC")
 
 
 class RepositoryVisibility(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("INTERNAL", "PRIVATE", "PUBLIC")
 
 
 class RepositoryVulnerabilityAlertDependencyScope(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DEVELOPMENT", "RUNTIME")
 
 
 class RepositoryVulnerabilityAlertState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISMISSED", "FIXED", "OPEN")
 
 
 class RequestableCheckStatusState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("COMPLETED", "IN_PROGRESS", "PENDING", "QUEUED", "WAITING")
 
 
 class RoleInOrganization(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DIRECT_MEMBER", "OWNER", "UNAFFILIATED")
 
 
 class SamlDigestAlgorithm(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("SHA1", "SHA256", "SHA384", "SHA512")
 
 
 class SamlSignatureAlgorithm(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("RSA_SHA1", "RSA_SHA256", "RSA_SHA384", "RSA_SHA512")
 
 
 class SavedReplyOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("UPDATED_AT",)
 
 
 class SearchType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("DISCUSSION", "ISSUE", "REPOSITORY", "USER")
 
 
 class SecurityAdvisoryClassification(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("GENERAL", "MALWARE")
 
 
 class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "ACTIONS",
@@ -1137,36 +1765,64 @@ class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
 
 
 class SecurityAdvisoryIdentifierType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CVE", "GHSA")
 
 
 class SecurityAdvisoryOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("PUBLISHED_AT", "UPDATED_AT")
 
 
 class SecurityAdvisorySeverity(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CRITICAL", "HIGH", "LOW", "MODERATE")
 
 
 class SecurityVulnerabilityOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("UPDATED_AT",)
 
 
 class SponsorOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("LOGIN", "RELEVANCE")
 
 
 class SponsorableOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("LOGIN",)
 
 
 class SponsorsActivityAction(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "CANCELLED_SPONSORSHIP",
@@ -1179,46 +1835,82 @@ class SponsorsActivityAction(sgqlc.types.Enum):
 
 
 class SponsorsActivityOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("TIMESTAMP",)
 
 
 class SponsorsActivityPeriod(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "DAY", "MONTH", "WEEK")
 
 
 class SponsorsGoalKind(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("MONTHLY_SPONSORSHIP_AMOUNT", "TOTAL_SPONSORS_COUNT")
 
 
 class SponsorsTierOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "MONTHLY_PRICE_IN_CENTS")
 
 
 class SponsorshipNewsletterOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class SponsorshipOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class SponsorshipPrivacy(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("PRIVATE", "PUBLIC")
 
 
 class StarOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("STARRED_AT",)
 
 
 class StatusState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ERROR", "EXPECTED", "FAILURE", "PENDING", "SUCCESS")
 
@@ -1227,46 +1919,82 @@ String = sgqlc.types.String
 
 
 class SubscriptionState(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("IGNORED", "SUBSCRIBED", "UNSUBSCRIBED")
 
 
 class TeamDiscussionCommentOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("NUMBER",)
 
 
 class TeamDiscussionOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT",)
 
 
 class TeamMemberOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "LOGIN")
 
 
 class TeamMemberRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("MAINTAINER", "MEMBER")
 
 
 class TeamMembershipType(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ALL", "CHILD_TEAM", "IMMEDIATE")
 
 
 class TeamOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("NAME",)
 
 
 class TeamPrivacy(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("SECRET", "VISIBLE")
 
 
 class TeamRepositoryOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = (
         "CREATED_AT",
@@ -1279,40 +2007,72 @@ class TeamRepositoryOrderField(sgqlc.types.Enum):
 
 
 class TeamRole(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ADMIN", "MEMBER")
 
 
 class TopicSuggestionDeclineReason(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("NOT_RELEVANT", "PERSONAL_PREFERENCE", "TOO_GENERAL", "TOO_SPECIFIC")
 
 
 class TrackedIssueStates(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CLOSED", "OPEN")
 
 
 class URI(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
 class UserBlockDuration(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("ONE_DAY", "ONE_MONTH", "ONE_WEEK", "PERMANENT", "THREE_DAYS")
 
 
 class UserStatusOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("UPDATED_AT",)
 
 
 class VerifiableDomainOrderField(sgqlc.types.Enum):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "DOMAIN")
 
 
 class X509Certificate(sgqlc.types.Scalar):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
 
 
@@ -1320,6 +2080,10 @@ class X509Certificate(sgqlc.types.Scalar):
 # Input Objects
 ########################################################################
 class AbortQueuedMigrationsInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -1327,6 +2091,10 @@ class AbortQueuedMigrationsInput(sgqlc.types.Input):
 
 
 class AcceptEnterpriseAdministratorInvitationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("invitation_id", "client_mutation_id")
     invitation_id = sgqlc.types.Field(
@@ -1336,6 +2104,10 @@ class AcceptEnterpriseAdministratorInvitationInput(sgqlc.types.Input):
 
 
 class AcceptTopicSuggestionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "name", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -1346,6 +2118,10 @@ class AcceptTopicSuggestionInput(sgqlc.types.Input):
 
 
 class AddAssigneesToAssignableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("assignable_id", "assignee_ids", "client_mutation_id")
     assignable_id = sgqlc.types.Field(
@@ -1359,6 +2135,10 @@ class AddAssigneesToAssignableInput(sgqlc.types.Input):
 
 
 class AddCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "body", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -1367,6 +2147,10 @@ class AddCommentInput(sgqlc.types.Input):
 
 
 class AddDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("discussion_id", "reply_to_id", "body", "client_mutation_id")
     discussion_id = sgqlc.types.Field(
@@ -1378,6 +2162,10 @@ class AddDiscussionCommentInput(sgqlc.types.Input):
 
 
 class AddDiscussionPollVoteInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("poll_option_id", "client_mutation_id")
     poll_option_id = sgqlc.types.Field(
@@ -1387,6 +2175,10 @@ class AddDiscussionPollVoteInput(sgqlc.types.Input):
 
 
 class AddEnterpriseSupportEntitlementInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -1397,6 +2189,10 @@ class AddEnterpriseSupportEntitlementInput(sgqlc.types.Input):
 
 
 class AddLabelsToLabelableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("labelable_id", "label_ids", "client_mutation_id")
     labelable_id = sgqlc.types.Field(
@@ -1410,6 +2206,10 @@ class AddLabelsToLabelableInput(sgqlc.types.Input):
 
 
 class AddProjectCardInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_column_id", "content_id", "note", "client_mutation_id")
     project_column_id = sgqlc.types.Field(
@@ -1421,6 +2221,10 @@ class AddProjectCardInput(sgqlc.types.Input):
 
 
 class AddProjectColumnInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "name", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -1429,6 +2233,10 @@ class AddProjectColumnInput(sgqlc.types.Input):
 
 
 class AddProjectDraftIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -1447,6 +2255,10 @@ class AddProjectDraftIssueInput(sgqlc.types.Input):
 
 
 class AddProjectNextItemInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "content_id", "client_mutation_id")
     project_id = sgqlc.types.Field(ID, graphql_name="projectId")
@@ -1455,6 +2267,10 @@ class AddProjectNextItemInput(sgqlc.types.Input):
 
 
 class AddProjectV2DraftIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -1473,6 +2289,10 @@ class AddProjectV2DraftIssueInput(sgqlc.types.Input):
 
 
 class AddProjectV2ItemByIdInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "content_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -1481,6 +2301,10 @@ class AddProjectV2ItemByIdInput(sgqlc.types.Input):
 
 
 class AddPullRequestReviewCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -1503,6 +2327,10 @@ class AddPullRequestReviewCommentInput(sgqlc.types.Input):
 
 
 class AddPullRequestReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -1529,6 +2357,10 @@ class AddPullRequestReviewInput(sgqlc.types.Input):
 
 
 class AddPullRequestReviewThreadInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "path",
@@ -1553,6 +2385,10 @@ class AddPullRequestReviewThreadInput(sgqlc.types.Input):
 
 
 class AddReactionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "content", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -1563,6 +2399,10 @@ class AddReactionInput(sgqlc.types.Input):
 
 
 class AddStarInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("starrable_id", "client_mutation_id")
     starrable_id = sgqlc.types.Field(
@@ -1572,6 +2412,10 @@ class AddStarInput(sgqlc.types.Input):
 
 
 class AddUpvoteInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -1579,6 +2423,10 @@ class AddUpvoteInput(sgqlc.types.Input):
 
 
 class AddVerifiableDomainInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "domain", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -1587,6 +2435,10 @@ class AddVerifiableDomainInput(sgqlc.types.Input):
 
 
 class ApproveDeploymentsInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "workflow_run_id",
@@ -1606,6 +2458,10 @@ class ApproveDeploymentsInput(sgqlc.types.Input):
 
 
 class ApproveVerifiableDomainInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -1613,6 +2469,10 @@ class ApproveVerifiableDomainInput(sgqlc.types.Input):
 
 
 class ArchiveRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -1622,6 +2482,10 @@ class ArchiveRepositoryInput(sgqlc.types.Input):
 
 
 class AuditLogOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(AuditLogOrderField, graphql_name="field")
@@ -1629,6 +2493,10 @@ class AuditLogOrder(sgqlc.types.Input):
 
 
 class CancelEnterpriseAdminInvitationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("invitation_id", "client_mutation_id")
     invitation_id = sgqlc.types.Field(
@@ -1638,6 +2506,10 @@ class CancelEnterpriseAdminInvitationInput(sgqlc.types.Input):
 
 
 class CancelSponsorshipInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "sponsor_id",
@@ -1654,6 +2526,10 @@ class CancelSponsorshipInput(sgqlc.types.Input):
 
 
 class ChangeUserStatusInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "emoji",
@@ -1674,6 +2550,10 @@ class ChangeUserStatusInput(sgqlc.types.Input):
 
 
 class CheckAnnotationData(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "path",
@@ -1696,6 +2576,10 @@ class CheckAnnotationData(sgqlc.types.Input):
 
 
 class CheckAnnotationRange(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("start_line", "start_column", "end_line", "end_column")
     start_line = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="startLine")
@@ -1705,6 +2589,10 @@ class CheckAnnotationRange(sgqlc.types.Input):
 
 
 class CheckRunAction(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("label", "description", "identifier")
     label = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="label")
@@ -1717,6 +2605,10 @@ class CheckRunAction(sgqlc.types.Input):
 
 
 class CheckRunFilter(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("check_type", "app_id", "check_name", "status")
     check_type = sgqlc.types.Field(CheckRunType, graphql_name="checkType")
@@ -1726,6 +2618,10 @@ class CheckRunFilter(sgqlc.types.Input):
 
 
 class CheckRunOutput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("title", "summary", "text", "annotations", "images")
     title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="title")
@@ -1742,6 +2638,10 @@ class CheckRunOutput(sgqlc.types.Input):
 
 
 class CheckRunOutputImage(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("alt", "image_url", "caption")
     alt = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="alt")
@@ -1750,6 +2650,10 @@ class CheckRunOutputImage(sgqlc.types.Input):
 
 
 class CheckSuiteAutoTriggerPreference(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("app_id", "setting")
     app_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="appId")
@@ -1757,6 +2661,10 @@ class CheckSuiteAutoTriggerPreference(sgqlc.types.Input):
 
 
 class CheckSuiteFilter(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("app_id", "check_name")
     app_id = sgqlc.types.Field(Int, graphql_name="appId")
@@ -1764,6 +2672,10 @@ class CheckSuiteFilter(sgqlc.types.Input):
 
 
 class ClearLabelsFromLabelableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("labelable_id", "client_mutation_id")
     labelable_id = sgqlc.types.Field(
@@ -1773,6 +2685,10 @@ class ClearLabelsFromLabelableInput(sgqlc.types.Input):
 
 
 class CloneProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "target_owner_id",
@@ -1797,6 +2713,10 @@ class CloneProjectInput(sgqlc.types.Input):
 
 
 class CloneTemplateRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -1821,6 +2741,10 @@ class CloneTemplateRepositoryInput(sgqlc.types.Input):
 
 
 class CloseIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "state_reason", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -1829,6 +2753,10 @@ class CloseIssueInput(sgqlc.types.Input):
 
 
 class ClosePullRequestInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -1838,6 +2766,10 @@ class ClosePullRequestInput(sgqlc.types.Input):
 
 
 class CommitAuthor(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "emails")
     id = sgqlc.types.Field(ID, graphql_name="id")
@@ -1847,6 +2779,10 @@ class CommitAuthor(sgqlc.types.Input):
 
 
 class CommitContributionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -1858,6 +2794,10 @@ class CommitContributionOrder(sgqlc.types.Input):
 
 
 class CommitMessage(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("headline", "body")
     headline = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="headline")
@@ -1865,6 +2805,10 @@ class CommitMessage(sgqlc.types.Input):
 
 
 class CommittableBranch(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "repository_name_with_owner", "branch_name")
     id = sgqlc.types.Field(ID, graphql_name="id")
@@ -1875,6 +2819,10 @@ class CommittableBranch(sgqlc.types.Input):
 
 
 class ContributionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("direction",)
     direction = sgqlc.types.Field(
@@ -1883,6 +2831,10 @@ class ContributionOrder(sgqlc.types.Input):
 
 
 class ConvertProjectCardNoteToIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_card_id",
@@ -1903,6 +2855,10 @@ class ConvertProjectCardNoteToIssueInput(sgqlc.types.Input):
 
 
 class ConvertPullRequestToDraftInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -1912,6 +2868,10 @@ class ConvertPullRequestToDraftInput(sgqlc.types.Input):
 
 
 class CreateBranchProtectionRuleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2005,6 +2965,10 @@ class CreateBranchProtectionRuleInput(sgqlc.types.Input):
 
 
 class CreateCheckRunInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2042,6 +3006,10 @@ class CreateCheckRunInput(sgqlc.types.Input):
 
 
 class CreateCheckSuiteInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "head_sha", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -2054,6 +3022,10 @@ class CreateCheckSuiteInput(sgqlc.types.Input):
 
 
 class CreateCommitOnBranchInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "branch",
@@ -2076,6 +3048,10 @@ class CreateCommitOnBranchInput(sgqlc.types.Input):
 
 
 class CreateDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2094,6 +3070,10 @@ class CreateDiscussionInput(sgqlc.types.Input):
 
 
 class CreateEnterpriseOrganizationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -2121,6 +3101,10 @@ class CreateEnterpriseOrganizationInput(sgqlc.types.Input):
 
 
 class CreateEnvironmentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "name", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -2131,6 +3115,10 @@ class CreateEnvironmentInput(sgqlc.types.Input):
 
 
 class CreateIpAllowListEntryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "owner_id",
@@ -2151,6 +3139,10 @@ class CreateIpAllowListEntryInput(sgqlc.types.Input):
 
 
 class CreateIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2183,6 +3175,10 @@ class CreateIssueInput(sgqlc.types.Input):
 
 
 class CreateMigrationSourceInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "name",
@@ -2205,6 +3201,10 @@ class CreateMigrationSourceInput(sgqlc.types.Input):
 
 
 class CreateProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "owner_id",
@@ -2225,6 +3225,10 @@ class CreateProjectInput(sgqlc.types.Input):
 
 
 class CreateProjectV2Input(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "title", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -2233,6 +3237,10 @@ class CreateProjectV2Input(sgqlc.types.Input):
 
 
 class CreatePullRequestInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2263,6 +3271,10 @@ class CreatePullRequestInput(sgqlc.types.Input):
 
 
 class CreateRefInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "name", "oid", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -2274,6 +3286,10 @@ class CreateRefInput(sgqlc.types.Input):
 
 
 class CreateRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "name",
@@ -2302,6 +3318,10 @@ class CreateRepositoryInput(sgqlc.types.Input):
 
 
 class CreateSponsorsTierInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "sponsorable_id",
@@ -2334,6 +3354,10 @@ class CreateSponsorsTierInput(sgqlc.types.Input):
 
 
 class CreateSponsorshipInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "sponsor_id",
@@ -2360,6 +3384,10 @@ class CreateSponsorshipInput(sgqlc.types.Input):
 
 
 class CreateTeamDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("discussion_id", "body", "client_mutation_id")
     discussion_id = sgqlc.types.Field(
@@ -2370,6 +3398,10 @@ class CreateTeamDiscussionCommentInput(sgqlc.types.Input):
 
 
 class CreateTeamDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("team_id", "title", "body", "private", "client_mutation_id")
     team_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="teamId")
@@ -2380,6 +3412,10 @@ class CreateTeamDiscussionInput(sgqlc.types.Input):
 
 
 class DeclineTopicSuggestionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "name", "reason", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -2393,6 +3429,10 @@ class DeclineTopicSuggestionInput(sgqlc.types.Input):
 
 
 class DeleteBranchProtectionRuleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("branch_protection_rule_id", "client_mutation_id")
     branch_protection_rule_id = sgqlc.types.Field(
@@ -2402,6 +3442,10 @@ class DeleteBranchProtectionRuleInput(sgqlc.types.Input):
 
 
 class DeleteDeploymentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2409,6 +3453,10 @@ class DeleteDeploymentInput(sgqlc.types.Input):
 
 
 class DeleteDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2416,6 +3464,10 @@ class DeleteDiscussionCommentInput(sgqlc.types.Input):
 
 
 class DeleteDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2423,6 +3475,10 @@ class DeleteDiscussionInput(sgqlc.types.Input):
 
 
 class DeleteEnvironmentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2430,6 +3486,10 @@ class DeleteEnvironmentInput(sgqlc.types.Input):
 
 
 class DeleteIpAllowListEntryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("ip_allow_list_entry_id", "client_mutation_id")
     ip_allow_list_entry_id = sgqlc.types.Field(
@@ -2439,6 +3499,10 @@ class DeleteIpAllowListEntryInput(sgqlc.types.Input):
 
 
 class DeleteIssueCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2446,6 +3510,10 @@ class DeleteIssueCommentInput(sgqlc.types.Input):
 
 
 class DeleteIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -2453,6 +3521,10 @@ class DeleteIssueInput(sgqlc.types.Input):
 
 
 class DeleteProjectCardInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("card_id", "client_mutation_id")
     card_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="cardId")
@@ -2460,6 +3532,10 @@ class DeleteProjectCardInput(sgqlc.types.Input):
 
 
 class DeleteProjectColumnInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("column_id", "client_mutation_id")
     column_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="columnId")
@@ -2467,6 +3543,10 @@ class DeleteProjectColumnInput(sgqlc.types.Input):
 
 
 class DeleteProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -2474,6 +3554,10 @@ class DeleteProjectInput(sgqlc.types.Input):
 
 
 class DeleteProjectNextItemInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "item_id", "client_mutation_id")
     project_id = sgqlc.types.Field(ID, graphql_name="projectId")
@@ -2482,6 +3566,10 @@ class DeleteProjectNextItemInput(sgqlc.types.Input):
 
 
 class DeleteProjectV2ItemInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "item_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -2490,6 +3578,10 @@ class DeleteProjectV2ItemInput(sgqlc.types.Input):
 
 
 class DeletePullRequestReviewCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2497,6 +3589,10 @@ class DeletePullRequestReviewCommentInput(sgqlc.types.Input):
 
 
 class DeletePullRequestReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_review_id", "client_mutation_id")
     pull_request_review_id = sgqlc.types.Field(
@@ -2506,6 +3602,10 @@ class DeletePullRequestReviewInput(sgqlc.types.Input):
 
 
 class DeleteRefInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("ref_id", "client_mutation_id")
     ref_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="refId")
@@ -2513,6 +3613,10 @@ class DeleteRefInput(sgqlc.types.Input):
 
 
 class DeleteTeamDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2520,6 +3624,10 @@ class DeleteTeamDiscussionCommentInput(sgqlc.types.Input):
 
 
 class DeleteTeamDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2527,6 +3635,10 @@ class DeleteTeamDiscussionInput(sgqlc.types.Input):
 
 
 class DeleteVerifiableDomainInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2534,6 +3646,10 @@ class DeleteVerifiableDomainInput(sgqlc.types.Input):
 
 
 class DeploymentOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2545,6 +3661,10 @@ class DeploymentOrder(sgqlc.types.Input):
 
 
 class DisablePullRequestAutoMergeInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -2554,6 +3674,10 @@ class DisablePullRequestAutoMergeInput(sgqlc.types.Input):
 
 
 class DiscussionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2565,6 +3689,10 @@ class DiscussionOrder(sgqlc.types.Input):
 
 
 class DiscussionPollOptionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2576,6 +3704,10 @@ class DiscussionPollOptionOrder(sgqlc.types.Input):
 
 
 class DismissPullRequestReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_review_id", "message", "client_mutation_id")
     pull_request_review_id = sgqlc.types.Field(
@@ -2586,6 +3718,10 @@ class DismissPullRequestReviewInput(sgqlc.types.Input):
 
 
 class DismissRepositoryVulnerabilityAlertInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_vulnerability_alert_id",
@@ -2602,6 +3738,10 @@ class DismissRepositoryVulnerabilityAlertInput(sgqlc.types.Input):
 
 
 class DraftPullRequestReviewComment(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("path", "position", "body")
     path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="path")
@@ -2610,6 +3750,10 @@ class DraftPullRequestReviewComment(sgqlc.types.Input):
 
 
 class DraftPullRequestReviewThread(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("path", "line", "side", "start_line", "start_side", "body")
     path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="path")
@@ -2621,6 +3765,10 @@ class DraftPullRequestReviewThread(sgqlc.types.Input):
 
 
 class EnablePullRequestAutoMergeInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -2641,6 +3789,10 @@ class EnablePullRequestAutoMergeInput(sgqlc.types.Input):
 
 
 class EnterpriseAdministratorInvitationOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2653,6 +3805,10 @@ class EnterpriseAdministratorInvitationOrder(sgqlc.types.Input):
 
 
 class EnterpriseMemberOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2664,6 +3820,10 @@ class EnterpriseMemberOrder(sgqlc.types.Input):
 
 
 class EnterpriseServerInstallationOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2676,6 +3836,10 @@ class EnterpriseServerInstallationOrder(sgqlc.types.Input):
 
 
 class EnterpriseServerUserAccountEmailOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2688,6 +3852,10 @@ class EnterpriseServerUserAccountEmailOrder(sgqlc.types.Input):
 
 
 class EnterpriseServerUserAccountOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2700,6 +3868,10 @@ class EnterpriseServerUserAccountOrder(sgqlc.types.Input):
 
 
 class EnterpriseServerUserAccountsUploadOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2712,6 +3884,10 @@ class EnterpriseServerUserAccountsUploadOrder(sgqlc.types.Input):
 
 
 class FileAddition(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("path", "contents")
     path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="path")
@@ -2721,6 +3897,10 @@ class FileAddition(sgqlc.types.Input):
 
 
 class FileChanges(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("deletions", "additions")
     deletions = sgqlc.types.Field(
@@ -2734,12 +3914,20 @@ class FileChanges(sgqlc.types.Input):
 
 
 class FileDeletion(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("path",)
     path = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="path")
 
 
 class FollowOrganizationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -2749,6 +3937,10 @@ class FollowOrganizationInput(sgqlc.types.Input):
 
 
 class FollowUserInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("user_id", "client_mutation_id")
     user_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="userId")
@@ -2756,6 +3948,10 @@ class FollowUserInput(sgqlc.types.Input):
 
 
 class GistOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2767,6 +3963,10 @@ class GistOrder(sgqlc.types.Input):
 
 
 class GrantEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -2777,6 +3977,10 @@ class GrantEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
 
 
 class GrantMigratorRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "actor", "actor_type", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -2790,6 +3994,10 @@ class GrantMigratorRoleInput(sgqlc.types.Input):
 
 
 class InviteEnterpriseAdminInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -2808,6 +4016,10 @@ class InviteEnterpriseAdminInput(sgqlc.types.Input):
 
 
 class IpAllowListEntryOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2819,6 +4031,10 @@ class IpAllowListEntryOrder(sgqlc.types.Input):
 
 
 class IssueCommentOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2830,6 +4046,10 @@ class IssueCommentOrder(sgqlc.types.Input):
 
 
 class IssueFilters(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "assignee",
@@ -2858,6 +4078,10 @@ class IssueFilters(sgqlc.types.Input):
 
 
 class IssueOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2869,6 +4093,10 @@ class IssueOrder(sgqlc.types.Input):
 
 
 class LabelOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2880,6 +4108,10 @@ class LabelOrder(sgqlc.types.Input):
 
 
 class LanguageOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2891,6 +4123,10 @@ class LanguageOrder(sgqlc.types.Input):
 
 
 class LinkRepositoryToProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "repository_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -2901,6 +4137,10 @@ class LinkRepositoryToProjectInput(sgqlc.types.Input):
 
 
 class LockLockableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("lockable_id", "lock_reason", "client_mutation_id")
     lockable_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="lockableId")
@@ -2909,6 +4149,10 @@ class LockLockableInput(sgqlc.types.Input):
 
 
 class MarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -2916,6 +4160,10 @@ class MarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
 
 
 class MarkFileAsViewedInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "path", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -2926,6 +4174,10 @@ class MarkFileAsViewedInput(sgqlc.types.Input):
 
 
 class MarkPullRequestReadyForReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -2935,6 +4187,10 @@ class MarkPullRequestReadyForReviewInput(sgqlc.types.Input):
 
 
 class MergeBranchInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -2955,6 +4211,10 @@ class MergeBranchInput(sgqlc.types.Input):
 
 
 class MergePullRequestInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -2977,6 +4237,10 @@ class MergePullRequestInput(sgqlc.types.Input):
 
 
 class MilestoneOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -2988,6 +4252,10 @@ class MilestoneOrder(sgqlc.types.Input):
 
 
 class MinimizeCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "classifier", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -2998,6 +4266,10 @@ class MinimizeCommentInput(sgqlc.types.Input):
 
 
 class MoveProjectCardInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("card_id", "column_id", "after_card_id", "client_mutation_id")
     card_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="cardId")
@@ -3007,6 +4279,10 @@ class MoveProjectCardInput(sgqlc.types.Input):
 
 
 class MoveProjectColumnInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("column_id", "after_column_id", "client_mutation_id")
     column_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="columnId")
@@ -3015,6 +4291,10 @@ class MoveProjectColumnInput(sgqlc.types.Input):
 
 
 class OrgEnterpriseOwnerOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3026,6 +4306,10 @@ class OrgEnterpriseOwnerOrder(sgqlc.types.Input):
 
 
 class OrganizationOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3037,6 +4321,10 @@ class OrganizationOrder(sgqlc.types.Input):
 
 
 class PackageFileOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(PackageFileOrderField, graphql_name="field")
@@ -3044,6 +4332,10 @@ class PackageFileOrder(sgqlc.types.Input):
 
 
 class PackageOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(PackageOrderField, graphql_name="field")
@@ -3051,6 +4343,10 @@ class PackageOrder(sgqlc.types.Input):
 
 
 class PackageVersionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(PackageVersionOrderField, graphql_name="field")
@@ -3058,6 +4354,10 @@ class PackageVersionOrder(sgqlc.types.Input):
 
 
 class PinIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -3065,6 +4365,10 @@ class PinIssueInput(sgqlc.types.Input):
 
 
 class ProjectOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3076,6 +4380,10 @@ class ProjectOrder(sgqlc.types.Input):
 
 
 class ProjectV2FieldOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3087,6 +4395,10 @@ class ProjectV2FieldOrder(sgqlc.types.Input):
 
 
 class ProjectV2FieldValue(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "text",
@@ -3105,6 +4417,10 @@ class ProjectV2FieldValue(sgqlc.types.Input):
 
 
 class ProjectV2ItemFieldValueOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3116,6 +4432,10 @@ class ProjectV2ItemFieldValueOrder(sgqlc.types.Input):
 
 
 class ProjectV2ItemOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3127,6 +4447,10 @@ class ProjectV2ItemOrder(sgqlc.types.Input):
 
 
 class ProjectV2Order(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3138,6 +4462,10 @@ class ProjectV2Order(sgqlc.types.Input):
 
 
 class ProjectV2ViewOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3149,6 +4477,10 @@ class ProjectV2ViewOrder(sgqlc.types.Input):
 
 
 class PullRequestOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3160,6 +4492,10 @@ class PullRequestOrder(sgqlc.types.Input):
 
 
 class ReactionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3171,6 +4507,10 @@ class ReactionOrder(sgqlc.types.Input):
 
 
 class RefOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(sgqlc.types.non_null(RefOrderField), graphql_name="field")
@@ -3180,6 +4520,10 @@ class RefOrder(sgqlc.types.Input):
 
 
 class RegenerateEnterpriseIdentityProviderRecoveryCodesInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3189,6 +4533,10 @@ class RegenerateEnterpriseIdentityProviderRecoveryCodesInput(sgqlc.types.Input):
 
 
 class RegenerateVerifiableDomainTokenInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -3196,6 +4544,10 @@ class RegenerateVerifiableDomainTokenInput(sgqlc.types.Input):
 
 
 class RejectDeploymentsInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "workflow_run_id",
@@ -3215,6 +4567,10 @@ class RejectDeploymentsInput(sgqlc.types.Input):
 
 
 class ReleaseOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3226,6 +4582,10 @@ class ReleaseOrder(sgqlc.types.Input):
 
 
 class RemoveAssigneesFromAssignableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("assignable_id", "assignee_ids", "client_mutation_id")
     assignable_id = sgqlc.types.Field(
@@ -3239,6 +4599,10 @@ class RemoveAssigneesFromAssignableInput(sgqlc.types.Input):
 
 
 class RemoveEnterpriseAdminInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3249,6 +4613,10 @@ class RemoveEnterpriseAdminInput(sgqlc.types.Input):
 
 
 class RemoveEnterpriseIdentityProviderInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3258,6 +4626,10 @@ class RemoveEnterpriseIdentityProviderInput(sgqlc.types.Input):
 
 
 class RemoveEnterpriseOrganizationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "organization_id", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3270,6 +4642,10 @@ class RemoveEnterpriseOrganizationInput(sgqlc.types.Input):
 
 
 class RemoveEnterpriseSupportEntitlementInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3280,6 +4656,10 @@ class RemoveEnterpriseSupportEntitlementInput(sgqlc.types.Input):
 
 
 class RemoveLabelsFromLabelableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("labelable_id", "label_ids", "client_mutation_id")
     labelable_id = sgqlc.types.Field(
@@ -3293,6 +4673,10 @@ class RemoveLabelsFromLabelableInput(sgqlc.types.Input):
 
 
 class RemoveOutsideCollaboratorInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("user_id", "organization_id", "client_mutation_id")
     user_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="userId")
@@ -3303,6 +4687,10 @@ class RemoveOutsideCollaboratorInput(sgqlc.types.Input):
 
 
 class RemoveReactionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "content", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -3313,6 +4701,10 @@ class RemoveReactionInput(sgqlc.types.Input):
 
 
 class RemoveStarInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("starrable_id", "client_mutation_id")
     starrable_id = sgqlc.types.Field(
@@ -3322,6 +4714,10 @@ class RemoveStarInput(sgqlc.types.Input):
 
 
 class RemoveUpvoteInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -3329,6 +4725,10 @@ class RemoveUpvoteInput(sgqlc.types.Input):
 
 
 class ReopenIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -3336,6 +4736,10 @@ class ReopenIssueInput(sgqlc.types.Input):
 
 
 class ReopenPullRequestInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -3345,6 +4749,10 @@ class ReopenPullRequestInput(sgqlc.types.Input):
 
 
 class RepositoryInvitationOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3356,6 +4764,10 @@ class RepositoryInvitationOrder(sgqlc.types.Input):
 
 
 class RepositoryMigrationOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3368,6 +4780,10 @@ class RepositoryMigrationOrder(sgqlc.types.Input):
 
 
 class RepositoryOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3379,6 +4795,10 @@ class RepositoryOrder(sgqlc.types.Input):
 
 
 class RequestReviewsInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -3401,6 +4821,10 @@ class RequestReviewsInput(sgqlc.types.Input):
 
 
 class RequiredStatusCheckInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("context", "app_id")
     context = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="context")
@@ -3408,6 +4832,10 @@ class RequiredStatusCheckInput(sgqlc.types.Input):
 
 
 class RerequestCheckSuiteInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "check_suite_id", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -3420,6 +4848,10 @@ class RerequestCheckSuiteInput(sgqlc.types.Input):
 
 
 class ResolveReviewThreadInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("thread_id", "client_mutation_id")
     thread_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="threadId")
@@ -3427,6 +4859,10 @@ class ResolveReviewThreadInput(sgqlc.types.Input):
 
 
 class RevokeEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -3437,6 +4873,10 @@ class RevokeEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
 
 
 class RevokeMigratorRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "actor", "actor_type", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -3450,6 +4890,10 @@ class RevokeMigratorRoleInput(sgqlc.types.Input):
 
 
 class SavedReplyOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3461,6 +4905,10 @@ class SavedReplyOrder(sgqlc.types.Input):
 
 
 class SecurityAdvisoryIdentifierFilter(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("type", "value")
     type = sgqlc.types.Field(
@@ -3470,6 +4918,10 @@ class SecurityAdvisoryIdentifierFilter(sgqlc.types.Input):
 
 
 class SecurityAdvisoryOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3481,6 +4933,10 @@ class SecurityAdvisoryOrder(sgqlc.types.Input):
 
 
 class SecurityVulnerabilityOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3492,6 +4948,10 @@ class SecurityVulnerabilityOrder(sgqlc.types.Input):
 
 
 class SetEnterpriseIdentityProviderInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -3520,6 +4980,10 @@ class SetEnterpriseIdentityProviderInput(sgqlc.types.Input):
 
 
 class SetOrganizationInteractionLimitInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "limit", "expiry", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -3533,6 +4997,10 @@ class SetOrganizationInteractionLimitInput(sgqlc.types.Input):
 
 
 class SetRepositoryInteractionLimitInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "limit", "expiry", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -3546,6 +5014,10 @@ class SetRepositoryInteractionLimitInput(sgqlc.types.Input):
 
 
 class SetUserInteractionLimitInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("user_id", "limit", "expiry", "client_mutation_id")
     user_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="userId")
@@ -3557,6 +5029,10 @@ class SetUserInteractionLimitInput(sgqlc.types.Input):
 
 
 class SponsorOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3568,6 +5044,10 @@ class SponsorOrder(sgqlc.types.Input):
 
 
 class SponsorableOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3579,6 +5059,10 @@ class SponsorableOrder(sgqlc.types.Input):
 
 
 class SponsorsActivityOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3590,6 +5074,10 @@ class SponsorsActivityOrder(sgqlc.types.Input):
 
 
 class SponsorsTierOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3601,6 +5089,10 @@ class SponsorsTierOrder(sgqlc.types.Input):
 
 
 class SponsorshipNewsletterOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3612,6 +5104,10 @@ class SponsorshipNewsletterOrder(sgqlc.types.Input):
 
 
 class SponsorshipOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3623,6 +5119,10 @@ class SponsorshipOrder(sgqlc.types.Input):
 
 
 class StarOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3634,6 +5134,10 @@ class StarOrder(sgqlc.types.Input):
 
 
 class StartRepositoryMigrationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "source_id",
@@ -3646,6 +5150,7 @@ class StartRepositoryMigrationInput(sgqlc.types.Input):
         "access_token",
         "github_pat",
         "skip_releases",
+        "target_repo_visibility",
         "client_mutation_id",
     )
     source_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="sourceId")
@@ -3664,10 +5169,17 @@ class StartRepositoryMigrationInput(sgqlc.types.Input):
     )
     github_pat = sgqlc.types.Field(String, graphql_name="githubPat")
     skip_releases = sgqlc.types.Field(Boolean, graphql_name="skipReleases")
+    target_repo_visibility = sgqlc.types.Field(
+        String, graphql_name="targetRepoVisibility"
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class SubmitPullRequestReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -3686,6 +5198,10 @@ class SubmitPullRequestReviewInput(sgqlc.types.Input):
 
 
 class TeamDiscussionCommentOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3697,6 +5213,10 @@ class TeamDiscussionCommentOrder(sgqlc.types.Input):
 
 
 class TeamDiscussionOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3708,6 +5228,10 @@ class TeamDiscussionOrder(sgqlc.types.Input):
 
 
 class TeamMemberOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3719,6 +5243,10 @@ class TeamMemberOrder(sgqlc.types.Input):
 
 
 class TeamOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3730,6 +5258,10 @@ class TeamOrder(sgqlc.types.Input):
 
 
 class TeamRepositoryOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -3741,6 +5273,10 @@ class TeamRepositoryOrder(sgqlc.types.Input):
 
 
 class TransferIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "repository_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -3751,6 +5287,10 @@ class TransferIssueInput(sgqlc.types.Input):
 
 
 class UnarchiveRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -3760,6 +5300,10 @@ class UnarchiveRepositoryInput(sgqlc.types.Input):
 
 
 class UnfollowOrganizationInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -3769,6 +5313,10 @@ class UnfollowOrganizationInput(sgqlc.types.Input):
 
 
 class UnfollowUserInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("user_id", "client_mutation_id")
     user_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="userId")
@@ -3776,6 +5324,10 @@ class UnfollowUserInput(sgqlc.types.Input):
 
 
 class UnlinkRepositoryFromProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "repository_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -3786,6 +5338,10 @@ class UnlinkRepositoryFromProjectInput(sgqlc.types.Input):
 
 
 class UnlockLockableInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("lockable_id", "client_mutation_id")
     lockable_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="lockableId")
@@ -3793,6 +5349,10 @@ class UnlockLockableInput(sgqlc.types.Input):
 
 
 class UnmarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -3800,6 +5360,10 @@ class UnmarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
 
 
 class UnmarkFileAsViewedInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "path", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -3810,6 +5374,10 @@ class UnmarkFileAsViewedInput(sgqlc.types.Input):
 
 
 class UnmarkIssueAsDuplicateInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("duplicate_id", "canonical_id", "client_mutation_id")
     duplicate_id = sgqlc.types.Field(
@@ -3822,6 +5390,10 @@ class UnmarkIssueAsDuplicateInput(sgqlc.types.Input):
 
 
 class UnminimizeCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subject_id", "client_mutation_id")
     subject_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="subjectId")
@@ -3829,6 +5401,10 @@ class UnminimizeCommentInput(sgqlc.types.Input):
 
 
 class UnpinIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
@@ -3836,6 +5412,10 @@ class UnpinIssueInput(sgqlc.types.Input):
 
 
 class UnresolveReviewThreadInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("thread_id", "client_mutation_id")
     thread_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="threadId")
@@ -3843,6 +5423,10 @@ class UnresolveReviewThreadInput(sgqlc.types.Input):
 
 
 class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "branch_protection_rule_id",
@@ -3936,6 +5520,10 @@ class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
 
 
 class UpdateCheckRunInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -3973,6 +5561,10 @@ class UpdateCheckRunInput(sgqlc.types.Input):
 
 
 class UpdateCheckSuitePreferencesInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -3992,6 +5584,10 @@ class UpdateCheckSuitePreferencesInput(sgqlc.types.Input):
 
 
 class UpdateDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("comment_id", "body", "client_mutation_id")
     comment_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="commentId")
@@ -4000,6 +5596,10 @@ class UpdateDiscussionCommentInput(sgqlc.types.Input):
 
 
 class UpdateDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "discussion_id",
@@ -4018,6 +5618,10 @@ class UpdateDiscussionInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseAdministratorRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "login", "role", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4031,6 +5635,10 @@ class UpdateEnterpriseAdministratorRoleInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4044,6 +5652,10 @@ class UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Inpu
 
 
 class UpdateEnterpriseDefaultRepositoryPermissionSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4059,6 +5671,10 @@ class UpdateEnterpriseDefaultRepositoryPermissionSettingInput(sgqlc.types.Input)
 class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput(
     sgqlc.types.Input
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4072,6 +5688,10 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput(
 
 
 class UpdateEnterpriseMembersCanCreateRepositoriesSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -4104,6 +5724,10 @@ class UpdateEnterpriseMembersCanCreateRepositoriesSettingInput(sgqlc.types.Input
 
 
 class UpdateEnterpriseMembersCanDeleteIssuesSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4117,6 +5741,10 @@ class UpdateEnterpriseMembersCanDeleteIssuesSettingInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4130,6 +5758,10 @@ class UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput(sgqlc.types.Input
 
 
 class UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4143,6 +5775,10 @@ class UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput(sgqlc.types.Inpu
 
 
 class UpdateEnterpriseMembersCanMakePurchasesSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4156,6 +5792,10 @@ class UpdateEnterpriseMembersCanMakePurchasesSettingInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4169,6 +5809,10 @@ class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput(sgqlc.types.
 
 
 class UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4182,6 +5826,10 @@ class UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput(sgqlc.types.I
 
 
 class UpdateEnterpriseOrganizationProjectsSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4195,6 +5843,10 @@ class UpdateEnterpriseOrganizationProjectsSettingInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseOwnerOrganizationRoleInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -4215,6 +5867,10 @@ class UpdateEnterpriseOwnerOrganizationRoleInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseProfileInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise_id",
@@ -4235,6 +5891,10 @@ class UpdateEnterpriseProfileInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseRepositoryProjectsSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4248,6 +5908,10 @@ class UpdateEnterpriseRepositoryProjectsSettingInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseTeamDiscussionsSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4261,6 +5925,10 @@ class UpdateEnterpriseTeamDiscussionsSettingInput(sgqlc.types.Input):
 
 
 class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
     enterprise_id = sgqlc.types.Field(
@@ -4273,6 +5941,10 @@ class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput(sgqlc.types.In
 
 
 class UpdateEnvironmentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "environment_id",
@@ -4291,6 +5963,10 @@ class UpdateEnvironmentInput(sgqlc.types.Input):
 
 
 class UpdateIpAllowListEnabledSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "setting_value", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -4302,6 +5978,10 @@ class UpdateIpAllowListEnabledSettingInput(sgqlc.types.Input):
 
 
 class UpdateIpAllowListEntryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "ip_allow_list_entry_id",
@@ -4324,6 +6004,10 @@ class UpdateIpAllowListEntryInput(sgqlc.types.Input):
 
 
 class UpdateIpAllowListForInstalledAppsEnabledSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "setting_value", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -4335,6 +6019,10 @@ class UpdateIpAllowListForInstalledAppsEnabledSettingInput(sgqlc.types.Input):
 
 
 class UpdateIssueCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "body", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -4343,6 +6031,10 @@ class UpdateIssueCommentInput(sgqlc.types.Input):
 
 
 class UpdateIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "id",
@@ -4373,6 +6065,10 @@ class UpdateIssueInput(sgqlc.types.Input):
 
 
 class UpdateNotificationRestrictionSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("owner_id", "setting_value", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
@@ -4384,6 +6080,10 @@ class UpdateNotificationRestrictionSettingInput(sgqlc.types.Input):
 
 
 class UpdateOrganizationAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization_id", "forking_enabled", "client_mutation_id")
     organization_id = sgqlc.types.Field(
@@ -4396,6 +6096,10 @@ class UpdateOrganizationAllowPrivateRepositoryForkingSettingInput(sgqlc.types.In
 
 
 class UpdateProjectCardInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_card_id", "is_archived", "note", "client_mutation_id")
     project_card_id = sgqlc.types.Field(
@@ -4407,6 +6111,10 @@ class UpdateProjectCardInput(sgqlc.types.Input):
 
 
 class UpdateProjectColumnInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_column_id", "name", "client_mutation_id")
     project_column_id = sgqlc.types.Field(
@@ -4417,6 +6125,10 @@ class UpdateProjectColumnInput(sgqlc.types.Input):
 
 
 class UpdateProjectDraftIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "draft_issue_id",
@@ -4437,6 +6149,10 @@ class UpdateProjectDraftIssueInput(sgqlc.types.Input):
 
 
 class UpdateProjectInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -4455,6 +6171,10 @@ class UpdateProjectInput(sgqlc.types.Input):
 
 
 class UpdateProjectNextInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -4475,6 +6195,10 @@ class UpdateProjectNextInput(sgqlc.types.Input):
 
 
 class UpdateProjectNextItemFieldInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -4491,6 +6215,10 @@ class UpdateProjectNextItemFieldInput(sgqlc.types.Input):
 
 
 class UpdateProjectV2DraftIssueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "draft_issue_id",
@@ -4511,6 +6239,10 @@ class UpdateProjectV2DraftIssueInput(sgqlc.types.Input):
 
 
 class UpdateProjectV2Input(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -4531,6 +6263,10 @@ class UpdateProjectV2Input(sgqlc.types.Input):
 
 
 class UpdateProjectV2ItemFieldValueInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "project_id",
@@ -4549,6 +6285,10 @@ class UpdateProjectV2ItemFieldValueInput(sgqlc.types.Input):
 
 
 class UpdateProjectV2ItemPositionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("project_id", "item_id", "after_id", "client_mutation_id")
     project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
@@ -4558,6 +6298,10 @@ class UpdateProjectV2ItemPositionInput(sgqlc.types.Input):
 
 
 class UpdatePullRequestBranchInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_id", "expected_head_oid", "client_mutation_id")
     pull_request_id = sgqlc.types.Field(
@@ -4568,6 +6312,10 @@ class UpdatePullRequestBranchInput(sgqlc.types.Input):
 
 
 class UpdatePullRequestInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "pull_request_id",
@@ -4606,6 +6354,10 @@ class UpdatePullRequestInput(sgqlc.types.Input):
 
 
 class UpdatePullRequestReviewCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_review_comment_id", "body", "client_mutation_id")
     pull_request_review_comment_id = sgqlc.types.Field(
@@ -4616,6 +6368,10 @@ class UpdatePullRequestReviewCommentInput(sgqlc.types.Input):
 
 
 class UpdatePullRequestReviewInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request_review_id", "body", "client_mutation_id")
     pull_request_review_id = sgqlc.types.Field(
@@ -4626,6 +6382,10 @@ class UpdatePullRequestReviewInput(sgqlc.types.Input):
 
 
 class UpdateRefInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("ref_id", "oid", "force", "client_mutation_id")
     ref_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="refId")
@@ -4635,6 +6395,10 @@ class UpdateRefInput(sgqlc.types.Input):
 
 
 class UpdateRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository_id",
@@ -4661,6 +6425,10 @@ class UpdateRepositoryInput(sgqlc.types.Input):
 
 
 class UpdateSponsorshipPreferencesInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "sponsor_id",
@@ -4681,6 +6449,10 @@ class UpdateSponsorshipPreferencesInput(sgqlc.types.Input):
 
 
 class UpdateSubscriptionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("subscribable_id", "state", "client_mutation_id")
     subscribable_id = sgqlc.types.Field(
@@ -4693,6 +6465,10 @@ class UpdateSubscriptionInput(sgqlc.types.Input):
 
 
 class UpdateTeamDiscussionCommentInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "body", "body_version", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -4702,6 +6478,10 @@ class UpdateTeamDiscussionCommentInput(sgqlc.types.Input):
 
 
 class UpdateTeamDiscussionInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "id",
@@ -4720,6 +6500,10 @@ class UpdateTeamDiscussionInput(sgqlc.types.Input):
 
 
 class UpdateTeamsRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "team_ids", "permission", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -4736,6 +6520,10 @@ class UpdateTeamsRepositoryInput(sgqlc.types.Input):
 
 
 class UpdateTopicsInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_id", "topic_names", "client_mutation_id")
     repository_id = sgqlc.types.Field(
@@ -4749,6 +6537,10 @@ class UpdateTopicsInput(sgqlc.types.Input):
 
 
 class UserStatusOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -4760,6 +6552,10 @@ class UserStatusOrder(sgqlc.types.Input):
 
 
 class VerifiableDomainOrder(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "direction")
     field = sgqlc.types.Field(
@@ -4771,6 +6567,10 @@ class VerifiableDomainOrder(sgqlc.types.Input):
 
 
 class VerifyVerifiableDomainInput(sgqlc.types.Input):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "client_mutation_id")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -4781,6 +6581,10 @@ class VerifyVerifiableDomainInput(sgqlc.types.Input):
 # Output Objects and Interfaces
 ########################################################################
 class AbortQueuedMigrationsPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "success")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4788,6 +6592,10 @@ class AbortQueuedMigrationsPayload(sgqlc.types.Type):
 
 
 class AcceptEnterpriseAdministratorInvitationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "invitation", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4798,6 +6606,10 @@ class AcceptEnterpriseAdministratorInvitationPayload(sgqlc.types.Type):
 
 
 class AcceptTopicSuggestionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "topic")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4805,6 +6617,10 @@ class AcceptTopicSuggestionPayload(sgqlc.types.Type):
 
 
 class Actor(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("avatar_url", "login", "resource_path", "url")
     avatar_url = sgqlc.types.Field(
@@ -4822,6 +6638,10 @@ class Actor(sgqlc.types.Interface):
 
 
 class ActorLocation(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("city", "country", "country_code", "region", "region_code")
     city = sgqlc.types.Field(String, graphql_name="city")
@@ -4832,6 +6652,10 @@ class ActorLocation(sgqlc.types.Type):
 
 
 class AddAssigneesToAssignablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("assignable", "client_mutation_id")
     assignable = sgqlc.types.Field("Assignable", graphql_name="assignable")
@@ -4839,6 +6663,10 @@ class AddAssigneesToAssignablePayload(sgqlc.types.Type):
 
 
 class AddCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "comment_edge", "subject", "timeline_edge")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4850,6 +6678,10 @@ class AddCommentPayload(sgqlc.types.Type):
 
 
 class AddDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4857,6 +6689,10 @@ class AddDiscussionCommentPayload(sgqlc.types.Type):
 
 
 class AddDiscussionPollVotePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "poll_option")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4864,6 +6700,10 @@ class AddDiscussionPollVotePayload(sgqlc.types.Type):
 
 
 class AddEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4871,6 +6711,10 @@ class AddEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
 
 
 class AddLabelsToLabelablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "labelable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4878,6 +6722,10 @@ class AddLabelsToLabelablePayload(sgqlc.types.Type):
 
 
 class AddProjectCardPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("card_edge", "client_mutation_id", "project_column")
     card_edge = sgqlc.types.Field("ProjectCardEdge", graphql_name="cardEdge")
@@ -4886,6 +6734,10 @@ class AddProjectCardPayload(sgqlc.types.Type):
 
 
 class AddProjectColumnPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "column_edge", "project")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4894,6 +6746,10 @@ class AddProjectColumnPayload(sgqlc.types.Type):
 
 
 class AddProjectDraftIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_next_item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4903,6 +6759,10 @@ class AddProjectDraftIssuePayload(sgqlc.types.Type):
 
 
 class AddProjectNextItemPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_next_item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4912,6 +6772,10 @@ class AddProjectNextItemPayload(sgqlc.types.Type):
 
 
 class AddProjectV2DraftIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4919,6 +6783,10 @@ class AddProjectV2DraftIssuePayload(sgqlc.types.Type):
 
 
 class AddProjectV2ItemByIdPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4926,6 +6794,10 @@ class AddProjectV2ItemByIdPayload(sgqlc.types.Type):
 
 
 class AddPullRequestReviewCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "comment", "comment_edge")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4936,6 +6808,10 @@ class AddPullRequestReviewCommentPayload(sgqlc.types.Type):
 
 
 class AddPullRequestReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review", "review_edge")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4946,6 +6822,10 @@ class AddPullRequestReviewPayload(sgqlc.types.Type):
 
 
 class AddPullRequestReviewThreadPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "thread")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4953,6 +6833,10 @@ class AddPullRequestReviewThreadPayload(sgqlc.types.Type):
 
 
 class AddReactionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "reaction", "subject")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4961,6 +6845,10 @@ class AddReactionPayload(sgqlc.types.Type):
 
 
 class AddStarPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "starrable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4968,6 +6856,10 @@ class AddStarPayload(sgqlc.types.Type):
 
 
 class AddUpvotePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "subject")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4975,6 +6867,10 @@ class AddUpvotePayload(sgqlc.types.Type):
 
 
 class AddVerifiableDomainPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "domain")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4982,6 +6878,10 @@ class AddVerifiableDomainPayload(sgqlc.types.Type):
 
 
 class ApproveDeploymentsPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "deployments")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4992,6 +6892,10 @@ class ApproveDeploymentsPayload(sgqlc.types.Type):
 
 
 class ApproveVerifiableDomainPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "domain")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -4999,6 +6903,10 @@ class ApproveVerifiableDomainPayload(sgqlc.types.Type):
 
 
 class ArchiveRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5006,6 +6914,10 @@ class ArchiveRepositoryPayload(sgqlc.types.Type):
 
 
 class Assignable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("assignees",)
     assignees = sgqlc.types.Field(
@@ -5026,6 +6938,10 @@ class Assignable(sgqlc.types.Interface):
 
 
 class AuditEntry(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "action",
@@ -5060,6 +6976,10 @@ class AuditEntry(sgqlc.types.Interface):
 
 
 class AutoMergeRequest(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "author_email",
@@ -5084,6 +7004,10 @@ class AutoMergeRequest(sgqlc.types.Type):
 
 
 class Blame(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("ranges",)
     ranges = sgqlc.types.Field(
@@ -5093,6 +7017,10 @@ class Blame(sgqlc.types.Type):
 
 
 class BlameRange(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("age", "commit", "ending_line", "starting_line")
     age = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="age")
@@ -5106,6 +7034,10 @@ class BlameRange(sgqlc.types.Type):
 
 
 class BranchProtectionRuleConflict(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "branch_protection_rule",
@@ -5122,6 +7054,10 @@ class BranchProtectionRuleConflict(sgqlc.types.Type):
 
 
 class BranchProtectionRuleConflictConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5139,6 +7075,10 @@ class BranchProtectionRuleConflictConnection(sgqlc.types.relay.Connection):
 
 
 class BranchProtectionRuleConflictEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5146,6 +7086,10 @@ class BranchProtectionRuleConflictEdge(sgqlc.types.Type):
 
 
 class BranchProtectionRuleConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5163,6 +7107,10 @@ class BranchProtectionRuleConnection(sgqlc.types.relay.Connection):
 
 
 class BranchProtectionRuleEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5170,6 +7118,10 @@ class BranchProtectionRuleEdge(sgqlc.types.Type):
 
 
 class BypassForcePushAllowanceConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5187,6 +7139,10 @@ class BypassForcePushAllowanceConnection(sgqlc.types.relay.Connection):
 
 
 class BypassForcePushAllowanceEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5194,6 +7150,10 @@ class BypassForcePushAllowanceEdge(sgqlc.types.Type):
 
 
 class BypassPullRequestAllowanceConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5211,6 +7171,10 @@ class BypassPullRequestAllowanceConnection(sgqlc.types.relay.Connection):
 
 
 class BypassPullRequestAllowanceEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5218,6 +7182,10 @@ class BypassPullRequestAllowanceEdge(sgqlc.types.Type):
 
 
 class CVSS(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("score", "vector_string")
     score = sgqlc.types.Field(sgqlc.types.non_null(Float), graphql_name="score")
@@ -5225,6 +7193,10 @@ class CVSS(sgqlc.types.Type):
 
 
 class CWEConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("CWEEdge"), graphql_name="edges")
@@ -5238,6 +7210,10 @@ class CWEConnection(sgqlc.types.relay.Connection):
 
 
 class CWEEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5245,6 +7221,10 @@ class CWEEdge(sgqlc.types.Type):
 
 
 class CancelEnterpriseAdminInvitationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "invitation", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5255,6 +7235,10 @@ class CancelEnterpriseAdminInvitationPayload(sgqlc.types.Type):
 
 
 class CancelSponsorshipPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "sponsors_tier")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5262,6 +7246,10 @@ class CancelSponsorshipPayload(sgqlc.types.Type):
 
 
 class ChangeUserStatusPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "status")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5269,6 +7257,10 @@ class ChangeUserStatusPayload(sgqlc.types.Type):
 
 
 class CheckAnnotation(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "annotation_level",
@@ -5295,6 +7287,10 @@ class CheckAnnotation(sgqlc.types.Type):
 
 
 class CheckAnnotationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5312,6 +7308,10 @@ class CheckAnnotationConnection(sgqlc.types.relay.Connection):
 
 
 class CheckAnnotationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5319,6 +7319,10 @@ class CheckAnnotationEdge(sgqlc.types.Type):
 
 
 class CheckAnnotationPosition(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("column", "line")
     column = sgqlc.types.Field(Int, graphql_name="column")
@@ -5326,6 +7330,10 @@ class CheckAnnotationPosition(sgqlc.types.Type):
 
 
 class CheckAnnotationSpan(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("end", "start")
     end = sgqlc.types.Field(
@@ -5337,6 +7345,10 @@ class CheckAnnotationSpan(sgqlc.types.Type):
 
 
 class CheckRunConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("CheckRunEdge"), graphql_name="edges")
@@ -5350,6 +7362,10 @@ class CheckRunConnection(sgqlc.types.relay.Connection):
 
 
 class CheckRunEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5357,6 +7373,10 @@ class CheckRunEdge(sgqlc.types.Type):
 
 
 class CheckStep(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "completed_at",
@@ -5381,6 +7401,10 @@ class CheckStep(sgqlc.types.Type):
 
 
 class CheckStepConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5396,6 +7420,10 @@ class CheckStepConnection(sgqlc.types.relay.Connection):
 
 
 class CheckStepEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5403,6 +7431,10 @@ class CheckStepEdge(sgqlc.types.Type):
 
 
 class CheckSuiteConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5418,6 +7450,10 @@ class CheckSuiteConnection(sgqlc.types.relay.Connection):
 
 
 class CheckSuiteEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5425,6 +7461,10 @@ class CheckSuiteEdge(sgqlc.types.Type):
 
 
 class ClearLabelsFromLabelablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "labelable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5432,6 +7472,10 @@ class ClearLabelsFromLabelablePayload(sgqlc.types.Type):
 
 
 class CloneProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "job_status_id", "project")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5440,6 +7484,10 @@ class CloneProjectPayload(sgqlc.types.Type):
 
 
 class CloneTemplateRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5447,6 +7495,10 @@ class CloneTemplateRepositoryPayload(sgqlc.types.Type):
 
 
 class Closable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("closed", "closed_at")
     closed = sgqlc.types.Field(sgqlc.types.non_null(Boolean), graphql_name="closed")
@@ -5454,6 +7506,10 @@ class Closable(sgqlc.types.Interface):
 
 
 class CloseIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5461,6 +7517,10 @@ class CloseIssuePayload(sgqlc.types.Type):
 
 
 class ClosePullRequestPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -5468,6 +7528,10 @@ class ClosePullRequestPayload(sgqlc.types.Type):
 
 
 class Comment(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "author",
@@ -5530,6 +7594,10 @@ class Comment(sgqlc.types.Interface):
 
 
 class CommitCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -5547,6 +7615,10 @@ class CommitCommentConnection(sgqlc.types.relay.Connection):
 
 
 class CommitCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5554,6 +7626,10 @@ class CommitCommentEdge(sgqlc.types.Type):
 
 
 class CommitConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("CommitEdge"), graphql_name="edges")
@@ -5567,6 +7643,10 @@ class CommitConnection(sgqlc.types.relay.Connection):
 
 
 class CommitContributionsByRepository(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contributions", "repository", "resource_path", "url")
     contributions = sgqlc.types.Field(
@@ -5602,6 +7682,10 @@ class CommitContributionsByRepository(sgqlc.types.Type):
 
 
 class CommitEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -5609,6 +7693,10 @@ class CommitEdge(sgqlc.types.Type):
 
 
 class CommitHistoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of(CommitEdge), graphql_name="edges")
@@ -5622,6 +7710,10 @@ class CommitHistoryConnection(sgqlc.types.relay.Connection):
 
 
 class Contribution(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_restricted", "occurred_at", "resource_path", "url", "user")
     is_restricted = sgqlc.types.Field(
@@ -5638,6 +7730,10 @@ class Contribution(sgqlc.types.Interface):
 
 
 class ContributionCalendar(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "colors",
@@ -5671,6 +7767,10 @@ class ContributionCalendar(sgqlc.types.Type):
 
 
 class ContributionCalendarDay(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "color",
@@ -5691,6 +7791,10 @@ class ContributionCalendarDay(sgqlc.types.Type):
 
 
 class ContributionCalendarMonth(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("first_day", "name", "total_weeks", "year")
     first_day = sgqlc.types.Field(sgqlc.types.non_null(Date), graphql_name="firstDay")
@@ -5702,6 +7806,10 @@ class ContributionCalendarMonth(sgqlc.types.Type):
 
 
 class ContributionCalendarWeek(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contribution_days", "first_day")
     contribution_days = sgqlc.types.Field(
@@ -5714,6 +7822,10 @@ class ContributionCalendarWeek(sgqlc.types.Type):
 
 
 class ContributionsCollection(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "commit_contributions_by_repository",
@@ -6134,6 +8246,10 @@ class ContributionsCollection(sgqlc.types.Type):
 
 
 class ConvertProjectCardNoteToIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_card")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6141,6 +8257,10 @@ class ConvertProjectCardNoteToIssuePayload(sgqlc.types.Type):
 
 
 class ConvertPullRequestToDraftPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6148,6 +8268,10 @@ class ConvertPullRequestToDraftPayload(sgqlc.types.Type):
 
 
 class CreateBranchProtectionRulePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("branch_protection_rule", "client_mutation_id")
     branch_protection_rule = sgqlc.types.Field(
@@ -6157,6 +8281,10 @@ class CreateBranchProtectionRulePayload(sgqlc.types.Type):
 
 
 class CreateCheckRunPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("check_run", "client_mutation_id")
     check_run = sgqlc.types.Field("CheckRun", graphql_name="checkRun")
@@ -6164,6 +8292,10 @@ class CreateCheckRunPayload(sgqlc.types.Type):
 
 
 class CreateCheckSuitePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("check_suite", "client_mutation_id")
     check_suite = sgqlc.types.Field("CheckSuite", graphql_name="checkSuite")
@@ -6171,6 +8303,10 @@ class CreateCheckSuitePayload(sgqlc.types.Type):
 
 
 class CreateCommitOnBranchPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "commit", "ref")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6179,6 +8315,10 @@ class CreateCommitOnBranchPayload(sgqlc.types.Type):
 
 
 class CreateDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6186,6 +8326,10 @@ class CreateDiscussionPayload(sgqlc.types.Type):
 
 
 class CreateEnterpriseOrganizationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "organization")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6194,6 +8338,10 @@ class CreateEnterpriseOrganizationPayload(sgqlc.types.Type):
 
 
 class CreateEnvironmentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "environment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6201,6 +8349,10 @@ class CreateEnvironmentPayload(sgqlc.types.Type):
 
 
 class CreateIpAllowListEntryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "ip_allow_list_entry")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6210,6 +8362,10 @@ class CreateIpAllowListEntryPayload(sgqlc.types.Type):
 
 
 class CreateIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6217,6 +8373,10 @@ class CreateIssuePayload(sgqlc.types.Type):
 
 
 class CreateMigrationSourcePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "migration_source")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6226,6 +8386,10 @@ class CreateMigrationSourcePayload(sgqlc.types.Type):
 
 
 class CreateProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6233,6 +8397,10 @@ class CreateProjectPayload(sgqlc.types.Type):
 
 
 class CreateProjectV2Payload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_v2")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6240,6 +8408,10 @@ class CreateProjectV2Payload(sgqlc.types.Type):
 
 
 class CreatePullRequestPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6247,6 +8419,10 @@ class CreatePullRequestPayload(sgqlc.types.Type):
 
 
 class CreateRefPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "ref")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6254,6 +8430,10 @@ class CreateRefPayload(sgqlc.types.Type):
 
 
 class CreateRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6261,6 +8441,10 @@ class CreateRepositoryPayload(sgqlc.types.Type):
 
 
 class CreateSponsorsTierPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "sponsors_tier")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6268,6 +8452,10 @@ class CreateSponsorsTierPayload(sgqlc.types.Type):
 
 
 class CreateSponsorshipPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "sponsorship")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6275,6 +8463,10 @@ class CreateSponsorshipPayload(sgqlc.types.Type):
 
 
 class CreateTeamDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "team_discussion_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6284,6 +8476,10 @@ class CreateTeamDiscussionCommentPayload(sgqlc.types.Type):
 
 
 class CreateTeamDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "team_discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6291,6 +8487,10 @@ class CreateTeamDiscussionPayload(sgqlc.types.Type):
 
 
 class CreatedCommitContributionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6308,6 +8508,10 @@ class CreatedCommitContributionConnection(sgqlc.types.relay.Connection):
 
 
 class CreatedCommitContributionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6315,6 +8519,10 @@ class CreatedCommitContributionEdge(sgqlc.types.Type):
 
 
 class CreatedIssueContributionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6332,6 +8540,10 @@ class CreatedIssueContributionConnection(sgqlc.types.relay.Connection):
 
 
 class CreatedIssueContributionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6339,6 +8551,10 @@ class CreatedIssueContributionEdge(sgqlc.types.Type):
 
 
 class CreatedPullRequestContributionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6356,6 +8572,10 @@ class CreatedPullRequestContributionConnection(sgqlc.types.relay.Connection):
 
 
 class CreatedPullRequestContributionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6363,6 +8583,10 @@ class CreatedPullRequestContributionEdge(sgqlc.types.Type):
 
 
 class CreatedPullRequestReviewContributionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6382,6 +8606,10 @@ class CreatedPullRequestReviewContributionConnection(sgqlc.types.relay.Connectio
 
 
 class CreatedPullRequestReviewContributionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6391,6 +8619,10 @@ class CreatedPullRequestReviewContributionEdge(sgqlc.types.Type):
 
 
 class CreatedRepositoryContributionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6408,6 +8640,10 @@ class CreatedRepositoryContributionConnection(sgqlc.types.relay.Connection):
 
 
 class CreatedRepositoryContributionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6415,6 +8651,10 @@ class CreatedRepositoryContributionEdge(sgqlc.types.Type):
 
 
 class DeclineTopicSuggestionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "topic")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6422,6 +8662,10 @@ class DeclineTopicSuggestionPayload(sgqlc.types.Type):
 
 
 class Deletable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("viewer_can_delete",)
     viewer_can_delete = sgqlc.types.Field(
@@ -6430,18 +8674,30 @@ class Deletable(sgqlc.types.Interface):
 
 
 class DeleteBranchProtectionRulePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteDeploymentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6449,6 +8705,10 @@ class DeleteDiscussionCommentPayload(sgqlc.types.Type):
 
 
 class DeleteDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6456,12 +8716,20 @@ class DeleteDiscussionPayload(sgqlc.types.Type):
 
 
 class DeleteEnvironmentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteIpAllowListEntryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "ip_allow_list_entry")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6471,12 +8739,20 @@ class DeleteIpAllowListEntryPayload(sgqlc.types.Type):
 
 
 class DeleteIssueCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6484,6 +8760,10 @@ class DeleteIssuePayload(sgqlc.types.Type):
 
 
 class DeleteProjectCardPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "column", "deleted_card_id")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6492,6 +8772,10 @@ class DeleteProjectCardPayload(sgqlc.types.Type):
 
 
 class DeleteProjectColumnPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "deleted_column_id", "project")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6500,6 +8784,10 @@ class DeleteProjectColumnPayload(sgqlc.types.Type):
 
 
 class DeleteProjectNextItemPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "deleted_item_id")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6507,6 +8795,10 @@ class DeleteProjectNextItemPayload(sgqlc.types.Type):
 
 
 class DeleteProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "owner")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6514,6 +8806,10 @@ class DeleteProjectPayload(sgqlc.types.Type):
 
 
 class DeleteProjectV2ItemPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "deleted_item_id")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6521,6 +8817,10 @@ class DeleteProjectV2ItemPayload(sgqlc.types.Type):
 
 
 class DeletePullRequestReviewCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6530,6 +8830,10 @@ class DeletePullRequestReviewCommentPayload(sgqlc.types.Type):
 
 
 class DeletePullRequestReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6539,24 +8843,40 @@ class DeletePullRequestReviewPayload(sgqlc.types.Type):
 
 
 class DeleteRefPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteTeamDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteTeamDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id",)
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class DeleteVerifiableDomainPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "owner")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6564,6 +8884,10 @@ class DeleteVerifiableDomainPayload(sgqlc.types.Type):
 
 
 class DependabotUpdateError(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("body", "error_type", "title")
     body = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="body")
@@ -6574,6 +8898,10 @@ class DependabotUpdateError(sgqlc.types.Type):
 
 
 class DeployKeyConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6589,6 +8917,10 @@ class DeployKeyConnection(sgqlc.types.relay.Connection):
 
 
 class DeployKeyEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6596,6 +8928,10 @@ class DeployKeyEdge(sgqlc.types.Type):
 
 
 class DeploymentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6611,6 +8947,10 @@ class DeploymentConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6618,6 +8958,10 @@ class DeploymentEdge(sgqlc.types.Type):
 
 
 class DeploymentProtectionRule(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("database_id", "reviewers", "timeout", "type")
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
@@ -6643,6 +8987,10 @@ class DeploymentProtectionRule(sgqlc.types.Type):
 
 
 class DeploymentProtectionRuleConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6660,6 +9008,10 @@ class DeploymentProtectionRuleConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentProtectionRuleEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6667,6 +9019,10 @@ class DeploymentProtectionRuleEdge(sgqlc.types.Type):
 
 
 class DeploymentRequest(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "current_user_can_approve",
@@ -6703,6 +9059,10 @@ class DeploymentRequest(sgqlc.types.Type):
 
 
 class DeploymentRequestConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6720,6 +9080,10 @@ class DeploymentRequestConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentRequestEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6727,6 +9091,10 @@ class DeploymentRequestEdge(sgqlc.types.Type):
 
 
 class DeploymentReviewConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6744,6 +9112,10 @@ class DeploymentReviewConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentReviewEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6751,6 +9123,10 @@ class DeploymentReviewEdge(sgqlc.types.Type):
 
 
 class DeploymentReviewerConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6768,6 +9144,10 @@ class DeploymentReviewerConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentReviewerEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6775,6 +9155,10 @@ class DeploymentReviewerEdge(sgqlc.types.Type):
 
 
 class DeploymentStatusConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6792,6 +9176,10 @@ class DeploymentStatusConnection(sgqlc.types.relay.Connection):
 
 
 class DeploymentStatusEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6799,6 +9187,10 @@ class DeploymentStatusEdge(sgqlc.types.Type):
 
 
 class DisablePullRequestAutoMergePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -6807,6 +9199,10 @@ class DisablePullRequestAutoMergePayload(sgqlc.types.Type):
 
 
 class DiscussionCategoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6824,6 +9220,10 @@ class DiscussionCategoryConnection(sgqlc.types.relay.Connection):
 
 
 class DiscussionCategoryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6831,6 +9231,10 @@ class DiscussionCategoryEdge(sgqlc.types.Type):
 
 
 class DiscussionCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6848,6 +9252,10 @@ class DiscussionCommentConnection(sgqlc.types.relay.Connection):
 
 
 class DiscussionCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6855,6 +9263,10 @@ class DiscussionCommentEdge(sgqlc.types.Type):
 
 
 class DiscussionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6870,6 +9282,10 @@ class DiscussionConnection(sgqlc.types.relay.Connection):
 
 
 class DiscussionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6877,6 +9293,10 @@ class DiscussionEdge(sgqlc.types.Type):
 
 
 class DiscussionPollOptionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6894,6 +9314,10 @@ class DiscussionPollOptionConnection(sgqlc.types.relay.Connection):
 
 
 class DiscussionPollOptionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6901,6 +9325,10 @@ class DiscussionPollOptionEdge(sgqlc.types.Type):
 
 
 class DismissPullRequestReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6910,6 +9338,10 @@ class DismissPullRequestReviewPayload(sgqlc.types.Type):
 
 
 class DismissRepositoryVulnerabilityAlertPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository_vulnerability_alert")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -6919,6 +9351,10 @@ class DismissRepositoryVulnerabilityAlertPayload(sgqlc.types.Type):
 
 
 class EnablePullRequestAutoMergePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -6927,6 +9363,10 @@ class EnablePullRequestAutoMergePayload(sgqlc.types.Type):
 
 
 class EnterpriseAdministratorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6942,6 +9382,10 @@ class EnterpriseAdministratorConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseAdministratorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "role")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6952,6 +9396,10 @@ class EnterpriseAdministratorEdge(sgqlc.types.Type):
 
 
 class EnterpriseAdministratorInvitationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -6970,6 +9418,10 @@ class EnterpriseAdministratorInvitationConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseAdministratorInvitationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -6977,6 +9429,10 @@ class EnterpriseAdministratorInvitationEdge(sgqlc.types.Type):
 
 
 class EnterpriseAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("enterprise_resource_path", "enterprise_slug", "enterprise_url")
     enterprise_resource_path = sgqlc.types.Field(
@@ -6987,6 +9443,10 @@ class EnterpriseAuditEntryData(sgqlc.types.Interface):
 
 
 class EnterpriseBillingInfo(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "all_licensable_users_count",
@@ -7033,6 +9493,10 @@ class EnterpriseBillingInfo(sgqlc.types.Type):
 
 
 class EnterpriseMemberConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -7050,6 +9514,10 @@ class EnterpriseMemberConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseMemberEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -7057,6 +9525,10 @@ class EnterpriseMemberEdge(sgqlc.types.Type):
 
 
 class EnterpriseOrganizationMembershipConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -7073,6 +9545,10 @@ class EnterpriseOrganizationMembershipConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseOrganizationMembershipEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "role")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -7083,6 +9559,10 @@ class EnterpriseOrganizationMembershipEdge(sgqlc.types.Type):
 
 
 class EnterpriseOutsideCollaboratorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -7098,6 +9578,10 @@ class EnterpriseOutsideCollaboratorConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseOutsideCollaboratorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "repositories")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -7128,6 +9612,10 @@ class EnterpriseOutsideCollaboratorEdge(sgqlc.types.Type):
 
 
 class EnterpriseOwnerInfo(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "admins",
@@ -7993,6 +10481,10 @@ class EnterpriseOwnerInfo(sgqlc.types.Type):
 
 
 class EnterprisePendingMemberInvitationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "edges",
@@ -8020,6 +10512,10 @@ class EnterprisePendingMemberInvitationConnection(sgqlc.types.relay.Connection):
 
 
 class EnterprisePendingMemberInvitationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8027,6 +10523,10 @@ class EnterprisePendingMemberInvitationEdge(sgqlc.types.Type):
 
 
 class EnterpriseRepositoryInfoConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8044,6 +10544,10 @@ class EnterpriseRepositoryInfoConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseRepositoryInfoEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8051,6 +10555,10 @@ class EnterpriseRepositoryInfoEdge(sgqlc.types.Type):
 
 
 class EnterpriseServerInstallationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8068,6 +10576,10 @@ class EnterpriseServerInstallationConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseServerInstallationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8075,6 +10587,10 @@ class EnterpriseServerInstallationEdge(sgqlc.types.Type):
 
 
 class EnterpriseServerUserAccountConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8092,6 +10608,10 @@ class EnterpriseServerUserAccountConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseServerUserAccountEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8099,6 +10619,10 @@ class EnterpriseServerUserAccountEdge(sgqlc.types.Type):
 
 
 class EnterpriseServerUserAccountEmailConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8117,6 +10641,10 @@ class EnterpriseServerUserAccountEmailConnection(sgqlc.types.relay.Connection):
 
 
 class EnterpriseServerUserAccountEmailEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8124,6 +10652,10 @@ class EnterpriseServerUserAccountEmailEdge(sgqlc.types.Type):
 
 
 class EnterpriseServerUserAccountsUploadConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8142,6 +10674,10 @@ class EnterpriseServerUserAccountsUploadConnection(sgqlc.types.relay.Connection)
 
 
 class EnterpriseServerUserAccountsUploadEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8149,6 +10685,10 @@ class EnterpriseServerUserAccountsUploadEdge(sgqlc.types.Type):
 
 
 class EnvironmentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8164,6 +10704,10 @@ class EnvironmentConnection(sgqlc.types.relay.Connection):
 
 
 class EnvironmentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8171,6 +10715,10 @@ class EnvironmentEdge(sgqlc.types.Type):
 
 
 class ExternalIdentityAttribute(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("metadata", "name", "value")
     metadata = sgqlc.types.Field(String, graphql_name="metadata")
@@ -8179,6 +10727,10 @@ class ExternalIdentityAttribute(sgqlc.types.Type):
 
 
 class ExternalIdentityConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8196,6 +10748,10 @@ class ExternalIdentityConnection(sgqlc.types.relay.Connection):
 
 
 class ExternalIdentityEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8203,6 +10759,10 @@ class ExternalIdentityEdge(sgqlc.types.Type):
 
 
 class ExternalIdentitySamlAttributes(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "attributes",
@@ -8233,6 +10793,10 @@ class ExternalIdentitySamlAttributes(sgqlc.types.Type):
 
 
 class ExternalIdentityScimAttributes(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("emails", "family_name", "given_name", "groups", "username")
     emails = sgqlc.types.Field(
@@ -8248,6 +10812,10 @@ class ExternalIdentityScimAttributes(sgqlc.types.Type):
 
 
 class FollowOrganizationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "organization")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8255,6 +10823,10 @@ class FollowOrganizationPayload(sgqlc.types.Type):
 
 
 class FollowUserPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "user")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8262,6 +10834,10 @@ class FollowUserPayload(sgqlc.types.Type):
 
 
 class FollowerConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("UserEdge"), graphql_name="edges")
@@ -8275,6 +10851,10 @@ class FollowerConnection(sgqlc.types.relay.Connection):
 
 
 class FollowingConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("UserEdge"), graphql_name="edges")
@@ -8288,6 +10868,10 @@ class FollowingConnection(sgqlc.types.relay.Connection):
 
 
 class FundingLink(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("platform", "url")
     platform = sgqlc.types.Field(
@@ -8297,6 +10881,10 @@ class FundingLink(sgqlc.types.Type):
 
 
 class GistCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8312,6 +10900,10 @@ class GistCommentConnection(sgqlc.types.relay.Connection):
 
 
 class GistCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8319,6 +10911,10 @@ class GistCommentEdge(sgqlc.types.Type):
 
 
 class GistConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("GistEdge"), graphql_name="edges")
@@ -8332,6 +10928,10 @@ class GistConnection(sgqlc.types.relay.Connection):
 
 
 class GistEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8339,6 +10939,10 @@ class GistEdge(sgqlc.types.Type):
 
 
 class GistFile(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "encoded_name",
@@ -8371,6 +10975,10 @@ class GistFile(sgqlc.types.Type):
 
 
 class GitActor(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("avatar_url", "date", "email", "name", "user")
     avatar_url = sgqlc.types.Field(
@@ -8387,6 +10995,10 @@ class GitActor(sgqlc.types.Type):
 
 
 class GitActorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("GitActorEdge"), graphql_name="edges")
@@ -8400,6 +11012,10 @@ class GitActorConnection(sgqlc.types.relay.Connection):
 
 
 class GitActorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8407,6 +11023,10 @@ class GitActorEdge(sgqlc.types.Type):
 
 
 class GitHubMetadata(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "git_hub_services_sha",
@@ -8440,6 +11060,10 @@ class GitHubMetadata(sgqlc.types.Type):
 
 
 class GitObject(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "abbreviated_oid",
@@ -8464,6 +11088,10 @@ class GitObject(sgqlc.types.Interface):
 
 
 class GitSignature(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "email",
@@ -8490,6 +11118,10 @@ class GitSignature(sgqlc.types.Interface):
 
 
 class GrantEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "organizations")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8511,6 +11143,10 @@ class GrantEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
 
 
 class GrantMigratorRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "success")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8518,6 +11154,10 @@ class GrantMigratorRolePayload(sgqlc.types.Type):
 
 
 class Hovercard(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contexts",)
     contexts = sgqlc.types.Field(
@@ -8529,6 +11169,10 @@ class Hovercard(sgqlc.types.Type):
 
 
 class HovercardContext(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("message", "octicon")
     message = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="message")
@@ -8536,6 +11180,10 @@ class HovercardContext(sgqlc.types.Interface):
 
 
 class InviteEnterpriseAdminPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "invitation")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8545,6 +11193,10 @@ class InviteEnterpriseAdminPayload(sgqlc.types.Type):
 
 
 class IpAllowListEntryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8562,6 +11214,10 @@ class IpAllowListEntryConnection(sgqlc.types.relay.Connection):
 
 
 class IpAllowListEntryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8569,6 +11225,10 @@ class IpAllowListEntryEdge(sgqlc.types.Type):
 
 
 class IssueCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8584,6 +11244,10 @@ class IssueCommentConnection(sgqlc.types.relay.Connection):
 
 
 class IssueCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8591,6 +11255,10 @@ class IssueCommentEdge(sgqlc.types.Type):
 
 
 class IssueConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("IssueEdge"), graphql_name="edges")
@@ -8604,6 +11272,10 @@ class IssueConnection(sgqlc.types.relay.Connection):
 
 
 class IssueContributionsByRepository(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contributions", "repository")
     contributions = sgqlc.types.Field(
@@ -8635,6 +11307,10 @@ class IssueContributionsByRepository(sgqlc.types.Type):
 
 
 class IssueEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8642,6 +11318,10 @@ class IssueEdge(sgqlc.types.Type):
 
 
 class IssueTemplate(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("about", "body", "name", "title")
     about = sgqlc.types.Field(String, graphql_name="about")
@@ -8651,6 +11331,10 @@ class IssueTemplate(sgqlc.types.Type):
 
 
 class IssueTimelineConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8668,6 +11352,10 @@ class IssueTimelineConnection(sgqlc.types.relay.Connection):
 
 
 class IssueTimelineItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8675,6 +11363,10 @@ class IssueTimelineItemEdge(sgqlc.types.Type):
 
 
 class IssueTimelineItemsConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "edges",
@@ -8707,6 +11399,10 @@ class IssueTimelineItemsConnection(sgqlc.types.relay.Connection):
 
 
 class IssueTimelineItemsEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8714,6 +11410,10 @@ class IssueTimelineItemsEdge(sgqlc.types.Type):
 
 
 class LabelConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("LabelEdge"), graphql_name="edges")
@@ -8727,6 +11427,10 @@ class LabelConnection(sgqlc.types.relay.Connection):
 
 
 class LabelEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8734,6 +11438,10 @@ class LabelEdge(sgqlc.types.Type):
 
 
 class Labelable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("labels",)
     labels = sgqlc.types.Field(
@@ -8762,6 +11470,10 @@ class Labelable(sgqlc.types.Interface):
 
 
 class LanguageConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count", "total_size")
     edges = sgqlc.types.Field(sgqlc.types.list_of("LanguageEdge"), graphql_name="edges")
@@ -8776,6 +11488,10 @@ class LanguageConnection(sgqlc.types.relay.Connection):
 
 
 class LanguageEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "size")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8784,6 +11500,10 @@ class LanguageEdge(sgqlc.types.Type):
 
 
 class LicenseRule(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("description", "key", "label")
     description = sgqlc.types.Field(
@@ -8794,6 +11514,10 @@ class LicenseRule(sgqlc.types.Type):
 
 
 class LinkRepositoryToProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8802,6 +11526,10 @@ class LinkRepositoryToProjectPayload(sgqlc.types.Type):
 
 
 class LockLockablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "locked_record")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -8810,6 +11538,10 @@ class LockLockablePayload(sgqlc.types.Type):
 
 
 class Lockable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("active_lock_reason", "locked")
     active_lock_reason = sgqlc.types.Field(LockReason, graphql_name="activeLockReason")
@@ -8817,6 +11549,10 @@ class Lockable(sgqlc.types.Interface):
 
 
 class MarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8824,6 +11560,10 @@ class MarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
 
 
 class MarkFileAsViewedPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8831,6 +11571,10 @@ class MarkFileAsViewedPayload(sgqlc.types.Type):
 
 
 class MarkPullRequestReadyForReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8838,6 +11582,10 @@ class MarkPullRequestReadyForReviewPayload(sgqlc.types.Type):
 
 
 class MarketplaceListingConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8855,6 +11603,10 @@ class MarketplaceListingConnection(sgqlc.types.relay.Connection):
 
 
 class MarketplaceListingEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8862,6 +11614,10 @@ class MarketplaceListingEdge(sgqlc.types.Type):
 
 
 class MemberStatusable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("member_statuses",)
     member_statuses = sgqlc.types.Field(
@@ -8890,6 +11646,10 @@ class MemberStatusable(sgqlc.types.Interface):
 
 
 class MergeBranchPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "merge_commit")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8897,6 +11657,10 @@ class MergeBranchPayload(sgqlc.types.Type):
 
 
 class MergePullRequestPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -8905,6 +11669,10 @@ class MergePullRequestPayload(sgqlc.types.Type):
 
 
 class Migration(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "continue_on_error",
@@ -8939,6 +11707,10 @@ class Migration(sgqlc.types.Interface):
 
 
 class MilestoneConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -8954,6 +11726,10 @@ class MilestoneConnection(sgqlc.types.relay.Connection):
 
 
 class MilestoneEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -8961,6 +11737,10 @@ class MilestoneEdge(sgqlc.types.Type):
 
 
 class Minimizable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_minimized", "minimized_reason", "viewer_can_minimize")
     is_minimized = sgqlc.types.Field(
@@ -8973,6 +11753,10 @@ class Minimizable(sgqlc.types.Interface):
 
 
 class MinimizeCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "minimized_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8980,6 +11764,10 @@ class MinimizeCommentPayload(sgqlc.types.Type):
 
 
 class MoveProjectCardPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("card_edge", "client_mutation_id")
     card_edge = sgqlc.types.Field("ProjectCardEdge", graphql_name="cardEdge")
@@ -8987,6 +11775,10 @@ class MoveProjectCardPayload(sgqlc.types.Type):
 
 
 class MoveProjectColumnPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "column_edge")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -8994,6 +11786,10 @@ class MoveProjectColumnPayload(sgqlc.types.Type):
 
 
 class Mutation(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "abort_queued_migrations",
@@ -12187,12 +14983,20 @@ class Mutation(sgqlc.types.Type):
 
 
 class Node(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id",)
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
 
 
 class OauthApplicationAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "oauth_application_name",
@@ -12209,6 +15013,10 @@ class OauthApplicationAuditEntryData(sgqlc.types.Interface):
 
 
 class OrganizationAuditEntryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12226,6 +15034,10 @@ class OrganizationAuditEntryConnection(sgqlc.types.relay.Connection):
 
 
 class OrganizationAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "organization",
@@ -12242,6 +15054,10 @@ class OrganizationAuditEntryData(sgqlc.types.Interface):
 
 
 class OrganizationAuditEntryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12249,6 +15065,10 @@ class OrganizationAuditEntryEdge(sgqlc.types.Type):
 
 
 class OrganizationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12264,6 +15084,10 @@ class OrganizationConnection(sgqlc.types.relay.Connection):
 
 
 class OrganizationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12271,6 +15095,10 @@ class OrganizationEdge(sgqlc.types.Type):
 
 
 class OrganizationEnterpriseOwnerConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12286,6 +15114,10 @@ class OrganizationEnterpriseOwnerConnection(sgqlc.types.relay.Connection):
 
 
 class OrganizationEnterpriseOwnerEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "organization_role")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12296,6 +15128,10 @@ class OrganizationEnterpriseOwnerEdge(sgqlc.types.Type):
 
 
 class OrganizationInvitationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12313,6 +15149,10 @@ class OrganizationInvitationConnection(sgqlc.types.relay.Connection):
 
 
 class OrganizationInvitationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12320,6 +15160,10 @@ class OrganizationInvitationEdge(sgqlc.types.Type):
 
 
 class OrganizationMemberConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12335,6 +15179,10 @@ class OrganizationMemberConnection(sgqlc.types.relay.Connection):
 
 
 class OrganizationMemberEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "has_two_factor_enabled", "node", "role")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12346,6 +15194,10 @@ class OrganizationMemberEdge(sgqlc.types.Type):
 
 
 class PackageConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("PackageEdge"), graphql_name="edges")
@@ -12359,6 +15211,10 @@ class PackageConnection(sgqlc.types.relay.Connection):
 
 
 class PackageEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12366,6 +15222,10 @@ class PackageEdge(sgqlc.types.Type):
 
 
 class PackageFileConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12381,6 +15241,10 @@ class PackageFileConnection(sgqlc.types.relay.Connection):
 
 
 class PackageFileEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12388,6 +15252,10 @@ class PackageFileEdge(sgqlc.types.Type):
 
 
 class PackageOwner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "packages")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -12433,6 +15301,10 @@ class PackageOwner(sgqlc.types.Interface):
 
 
 class PackageStatistics(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("downloads_total_count",)
     downloads_total_count = sgqlc.types.Field(
@@ -12441,6 +15313,10 @@ class PackageStatistics(sgqlc.types.Type):
 
 
 class PackageVersionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12458,6 +15334,10 @@ class PackageVersionConnection(sgqlc.types.relay.Connection):
 
 
 class PackageVersionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12465,6 +15345,10 @@ class PackageVersionEdge(sgqlc.types.Type):
 
 
 class PackageVersionStatistics(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("downloads_total_count",)
     downloads_total_count = sgqlc.types.Field(
@@ -12473,6 +15357,10 @@ class PackageVersionStatistics(sgqlc.types.Type):
 
 
 class PageInfo(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "end_cursor",
@@ -12491,6 +15379,10 @@ class PageInfo(sgqlc.types.Type):
 
 
 class PermissionSource(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("organization", "permission", "source")
     organization = sgqlc.types.Field(
@@ -12506,6 +15398,10 @@ class PermissionSource(sgqlc.types.Type):
 
 
 class PinIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -12513,6 +15409,10 @@ class PinIssuePayload(sgqlc.types.Type):
 
 
 class PinnableItemConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12528,6 +15428,10 @@ class PinnableItemConnection(sgqlc.types.relay.Connection):
 
 
 class PinnableItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12535,6 +15439,10 @@ class PinnableItemEdge(sgqlc.types.Type):
 
 
 class PinnedDiscussionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12552,6 +15460,10 @@ class PinnedDiscussionConnection(sgqlc.types.relay.Connection):
 
 
 class PinnedDiscussionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12559,6 +15471,10 @@ class PinnedDiscussionEdge(sgqlc.types.Type):
 
 
 class PinnedIssueConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12574,6 +15490,10 @@ class PinnedIssueConnection(sgqlc.types.relay.Connection):
 
 
 class PinnedIssueEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12581,6 +15501,10 @@ class PinnedIssueEdge(sgqlc.types.Type):
 
 
 class ProfileItemShowcase(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("has_pinned_items", "items")
     has_pinned_items = sgqlc.types.Field(
@@ -12604,6 +15528,10 @@ class ProfileItemShowcase(sgqlc.types.Type):
 
 
 class ProfileOwner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "any_pinnable_items",
@@ -12697,6 +15625,10 @@ class ProfileOwner(sgqlc.types.Interface):
 
 
 class ProjectCardConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12712,6 +15644,10 @@ class ProjectCardConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectCardEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12719,6 +15655,10 @@ class ProjectCardEdge(sgqlc.types.Type):
 
 
 class ProjectColumnConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12736,6 +15676,10 @@ class ProjectColumnConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectColumnEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12743,6 +15687,10 @@ class ProjectColumnEdge(sgqlc.types.Type):
 
 
 class ProjectConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("ProjectEdge"), graphql_name="edges")
@@ -12756,6 +15704,10 @@ class ProjectConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12763,6 +15715,10 @@ class ProjectEdge(sgqlc.types.Type):
 
 
 class ProjectNextConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12778,6 +15734,10 @@ class ProjectNextConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectNextEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12785,6 +15745,10 @@ class ProjectNextEdge(sgqlc.types.Type):
 
 
 class ProjectNextFieldCommon(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -12815,6 +15779,10 @@ class ProjectNextFieldCommon(sgqlc.types.Interface):
 
 
 class ProjectNextFieldConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12832,6 +15800,10 @@ class ProjectNextFieldConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectNextFieldEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12839,6 +15811,10 @@ class ProjectNextFieldEdge(sgqlc.types.Type):
 
 
 class ProjectNextItemConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12856,6 +15832,10 @@ class ProjectNextItemConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectNextItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12863,6 +15843,10 @@ class ProjectNextItemEdge(sgqlc.types.Type):
 
 
 class ProjectNextItemFieldValueConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -12880,6 +15864,10 @@ class ProjectNextItemFieldValueConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectNextItemFieldValueEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -12887,6 +15875,10 @@ class ProjectNextItemFieldValueEdge(sgqlc.types.Type):
 
 
 class ProjectNextOwner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "project_next", "projects_next")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -12909,13 +15901,6 @@ class ProjectNextOwner(sgqlc.types.Interface):
         graphql_name="projectsNext",
         args=sgqlc.types.ArgDict(
             (
-                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
-                (
-                    "before",
-                    sgqlc.types.Arg(String, graphql_name="before", default=None),
-                ),
-                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
-                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
                 ("query", sgqlc.types.Arg(String, graphql_name="query", default=None)),
                 (
                     "sort_by",
@@ -12923,12 +15908,23 @@ class ProjectNextOwner(sgqlc.types.Interface):
                         ProjectNextOrderField, graphql_name="sortBy", default="TITLE"
                     ),
                 ),
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
             )
         ),
     )
 
 
 class ProjectOwner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "id",
@@ -12996,6 +15992,10 @@ class ProjectOwner(sgqlc.types.Interface):
 
 
 class ProjectProgress(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "done_count",
@@ -13024,6 +16024,10 @@ class ProjectProgress(sgqlc.types.Type):
 
 
 class ProjectV2Connection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13039,6 +16043,10 @@ class ProjectV2Connection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2Edge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13046,6 +16054,10 @@ class ProjectV2Edge(sgqlc.types.Type):
 
 
 class ProjectV2FieldCommon(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -13074,6 +16086,10 @@ class ProjectV2FieldCommon(sgqlc.types.Interface):
 
 
 class ProjectV2FieldConfigurationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13091,6 +16107,10 @@ class ProjectV2FieldConfigurationConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2FieldConfigurationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13098,6 +16118,10 @@ class ProjectV2FieldConfigurationEdge(sgqlc.types.Type):
 
 
 class ProjectV2FieldConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13115,6 +16139,10 @@ class ProjectV2FieldConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2FieldEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13122,6 +16150,10 @@ class ProjectV2FieldEdge(sgqlc.types.Type):
 
 
 class ProjectV2ItemConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13139,6 +16171,10 @@ class ProjectV2ItemConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2ItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13146,6 +16182,10 @@ class ProjectV2ItemEdge(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldLabelValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "labels")
     field = sgqlc.types.Field(
@@ -13169,6 +16209,10 @@ class ProjectV2ItemFieldLabelValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldMilestoneValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "milestone")
     field = sgqlc.types.Field(
@@ -13178,6 +16222,10 @@ class ProjectV2ItemFieldMilestoneValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldPullRequestValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "pull_requests")
     field = sgqlc.types.Field(
@@ -13209,6 +16257,10 @@ class ProjectV2ItemFieldPullRequestValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldRepositoryValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "repository")
     field = sgqlc.types.Field(
@@ -13218,6 +16270,10 @@ class ProjectV2ItemFieldRepositoryValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldReviewerValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "reviewers")
     field = sgqlc.types.Field(
@@ -13241,6 +16297,10 @@ class ProjectV2ItemFieldReviewerValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldUserValue(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("field", "users")
     field = sgqlc.types.Field(
@@ -13264,6 +16324,10 @@ class ProjectV2ItemFieldUserValue(sgqlc.types.Type):
 
 
 class ProjectV2ItemFieldValueCommon(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -13290,6 +16354,10 @@ class ProjectV2ItemFieldValueCommon(sgqlc.types.Interface):
 
 
 class ProjectV2ItemFieldValueConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13307,6 +16375,10 @@ class ProjectV2ItemFieldValueConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2ItemFieldValueEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13314,6 +16386,10 @@ class ProjectV2ItemFieldValueEdge(sgqlc.types.Type):
 
 
 class ProjectV2IterationFieldConfiguration(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("completed_iterations", "duration", "iterations", "start_day")
     completed_iterations = sgqlc.types.Field(
@@ -13337,6 +16413,10 @@ class ProjectV2IterationFieldConfiguration(sgqlc.types.Type):
 
 
 class ProjectV2IterationFieldIteration(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("duration", "id", "start_date", "title", "title_html")
     duration = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="duration")
@@ -13349,6 +16429,10 @@ class ProjectV2IterationFieldIteration(sgqlc.types.Type):
 
 
 class ProjectV2Owner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "project_v2", "projects_v2")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -13371,13 +16455,6 @@ class ProjectV2Owner(sgqlc.types.Interface):
         graphql_name="projectsV2",
         args=sgqlc.types.ArgDict(
             (
-                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
-                (
-                    "before",
-                    sgqlc.types.Arg(String, graphql_name="before", default=None),
-                ),
-                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
-                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
                 ("query", sgqlc.types.Arg(String, graphql_name="query", default=None)),
                 (
                     "order_by",
@@ -13387,12 +16464,23 @@ class ProjectV2Owner(sgqlc.types.Interface):
                         default={"field": "NUMBER", "direction": "DESC"},
                     ),
                 ),
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
             )
         ),
     )
 
 
 class ProjectV2Recent(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("recent_projects",)
     recent_projects = sgqlc.types.Field(
@@ -13413,6 +16501,10 @@ class ProjectV2Recent(sgqlc.types.Interface):
 
 
 class ProjectV2SingleSelectFieldOption(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "name", "name_html")
     id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="id")
@@ -13421,6 +16513,10 @@ class ProjectV2SingleSelectFieldOption(sgqlc.types.Type):
 
 
 class ProjectV2SortBy(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("direction", "field")
     direction = sgqlc.types.Field(
@@ -13432,6 +16528,10 @@ class ProjectV2SortBy(sgqlc.types.Type):
 
 
 class ProjectV2SortByConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13449,6 +16549,10 @@ class ProjectV2SortByConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2SortByEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13456,6 +16560,10 @@ class ProjectV2SortByEdge(sgqlc.types.Type):
 
 
 class ProjectV2ViewConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13473,6 +16581,10 @@ class ProjectV2ViewConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectV2ViewEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13480,6 +16592,10 @@ class ProjectV2ViewEdge(sgqlc.types.Type):
 
 
 class ProjectViewConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13495,6 +16611,10 @@ class ProjectViewConnection(sgqlc.types.relay.Connection):
 
 
 class ProjectViewEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13502,6 +16622,10 @@ class ProjectViewEdge(sgqlc.types.Type):
 
 
 class PublicKeyConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13517,6 +16641,10 @@ class PublicKeyConnection(sgqlc.types.relay.Connection):
 
 
 class PublicKeyEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13524,6 +16652,10 @@ class PublicKeyEdge(sgqlc.types.Type):
 
 
 class PullRequestChangedFile(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "additions",
@@ -13544,6 +16676,10 @@ class PullRequestChangedFile(sgqlc.types.Type):
 
 
 class PullRequestChangedFileConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13561,6 +16697,10 @@ class PullRequestChangedFileConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestChangedFileEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13568,6 +16708,10 @@ class PullRequestChangedFileEdge(sgqlc.types.Type):
 
 
 class PullRequestCommitConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13585,6 +16729,10 @@ class PullRequestCommitConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestCommitEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13592,6 +16740,10 @@ class PullRequestCommitEdge(sgqlc.types.Type):
 
 
 class PullRequestConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13607,6 +16759,10 @@ class PullRequestConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestContributionsByRepository(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contributions", "repository")
     contributions = sgqlc.types.Field(
@@ -13638,6 +16794,10 @@ class PullRequestContributionsByRepository(sgqlc.types.Type):
 
 
 class PullRequestEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13645,6 +16805,10 @@ class PullRequestEdge(sgqlc.types.Type):
 
 
 class PullRequestReviewCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13662,6 +16826,10 @@ class PullRequestReviewCommentConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestReviewCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13669,6 +16837,10 @@ class PullRequestReviewCommentEdge(sgqlc.types.Type):
 
 
 class PullRequestReviewConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13686,6 +16858,10 @@ class PullRequestReviewConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestReviewContributionsByRepository(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("contributions", "repository")
     contributions = sgqlc.types.Field(
@@ -13717,6 +16893,10 @@ class PullRequestReviewContributionsByRepository(sgqlc.types.Type):
 
 
 class PullRequestReviewEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13724,6 +16904,10 @@ class PullRequestReviewEdge(sgqlc.types.Type):
 
 
 class PullRequestReviewThreadConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13741,6 +16925,10 @@ class PullRequestReviewThreadConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestReviewThreadEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13748,6 +16936,10 @@ class PullRequestReviewThreadEdge(sgqlc.types.Type):
 
 
 class PullRequestRevisionMarker(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("created_at", "last_seen_commit", "pull_request")
     created_at = sgqlc.types.Field(
@@ -13762,6 +16954,10 @@ class PullRequestRevisionMarker(sgqlc.types.Type):
 
 
 class PullRequestTemplate(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("body", "filename", "repository")
     body = sgqlc.types.Field(String, graphql_name="body")
@@ -13772,6 +16968,10 @@ class PullRequestTemplate(sgqlc.types.Type):
 
 
 class PullRequestTimelineConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13789,6 +16989,10 @@ class PullRequestTimelineConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestTimelineItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13796,6 +17000,10 @@ class PullRequestTimelineItemEdge(sgqlc.types.Type):
 
 
 class PullRequestTimelineItemsConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "edges",
@@ -13828,6 +17036,10 @@ class PullRequestTimelineItemsConnection(sgqlc.types.relay.Connection):
 
 
 class PullRequestTimelineItemsEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13835,6 +17047,10 @@ class PullRequestTimelineItemsEdge(sgqlc.types.Type):
 
 
 class PushAllowanceConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -13852,6 +17068,10 @@ class PushAllowanceConnection(sgqlc.types.relay.Connection):
 
 
 class PushAllowanceEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -13859,6 +17079,10 @@ class PushAllowanceEdge(sgqlc.types.Type):
 
 
 class Query(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "code_of_conduct",
@@ -14460,6 +17684,10 @@ class Query(sgqlc.types.Type):
 
 
 class RateLimit(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cost", "limit", "node_count", "remaining", "reset_at", "used")
     cost = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="cost")
@@ -14471,6 +17699,10 @@ class RateLimit(sgqlc.types.Type):
 
 
 class Reactable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "database_id",
@@ -14518,6 +17750,10 @@ class Reactable(sgqlc.types.Interface):
 
 
 class ReactingUserConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -14533,6 +17769,10 @@ class ReactingUserConnection(sgqlc.types.relay.Connection):
 
 
 class ReactingUserEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "reacted_at")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14543,6 +17783,10 @@ class ReactingUserEdge(sgqlc.types.Type):
 
 
 class ReactionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "edges",
@@ -14565,6 +17809,10 @@ class ReactionConnection(sgqlc.types.relay.Connection):
 
 
 class ReactionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14572,6 +17820,10 @@ class ReactionEdge(sgqlc.types.Type):
 
 
 class ReactionGroup(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "content",
@@ -14622,6 +17874,10 @@ class ReactionGroup(sgqlc.types.Type):
 
 
 class ReactorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("ReactorEdge"), graphql_name="edges")
@@ -14635,6 +17891,10 @@ class ReactorConnection(sgqlc.types.relay.Connection):
 
 
 class ReactorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "reacted_at")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14645,6 +17905,10 @@ class ReactorEdge(sgqlc.types.Type):
 
 
 class RefConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("RefEdge"), graphql_name="edges")
@@ -14658,6 +17922,10 @@ class RefConnection(sgqlc.types.relay.Connection):
 
 
 class RefEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14665,6 +17933,10 @@ class RefEdge(sgqlc.types.Type):
 
 
 class RefUpdateRule(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "allows_deletions",
@@ -14717,6 +17989,10 @@ class RefUpdateRule(sgqlc.types.Type):
 
 
 class RegenerateEnterpriseIdentityProviderRecoveryCodesPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "identity_provider")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14726,6 +18002,10 @@ class RegenerateEnterpriseIdentityProviderRecoveryCodesPayload(sgqlc.types.Type)
 
 
 class RegenerateVerifiableDomainTokenPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "verification_token")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14733,6 +18013,10 @@ class RegenerateVerifiableDomainTokenPayload(sgqlc.types.Type):
 
 
 class RejectDeploymentsPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "deployments")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14743,6 +18027,10 @@ class RejectDeploymentsPayload(sgqlc.types.Type):
 
 
 class ReleaseAssetConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -14758,6 +18046,10 @@ class ReleaseAssetConnection(sgqlc.types.relay.Connection):
 
 
 class ReleaseAssetEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14765,6 +18057,10 @@ class ReleaseAssetEdge(sgqlc.types.Type):
 
 
 class ReleaseConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("ReleaseEdge"), graphql_name="edges")
@@ -14778,6 +18074,10 @@ class ReleaseConnection(sgqlc.types.relay.Connection):
 
 
 class ReleaseEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14785,6 +18085,10 @@ class ReleaseEdge(sgqlc.types.Type):
 
 
 class RemoveAssigneesFromAssignablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("assignable", "client_mutation_id")
     assignable = sgqlc.types.Field(Assignable, graphql_name="assignable")
@@ -14792,6 +18096,10 @@ class RemoveAssigneesFromAssignablePayload(sgqlc.types.Type):
 
 
 class RemoveEnterpriseAdminPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("admin", "client_mutation_id", "enterprise", "message", "viewer")
     admin = sgqlc.types.Field("User", graphql_name="admin")
@@ -14802,6 +18110,10 @@ class RemoveEnterpriseAdminPayload(sgqlc.types.Type):
 
 
 class RemoveEnterpriseIdentityProviderPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "identity_provider")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14811,6 +18123,10 @@ class RemoveEnterpriseIdentityProviderPayload(sgqlc.types.Type):
 
 
 class RemoveEnterpriseOrganizationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "organization", "viewer")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14820,6 +18136,10 @@ class RemoveEnterpriseOrganizationPayload(sgqlc.types.Type):
 
 
 class RemoveEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14827,6 +18147,10 @@ class RemoveEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
 
 
 class RemoveLabelsFromLabelablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "labelable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14834,6 +18158,10 @@ class RemoveLabelsFromLabelablePayload(sgqlc.types.Type):
 
 
 class RemoveOutsideCollaboratorPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "removed_user")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14841,6 +18169,10 @@ class RemoveOutsideCollaboratorPayload(sgqlc.types.Type):
 
 
 class RemoveReactionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "reaction", "subject")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14849,6 +18181,10 @@ class RemoveReactionPayload(sgqlc.types.Type):
 
 
 class RemoveStarPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "starrable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14856,6 +18192,10 @@ class RemoveStarPayload(sgqlc.types.Type):
 
 
 class RemoveUpvotePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "subject")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14863,6 +18203,10 @@ class RemoveUpvotePayload(sgqlc.types.Type):
 
 
 class ReopenIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14870,6 +18214,10 @@ class ReopenIssuePayload(sgqlc.types.Type):
 
 
 class ReopenPullRequestPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -14877,6 +18225,10 @@ class ReopenPullRequestPayload(sgqlc.types.Type):
 
 
 class RepositoryAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "repository",
@@ -14893,6 +18245,10 @@ class RepositoryAuditEntryData(sgqlc.types.Interface):
 
 
 class RepositoryCodeowners(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("errors",)
     errors = sgqlc.types.Field(
@@ -14904,6 +18260,10 @@ class RepositoryCodeowners(sgqlc.types.Type):
 
 
 class RepositoryCodeownersError(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "column",
@@ -14924,6 +18284,10 @@ class RepositoryCodeownersError(sgqlc.types.Type):
 
 
 class RepositoryCollaboratorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -14939,6 +18303,10 @@ class RepositoryCollaboratorConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryCollaboratorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "permission", "permission_sources")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -14953,6 +18321,10 @@ class RepositoryCollaboratorEdge(sgqlc.types.Type):
 
 
 class RepositoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count", "total_disk_usage")
     edges = sgqlc.types.Field(
@@ -14971,6 +18343,10 @@ class RepositoryConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryContactLink(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("about", "name", "url")
     about = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="about")
@@ -14979,6 +18355,10 @@ class RepositoryContactLink(sgqlc.types.Type):
 
 
 class RepositoryDiscussionAuthor(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_discussions",)
     repository_discussions = sgqlc.types.Field(
@@ -15015,6 +18395,10 @@ class RepositoryDiscussionAuthor(sgqlc.types.Interface):
 
 
 class RepositoryDiscussionCommentAuthor(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository_discussion_comments",)
     repository_discussion_comments = sgqlc.types.Field(
@@ -15043,6 +18427,10 @@ class RepositoryDiscussionCommentAuthor(sgqlc.types.Interface):
 
 
 class RepositoryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15050,6 +18438,10 @@ class RepositoryEdge(sgqlc.types.Type):
 
 
 class RepositoryInfo(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -15156,6 +18548,10 @@ class RepositoryInfo(sgqlc.types.Interface):
 
 
 class RepositoryInteractionAbility(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("expires_at", "limit", "origin")
     expires_at = sgqlc.types.Field(DateTime, graphql_name="expiresAt")
@@ -15168,6 +18564,10 @@ class RepositoryInteractionAbility(sgqlc.types.Type):
 
 
 class RepositoryInvitationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15185,6 +18585,10 @@ class RepositoryInvitationConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryInvitationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15192,6 +18596,10 @@ class RepositoryInvitationEdge(sgqlc.types.Type):
 
 
 class RepositoryMigrationConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15209,6 +18617,10 @@ class RepositoryMigrationConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryMigrationEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15216,6 +18628,10 @@ class RepositoryMigrationEdge(sgqlc.types.Type):
 
 
 class RepositoryNode(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository",)
     repository = sgqlc.types.Field(
@@ -15224,6 +18640,10 @@ class RepositoryNode(sgqlc.types.Interface):
 
 
 class RepositoryOwner(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "avatar_url",
@@ -15321,6 +18741,10 @@ class RepositoryOwner(sgqlc.types.Interface):
 
 
 class RepositoryTopicConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15338,6 +18762,10 @@ class RepositoryTopicConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryTopicEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15345,6 +18773,10 @@ class RepositoryTopicEdge(sgqlc.types.Type):
 
 
 class RepositoryVulnerabilityAlertConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15362,6 +18794,10 @@ class RepositoryVulnerabilityAlertConnection(sgqlc.types.relay.Connection):
 
 
 class RepositoryVulnerabilityAlertEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15369,6 +18805,10 @@ class RepositoryVulnerabilityAlertEdge(sgqlc.types.Type):
 
 
 class RequestReviewsPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -15385,6 +18825,10 @@ class RequestReviewsPayload(sgqlc.types.Type):
 
 
 class RequestedReviewerConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15402,6 +18846,10 @@ class RequestedReviewerConnection(sgqlc.types.relay.Connection):
 
 
 class RequestedReviewerEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15409,6 +18857,10 @@ class RequestedReviewerEdge(sgqlc.types.Type):
 
 
 class RequirableByPullRequest(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_required",)
     is_required = sgqlc.types.Field(
@@ -15432,6 +18884,10 @@ class RequirableByPullRequest(sgqlc.types.Interface):
 
 
 class RequiredStatusCheckDescription(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("app", "context")
     app = sgqlc.types.Field("App", graphql_name="app")
@@ -15439,6 +18895,10 @@ class RequiredStatusCheckDescription(sgqlc.types.Type):
 
 
 class RerequestCheckSuitePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("check_suite", "client_mutation_id")
     check_suite = sgqlc.types.Field("CheckSuite", graphql_name="checkSuite")
@@ -15446,6 +18906,10 @@ class RerequestCheckSuitePayload(sgqlc.types.Type):
 
 
 class ResolveReviewThreadPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "thread")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15453,6 +18917,10 @@ class ResolveReviewThreadPayload(sgqlc.types.Type):
 
 
 class ReviewDismissalAllowanceConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15470,6 +18938,10 @@ class ReviewDismissalAllowanceConnection(sgqlc.types.relay.Connection):
 
 
 class ReviewDismissalAllowanceEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15477,6 +18949,10 @@ class ReviewDismissalAllowanceEdge(sgqlc.types.Type):
 
 
 class ReviewRequestConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15494,6 +18970,10 @@ class ReviewRequestConnection(sgqlc.types.relay.Connection):
 
 
 class ReviewRequestEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15501,6 +18981,10 @@ class ReviewRequestEdge(sgqlc.types.Type):
 
 
 class RevokeEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "organizations")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15522,6 +19006,10 @@ class RevokeEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
 
 
 class RevokeMigratorRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "success")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15529,6 +19017,10 @@ class RevokeMigratorRolePayload(sgqlc.types.Type):
 
 
 class SavedReplyConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15544,6 +19036,10 @@ class SavedReplyConnection(sgqlc.types.relay.Connection):
 
 
 class SavedReplyEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15551,6 +19047,10 @@ class SavedReplyEdge(sgqlc.types.Type):
 
 
 class SearchResultItemConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "code_count",
@@ -15587,6 +19087,10 @@ class SearchResultItemConnection(sgqlc.types.relay.Connection):
 
 
 class SearchResultItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "text_matches")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15597,6 +19101,10 @@ class SearchResultItemEdge(sgqlc.types.Type):
 
 
 class SecurityAdvisoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15614,6 +19122,10 @@ class SecurityAdvisoryConnection(sgqlc.types.relay.Connection):
 
 
 class SecurityAdvisoryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15621,6 +19133,10 @@ class SecurityAdvisoryEdge(sgqlc.types.Type):
 
 
 class SecurityAdvisoryIdentifier(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("type", "value")
     type = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="type")
@@ -15628,6 +19144,10 @@ class SecurityAdvisoryIdentifier(sgqlc.types.Type):
 
 
 class SecurityAdvisoryPackage(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("ecosystem", "name")
     ecosystem = sgqlc.types.Field(
@@ -15637,6 +19157,10 @@ class SecurityAdvisoryPackage(sgqlc.types.Type):
 
 
 class SecurityAdvisoryPackageVersion(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("identifier",)
     identifier = sgqlc.types.Field(
@@ -15645,12 +19169,20 @@ class SecurityAdvisoryPackageVersion(sgqlc.types.Type):
 
 
 class SecurityAdvisoryReference(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("url",)
     url = sgqlc.types.Field(sgqlc.types.non_null(URI), graphql_name="url")
 
 
 class SecurityVulnerability(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "advisory",
@@ -15681,6 +19213,10 @@ class SecurityVulnerability(sgqlc.types.Type):
 
 
 class SecurityVulnerabilityConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -15698,6 +19234,10 @@ class SecurityVulnerabilityConnection(sgqlc.types.relay.Connection):
 
 
 class SecurityVulnerabilityEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15705,6 +19245,10 @@ class SecurityVulnerabilityEdge(sgqlc.types.Type):
 
 
 class SetEnterpriseIdentityProviderPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "identity_provider")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15714,6 +19258,10 @@ class SetEnterpriseIdentityProviderPayload(sgqlc.types.Type):
 
 
 class SetOrganizationInteractionLimitPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "organization")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15721,6 +19269,10 @@ class SetOrganizationInteractionLimitPayload(sgqlc.types.Type):
 
 
 class SetRepositoryInteractionLimitPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15728,6 +19280,10 @@ class SetRepositoryInteractionLimitPayload(sgqlc.types.Type):
 
 
 class SetUserInteractionLimitPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "user")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -15735,6 +19291,10 @@ class SetUserInteractionLimitPayload(sgqlc.types.Type):
 
 
 class SortBy(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("direction", "field")
     direction = sgqlc.types.Field(
@@ -15744,6 +19304,10 @@ class SortBy(sgqlc.types.Type):
 
 
 class SponsorConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("SponsorEdge"), graphql_name="edges")
@@ -15757,6 +19321,10 @@ class SponsorConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -15764,6 +19332,10 @@ class SponsorEdge(sgqlc.types.Type):
 
 
 class Sponsorable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "estimated_next_sponsors_payout_in_cents",
@@ -15986,6 +19558,10 @@ class Sponsorable(sgqlc.types.Interface):
 
 
 class SponsorableItemConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16003,6 +19579,10 @@ class SponsorableItemConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorableItemEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16010,6 +19590,10 @@ class SponsorableItemEdge(sgqlc.types.Type):
 
 
 class SponsorsActivityConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16027,6 +19611,10 @@ class SponsorsActivityConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorsActivityEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16034,6 +19622,10 @@ class SponsorsActivityEdge(sgqlc.types.Type):
 
 
 class SponsorsGoal(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "description",
@@ -16056,6 +19648,10 @@ class SponsorsGoal(sgqlc.types.Type):
 
 
 class SponsorsTierAdminInfo(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("sponsorships",)
     sponsorships = sgqlc.types.Field(
@@ -16088,6 +19684,10 @@ class SponsorsTierAdminInfo(sgqlc.types.Type):
 
 
 class SponsorsTierConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16103,6 +19703,10 @@ class SponsorsTierConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorsTierEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16110,6 +19714,10 @@ class SponsorsTierEdge(sgqlc.types.Type):
 
 
 class SponsorshipConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "edges",
@@ -16138,6 +19746,10 @@ class SponsorshipConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorshipEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16145,6 +19757,10 @@ class SponsorshipEdge(sgqlc.types.Type):
 
 
 class SponsorshipNewsletterConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16162,6 +19778,10 @@ class SponsorshipNewsletterConnection(sgqlc.types.relay.Connection):
 
 
 class SponsorshipNewsletterEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16169,6 +19789,10 @@ class SponsorshipNewsletterEdge(sgqlc.types.Type):
 
 
 class StargazerConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16184,6 +19808,10 @@ class StargazerConnection(sgqlc.types.relay.Connection):
 
 
 class StargazerEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "starred_at")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16194,6 +19822,10 @@ class StargazerEdge(sgqlc.types.Type):
 
 
 class Starrable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "stargazer_count", "stargazers", "viewer_has_starred")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -16225,6 +19857,10 @@ class Starrable(sgqlc.types.Interface):
 
 
 class StarredRepositoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "is_over_limit", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16243,6 +19879,10 @@ class StarredRepositoryConnection(sgqlc.types.relay.Connection):
 
 
 class StarredRepositoryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "starred_at")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16253,6 +19893,10 @@ class StarredRepositoryEdge(sgqlc.types.Type):
 
 
 class StartRepositoryMigrationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository_migration")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16262,6 +19906,10 @@ class StartRepositoryMigrationPayload(sgqlc.types.Type):
 
 
 class StatusCheckRollupContextConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16279,6 +19927,10 @@ class StatusCheckRollupContextConnection(sgqlc.types.relay.Connection):
 
 
 class StatusCheckRollupContextEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16286,6 +19938,10 @@ class StatusCheckRollupContextEdge(sgqlc.types.Type):
 
 
 class SubmitPullRequestReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16295,6 +19951,10 @@ class SubmitPullRequestReviewPayload(sgqlc.types.Type):
 
 
 class Submodule(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("branch", "git_url", "name", "path", "subproject_commit_oid")
     branch = sgqlc.types.Field(String, graphql_name="branch")
@@ -16307,6 +19967,10 @@ class Submodule(sgqlc.types.Type):
 
 
 class SubmoduleConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16322,6 +19986,10 @@ class SubmoduleConnection(sgqlc.types.relay.Connection):
 
 
 class SubmoduleEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16329,6 +19997,10 @@ class SubmoduleEdge(sgqlc.types.Type):
 
 
 class Subscribable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("id", "viewer_can_subscribe", "viewer_subscription")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
@@ -16341,6 +20013,10 @@ class Subscribable(sgqlc.types.Interface):
 
 
 class SuggestedReviewer(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_author", "is_commenter", "reviewer")
     is_author = sgqlc.types.Field(
@@ -16353,6 +20029,10 @@ class SuggestedReviewer(sgqlc.types.Type):
 
 
 class TeamAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("team", "team_name", "team_resource_path", "team_url")
     team = sgqlc.types.Field("Team", graphql_name="team")
@@ -16362,6 +20042,10 @@ class TeamAuditEntryData(sgqlc.types.Interface):
 
 
 class TeamConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("TeamEdge"), graphql_name="edges")
@@ -16375,6 +20059,10 @@ class TeamConnection(sgqlc.types.relay.Connection):
 
 
 class TeamDiscussionCommentConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16392,6 +20080,10 @@ class TeamDiscussionCommentConnection(sgqlc.types.relay.Connection):
 
 
 class TeamDiscussionCommentEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16399,6 +20091,10 @@ class TeamDiscussionCommentEdge(sgqlc.types.Type):
 
 
 class TeamDiscussionConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16416,6 +20112,10 @@ class TeamDiscussionConnection(sgqlc.types.relay.Connection):
 
 
 class TeamDiscussionEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16423,6 +20123,10 @@ class TeamDiscussionEdge(sgqlc.types.Type):
 
 
 class TeamEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16430,6 +20134,10 @@ class TeamEdge(sgqlc.types.Type):
 
 
 class TeamMemberConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16445,6 +20153,10 @@ class TeamMemberConnection(sgqlc.types.relay.Connection):
 
 
 class TeamMemberEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "cursor",
@@ -16465,6 +20177,10 @@ class TeamMemberEdge(sgqlc.types.Type):
 
 
 class TeamRepositoryConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -16480,6 +20196,10 @@ class TeamRepositoryConnection(sgqlc.types.relay.Connection):
 
 
 class TeamRepositoryEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node", "permission")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -16490,6 +20210,10 @@ class TeamRepositoryEdge(sgqlc.types.Type):
 
 
 class TextMatch(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("fragment", "highlights", "property")
     fragment = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="fragment")
@@ -16503,6 +20227,10 @@ class TextMatch(sgqlc.types.Type):
 
 
 class TextMatchHighlight(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("begin_indice", "end_indice", "text")
     begin_indice = sgqlc.types.Field(
@@ -16513,6 +20241,10 @@ class TextMatchHighlight(sgqlc.types.Type):
 
 
 class TopicAuditEntryData(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("topic", "topic_name")
     topic = sgqlc.types.Field("Topic", graphql_name="topic")
@@ -16520,6 +20252,10 @@ class TopicAuditEntryData(sgqlc.types.Interface):
 
 
 class TransferIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16527,6 +20263,10 @@ class TransferIssuePayload(sgqlc.types.Type):
 
 
 class TreeEntry(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "extension",
@@ -16561,6 +20301,10 @@ class TreeEntry(sgqlc.types.Type):
 
 
 class UnarchiveRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16568,6 +20312,10 @@ class UnarchiveRepositoryPayload(sgqlc.types.Type):
 
 
 class UnfollowOrganizationPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "organization")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16575,6 +20323,10 @@ class UnfollowOrganizationPayload(sgqlc.types.Type):
 
 
 class UnfollowUserPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "user")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16582,6 +20334,10 @@ class UnfollowUserPayload(sgqlc.types.Type):
 
 
 class UniformResourceLocatable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("resource_path", "url")
     resource_path = sgqlc.types.Field(
@@ -16591,6 +20347,10 @@ class UniformResourceLocatable(sgqlc.types.Interface):
 
 
 class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16599,6 +20359,10 @@ class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
 
 
 class UnlockLockablePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "unlocked_record")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -16607,6 +20371,10 @@ class UnlockLockablePayload(sgqlc.types.Type):
 
 
 class UnmarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16614,6 +20382,10 @@ class UnmarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
 
 
 class UnmarkFileAsViewedPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16621,6 +20393,10 @@ class UnmarkFileAsViewedPayload(sgqlc.types.Type):
 
 
 class UnmarkIssueAsDuplicatePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "duplicate")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16628,6 +20404,10 @@ class UnmarkIssueAsDuplicatePayload(sgqlc.types.Type):
 
 
 class UnminimizeCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "unminimized_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16637,6 +20417,10 @@ class UnminimizeCommentPayload(sgqlc.types.Type):
 
 
 class UnpinIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16644,6 +20428,10 @@ class UnpinIssuePayload(sgqlc.types.Type):
 
 
 class UnresolveReviewThreadPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "thread")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16651,6 +20439,10 @@ class UnresolveReviewThreadPayload(sgqlc.types.Type):
 
 
 class Updatable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("viewer_can_update",)
     viewer_can_update = sgqlc.types.Field(
@@ -16659,6 +20451,10 @@ class Updatable(sgqlc.types.Interface):
 
 
 class UpdatableComment(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("viewer_cannot_update_reasons",)
     viewer_cannot_update_reasons = sgqlc.types.Field(
@@ -16670,6 +20466,10 @@ class UpdatableComment(sgqlc.types.Interface):
 
 
 class UpdateBranchProtectionRulePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("branch_protection_rule", "client_mutation_id")
     branch_protection_rule = sgqlc.types.Field(
@@ -16679,6 +20479,10 @@ class UpdateBranchProtectionRulePayload(sgqlc.types.Type):
 
 
 class UpdateCheckRunPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("check_run", "client_mutation_id")
     check_run = sgqlc.types.Field("CheckRun", graphql_name="checkRun")
@@ -16686,6 +20490,10 @@ class UpdateCheckRunPayload(sgqlc.types.Type):
 
 
 class UpdateCheckSuitePreferencesPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16693,6 +20501,10 @@ class UpdateCheckSuitePreferencesPayload(sgqlc.types.Type):
 
 
 class UpdateDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16700,6 +20512,10 @@ class UpdateDiscussionCommentPayload(sgqlc.types.Type):
 
 
 class UpdateDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16707,6 +20523,10 @@ class UpdateDiscussionPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseAdministratorRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16714,6 +20534,10 @@ class UpdateEnterpriseAdministratorRolePayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16722,6 +20546,10 @@ class UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Ty
 
 
 class UpdateEnterpriseDefaultRepositoryPermissionSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16732,6 +20560,10 @@ class UpdateEnterpriseDefaultRepositoryPermissionSettingPayload(sgqlc.types.Type
 class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload(
     sgqlc.types.Type
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16740,6 +20572,10 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload(
 
 
 class UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16748,6 +20584,10 @@ class UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload(sgqlc.types.Typ
 
 
 class UpdateEnterpriseMembersCanDeleteIssuesSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16756,6 +20596,10 @@ class UpdateEnterpriseMembersCanDeleteIssuesSettingPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16764,6 +20608,10 @@ class UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload(sgqlc.types.Typ
 
 
 class UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16772,6 +20620,10 @@ class UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload(sgqlc.types.Ty
 
 
 class UpdateEnterpriseMembersCanMakePurchasesSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16780,6 +20632,10 @@ class UpdateEnterpriseMembersCanMakePurchasesSettingPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16788,6 +20644,10 @@ class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload(sgqlc.type
 
 
 class UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16796,6 +20656,10 @@ class UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload(sgqlc.types
 
 
 class UpdateEnterpriseOrganizationProjectsSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16804,6 +20668,10 @@ class UpdateEnterpriseOrganizationProjectsSettingPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseOwnerOrganizationRolePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16811,6 +20679,10 @@ class UpdateEnterpriseOwnerOrganizationRolePayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseProfilePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16818,6 +20690,10 @@ class UpdateEnterpriseProfilePayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseRepositoryProjectsSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16826,6 +20702,10 @@ class UpdateEnterpriseRepositoryProjectsSettingPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseTeamDiscussionsSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16834,6 +20714,10 @@ class UpdateEnterpriseTeamDiscussionsSettingPayload(sgqlc.types.Type):
 
 
 class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "enterprise", "message")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16842,6 +20726,10 @@ class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload(sgqlc.types.
 
 
 class UpdateEnvironmentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "environment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16849,6 +20737,10 @@ class UpdateEnvironmentPayload(sgqlc.types.Type):
 
 
 class UpdateIpAllowListEnabledSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "owner")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16856,6 +20748,10 @@ class UpdateIpAllowListEnabledSettingPayload(sgqlc.types.Type):
 
 
 class UpdateIpAllowListEntryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "ip_allow_list_entry")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16865,6 +20761,10 @@ class UpdateIpAllowListEntryPayload(sgqlc.types.Type):
 
 
 class UpdateIpAllowListForInstalledAppsEnabledSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "owner")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16872,6 +20772,10 @@ class UpdateIpAllowListForInstalledAppsEnabledSettingPayload(sgqlc.types.Type):
 
 
 class UpdateIssueCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "issue_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16879,6 +20783,10 @@ class UpdateIssueCommentPayload(sgqlc.types.Type):
 
 
 class UpdateIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "issue")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -16887,6 +20795,10 @@ class UpdateIssuePayload(sgqlc.types.Type):
 
 
 class UpdateNotificationRestrictionSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "owner")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16894,6 +20806,10 @@ class UpdateNotificationRestrictionSettingPayload(sgqlc.types.Type):
 
 
 class UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "message", "organization")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16902,6 +20818,10 @@ class UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.
 
 
 class UpdateProjectCardPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_card")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16909,6 +20829,10 @@ class UpdateProjectCardPayload(sgqlc.types.Type):
 
 
 class UpdateProjectColumnPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_column")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16916,6 +20840,10 @@ class UpdateProjectColumnPayload(sgqlc.types.Type):
 
 
 class UpdateProjectDraftIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "draft_issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16923,6 +20851,10 @@ class UpdateProjectDraftIssuePayload(sgqlc.types.Type):
 
 
 class UpdateProjectNextItemFieldPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_next_item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16932,6 +20864,10 @@ class UpdateProjectNextItemFieldPayload(sgqlc.types.Type):
 
 
 class UpdateProjectNextPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_next")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16939,6 +20875,10 @@ class UpdateProjectNextPayload(sgqlc.types.Type):
 
 
 class UpdateProjectPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16946,6 +20886,10 @@ class UpdateProjectPayload(sgqlc.types.Type):
 
 
 class UpdateProjectV2DraftIssuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "draft_issue")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16953,6 +20897,10 @@ class UpdateProjectV2DraftIssuePayload(sgqlc.types.Type):
 
 
 class UpdateProjectV2ItemFieldValuePayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_v2_item")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16960,6 +20908,10 @@ class UpdateProjectV2ItemFieldValuePayload(sgqlc.types.Type):
 
 
 class UpdateProjectV2ItemPositionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "items")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16981,6 +20933,10 @@ class UpdateProjectV2ItemPositionPayload(sgqlc.types.Type):
 
 
 class UpdateProjectV2Payload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "project_v2")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16988,6 +20944,10 @@ class UpdateProjectV2Payload(sgqlc.types.Type):
 
 
 class UpdatePullRequestBranchPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -16995,6 +20955,10 @@ class UpdatePullRequestBranchPayload(sgqlc.types.Type):
 
 
 class UpdatePullRequestPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "client_mutation_id", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17003,6 +20967,10 @@ class UpdatePullRequestPayload(sgqlc.types.Type):
 
 
 class UpdatePullRequestReviewCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17012,6 +20980,10 @@ class UpdatePullRequestReviewCommentPayload(sgqlc.types.Type):
 
 
 class UpdatePullRequestReviewPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "pull_request_review")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17021,6 +20993,10 @@ class UpdatePullRequestReviewPayload(sgqlc.types.Type):
 
 
 class UpdateRefPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "ref")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17028,6 +21004,10 @@ class UpdateRefPayload(sgqlc.types.Type):
 
 
 class UpdateRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17035,6 +21015,10 @@ class UpdateRepositoryPayload(sgqlc.types.Type):
 
 
 class UpdateSponsorshipPreferencesPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "sponsorship")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17042,6 +21026,10 @@ class UpdateSponsorshipPreferencesPayload(sgqlc.types.Type):
 
 
 class UpdateSubscriptionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "subscribable")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17049,6 +21037,10 @@ class UpdateSubscriptionPayload(sgqlc.types.Type):
 
 
 class UpdateTeamDiscussionCommentPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "team_discussion_comment")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17058,6 +21050,10 @@ class UpdateTeamDiscussionCommentPayload(sgqlc.types.Type):
 
 
 class UpdateTeamDiscussionPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "team_discussion")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17065,6 +21061,10 @@ class UpdateTeamDiscussionPayload(sgqlc.types.Type):
 
 
 class UpdateTeamsRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "repository", "teams")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17075,6 +21075,10 @@ class UpdateTeamsRepositoryPayload(sgqlc.types.Type):
 
 
 class UpdateTopicsPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "invalid_topic_names", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17086,6 +21090,10 @@ class UpdateTopicsPayload(sgqlc.types.Type):
 
 
 class UserConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(sgqlc.types.list_of("UserEdge"), graphql_name="edges")
@@ -17099,6 +21107,10 @@ class UserConnection(sgqlc.types.relay.Connection):
 
 
 class UserContentEditConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -17116,6 +21128,10 @@ class UserContentEditConnection(sgqlc.types.relay.Connection):
 
 
 class UserContentEditEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -17123,6 +21139,10 @@ class UserContentEditEdge(sgqlc.types.Type):
 
 
 class UserEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -17130,6 +21150,10 @@ class UserEdge(sgqlc.types.Type):
 
 
 class UserEmailMetadata(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("primary", "type", "value")
     primary = sgqlc.types.Field(Boolean, graphql_name="primary")
@@ -17138,6 +21162,10 @@ class UserEmailMetadata(sgqlc.types.Type):
 
 
 class UserStatusConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -17153,6 +21181,10 @@ class UserStatusConnection(sgqlc.types.relay.Connection):
 
 
 class UserStatusEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -17160,6 +21192,10 @@ class UserStatusEdge(sgqlc.types.Type):
 
 
 class VerifiableDomainConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("edges", "nodes", "page_info", "total_count")
     edges = sgqlc.types.Field(
@@ -17177,6 +21213,10 @@ class VerifiableDomainConnection(sgqlc.types.relay.Connection):
 
 
 class VerifiableDomainEdge(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
@@ -17184,6 +21224,10 @@ class VerifiableDomainEdge(sgqlc.types.Type):
 
 
 class VerifyVerifiableDomainPayload(sgqlc.types.Type):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("client_mutation_id", "domain")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
@@ -17191,6 +21235,10 @@ class VerifyVerifiableDomainPayload(sgqlc.types.Type):
 
 
 class Votable(sgqlc.types.Interface):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("upvote_count", "viewer_can_upvote", "viewer_has_upvoted")
     upvote_count = sgqlc.types.Field(
@@ -17205,6 +21253,10 @@ class Votable(sgqlc.types.Interface):
 
 
 class AddedToProjectEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17215,6 +21267,10 @@ class AddedToProjectEvent(sgqlc.types.Type, Node):
 
 
 class App(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -17275,6 +21331,10 @@ class App(sgqlc.types.Type, Node):
 
 
 class AssignedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "assignable", "assignee", "created_at", "user")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17289,6 +21349,10 @@ class AssignedEvent(sgqlc.types.Type, Node):
 
 
 class AutoMergeDisabledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -17309,6 +21373,10 @@ class AutoMergeDisabledEvent(sgqlc.types.Type, Node):
 
 
 class AutoMergeEnabledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "enabler", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17320,6 +21388,10 @@ class AutoMergeEnabledEvent(sgqlc.types.Type, Node):
 
 
 class AutoRebaseEnabledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "enabler", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17331,6 +21403,10 @@ class AutoRebaseEnabledEvent(sgqlc.types.Type, Node):
 
 
 class AutoSquashEnabledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "enabler", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17342,6 +21418,10 @@ class AutoSquashEnabledEvent(sgqlc.types.Type, Node):
 
 
 class AutomaticBaseChangeFailedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "new_base", "old_base", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17356,6 +21436,10 @@ class AutomaticBaseChangeFailedEvent(sgqlc.types.Type, Node):
 
 
 class AutomaticBaseChangeSucceededEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "new_base", "old_base", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17370,6 +21454,10 @@ class AutomaticBaseChangeSucceededEvent(sgqlc.types.Type, Node):
 
 
 class BaseRefChangedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -17396,6 +21484,10 @@ class BaseRefChangedEvent(sgqlc.types.Type, Node):
 
 
 class BaseRefDeletedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "base_ref_name", "created_at", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17407,6 +21499,10 @@ class BaseRefDeletedEvent(sgqlc.types.Type, Node):
 
 
 class BaseRefForcePushedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -17429,6 +21525,10 @@ class BaseRefForcePushedEvent(sgqlc.types.Type, Node):
 
 
 class Blob(sgqlc.types.Type, GitObject, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("byte_size", "is_binary", "is_truncated", "text")
     byte_size = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="byteSize")
@@ -17440,6 +21540,10 @@ class Blob(sgqlc.types.Type, GitObject, Node):
 
 
 class Bot(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("created_at", "database_id", "updated_at")
     created_at = sgqlc.types.Field(
@@ -17452,6 +21556,10 @@ class Bot(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
 
 
 class BranchProtectionRule(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "allows_deletions",
@@ -17632,6 +21740,10 @@ class BranchProtectionRule(sgqlc.types.Type, Node):
 
 
 class BypassForcePushAllowance(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "branch_protection_rule")
     actor = sgqlc.types.Field("BranchActorAllowanceActor", graphql_name="actor")
@@ -17641,6 +21753,10 @@ class BypassForcePushAllowance(sgqlc.types.Type, Node):
 
 
 class BypassPullRequestAllowance(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "branch_protection_rule")
     actor = sgqlc.types.Field("BranchActorAllowanceActor", graphql_name="actor")
@@ -17650,6 +21766,10 @@ class BypassPullRequestAllowance(sgqlc.types.Type, Node):
 
 
 class CWE(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("cwe_id", "description", "name")
     cwe_id = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cweId")
@@ -17662,6 +21782,10 @@ class CWE(sgqlc.types.Type, Node):
 class CheckRun(
     sgqlc.types.Type, Node, UniformResourceLocatable, RequirableByPullRequest
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "annotations",
@@ -17741,6 +21865,10 @@ class CheckRun(
 
 
 class CheckSuite(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "app",
@@ -17851,6 +21979,10 @@ class CheckSuite(sgqlc.types.Type, Node):
 
 
 class ClosedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "closable", "closer", "created_at", "state_reason")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17865,6 +21997,10 @@ class ClosedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class CodeOfConduct(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("body", "key", "name", "resource_path", "url")
     body = sgqlc.types.Field(String, graphql_name="body")
@@ -17875,6 +22011,10 @@ class CodeOfConduct(sgqlc.types.Type, Node):
 
 
 class CommentDeletedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id", "deleted_comment_author")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -17888,6 +22028,10 @@ class CommentDeletedEvent(sgqlc.types.Type, Node):
 
 
 class Commit(sgqlc.types.Type, Node, GitObject, Subscribable, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "additions",
@@ -18179,6 +22323,10 @@ class CommitComment(
     Reactable,
     RepositoryNode,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("commit", "path", "position", "resource_path", "url")
     commit = sgqlc.types.Field(Commit, graphql_name="commit")
@@ -18191,6 +22339,10 @@ class CommitComment(
 
 
 class CommitCommentThread(sgqlc.types.Type, Node, RepositoryNode):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("comments", "commit", "path", "position")
     comments = sgqlc.types.Field(
@@ -18214,6 +22366,10 @@ class CommitCommentThread(sgqlc.types.Type, Node, RepositoryNode):
 
 
 class ConnectedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -18238,6 +22394,10 @@ class ConnectedEvent(sgqlc.types.Type, Node):
 
 
 class ConvertToDraftEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -18250,6 +22410,10 @@ class ConvertToDraftEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class ConvertedNoteToIssueEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -18260,6 +22424,10 @@ class ConvertedNoteToIssueEvent(sgqlc.types.Type, Node):
 
 
 class ConvertedToDiscussionEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "discussion")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -18270,6 +22438,10 @@ class ConvertedToDiscussionEvent(sgqlc.types.Type, Node):
 
 
 class CreatedCommitContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("commit_count", "repository")
     commit_count = sgqlc.types.Field(
@@ -18281,12 +22453,20 @@ class CreatedCommitContribution(sgqlc.types.Type, Contribution):
 
 
 class CreatedIssueContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue",)
     issue = sgqlc.types.Field(sgqlc.types.non_null("Issue"), graphql_name="issue")
 
 
 class CreatedPullRequestContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request",)
     pull_request = sgqlc.types.Field(
@@ -18295,6 +22475,10 @@ class CreatedPullRequestContribution(sgqlc.types.Type, Contribution):
 
 
 class CreatedPullRequestReviewContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("pull_request", "pull_request_review", "repository")
     pull_request = sgqlc.types.Field(
@@ -18309,6 +22493,10 @@ class CreatedPullRequestReviewContribution(sgqlc.types.Type, Contribution):
 
 
 class CreatedRepositoryContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("repository",)
     repository = sgqlc.types.Field(
@@ -18317,6 +22505,10 @@ class CreatedRepositoryContribution(sgqlc.types.Type, Contribution):
 
 
 class CrossReferencedEvent(sgqlc.types.Type, UniformResourceLocatable, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -18349,6 +22541,10 @@ class CrossReferencedEvent(sgqlc.types.Type, UniformResourceLocatable, Node):
 
 
 class DemilestonedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "milestone_title", "subject")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -18364,6 +22560,10 @@ class DemilestonedEvent(sgqlc.types.Type, Node):
 
 
 class DependabotUpdate(sgqlc.types.Type, RepositoryNode):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("error", "pull_request")
     error = sgqlc.types.Field(DependabotUpdateError, graphql_name="error")
@@ -18371,6 +22571,10 @@ class DependabotUpdate(sgqlc.types.Type, RepositoryNode):
 
 
 class DeployKey(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("created_at", "key", "read_only", "title", "verified")
     created_at = sgqlc.types.Field(
@@ -18385,6 +22589,10 @@ class DeployKey(sgqlc.types.Type, Node):
 
 
 class DeployedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -18409,6 +22617,10 @@ class DeployedEvent(sgqlc.types.Type, Node):
 
 
 class Deployment(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "commit",
@@ -18471,6 +22683,10 @@ class Deployment(sgqlc.types.Type, Node):
 
 
 class DeploymentEnvironmentChangedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "deployment_status", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -18486,6 +22702,10 @@ class DeploymentEnvironmentChangedEvent(sgqlc.types.Type, Node):
 
 
 class DeploymentReview(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("comment", "database_id", "environments", "state", "user")
     comment = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="comment")
@@ -18512,6 +22732,10 @@ class DeploymentReview(sgqlc.types.Type, Node):
 
 
 class DeploymentStatus(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -18542,6 +22766,10 @@ class DeploymentStatus(sgqlc.types.Type, Node):
 
 
 class DisconnectedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -18578,6 +22806,10 @@ class Discussion(
     Votable,
     Node,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "answer",
@@ -18622,6 +22854,10 @@ class Discussion(
 
 
 class DiscussionCategory(sgqlc.types.Type, Node, RepositoryNode):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -18658,6 +22894,10 @@ class DiscussionComment(
     Votable,
     Node,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "deleted_at",
@@ -18704,6 +22944,10 @@ class DiscussionComment(
 
 
 class DiscussionPoll(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "discussion",
@@ -18750,6 +22994,10 @@ class DiscussionPoll(sgqlc.types.Type, Node):
 
 
 class DiscussionPollOption(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("option", "poll", "total_vote_count", "viewer_has_voted")
     option = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="option")
@@ -18763,6 +23011,10 @@ class DiscussionPollOption(sgqlc.types.Type, Node):
 
 
 class DraftIssue(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "assignees",
@@ -18843,6 +23095,10 @@ class DraftIssue(sgqlc.types.Type, Node):
 
 
 class Enterprise(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "avatar_url",
@@ -18973,6 +23229,10 @@ class Enterprise(sgqlc.types.Type, Node):
 
 
 class EnterpriseAdministratorInvitation(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -18997,6 +23257,10 @@ class EnterpriseAdministratorInvitation(sgqlc.types.Type, Node):
 
 
 class EnterpriseIdentityProvider(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "digest_method",
@@ -19046,6 +23310,10 @@ class EnterpriseIdentityProvider(sgqlc.types.Type, Node):
 
 
 class EnterpriseRepositoryInfo(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_private", "name", "name_with_owner")
     is_private = sgqlc.types.Field(
@@ -19058,6 +23326,10 @@ class EnterpriseRepositoryInfo(sgqlc.types.Type, Node):
 
 
 class EnterpriseServerInstallation(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -19130,6 +23402,10 @@ class EnterpriseServerInstallation(sgqlc.types.Type, Node):
 
 
 class EnterpriseServerUserAccount(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -19189,6 +23465,10 @@ class EnterpriseServerUserAccount(sgqlc.types.Type, Node):
 
 
 class EnterpriseServerUserAccountEmail(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -19213,6 +23493,10 @@ class EnterpriseServerUserAccountEmail(sgqlc.types.Type, Node):
 
 
 class EnterpriseServerUserAccountsUpload(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -19243,6 +23527,10 @@ class EnterpriseServerUserAccountsUpload(sgqlc.types.Type, Node):
 
 
 class EnterpriseUserAccount(sgqlc.types.Type, Actor, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -19298,6 +23586,10 @@ class EnterpriseUserAccount(sgqlc.types.Type, Actor, Node):
 
 
 class Environment(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("database_id", "name", "protection_rules")
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
@@ -19320,6 +23612,10 @@ class Environment(sgqlc.types.Type, Node):
 
 
 class ExternalIdentity(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "guid",
@@ -19342,11 +23638,19 @@ class ExternalIdentity(sgqlc.types.Type, Node):
 
 
 class GenericHovercardContext(sgqlc.types.Type, HovercardContext):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class Gist(sgqlc.types.Type, Node, Starrable, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "comments",
@@ -19424,6 +23728,10 @@ class Gist(sgqlc.types.Type, Node, Starrable, UniformResourceLocatable):
 class GistComment(
     sgqlc.types.Type, Node, Comment, Deletable, Minimizable, Updatable, UpdatableComment
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("database_id", "gist")
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
@@ -19431,12 +23739,20 @@ class GistComment(
 
 
 class GpgSignature(sgqlc.types.Type, GitSignature):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("key_id",)
     key_id = sgqlc.types.Field(String, graphql_name="keyId")
 
 
 class HeadRefDeletedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -19459,6 +23775,10 @@ class HeadRefDeletedEvent(sgqlc.types.Type, Node):
 
 
 class HeadRefForcePushedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -19481,6 +23801,10 @@ class HeadRefForcePushedEvent(sgqlc.types.Type, Node):
 
 
 class HeadRefRestoredEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -19493,6 +23817,10 @@ class HeadRefRestoredEvent(sgqlc.types.Type, Node):
 
 
 class IpAllowListEntry(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "allow_list_value",
@@ -19537,6 +23865,10 @@ class Issue(
     ProjectNextOwner,
     ProjectV2Owner,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "body_resource_path",
@@ -19800,6 +24132,10 @@ class IssueComment(
     Reactable,
     RepositoryNode,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("issue", "pull_request", "resource_path", "url")
     issue = sgqlc.types.Field(sgqlc.types.non_null(Issue), graphql_name="issue")
@@ -19811,11 +24147,19 @@ class IssueComment(
 
 
 class JoinedGitHubContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class Label(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "color",
@@ -19932,6 +24276,10 @@ class Label(sgqlc.types.Type, Node):
 
 
 class LabeledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "label", "labelable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -19945,6 +24293,10 @@ class LabeledEvent(sgqlc.types.Type, Node):
 
 
 class Language(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("color", "name")
     color = sgqlc.types.Field(String, graphql_name="color")
@@ -19952,6 +24304,10 @@ class Language(sgqlc.types.Type, Node):
 
 
 class License(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "body",
@@ -19997,6 +24353,10 @@ class License(sgqlc.types.Type, Node):
 
 
 class LockedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "lock_reason", "lockable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -20010,6 +24370,10 @@ class LockedEvent(sgqlc.types.Type, Node):
 
 
 class Mannequin(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("claimant", "created_at", "database_id", "email", "updated_at")
     claimant = sgqlc.types.Field("User", graphql_name="claimant")
@@ -20024,6 +24388,10 @@ class Mannequin(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
 
 
 class MarkedAsDuplicateEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -20044,6 +24412,10 @@ class MarkedAsDuplicateEvent(sgqlc.types.Type, Node):
 
 
 class MarketplaceCategory(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "description",
@@ -20072,6 +24444,10 @@ class MarketplaceCategory(sgqlc.types.Type, Node):
 
 
 class MarketplaceListing(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "app",
@@ -20280,6 +24656,10 @@ class MembersCanDeleteReposClearAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20291,6 +24671,10 @@ class MembersCanDeleteReposDisableAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20302,11 +24686,19 @@ class MembersCanDeleteReposEnableAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class MentionedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -20317,6 +24709,10 @@ class MentionedEvent(sgqlc.types.Type, Node):
 
 
 class MergedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -20341,6 +24737,10 @@ class MergedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class MigrationSource(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("name", "type", "url")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
@@ -20351,6 +24751,10 @@ class MigrationSource(sgqlc.types.Type, Node):
 
 
 class Milestone(sgqlc.types.Type, Node, Closable, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -20473,6 +24877,10 @@ class Milestone(sgqlc.types.Type, Node, Closable, UniformResourceLocatable):
 
 
 class MilestonedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "milestone_title", "subject")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -20488,6 +24896,10 @@ class MilestonedEvent(sgqlc.types.Type, Node):
 
 
 class MovedColumnsInProjectEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -20498,6 +24910,10 @@ class MovedColumnsInProjectEvent(sgqlc.types.Type, Node):
 
 
 class OIDCProvider(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "enterprise",
@@ -20543,6 +24959,10 @@ class OauthApplicationCreateAuditEntry(
     OauthApplicationAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("application_url", "callback_url", "rate_limit", "state")
     application_url = sgqlc.types.Field(URI, graphql_name="applicationUrl")
@@ -20556,6 +24976,10 @@ class OauthApplicationCreateAuditEntry(
 class OrgAddBillingManagerAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("invitation_email",)
     invitation_email = sgqlc.types.Field(String, graphql_name="invitationEmail")
@@ -20564,6 +24988,10 @@ class OrgAddBillingManagerAuditEntry(
 class OrgAddMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("permission",)
     permission = sgqlc.types.Field(
@@ -20574,6 +25002,10 @@ class OrgAddMemberAuditEntry(
 class OrgBlockUserAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "blocked_user",
@@ -20592,6 +25024,10 @@ class OrgBlockUserAuditEntry(
 class OrgConfigDisableCollaboratorsOnlyAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20599,6 +25035,10 @@ class OrgConfigDisableCollaboratorsOnlyAuditEntry(
 class OrgConfigEnableCollaboratorsOnlyAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20606,6 +25046,10 @@ class OrgConfigEnableCollaboratorsOnlyAuditEntry(
 class OrgCreateAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("billing_plan",)
     billing_plan = sgqlc.types.Field(
@@ -20616,6 +25060,10 @@ class OrgCreateAuditEntry(
 class OrgDisableOauthAppRestrictionsAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20623,6 +25071,10 @@ class OrgDisableOauthAppRestrictionsAuditEntry(
 class OrgDisableSamlAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "digest_method_url",
@@ -20639,6 +25091,10 @@ class OrgDisableSamlAuditEntry(
 class OrgDisableTwoFactorRequirementAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20646,6 +25102,10 @@ class OrgDisableTwoFactorRequirementAuditEntry(
 class OrgEnableOauthAppRestrictionsAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20653,6 +25113,10 @@ class OrgEnableOauthAppRestrictionsAuditEntry(
 class OrgEnableSamlAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "digest_method_url",
@@ -20669,6 +25133,10 @@ class OrgEnableSamlAuditEntry(
 class OrgEnableTwoFactorRequirementAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20676,6 +25144,10 @@ class OrgEnableTwoFactorRequirementAuditEntry(
 class OrgInviteMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("email", "organization_invitation")
     email = sgqlc.types.Field(String, graphql_name="email")
@@ -20691,6 +25163,10 @@ class OrgInviteToBusinessAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20702,6 +25178,10 @@ class OrgOauthAppAccessApprovedAuditEntry(
     OauthApplicationAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20713,6 +25193,10 @@ class OrgOauthAppAccessDeniedAuditEntry(
     OauthApplicationAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20724,6 +25208,10 @@ class OrgOauthAppAccessRequestedAuditEntry(
     OauthApplicationAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20731,6 +25219,10 @@ class OrgOauthAppAccessRequestedAuditEntry(
 class OrgRemoveBillingManagerAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("reason",)
     reason = sgqlc.types.Field(
@@ -20741,6 +25233,10 @@ class OrgRemoveBillingManagerAuditEntry(
 class OrgRemoveMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("membership_types", "reason")
     membership_types = sgqlc.types.Field(
@@ -20755,6 +25251,10 @@ class OrgRemoveMemberAuditEntry(
 class OrgRemoveOutsideCollaboratorAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("membership_types", "reason")
     membership_types = sgqlc.types.Field(
@@ -20771,6 +25271,10 @@ class OrgRemoveOutsideCollaboratorAuditEntry(
 class OrgRestoreMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "restored_custom_email_routings_count",
@@ -20810,6 +25314,10 @@ class OrgRestoreMemberAuditEntry(
 class OrgRestoreMemberMembershipOrganizationAuditEntryData(
     sgqlc.types.Type, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20817,6 +25325,10 @@ class OrgRestoreMemberMembershipOrganizationAuditEntryData(
 class OrgRestoreMemberMembershipRepositoryAuditEntryData(
     sgqlc.types.Type, RepositoryAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20824,6 +25336,10 @@ class OrgRestoreMemberMembershipRepositoryAuditEntryData(
 class OrgRestoreMemberMembershipTeamAuditEntryData(
     sgqlc.types.Type, TeamAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -20831,6 +25347,10 @@ class OrgRestoreMemberMembershipTeamAuditEntryData(
 class OrgUnblockUserAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "blocked_user",
@@ -20849,6 +25369,10 @@ class OrgUnblockUserAuditEntry(
 class OrgUpdateDefaultRepositoryPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("permission", "permission_was")
     permission = sgqlc.types.Field(
@@ -20864,6 +25388,10 @@ class OrgUpdateDefaultRepositoryPermissionAuditEntry(
 class OrgUpdateMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("permission", "permission_was")
     permission = sgqlc.types.Field(
@@ -20877,6 +25405,10 @@ class OrgUpdateMemberAuditEntry(
 class OrgUpdateMemberRepositoryCreationPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("can_create_repositories", "visibility")
     can_create_repositories = sgqlc.types.Field(
@@ -20891,6 +25423,10 @@ class OrgUpdateMemberRepositoryCreationPermissionAuditEntry(
 class OrgUpdateMemberRepositoryInvitationPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("can_invite_outside_collaborators_to_repositories",)
     can_invite_outside_collaborators_to_repositories = sgqlc.types.Field(
@@ -20915,6 +25451,10 @@ class Organization(
     ProfileOwner,
     Sponsorable,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "audit_log",
@@ -21249,6 +25789,10 @@ class Organization(
 
 
 class OrganizationIdentityProvider(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "digest_method",
@@ -21292,6 +25836,10 @@ class OrganizationIdentityProvider(sgqlc.types.Type, Node):
 
 
 class OrganizationInvitation(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -21320,6 +25868,10 @@ class OrganizationInvitation(sgqlc.types.Type, Node):
 
 
 class OrganizationTeamsHovercardContext(sgqlc.types.Type, HovercardContext):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "relevant_teams",
@@ -21352,6 +25904,10 @@ class OrganizationTeamsHovercardContext(sgqlc.types.Type, HovercardContext):
 
 
 class OrganizationsHovercardContext(sgqlc.types.Type, HovercardContext):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("relevant_organizations", "total_organization_count")
     relevant_organizations = sgqlc.types.Field(
@@ -21375,6 +25931,10 @@ class OrganizationsHovercardContext(sgqlc.types.Type, HovercardContext):
 
 
 class Package(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "latest_version",
@@ -21434,6 +25994,10 @@ class Package(sgqlc.types.Type, Node):
 
 
 class PackageFile(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "md5",
@@ -21458,6 +26022,10 @@ class PackageFile(sgqlc.types.Type, Node):
 
 
 class PackageTag(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("name", "version")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
@@ -21465,6 +26033,10 @@ class PackageTag(sgqlc.types.Type, Node):
 
 
 class PackageVersion(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "files",
@@ -21513,6 +26085,10 @@ class PackageVersion(sgqlc.types.Type, Node):
 
 
 class PinnedDiscussion(sgqlc.types.Type, Node, RepositoryNode):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -21548,6 +26124,10 @@ class PinnedDiscussion(sgqlc.types.Type, Node, RepositoryNode):
 
 
 class PinnedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "issue")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -21558,6 +26138,10 @@ class PinnedEvent(sgqlc.types.Type, Node):
 
 
 class PinnedIssue(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("database_id", "issue", "pinned_by", "repository")
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
@@ -21576,6 +26160,10 @@ class PrivateRepositoryForkingDisableAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -21588,11 +26176,19 @@ class PrivateRepositoryForkingEnableAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class Project(sgqlc.types.Type, Node, Closable, Updatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "body",
@@ -21673,6 +26269,10 @@ class Project(sgqlc.types.Type, Node, Closable, Updatable):
 
 
 class ProjectCard(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "column",
@@ -21711,6 +26311,10 @@ class ProjectCard(sgqlc.types.Type, Node):
 
 
 class ProjectColumn(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "cards",
@@ -21763,6 +26367,10 @@ class ProjectColumn(sgqlc.types.Type, Node):
 
 
 class ProjectNext(sgqlc.types.Type, Node, Closable, Updatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -21865,11 +26473,19 @@ class ProjectNext(sgqlc.types.Type, Node, Closable, Updatable):
 
 
 class ProjectNextField(sgqlc.types.Type, ProjectNextFieldCommon, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class ProjectNextItem(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "content",
@@ -21918,6 +26534,10 @@ class ProjectNextItem(sgqlc.types.Type, Node):
 
 
 class ProjectNextItemFieldValue(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -21946,6 +26566,10 @@ class ProjectNextItemFieldValue(sgqlc.types.Type, Node):
 
 
 class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -22095,11 +26719,19 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
 
 
 class ProjectV2Field(sgqlc.types.Type, ProjectV2FieldCommon, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class ProjectV2Item(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "content",
@@ -22171,6 +26803,10 @@ class ProjectV2Item(sgqlc.types.Type, Node):
 class ProjectV2ItemFieldDateValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("date",)
     date = sgqlc.types.Field(Date, graphql_name="date")
@@ -22179,6 +26815,10 @@ class ProjectV2ItemFieldDateValue(
 class ProjectV2ItemFieldIterationValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("duration", "iteration_id", "start_date", "title", "title_html")
     duration = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="duration")
@@ -22195,6 +26835,10 @@ class ProjectV2ItemFieldIterationValue(
 class ProjectV2ItemFieldNumberValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("number",)
     number = sgqlc.types.Field(Float, graphql_name="number")
@@ -22203,6 +26847,10 @@ class ProjectV2ItemFieldNumberValue(
 class ProjectV2ItemFieldSingleSelectValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("name", "name_html", "option_id")
     name = sgqlc.types.Field(String, graphql_name="name")
@@ -22213,12 +26861,20 @@ class ProjectV2ItemFieldSingleSelectValue(
 class ProjectV2ItemFieldTextValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("text",)
     text = sgqlc.types.Field(String, graphql_name="text")
 
 
 class ProjectV2IterationField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("configuration",)
     configuration = sgqlc.types.Field(
@@ -22228,6 +26884,10 @@ class ProjectV2IterationField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
 
 
 class ProjectV2SingleSelectField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("options",)
     options = sgqlc.types.Field(
@@ -22239,6 +26899,10 @@ class ProjectV2SingleSelectField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
 
 
 class ProjectV2View(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -22355,6 +27019,10 @@ class ProjectV2View(sgqlc.types.Type, Node):
 
 
 class ProjectView(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -22401,6 +27069,10 @@ class ProjectView(sgqlc.types.Type, Node):
 
 
 class PublicKey(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "accessed_at",
@@ -22437,6 +27109,10 @@ class PullRequest(
     ProjectNextOwner,
     ProjectV2Owner,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "additions",
@@ -22938,6 +27614,10 @@ class PullRequest(
 
 
 class PullRequestCommit(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("commit", "pull_request")
     commit = sgqlc.types.Field(sgqlc.types.non_null(Commit), graphql_name="commit")
@@ -22947,6 +27627,10 @@ class PullRequestCommit(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class PullRequestCommitCommentThread(sgqlc.types.Type, RepositoryNode, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("comments", "commit", "path", "position", "pull_request")
     comments = sgqlc.types.Field(
@@ -22982,6 +27666,10 @@ class PullRequestReview(
     Reactable,
     RepositoryNode,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "author_can_push_to_repository",
@@ -23052,6 +27740,10 @@ class PullRequestReviewComment(
     Reactable,
     RepositoryNode,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "commit",
@@ -23098,6 +27790,10 @@ class PullRequestReviewComment(
 
 
 class PullRequestReviewThread(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "comments",
@@ -23171,6 +27867,10 @@ class PullRequestReviewThread(sgqlc.types.Type, Node):
 
 
 class PullRequestThread(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "comments",
@@ -23228,6 +27928,10 @@ class PullRequestThread(sgqlc.types.Type, Node):
 
 
 class Push(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("next_sha", "permalink", "previous_sha", "pusher", "repository")
     next_sha = sgqlc.types.Field(GitObjectID, graphql_name="nextSha")
@@ -23240,6 +27944,10 @@ class Push(sgqlc.types.Type, Node):
 
 
 class PushAllowance(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "branch_protection_rule")
     actor = sgqlc.types.Field("PushAllowanceActor", graphql_name="actor")
@@ -23249,6 +27957,10 @@ class PushAllowance(sgqlc.types.Type, Node):
 
 
 class Reaction(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("content", "created_at", "database_id", "reactable", "user")
     content = sgqlc.types.Field(
@@ -23265,6 +27977,10 @@ class Reaction(sgqlc.types.Type, Node):
 
 
 class ReadyForReviewEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "pull_request")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -23277,6 +27993,10 @@ class ReadyForReviewEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class Ref(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "associated_pull_requests",
@@ -23343,6 +28063,10 @@ class Ref(sgqlc.types.Type, Node):
 
 
 class ReferencedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -23373,6 +28097,10 @@ class ReferencedEvent(sgqlc.types.Type, Node):
 
 
 class Release(sgqlc.types.Type, Node, UniformResourceLocatable, Reactable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "author",
@@ -23458,6 +28186,10 @@ class Release(sgqlc.types.Type, Node, UniformResourceLocatable, Reactable):
 
 
 class ReleaseAsset(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "content_type",
@@ -23496,6 +28228,10 @@ class ReleaseAsset(sgqlc.types.Type, Node):
 
 
 class RemovedFromProjectEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "database_id")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -23506,6 +28242,10 @@ class RemovedFromProjectEvent(sgqlc.types.Type, Node):
 
 
 class RenamedTitleEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -23530,6 +28270,10 @@ class RenamedTitleEvent(sgqlc.types.Type, Node):
 
 
 class ReopenedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "closable", "created_at", "state_reason")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -23549,6 +28293,10 @@ class RepoAccessAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("visibility",)
     visibility = sgqlc.types.Field(
@@ -23563,6 +28311,10 @@ class RepoAddMemberAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("visibility",)
     visibility = sgqlc.types.Field(
@@ -23578,6 +28330,10 @@ class RepoAddTopicAuditEntry(
     OrganizationAuditEntryData,
     TopicAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23589,6 +28345,10 @@ class RepoArchivedAuditEntry(
     RepositoryAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("visibility",)
     visibility = sgqlc.types.Field(
@@ -23603,6 +28363,10 @@ class RepoChangeMergeSettingAuditEntry(
     RepositoryAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_enabled", "merge_type")
     is_enabled = sgqlc.types.Field(Boolean, graphql_name="isEnabled")
@@ -23618,6 +28382,10 @@ class RepoConfigDisableAnonymousGitAccessAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23629,6 +28397,10 @@ class RepoConfigDisableCollaboratorsOnlyAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23640,6 +28412,10 @@ class RepoConfigDisableContributorsOnlyAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23651,6 +28427,10 @@ class RepoConfigDisableSockpuppetDisallowedAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23662,6 +28442,10 @@ class RepoConfigEnableAnonymousGitAccessAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23673,6 +28457,10 @@ class RepoConfigEnableCollaboratorsOnlyAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23684,6 +28472,10 @@ class RepoConfigEnableContributorsOnlyAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23695,6 +28487,10 @@ class RepoConfigEnableSockpuppetDisallowedAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23706,6 +28502,10 @@ class RepoConfigLockAnonymousGitAccessAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23717,6 +28517,10 @@ class RepoConfigUnlockAnonymousGitAccessAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23728,6 +28532,10 @@ class RepoCreateAuditEntry(
     RepositoryAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("fork_parent_name", "fork_source_name", "visibility")
     fork_parent_name = sgqlc.types.Field(String, graphql_name="forkParentName")
@@ -23744,6 +28552,10 @@ class RepoDestroyAuditEntry(
     RepositoryAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("visibility",)
     visibility = sgqlc.types.Field(
@@ -23758,6 +28570,10 @@ class RepoRemoveMemberAuditEntry(
     OrganizationAuditEntryData,
     RepositoryAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("visibility",)
     visibility = sgqlc.types.Field(
@@ -23773,6 +28589,10 @@ class RepoRemoveTopicAuditEntry(
     OrganizationAuditEntryData,
     TopicAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -23788,6 +28608,10 @@ class Repository(
     UniformResourceLocatable,
     RepositoryInfo,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "allow_update_branch",
@@ -24754,6 +29578,10 @@ class Repository(
 
 
 class RepositoryInvitation(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "email",
@@ -24774,11 +29602,19 @@ class RepositoryInvitation(sgqlc.types.Type, Node):
 
 
 class RepositoryMigration(sgqlc.types.Type, Node, Migration):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class RepositoryTopic(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("topic",)
     topic = sgqlc.types.Field(sgqlc.types.non_null("Topic"), graphql_name="topic")
@@ -24791,6 +29627,10 @@ class RepositoryVisibilityChangeDisableAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
@@ -24802,11 +29642,19 @@ class RepositoryVisibilityChangeEnableAuditEntry(
     EnterpriseAuditEntryData,
     OrganizationAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -24861,11 +29709,19 @@ class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
 
 
 class RestrictedContribution(sgqlc.types.Type, Contribution):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class ReviewDismissalAllowance(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "branch_protection_rule")
     actor = sgqlc.types.Field("ReviewDismissalAllowanceActor", graphql_name="actor")
@@ -24875,6 +29731,10 @@ class ReviewDismissalAllowance(sgqlc.types.Type, Node):
 
 
 class ReviewDismissedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -24909,6 +29769,10 @@ class ReviewDismissedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 
 class ReviewRequest(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "as_code_owner",
@@ -24929,6 +29793,10 @@ class ReviewRequest(sgqlc.types.Type, Node):
 
 
 class ReviewRequestRemovedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "pull_request", "requested_reviewer")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -24944,6 +29812,10 @@ class ReviewRequestRemovedEvent(sgqlc.types.Type, Node):
 
 
 class ReviewRequestedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "pull_request", "requested_reviewer")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -24959,6 +29831,10 @@ class ReviewRequestedEvent(sgqlc.types.Type, Node):
 
 
 class ReviewStatusHovercardContext(sgqlc.types.Type, HovercardContext):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("review_decision",)
     review_decision = sgqlc.types.Field(
@@ -24967,6 +29843,10 @@ class ReviewStatusHovercardContext(sgqlc.types.Type, HovercardContext):
 
 
 class SavedReply(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("body", "body_html", "database_id", "title", "user")
     body = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="body")
@@ -24977,6 +29857,10 @@ class SavedReply(sgqlc.types.Type, Node):
 
 
 class SecurityAdvisory(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "classification",
@@ -25108,11 +29992,19 @@ class SecurityAdvisory(sgqlc.types.Type, Node):
 
 
 class SmimeSignature(sgqlc.types.Type, GitSignature):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class SponsorsActivity(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "action",
@@ -25137,6 +30029,10 @@ class SponsorsActivity(sgqlc.types.Type, Node):
 
 
 class SponsorsListing(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "active_goal",
@@ -25199,6 +30095,10 @@ class SponsorsListing(sgqlc.types.Type, Node):
 
 
 class SponsorsTier(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "admin_info",
@@ -25249,6 +30149,10 @@ class SponsorsTier(sgqlc.types.Type, Node):
 
 
 class Sponsorship(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -25287,6 +30191,10 @@ class Sponsorship(sgqlc.types.Type, Node):
 
 
 class SponsorshipNewsletter(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "body",
@@ -25313,6 +30221,10 @@ class SponsorshipNewsletter(sgqlc.types.Type, Node):
 
 
 class Status(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("combined_contexts", "commit", "context", "contexts", "state")
     combined_contexts = sgqlc.types.Field(
@@ -25355,6 +30267,10 @@ class Status(sgqlc.types.Type, Node):
 
 
 class StatusCheckRollup(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("commit", "contexts", "state")
     commit = sgqlc.types.Field(Commit, graphql_name="commit")
@@ -25377,6 +30293,10 @@ class StatusCheckRollup(sgqlc.types.Type, Node):
 
 
 class StatusContext(sgqlc.types.Type, RequirableByPullRequest, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "avatar_url",
@@ -25407,6 +30327,10 @@ class StatusContext(sgqlc.types.Type, RequirableByPullRequest, Node):
 
 
 class SubscribedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "subscribable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -25419,6 +30343,10 @@ class SubscribedEvent(sgqlc.types.Type, Node):
 
 
 class Tag(sgqlc.types.Type, Node, GitObject):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("message", "name", "tagger", "target")
     message = sgqlc.types.Field(String, graphql_name="message")
@@ -25428,6 +30356,10 @@ class Tag(sgqlc.types.Type, Node, GitObject):
 
 
 class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "ancestors",
@@ -25693,6 +30625,10 @@ class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
 class TeamAddMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_ldap_mapped",)
     is_ldap_mapped = sgqlc.types.Field(Boolean, graphql_name="isLdapMapped")
@@ -25706,6 +30642,10 @@ class TeamAddRepositoryAuditEntry(
     RepositoryAuditEntryData,
     TeamAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_ldap_mapped",)
     is_ldap_mapped = sgqlc.types.Field(Boolean, graphql_name="isLdapMapped")
@@ -25714,6 +30654,10 @@ class TeamAddRepositoryAuditEntry(
 class TeamChangeParentTeamAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "is_ldap_mapped",
@@ -25752,6 +30696,10 @@ class TeamDiscussion(
     Updatable,
     UpdatableComment,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "body_version",
@@ -25823,6 +30771,10 @@ class TeamDiscussionComment(
     Updatable,
     UpdatableComment,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("body_version", "discussion", "number")
     body_version = sgqlc.types.Field(
@@ -25837,6 +30789,10 @@ class TeamDiscussionComment(
 class TeamRemoveMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_ldap_mapped",)
     is_ldap_mapped = sgqlc.types.Field(Boolean, graphql_name="isLdapMapped")
@@ -25850,12 +30806,20 @@ class TeamRemoveRepositoryAuditEntry(
     RepositoryAuditEntryData,
     TeamAuditEntryData,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("is_ldap_mapped",)
     is_ldap_mapped = sgqlc.types.Field(Boolean, graphql_name="isLdapMapped")
 
 
 class Topic(sgqlc.types.Type, Node, Starrable):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("name", "related_topics", "repositories")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
@@ -25922,6 +30886,10 @@ class Topic(sgqlc.types.Type, Node, Starrable):
 
 
 class TransferredEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "from_repository", "issue")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -25933,6 +30901,10 @@ class TransferredEvent(sgqlc.types.Type, Node):
 
 
 class Tree(sgqlc.types.Type, Node, GitObject):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("entries",)
     entries = sgqlc.types.Field(
@@ -25941,6 +30913,10 @@ class Tree(sgqlc.types.Type, Node, GitObject):
 
 
 class UnassignedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "assignable", "assignee", "created_at", "user")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -25955,11 +30931,19 @@ class UnassignedEvent(sgqlc.types.Type, Node):
 
 
 class UnknownSignature(sgqlc.types.Type, GitSignature):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ()
 
 
 class UnlabeledEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "label", "labelable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -25973,6 +30957,10 @@ class UnlabeledEvent(sgqlc.types.Type, Node):
 
 
 class UnlockedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "lockable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -25985,6 +30973,10 @@ class UnlockedEvent(sgqlc.types.Type, Node):
 
 
 class UnmarkedAsDuplicateEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "actor",
@@ -26005,6 +30997,10 @@ class UnmarkedAsDuplicateEvent(sgqlc.types.Type, Node):
 
 
 class UnpinnedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "issue")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -26015,6 +31011,10 @@ class UnpinnedEvent(sgqlc.types.Type, Node):
 
 
 class UnsubscribedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "created_at", "subscribable")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -26042,6 +31042,10 @@ class User(
     ProfileOwner,
     Sponsorable,
 ):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "bio",
@@ -26608,6 +31612,10 @@ class User(
 
 
 class UserBlockedEvent(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("actor", "block_duration", "created_at", "subject")
     actor = sgqlc.types.Field(Actor, graphql_name="actor")
@@ -26621,6 +31629,10 @@ class UserBlockedEvent(sgqlc.types.Type, Node):
 
 
 class UserContentEdit(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -26647,6 +31659,10 @@ class UserContentEdit(sgqlc.types.Type, Node):
 
 
 class UserStatus(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -26677,6 +31693,10 @@ class UserStatus(sgqlc.types.Type, Node):
 
 
 class VerifiableDomain(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
@@ -26731,12 +31751,20 @@ class VerifiableDomain(sgqlc.types.Type, Node):
 
 
 class ViewerHovercardContext(sgqlc.types.Type, HovercardContext):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("viewer",)
     viewer = sgqlc.types.Field(sgqlc.types.non_null(User), graphql_name="viewer")
 
 
 class Workflow(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = ("created_at", "database_id", "name", "updated_at")
     created_at = sgqlc.types.Field(
@@ -26750,6 +31778,10 @@ class Workflow(sgqlc.types.Type, Node):
 
 
 class WorkflowRun(sgqlc.types.Type, Node):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __field_names__ = (
         "check_suite",
@@ -26817,61 +31849,109 @@ class WorkflowRun(sgqlc.types.Type, Node):
 # Unions
 ########################################################################
 class Assignee(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Bot, Mannequin, Organization, User)
 
 
 class AuditEntryActor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Bot, Organization, User)
 
 
 class BranchActorAllowanceActor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (App, Team, User)
 
 
 class Closer(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Commit, PullRequest)
 
 
 class CreatedIssueOrRestrictedContribution(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (CreatedIssueContribution, RestrictedContribution)
 
 
 class CreatedPullRequestOrRestrictedContribution(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (CreatedPullRequestContribution, RestrictedContribution)
 
 
 class CreatedRepositoryOrRestrictedContribution(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (CreatedRepositoryContribution, RestrictedContribution)
 
 
 class DeploymentReviewer(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Team, User)
 
 
 class EnterpriseMember(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (EnterpriseUserAccount, User)
 
 
 class IpAllowListOwner(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (App, Enterprise, Organization)
 
 
 class IssueOrPullRequest(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Issue, PullRequest)
 
 
 class IssueTimelineItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         AssignedEvent,
@@ -26897,6 +31977,10 @@ class IssueTimelineItem(sgqlc.types.Union):
 
 
 class IssueTimelineItems(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         AddedToProjectEvent,
@@ -26934,11 +32018,19 @@ class IssueTimelineItems(sgqlc.types.Union):
 
 
 class MilestoneItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Issue, PullRequest)
 
 
 class OrgRestoreMemberAuditEntryMembership(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         OrgRestoreMemberMembershipOrganizationAuditEntryData,
@@ -26948,6 +32040,10 @@ class OrgRestoreMemberAuditEntryMembership(sgqlc.types.Union):
 
 
 class OrganizationAuditEntry(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         MembersCanDeleteReposClearAuditEntry,
@@ -27012,41 +32108,73 @@ class OrganizationAuditEntry(sgqlc.types.Union):
 
 
 class OrganizationOrUser(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Organization, User)
 
 
 class PermissionGranter(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Organization, Repository, Team)
 
 
 class PinnableItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Gist, Repository)
 
 
 class ProjectCardItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Issue, PullRequest)
 
 
 class ProjectNextItemContent(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (DraftIssue, Issue, PullRequest)
 
 
 class ProjectV2FieldConfiguration(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (ProjectV2Field, ProjectV2IterationField, ProjectV2SingleSelectField)
 
 
 class ProjectV2ItemContent(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (DraftIssue, Issue, PullRequest)
 
 
 class ProjectV2ItemFieldValue(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         ProjectV2ItemFieldDateValue,
@@ -27064,6 +32192,10 @@ class ProjectV2ItemFieldValue(sgqlc.types.Union):
 
 
 class PullRequestTimelineItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         AssignedEvent,
@@ -27103,6 +32235,10 @@ class PullRequestTimelineItem(sgqlc.types.Union):
 
 
 class PullRequestTimelineItems(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         AddedToProjectEvent,
@@ -27165,36 +32301,64 @@ class PullRequestTimelineItems(sgqlc.types.Union):
 
 
 class PushAllowanceActor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (App, Team, User)
 
 
 class Reactor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Bot, Mannequin, Organization, User)
 
 
 class ReferencedSubject(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Issue, PullRequest)
 
 
 class RenamedTitleSubject(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Issue, PullRequest)
 
 
 class RequestedReviewer(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Mannequin, Team, User)
 
 
 class ReviewDismissalAllowanceActor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (App, Team, User)
 
 
 class SearchResultItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (
         App,
@@ -27209,21 +32373,37 @@ class SearchResultItem(sgqlc.types.Union):
 
 
 class Sponsor(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Organization, User)
 
 
 class SponsorableItem(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Organization, User)
 
 
 class StatusCheckRollupContext(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (CheckRun, StatusContext)
 
 
 class VerifiableDomainOwner(sgqlc.types.Union):
+    """
+    See source code for the more info.
+    """
+
     __schema__ = graphql_schema
     __types__ = (Enterprise, Organization)
 

@@ -559,12 +559,12 @@ async def query_organization_project_v2(
 async def query_organization_projects_v2(
     login: str,
     github_credentials: GitHubCredentials,
+    query: str = None,
+    order_by: graphql_schema.ProjectV2Order = {"field": "NUMBER", "direction": "DESC"},
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
-    query: str = None,
-    order_by: graphql_schema.ProjectV2Order = {"field": "NUMBER", "direction": "DESC"},
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
@@ -573,14 +573,14 @@ async def query_organization_projects_v2(
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
+        query: A project to search for under the the owner.
+        order_by: How to order the returned projects.
         after: Returns the elements in the list that come after the
             specified cursor.
         before: Returns the elements in the list that come before
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        query: A project to search for under the the owner.
-        order_by: How to order the returned projects.
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -590,12 +590,12 @@ async def query_organization_projects_v2(
     op = Operation(graphql_schema.Query)
     op_selection = op.organization(**strip_kwargs(login=login,)).projects_v2(
         **strip_kwargs(
+            query=query,
+            order_by=order_by,
             after=after,
             before=before,
             first=first,
             last=last,
-            query=query,
-            order_by=order_by,
         )
     )
 
@@ -804,12 +804,12 @@ async def query_organization_pinned_items(
 async def query_organization_projects_next(
     login: str,
     github_credentials: GitHubCredentials,
+    query: str = None,
+    sort_by: graphql_schema.ProjectNextOrderField = "TITLE",
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
-    query: str = None,
-    sort_by: graphql_schema.ProjectNextOrderField = "TITLE",
     return_fields: Iterable[str] = None,
 ) -> Dict[str, Any]:
     """
@@ -818,14 +818,14 @@ async def query_organization_projects_next(
     Args:
         login: The organization's login.
         github_credentials: Credentials to use for authentication with GitHub.
+        query: A project (beta) to search for under the the owner.
+        sort_by: How to order the returned projects (beta).
         after: Returns the elements in the list that come after
             the specified cursor.
         before: Returns the elements in the list that come before
             the specified cursor.
         first: Returns the first _n_ elements from the list.
         last: Returns the last _n_ elements from the list.
-        query: A project (beta) to search for under the the owner.
-        sort_by: How to order the returned projects (beta).
         return_fields: Subset the return fields (as snake_case); defaults to
             fields listed in configs/query/*.json.
 
@@ -835,12 +835,12 @@ async def query_organization_projects_next(
     op = Operation(graphql_schema.Query)
     op_selection = op.organization(**strip_kwargs(login=login,)).projects_next(
         **strip_kwargs(
+            query=query,
+            sort_by=sort_by,
             after=after,
             before=before,
             first=first,
             last=last,
-            query=query,
-            sort_by=sort_by,
         )
     )
 
