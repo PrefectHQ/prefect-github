@@ -1,10 +1,9 @@
 """
-This is a module containing:
-generic GraphQL tasks
-
-It was auto-generated using prefect-collection-generator so
-manually editing this file is not recommended.
+This is a module containing generic GraphQL tasks
 """
+
+# It was auto-generated using prefect-collection-generator so
+# manually editing this file is not recommended.
 
 from functools import partial
 from pprint import pformat

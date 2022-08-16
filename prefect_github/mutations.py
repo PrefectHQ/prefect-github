@@ -2,11 +2,11 @@
 This is a module containing:
 GitHub mutation tasks
 
-
-It was auto-generated using prefect-collection-generator so
-manually editing this file is not recommended. If this module
-is outdated, rerun scripts/generate.py.
 """
+
+# It was auto-generated using prefect-collection-generator so
+# manually editing this file is not recommended. If this module
+# is outdated, rerun scripts/generate.py.
 
 from datetime import datetime
 from pathlib import Path
