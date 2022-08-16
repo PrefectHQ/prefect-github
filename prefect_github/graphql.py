@@ -1,10 +1,9 @@
 """
-This is a module containing:
-generic GraphQL tasks
-
-It was auto-generated using prefect-collection-generator so
-manually editing this file is not recommended.
+This is a module containing generic GraphQL tasks
 """
+
+# This module was auto-generated using prefect-collection-generator so
+# manually editing this file is not recommended.
 
 from functools import partial
 from pprint import pformat
@@ -19,7 +18,10 @@ from prefect_github.utils import camel_to_snake_case
 
 
 async def _execute_graphql_op(
-    op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
+    op: Union[Operation, str],
+    github_credentials: GitHubCredentials,
+    error_key: str = "errors",
+    **vars,
 ) -> Dict[str, Any]:
     """
     Helper function for executing GraphQL operations.
@@ -27,9 +29,9 @@ async def _execute_graphql_op(
     endpoint = github_credentials.get_endpoint()
     partial_endpoint = partial(endpoint, op, vars)
     result = await to_thread.run_sync(partial_endpoint)
-    if "errors" in result:
-        errors = pformat(result["errors"])
-        raise RuntimeError(f"Errors encountered:\n{errors}")
+    if error_key in result:
+        errors = pformat(result[error_key])
+        raise RuntimeError(f"Error encountered:\n{errors}")
     return result["data"]
 
 
@@ -60,7 +62,10 @@ def _subset_return_fields(
 
 @task
 async def execute_graphql(
-    op: Union[Operation, str], github_credentials: GitHubCredentials, **vars
+    op: Union[Operation, str],
+    github_credentials: GitHubCredentials,
+    error_key: str = "errors",
+    **vars,
 ) -> Dict[str, Any]:
     # NOTE: Maintainers can update these examples to match their collection!
     """
@@ -69,6 +74,8 @@ async def execute_graphql(
     Args:
         op: The operation, either as a valid GraphQL string or sgqlc.Operation.
         github_credentials: Credentials to use for authentication with GitHub.
+        error_key: The key name to look out for in the response
+            that indicates an error has occurred with the request.
 
     Returns:
         A dict of the returned fields.
@@ -133,5 +140,7 @@ async def execute_graphql(
         example_execute_graphql_flow()
         ```
     """
-    result = await _execute_graphql_op(op, github_credentials, **vars)
+    result = await _execute_graphql_op(
+        op, github_credentials, error_key=error_key, **vars
+    )
     return result
