@@ -4,7 +4,7 @@ GitHub mutation tasks
 
 """
 
-# It was auto-generated using prefect-collection-generator so
+# This module was auto-generated using prefect-collection-generator so
 # manually editing this file is not recommended. If this module
 # is outdated, rerun scripts/generate.py.
 

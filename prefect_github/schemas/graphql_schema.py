@@ -22866,6 +22866,7 @@ class DiscussionCategory(sgqlc.types.Type, Node, RepositoryNode):
         "emoji_html",
         "is_answerable",
         "name",
+        "slug",
         "updated_at",
     )
     created_at = sgqlc.types.Field(
@@ -22878,6 +22879,7 @@ class DiscussionCategory(sgqlc.types.Type, Node, RepositoryNode):
         sgqlc.types.non_null(Boolean), graphql_name="isAnswerable"
     )
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
+    slug = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="slug")
     updated_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="updatedAt"
     )
@@ -28630,6 +28632,7 @@ class Repository(
         "deployments",
         "discussion",
         "discussion_categories",
+        "discussion_category",
         "discussions",
         "disk_usage",
         "environment",
@@ -28863,6 +28866,20 @@ class Repository(
                     "filter_by_assignable",
                     sgqlc.types.Arg(
                         Boolean, graphql_name="filterByAssignable", default=False
+                    ),
+                ),
+            )
+        ),
+    )
+    discussion_category = sgqlc.types.Field(
+        DiscussionCategory,
+        graphql_name="discussionCategory",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "slug",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(String), graphql_name="slug", default=None
                     ),
                 ),
             )

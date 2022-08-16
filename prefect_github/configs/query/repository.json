@@ -194,6 +194,19 @@
       ]
     },
     {
+      "discussionCategory": [
+        "id",
+        "createdAt",
+        "description",
+        "emoji",
+        "emojiHTML",
+        "isAnswerable",
+        "name",
+        "slug",
+        "updatedAt"
+      ]
+    },
+    {
       "discussions": [
         "totalCount"
       ]

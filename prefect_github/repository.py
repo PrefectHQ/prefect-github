@@ -3,7 +3,7 @@ This is a module containing:
 GitHub query_repository* tasks
 """
 
-# It was auto-generated using prefect-collection-generator so
+# This module was auto-generated using prefect-collection-generator so
 # manually editing this file is not recommended. If this module
 # is outdated, rerun scripts/generate.py.
 
@@ -2881,6 +2881,57 @@ async def query_repository_pinned_discussions(
 
     result = await _execute_graphql_op(op, github_credentials)
     return result["repository"]["pinnedDiscussions"]
+
+
+@task
+async def query_repository_discussion_category(
+    owner: str,
+    name: str,
+    slug: str,
+    github_credentials: GitHubCredentials,
+    follow_renames: bool = True,
+    return_fields: Iterable[str] = None,
+) -> Dict[str, Any]:
+    """
+    A discussion category by slug.
+
+    Args:
+        owner: The login field of a user or organization.
+        name: The name of the repository.
+        slug: The slug of the discussion category to be
+            returned.
+        github_credentials: Credentials to use for authentication with GitHub.
+        follow_renames: Follow repository renames. If disabled, a
+            repository referenced by its old name will return an error.
+        return_fields: Subset the return fields (as snake_case); defaults to
+            fields listed in configs/query/*.json.
+
+    Returns:
+        A dict of the returned fields.
+    """
+    op = Operation(graphql_schema.Query)
+    op_selection = op.repository(
+        **strip_kwargs(
+            owner=owner,
+            name=name,
+            follow_renames=follow_renames,
+        )
+    ).discussion_category(
+        **strip_kwargs(
+            slug=slug,
+        )
+    )
+
+    op_stack = (
+        "repository",
+        "discussionCategory",
+    )
+    op_selection = _subset_return_fields(
+        op_selection, op_stack, return_fields, return_fields_defaults
+    )
+
+    result = await _execute_graphql_op(op, github_credentials)
+    return result["repository"]["discussionCategory"]
 
 
 @task
