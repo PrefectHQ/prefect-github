@@ -1,14 +1,15 @@
 """The GitHub filesystem for Prefect"""
-from prefect.filesystems import ReadableDeploymentStorage
-from prefect.utilities.processutils import run_process
-from prefect_github import GitHubCredentials
-from prefect_github.errors import InvalidRepositoryURLError
-
-from pydantic import Field, validator
 import io
 import tempfile
 from pathlib import Path
 from typing import Optional
+
+from prefect.filesystems import ReadableDeploymentStorage
+from prefect.utilities.processutils import run_process
+from pydantic import Field, validator
+
+from prefect_github import GitHubCredentials
+from prefect_github.errors import InvalidRepositoryURLError
 
 
 class GitHub(ReadableDeploymentStorage):
@@ -24,7 +25,7 @@ class GitHub(ReadableDeploymentStorage):
         description=(
             "The URL of a GitHub repository to read from, in either HTTPS or SSH format. "
             "If you are using a private repo, it must be in the HTTPS format."
-        )
+        ),
     )
     reference: Optional[str] = Field(
         default=None,
@@ -32,7 +33,7 @@ class GitHub(ReadableDeploymentStorage):
     )
     credential: Optional[GitHubCredentials] = Field(
         default=None,
-        description="An optional GitHubCredentials block for using private GitHub repos."
+        description="An optional GitHubCredentials block for using private GitHub repos.",
     )
 
     @validator("credential")
@@ -58,7 +59,7 @@ class GitHub(ReadableDeploymentStorage):
         For private repos: https://oauth-key-goes-here@github.com/username/repo.git
         All other repos should be the same as `self.repository`.
         """
-        
+
         if self.repository.startswith("https://") and self.credential is not None:
             repo_url = self.repository[8:]
             token_value = self.credential.token.get_secret_value()
@@ -67,7 +68,6 @@ class GitHub(ReadableDeploymentStorage):
             full_url = self.repository
 
         return full_url
-
 
     async def get_directory(
         self, from_path: str = None, local_path: str = None
@@ -114,4 +114,3 @@ class GitHub(ReadableDeploymentStorage):
         if process.returncode != 0:
             err_stream.seek(0)
             raise OSError(f"Failed to pull from remote:\n {err_stream.read()}")
-
