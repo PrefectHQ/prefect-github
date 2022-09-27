@@ -9,7 +9,7 @@ from prefect.utilities.processutils import run_process
 from pydantic import Field, validator
 
 from prefect_github import GitHubCredentials
-from prefect_github.errors import InvalidRepositoryURLError
+from prefect_github.exceptions import InvalidRepositoryURLError
 
 
 class GitHub(ReadableDeploymentStorage):
