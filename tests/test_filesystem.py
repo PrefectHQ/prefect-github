@@ -1,15 +1,19 @@
-from prefect_github.filesystem import GitHub
-from prefect_github import GitHubCredentials
-import prefect_github
+import warnings
+
 import pytest
 from prefect.testing.utilities import AsyncMock
+
+import prefect_github
+from prefect_github import GitHubCredentials
 from prefect_github.exceptions import InvalidRepositoryURLError
-import warnings
+from prefect_github.filesystem import GitHub
+
 
 @pytest.fixture
 def credential():
     return GitHubCredentials(token="XYZ")
-    
+
+
 class TestGitHub:
     async def test_subprocess_errors_are_surfaced(self):
         g = GitHub(repository="incorrect-url-scheme")
@@ -48,10 +52,15 @@ class TestGitHub:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
-        g = GitHub(repository="https://github.com/PrefectHQ/prefect.git", credential=credential)
+        g = GitHub(
+            repository="https://github.com/PrefectHQ/prefect.git", credential=credential
+        )
         await g.get_directory()
         assert mock.await_count == 1
-        assert f"git clone https://XYZ@github.com/PrefectHQ/prefect.git" in mock.await_args[0][0]
+        assert (
+            f"git clone https://XYZ@github.com/PrefectHQ/prefect.git"
+            in mock.await_args[0][0]
+        )
 
     async def test_ssh_fails_with_credential(self, monkeypatch, credential):
         class p:
@@ -60,4 +69,6 @@ class TestGitHub:
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
         with pytest.raises(ValueError):
-            g = GitHub(repository="git@github.com:PrefectHQ/prefect.git", credential=credential)
+            g = GitHub(
+                repository="git@github.com:PrefectHQ/prefect.git", credential=credential
+            )
