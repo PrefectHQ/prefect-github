@@ -30,7 +30,7 @@ setup(
     extras_require={"dev": dev_requires},
     entry_points={
         "prefect.collections": [
-            "GitHubCredentials = prefect_github.credentials",
+            "prefect_github = prefect_github"
         ]
     },
     classifiers=[
