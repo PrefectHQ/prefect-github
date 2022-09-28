@@ -12,7 +12,7 @@ from prefect_github import GitHubCredentials
 from prefect_github.exceptions import InvalidRepositoryURLError
 
 
-class GitHub(ReadableDeploymentStorage):
+class GitHubRepository(ReadableDeploymentStorage):
     """
     Interact with files stored on GitHub repositories.
     """

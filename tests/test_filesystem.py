@@ -3,13 +3,13 @@ from prefect.testing.utilities import AsyncMock
 
 import prefect_github
 from prefect_github import GitHubCredentials
-from prefect_github.filesystem import GitHub
+from prefect_github.filesystem import GitHubRepository
 
 
 class TestGitHub:
     async def test_subprocess_errors_are_surfaced(self):
         """Ensure that errors from GitHub are being surfaced to users."""
-        g = GitHub(repository="incorrect-url-scheme")
+        g = GitHubRepository(repository="incorrect-url-scheme")
         with pytest.raises(
             OSError, match="fatal: repository 'incorrect-url-scheme' does not exist"
         ):
@@ -25,7 +25,7 @@ class TestGitHub:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
-        g = GitHub(repository="prefect")
+        g = GitHubRepository(repository="prefect")
         await g.get_directory()
 
         assert mock.await_count == 1
@@ -41,7 +41,7 @@ class TestGitHub:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
-        g = GitHub(repository="prefect", reference="2.0.0")
+        g = GitHubRepository(repository="prefect", reference="2.0.0")
         await g.get_directory()
 
         assert mock.await_count == 1
@@ -56,7 +56,7 @@ class TestGitHub:
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
-        g = GitHub(
+        g = GitHubRepository(
             repository="https://github.com/PrefectHQ/prefect.git", credential=credential
         )
         await g.get_directory()
@@ -76,6 +76,6 @@ class TestGitHub:
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
         with pytest.raises(ValueError):
-            GitHub(
+            GitHubRepository(
                 repository="git@github.com:PrefectHQ/prefect.git", credential=credential
             )
