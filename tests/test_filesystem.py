@@ -16,6 +16,8 @@ def credential():
 
 class TestGitHub:
     async def test_subprocess_errors_are_surfaced(self):
+        """Ensure that errors from GitHub are being surfaced to users.
+        """
         g = GitHub(repository="incorrect-url-scheme")
         with pytest.raises(
             OSError, match="fatal: repository 'incorrect-url-scheme' does not exist"
@@ -23,6 +25,9 @@ class TestGitHub:
             await g.get_directory()
 
     async def test_repository_default(self, monkeypatch):
+        """Ensure that default command is 'git clone <repo name>' when given just
+        a repo.
+        """
         class p:
             returncode = 0
 
@@ -35,6 +40,9 @@ class TestGitHub:
         assert f"git clone prefect" in mock.await_args[0][0]
 
     async def test_reference_default(self, monkeypatch):
+        """Ensure that default command is 'git clone <repo name> -b <reference> --depth 1'
+        when just a repository and reference are given.
+        """
         class p:
             returncode = 0
 
@@ -47,6 +55,8 @@ class TestGitHub:
         assert f"git clone prefect -b 2.0.0 --depth 1" in mock.await_args[0][0]
 
     async def test_token_added_correctly(self, monkeypatch, credential):
+        """Ensure that the repo url is in the format `https://<oauth-key>@github.com/<username>/<repo>.git`.
+        """
         class p:
             returncode = 0
 
@@ -63,6 +73,7 @@ class TestGitHub:
         )
 
     async def test_ssh_fails_with_credential(self, monkeypatch, credential):
+        """Ensure that credentials cannot be passed in with an SSH URL."""
         class p:
             returncode = 0
 
