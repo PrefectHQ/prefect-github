@@ -57,7 +57,8 @@ class TestGitHub:
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
         g = GitHubRepository(
-            repository="https://github.com/PrefectHQ/prefect.git", credential=credential
+            repository="https://github.com/PrefectHQ/prefect.git",
+            credentials=credential,
         )
         await g.get_directory()
         assert mock.await_count == 1
@@ -77,5 +78,6 @@ class TestGitHub:
         credential = GitHubCredentials(token="XYZ")
         with pytest.raises(ValueError):
             GitHubRepository(
-                repository="git@github.com:PrefectHQ/prefect.git", credential=credential
+                repository="git@github.com:PrefectHQ/prefect.git",
+                credentials=credential,
             )

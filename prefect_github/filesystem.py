@@ -31,7 +31,7 @@ class GitHubRepository(ReadableDeploymentStorage):
         default=None,
         description="An optional reference to pin to; can be a branch name or tag.",
     )
-    credential: Optional[GitHubCredentials] = Field(
+    credentials: Optional[GitHubCredentials] = Field(
         default=None,
         description="An optional GitHubCredentials block for using private GitHub repos.",  # noqa: E501
     )
@@ -60,9 +60,9 @@ class GitHubRepository(ReadableDeploymentStorage):
         All other repos should be the same as `self.repository`.
         """
 
-        if self.repository.startswith("https://") and self.credential is not None:
+        if self.repository.startswith("https://") and self.credentials is not None:
             repo_url = self.repository[8:]
-            token_value = self.credential.token.get_secret_value()
+            token_value = self.credentials.token.get_secret_value()
             full_url = f"https://{token_value}@{repo_url}"
         else:
             full_url = self.repository
