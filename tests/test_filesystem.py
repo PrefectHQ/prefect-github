@@ -6,11 +6,6 @@ from prefect_github import GitHubCredentials
 from prefect_github.filesystem import GitHub
 
 
-@pytest.fixture
-def credential():
-    return GitHubCredentials(token="XYZ")
-
-
 class TestGitHub:
     async def test_subprocess_errors_are_surfaced(self):
         """Ensure that errors from GitHub are being surfaced to users."""
@@ -52,7 +47,7 @@ class TestGitHub:
         assert mock.await_count == 1
         assert "git clone prefect -b 2.0.0 --depth 1" in mock.await_args[0][0]
 
-    async def test_token_added_correctly(self, monkeypatch, credential):
+    async def test_token_added_correctly(self, monkeypatch):
         """Ensure that the repo url is in the format `https://<oauth-key>@github.com/<username>/<repo>.git`."""  # noqa: E501
 
         class p:
@@ -60,6 +55,7 @@ class TestGitHub:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
+        credential = GitHubCredentials(token="XYZ")
         g = GitHub(
             repository="https://github.com/PrefectHQ/prefect.git", credential=credential
         )
@@ -70,7 +66,7 @@ class TestGitHub:
             in mock.await_args[0][0]
         )
 
-    async def test_ssh_fails_with_credential(self, monkeypatch, credential):
+    async def test_ssh_fails_with_credential(self, monkeypatch):
         """Ensure that credentials cannot be passed in with an SSH URL."""
 
         class p:
@@ -78,6 +74,7 @@ class TestGitHub:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.filesystem, "run_process", mock)
+        credential = GitHubCredentials(token="XYZ")
         with pytest.raises(ValueError):
             GitHub(
                 repository="git@github.com:PrefectHQ/prefect.git", credential=credential
