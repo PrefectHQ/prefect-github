@@ -28,11 +28,7 @@ setup(
     install_requires=install_requires,
     include_package_data=True,
     extras_require={"dev": dev_requires},
-    entry_points={
-        "prefect.collections": [
-            "prefect_github = prefect_github"
-        ]
-    },
+    entry_points={"prefect.collections": ["prefect_github = prefect_github"]},
     classifiers=[
         "Natural Language :: English",
         "Intended Audience :: Developers",
