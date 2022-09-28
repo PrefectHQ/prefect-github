@@ -18,13 +18,13 @@ class GitHub(ReadableDeploymentStorage):
     """
 
     _block_type_name = "GitHub"
-    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"
+    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"  # noqa: E501
 
     repository: str = Field(
         default=...,
         description=(
-            "The URL of a GitHub repository to read from, in either HTTPS or SSH format. "
-            "If you are using a private repo, it must be in the HTTPS format."
+            "The URL of a GitHub repository to read from, in either HTTPS or SSH "
+            "format. If you are using a private repo, it must be in the HTTPS format."
         ),
     )
     reference: Optional[str] = Field(
@@ -33,7 +33,7 @@ class GitHub(ReadableDeploymentStorage):
     )
     credential: Optional[GitHubCredentials] = Field(
         default=None,
-        description="An optional GitHubCredentials block for using private GitHub repos.",
+        description="An optional GitHubCredentials block for using private GitHub repos.",  # noqa: E501
     )
 
     @validator("credential")
@@ -56,7 +56,7 @@ class GitHub(ReadableDeploymentStorage):
     def create_repo_url(self):
         """Format the URL provided to the `git clone` command.
 
-        For private repos: https://oauth-key-goes-here@github.com/username/repo.git
+        For private repos: https://<oauth-key>@github.com/<username>/<repo>.git
         All other repos should be the same as `self.repository`.
         """
 
@@ -73,12 +73,13 @@ class GitHub(ReadableDeploymentStorage):
         self, from_path: str = None, local_path: str = None
     ) -> None:
         """
-        Clones a GitHub project specified in `from_path` to the provided `local_path`; defaults to cloning
-        the repository reference configured on the Block to the present working directory.
+        Clones a GitHub project specified in `from_path` to the provided `local_path`;
+        defaults to cloning the repository reference configured on the Block to the
+        present working directory.
 
         Args:
-            from_path: If provided, interpreted as a subdirectory of the underlying repository that will
-                be copied to the provided local path.
+            from_path: If provided, interpreted as a subdirectory of the underlying
+                repository that will be copied to the provided local path.
             local_path: A local path to clone to; defaults to present working directory.
         """
 
