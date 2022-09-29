@@ -36,7 +36,7 @@ class GitHubRepository(ReadableDeploymentStorage):
         description="An optional GitHubCredentials block for using private GitHub repos.",  # noqa: E501
     )
 
-    @validator("credential")
+    @validator("credentials")
     def _ensure_credentials_go_with_https(cls, v: str, values: dict):
         """Ensure that credentials are not provided with 'SSH' formatted GitHub URLs."""
         if v is not None:
