@@ -1,5 +1,6 @@
 """The GitHub filesystem for Prefect"""
 import io
+import shutil
 import tempfile
 from pathlib import Path
 from typing import Optional
@@ -40,7 +41,7 @@ class GitHubRepository(ReadableDeploymentStorage):
     def _ensure_credentials_go_with_https(cls, v: str, values: dict):
         """Ensure that credentials are not provided with 'SSH' formatted GitHub URLs."""
         if v is not None:
-            if values["repository"].startswith("git@"):
+            if not values["repository"].startswith("https://"):
                 raise InvalidRepositoryURLError(
                     (
                         "Crendentials can only be used with GitHub repositories "
@@ -53,7 +54,7 @@ class GitHubRepository(ReadableDeploymentStorage):
 
         return v
 
-    def _create_repo_url(self):
+    def _create_repo_url(self) -> str:
         """Format the URL provided to the `git clone` command.
 
         For private repos: https://<oauth-key>@github.com/<username>/<repo>.git
@@ -84,14 +85,14 @@ class GitHubRepository(ReadableDeploymentStorage):
         """
 
         # CONSTRUCT COMMAND
-        cmd = "git clone"
-
-        cmd += f" {self.create_repo_url()}"
+        cmd = f"git clone {self._create_repo_url()}"
         if self.reference:
             cmd += f" -b {self.reference} --depth 1"
 
         if local_path is None:
             local_path = Path(".").absolute()
+        else:
+            local_path = Path(local_path)
 
         if not from_path:
             from_path = ""
@@ -100,14 +101,29 @@ class GitHubRepository(ReadableDeploymentStorage):
         tmp_dir = None
         tmp_dir = tempfile.TemporaryDirectory(suffix="prefect")
         path_to_move = str(Path(tmp_dir.name).joinpath(from_path))
-        cmd += f" {tmp_dir.name} && cp -R {path_to_move}/."
+        if from_path:
+            destination_path = local_path.joinpath(from_path)
+        else:
+            destination_path = local_path
 
-        cmd += f" {local_path}"
+        cmd += f" {tmp_dir.name}"
 
         try:
             err_stream = io.StringIO()
             out_stream = io.StringIO()
             process = await run_process(cmd, stream_output=(out_stream, err_stream))
+
+            # move directory from temp folder to designated directory
+            shutil.copytree(
+                path_to_move,
+                destination_path,
+                copy_function=shutil.move,
+                dirs_exist_ok=True,
+            )
+
+        except Exception as exc:
+            raise exc
+
         finally:
             if tmp_dir:
                 tmp_dir.cleanup()
@@ -115,3 +131,18 @@ class GitHubRepository(ReadableDeploymentStorage):
         if process.returncode != 0:
             err_stream.seek(0)
             raise OSError(f"Failed to pull from remote:\n {err_stream.read()}")
+
+
+# if __name__ == "__main__":
+#     g = GitHubRepository(
+#         repository="https://github.com/peytonrunyan/prefect-101.git"
+#     )
+# asyncio.run(g.get_directory(
+#     from_path="solutions/",
+#     local_path="./tests"
+# )
+# )
+# asyncio.run(g.get_directory(
+#     local_path="./tests"
+# )
+# )
