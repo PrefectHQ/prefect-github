@@ -17,7 +17,7 @@ class GitHubRepository(ReadableDeploymentStorage):
     Interact with files stored on GitHub repositories.
     """
 
-    _block_type_name = "GitHubRepository"
+    _block_type_name = "GitHub Repository"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"  # noqa: E501
 
     repository: str = Field(
@@ -37,7 +37,7 @@ class GitHubRepository(ReadableDeploymentStorage):
     )
 
     @validator("credential")
-    def ensure_credentials_go_with_https(cls, v: str, values: dict):
+    def _ensure_credentials_go_with_https(cls, v: str, values: dict):
         """Ensure that credentials are not provided with 'SSH' formatted GitHub URLs."""
         if v is not None:
             if values["repository"].startswith("git@"):
@@ -53,7 +53,7 @@ class GitHubRepository(ReadableDeploymentStorage):
 
         return v
 
-    def create_repo_url(self):
+    def _create_repo_url(self):
         """Format the URL provided to the `git clone` command.
 
         For private repos: https://<oauth-key>@github.com/<username>/<repo>.git
