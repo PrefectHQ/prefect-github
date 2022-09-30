@@ -27,12 +27,12 @@ for config_path in config_dir.glob("*.json"):
 
 
 @task
-async def add_comment_subject(
+async def add_comment_subject(  # noqa
     subject_id: str,
     body: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Adds a comment to an Issue or Pull Request.
 
@@ -69,7 +69,7 @@ async def add_comment_subject(
 
 
 @task
-async def create_pull_request(
+async def create_pull_request(  # noqa
     repository_id: str,
     base_ref_name: str,
     head_ref_name: str,
@@ -79,7 +79,7 @@ async def create_pull_request(
     maintainer_can_modify: bool = None,
     draft: bool = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Create a new pull request.
 
@@ -133,11 +133,11 @@ async def create_pull_request(
 
 
 @task
-async def close_pull_request(
+async def close_pull_request(  # noqa
     pull_request_id: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Close a pull request.
 
@@ -172,7 +172,7 @@ async def close_pull_request(
 
 
 @task
-async def create_issue(
+async def create_issue(  # noqa
     repository_id: str,
     title: str,
     assignee_ids: Iterable[str],
@@ -183,7 +183,7 @@ async def create_issue(
     milestone_id: str = None,
     issue_template: str = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Creates a new issue.
 
@@ -234,12 +234,12 @@ async def create_issue(
 
 
 @task
-async def close_issue(
+async def close_issue(  # noqa
     issue_id: str,
     github_credentials: GitHubCredentials,
     state_reason: graphql_schema.IssueClosedStateReason = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Close an issue.
 
@@ -276,11 +276,11 @@ async def close_issue(
 
 
 @task
-async def add_star_starrable(
+async def add_star_starrable(  # noqa
     starrable_id: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Adds a star to a Starrable.
 
@@ -315,11 +315,11 @@ async def add_star_starrable(
 
 
 @task
-async def remove_star_starrable(
+async def remove_star_starrable(  # noqa
     starrable_id: str,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Removes a star from a Starrable.
 
@@ -354,12 +354,12 @@ async def remove_star_starrable(
 
 
 @task
-async def add_reaction_subject(
+async def add_reaction_subject(  # noqa
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Adds a reaction to a subject.
 
@@ -396,12 +396,12 @@ async def add_reaction_subject(
 
 
 @task
-async def add_reaction(
+async def add_reaction(  # noqa
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Adds a reaction to a subject.
 
@@ -438,12 +438,12 @@ async def add_reaction(
 
 
 @task
-async def remove_reaction_subject(
+async def remove_reaction_subject(  # noqa
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Removes a reaction from a subject.
 
@@ -480,12 +480,12 @@ async def remove_reaction_subject(
 
 
 @task
-async def remove_reaction(
+async def remove_reaction(  # noqa
     subject_id: str,
     content: graphql_schema.ReactionContent,
     github_credentials: GitHubCredentials,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Removes a reaction from a subject.
 
@@ -522,14 +522,14 @@ async def remove_reaction(
 
 
 @task
-async def request_reviews(
+async def request_reviews(  # noqa
     pull_request_id: str,
     user_ids: Iterable[str],
     team_ids: Iterable[str],
     github_credentials: GitHubCredentials,
     union: bool = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Set review requests on a pull request.
 
@@ -567,14 +567,14 @@ async def request_reviews(
 
 
 @task
-async def request_reviews_pull_request(
+async def request_reviews_pull_request(  # noqa
     pull_request_id: str,
     user_ids: Iterable[str],
     team_ids: Iterable[str],
     github_credentials: GitHubCredentials,
     union: bool = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Set review requests on a pull request.
 
@@ -615,7 +615,7 @@ async def request_reviews_pull_request(
 
 
 @task
-async def add_pull_request_review(
+async def add_pull_request_review(  # noqa
     pull_request_id: str,
     github_credentials: GitHubCredentials,
     commit_oid: datetime = None,
@@ -624,7 +624,7 @@ async def add_pull_request_review(
     comments: Iterable[graphql_schema.DraftPullRequestReviewComment] = None,
     threads: Iterable[graphql_schema.DraftPullRequestReviewThread] = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Adds a review to a Pull Request.
 
