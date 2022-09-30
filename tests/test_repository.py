@@ -1,5 +1,6 @@
+import os
 from pathlib import Path
-from unittest.mock import Mock
+from tempfile import TemporaryDirectory
 
 import pytest
 from prefect.testing.utilities import AsyncMock
@@ -87,55 +88,39 @@ class TestGitHub:
                 credentials=credential,
             )
 
-    async def test_files_moved_correctly_with_default(self, monkeypatch):
-        """Ensure copytree called with correct arguments."""
+    async def test_copy_contents_works(self):
+        """Sanity check for function to make sure that contents are moved as expected."""  # noqa
+        with TemporaryDirectory() as tmp_src:
+            # add file to tmp_src
+            f1_name = "dog.text"
+            f1_path = Path(tmp_src) / f1_name
+            f1 = open(f1_path, "w")
+            f1.close()
 
-        class p:
-            returncode = 0
+            # add directory with file to tmp_src
+            sub_dir_name = "puppy"
+            sub_dir_path = Path(tmp_src) / sub_dir_name
+            os.mkdir(sub_dir_path)
 
-        mock_run_process = AsyncMock(return_value=p())
-        mock_copytree = Mock()
-        mock_tmp_dir = Mock()
-        mock_tmp_dir.name = "test"
-        monkeypatch.setattr(
-            prefect_github.repository,
-            "TemporaryDirectory",
-            Mock(return_value=mock_tmp_dir),
-        )
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock_run_process)
-        monkeypatch.setattr(prefect_github.repository, "copytree", mock_copytree)
-        g = GitHubRepository(repository="prefect", reference="2.0.0")
-        await g.get_directory()
+            f2_name = "cat.txt"
+            f2_path = sub_dir_path / f2_name
+            f2 = open(f2_path, "w")
+            f2.close()
 
-        assert mock_copytree.mock_calls[0].kwargs["src"] == "test"
-        assert mock_copytree.mock_calls[0].kwargs["dst"] == Path.cwd()
+            expected_parent_contents = {f1_name, sub_dir_name}
+            expected_child_contents = {f2_name}
 
-    async def test_files_moved_correctly_with_from_path(self, monkeypatch):
-        """Ensure copytree called with correct arguments when `from_path` parameter
-        is supplied.
-        """
+            assert set(os.listdir(tmp_src)) == expected_parent_contents
+            assert set(os.listdir(sub_dir_path)) == expected_child_contents
 
-        class p:
-            returncode = 0
+            # move file contents to tmp_dst
+            with TemporaryDirectory() as tmp_dst:
+                GitHubRepository._move_contents_to_path(
+                    dst_dir=tmp_dst, src_dir=tmp_src, sub_directory=None
+                )
 
-        TMP_DIR_NAME = "test"
-        mock_run_process = AsyncMock(return_value=p())
-        mock_copytree = Mock()
-        mock_tmp_dir = Mock()
-        mock_tmp_dir.name = TMP_DIR_NAME
-        monkeypatch.setattr(
-            prefect_github.repository,
-            "TemporaryDirectory",
-            Mock(return_value=mock_tmp_dir),
-        )
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock_run_process)
-        monkeypatch.setattr(prefect_github.repository, "copytree", mock_copytree)
-
-        g = GitHubRepository(repository="prefect", reference="2.0.0")
-        from_path = "dog-path"
-        await g.get_directory(from_path=from_path)
-
-        assert (
-            mock_copytree.mock_calls[0].kwargs["src"] == TMP_DIR_NAME + "/" + from_path
-        )
-        assert mock_copytree.mock_calls[0].kwargs["dst"] == Path.cwd() / from_path
+                assert set(os.listdir(tmp_dst)) == expected_parent_contents
+                assert (
+                    set(os.listdir(Path(tmp_dst) / sub_dir_name))
+                    == expected_child_contents
+                )

@@ -13,10 +13,11 @@ from datetime import datetime
 from pathlib import Path
 from shutil import copytree
 from tempfile import TemporaryDirectory
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, Optional, Union
 
 from prefect import task
 from prefect.filesystems import ReadableDeploymentStorage
+from prefect.utilities.asyncutils import sync_compatible
 from prefect.utilities.processutils import run_process
 from pydantic import Field, validator
 from sgqlc.operation import Operation
@@ -88,6 +89,30 @@ class GitHubRepository(ReadableDeploymentStorage):
 
         return full_url
 
+    @staticmethod
+    def _move_contents_to_path(
+        dst_dir: Union[str, None], src_dir: str, sub_directory: str
+    ):
+        """Move contents of a directory to another directory."""
+        if dst_dir is None:
+            content_destination = Path(".").absolute()
+        else:
+            content_destination = Path(dst_dir)
+
+        content_source = Path(src_dir)
+
+        if sub_directory:
+            content_destination = content_destination.joinpath(sub_directory)
+            content_source = content_source.joinpath(sub_directory)
+
+        copytree(
+            src=content_source,
+            dst=content_destination,
+            copy_function=shutil.move,
+            dirs_exist_ok=True,
+        )
+
+    @sync_compatible
     async def get_directory(
         self, from_path: str = None, local_path: str = None
     ) -> None:
@@ -101,50 +126,23 @@ class GitHubRepository(ReadableDeploymentStorage):
                 repository that will be copied to the provided local path.
             local_path: A local path to clone to; defaults to present working directory.
         """
-
         # CONSTRUCT COMMAND
         cmd = f"git clone {self._create_repo_url()}"
         if self.reference:
             cmd += f" -b {self.reference} --depth 1"
 
-        if local_path is None:
-            local_path = Path(".").absolute()
-        else:
-            local_path = Path(local_path)
+        # Clone to a temporary directory and move the subdirectory over
+        with TemporaryDirectory(suffix="prefect") as tmp_dir:
+            tmp_path_str = tmp_dir
+            cmd += f" {tmp_path_str}"
 
-        if not from_path:
-            from_path = ""
-
-        # in this case, we clone to a temporary directory and move the subdirectory over
-        tmp_dir = None
-        tmp_dir = TemporaryDirectory(suffix="prefect")
-        path_to_move = str(Path(tmp_dir.name).joinpath(from_path))
-        if from_path:
-            destination_path = local_path.joinpath(from_path)
-        else:
-            destination_path = local_path
-
-        cmd += f" {tmp_dir.name}"
-
-        try:
             err_stream = io.StringIO()
             out_stream = io.StringIO()
             process = await run_process(cmd, stream_output=(out_stream, err_stream))
 
-            # move directory from temp folder to designated directory
-            copytree(
-                src=path_to_move,
-                dst=destination_path,
-                copy_function=shutil.move,
-                dirs_exist_ok=True,
+            self._move_contents_to_path(
+                dst_dir=local_path, src_dir=tmp_path_str, sub_directory=from_path
             )
-
-        except Exception as exc:
-            raise exc
-
-        finally:
-            if tmp_dir:
-                tmp_dir.cleanup()
 
         if process.returncode != 0:
             err_stream.seek(0)
