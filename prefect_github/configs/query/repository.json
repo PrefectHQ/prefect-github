@@ -355,6 +355,8 @@
       ]
     },
     "mergeCommitAllowed",
+    "mergeCommitMessage",
+    "mergeCommitTitle",
     {
       "milestone": [
         "id",
@@ -565,6 +567,8 @@
     },
     "securityPolicyUrl",
     "squashMergeAllowed",
+    "squashMergeCommitMessage",
+    "squashMergeCommitTitle",
     "squashPrTitleUsedAsDefault",
     "sshUrl",
     {
@@ -588,6 +592,7 @@
       "watchers": [
         "totalCount"
       ]
-    }
+    },
+    "webCommitSignoffRequired"
   ]
 }

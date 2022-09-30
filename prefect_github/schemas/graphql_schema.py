@@ -15,7 +15,7 @@ graphql_schema -= sgqlc.types.relay.PageInfo
 ########################################################################
 class ActorType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24,7 +24,7 @@ class ActorType(sgqlc.types.Enum):
 
 class AuditLogOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -33,7 +33,7 @@ class AuditLogOrderField(sgqlc.types.Enum):
 
 class Base64String(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -44,7 +44,7 @@ Boolean = sgqlc.types.Boolean
 
 class CheckAnnotationLevel(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -53,7 +53,7 @@ class CheckAnnotationLevel(sgqlc.types.Enum):
 
 class CheckConclusionState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -70,9 +70,33 @@ class CheckConclusionState(sgqlc.types.Enum):
     )
 
 
+class CheckRunState(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = (
+        "ACTION_REQUIRED",
+        "CANCELLED",
+        "COMPLETED",
+        "FAILURE",
+        "IN_PROGRESS",
+        "NEUTRAL",
+        "PENDING",
+        "QUEUED",
+        "SKIPPED",
+        "STALE",
+        "STARTUP_FAILURE",
+        "SUCCESS",
+        "TIMED_OUT",
+        "WAITING",
+    )
+
+
 class CheckRunType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -81,7 +105,7 @@ class CheckRunType(sgqlc.types.Enum):
 
 class CheckStatusState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -97,7 +121,7 @@ class CheckStatusState(sgqlc.types.Enum):
 
 class CollaboratorAffiliation(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -106,7 +130,7 @@ class CollaboratorAffiliation(sgqlc.types.Enum):
 
 class CommentAuthorAssociation(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -124,7 +148,7 @@ class CommentAuthorAssociation(sgqlc.types.Enum):
 
 class CommentCannotUpdateReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -141,7 +165,7 @@ class CommentCannotUpdateReason(sgqlc.types.Enum):
 
 class CommitContributionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -150,7 +174,7 @@ class CommitContributionOrderField(sgqlc.types.Enum):
 
 class ContributionLevel(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -170,7 +194,7 @@ DateTime = sgqlc.types.datetime.DateTime
 
 class DefaultRepositoryPermissionField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -179,7 +203,7 @@ class DefaultRepositoryPermissionField(sgqlc.types.Enum):
 
 class DependencyGraphEcosystem(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -198,7 +222,7 @@ class DependencyGraphEcosystem(sgqlc.types.Enum):
 
 class DeploymentOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -207,7 +231,7 @@ class DeploymentOrderField(sgqlc.types.Enum):
 
 class DeploymentProtectionRuleType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -216,7 +240,7 @@ class DeploymentProtectionRuleType(sgqlc.types.Enum):
 
 class DeploymentReviewState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -225,7 +249,7 @@ class DeploymentReviewState(sgqlc.types.Enum):
 
 class DeploymentState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -245,7 +269,7 @@ class DeploymentState(sgqlc.types.Enum):
 
 class DeploymentStatusState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -263,7 +287,7 @@ class DeploymentStatusState(sgqlc.types.Enum):
 
 class DiffSide(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -272,7 +296,7 @@ class DiffSide(sgqlc.types.Enum):
 
 class DiscussionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -281,7 +305,7 @@ class DiscussionOrderField(sgqlc.types.Enum):
 
 class DiscussionPollOptionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -290,7 +314,7 @@ class DiscussionPollOptionOrderField(sgqlc.types.Enum):
 
 class DismissReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -305,7 +329,7 @@ class DismissReason(sgqlc.types.Enum):
 
 class EnterpriseAdministratorInvitationOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -314,16 +338,32 @@ class EnterpriseAdministratorInvitationOrderField(sgqlc.types.Enum):
 
 class EnterpriseAdministratorRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __choices__ = ("BILLING_MANAGER", "OWNER")
 
 
+class EnterpriseAllowPrivateRepositoryForkingPolicyValue(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = (
+        "ENTERPRISE_ORGANIZATIONS",
+        "ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS",
+        "EVERYWHERE",
+        "SAME_ORGANIZATION",
+        "SAME_ORGANIZATION_USER_ACCOUNTS",
+        "USER_ACCOUNTS",
+    )
+
+
 class EnterpriseDefaultRepositoryPermissionSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -332,7 +372,7 @@ class EnterpriseDefaultRepositoryPermissionSettingValue(sgqlc.types.Enum):
 
 class EnterpriseEnabledDisabledSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -341,7 +381,7 @@ class EnterpriseEnabledDisabledSettingValue(sgqlc.types.Enum):
 
 class EnterpriseEnabledSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -350,7 +390,7 @@ class EnterpriseEnabledSettingValue(sgqlc.types.Enum):
 
 class EnterpriseMemberOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -359,7 +399,7 @@ class EnterpriseMemberOrderField(sgqlc.types.Enum):
 
 class EnterpriseMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -368,7 +408,7 @@ class EnterpriseMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
 
 class EnterpriseMembersCanMakePurchasesSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -377,7 +417,7 @@ class EnterpriseMembersCanMakePurchasesSettingValue(sgqlc.types.Enum):
 
 class EnterpriseServerInstallationOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -386,7 +426,7 @@ class EnterpriseServerInstallationOrderField(sgqlc.types.Enum):
 
 class EnterpriseServerUserAccountEmailOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -395,7 +435,7 @@ class EnterpriseServerUserAccountEmailOrderField(sgqlc.types.Enum):
 
 class EnterpriseServerUserAccountOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -404,7 +444,7 @@ class EnterpriseServerUserAccountOrderField(sgqlc.types.Enum):
 
 class EnterpriseServerUserAccountsUploadOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -413,7 +453,7 @@ class EnterpriseServerUserAccountsUploadOrderField(sgqlc.types.Enum):
 
 class EnterpriseServerUserAccountsUploadSyncState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -422,16 +462,16 @@ class EnterpriseServerUserAccountsUploadSyncState(sgqlc.types.Enum):
 
 class EnterpriseUserAccountMembershipRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __choices__ = ("MEMBER", "OWNER")
+    __choices__ = ("MEMBER", "OWNER", "UNAFFILIATED")
 
 
 class EnterpriseUserDeployment(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -440,7 +480,7 @@ class EnterpriseUserDeployment(sgqlc.types.Enum):
 
 class FileViewedState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -452,7 +492,7 @@ Float = sgqlc.types.Float
 
 class FundingPlatform(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -473,7 +513,7 @@ class FundingPlatform(sgqlc.types.Enum):
 
 class GistOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -482,7 +522,7 @@ class GistOrderField(sgqlc.types.Enum):
 
 class GistPrivacy(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -491,7 +531,7 @@ class GistPrivacy(sgqlc.types.Enum):
 
 class GitObjectID(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -499,7 +539,7 @@ class GitObjectID(sgqlc.types.Scalar):
 
 class GitSSHRemote(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -507,7 +547,7 @@ class GitSSHRemote(sgqlc.types.Scalar):
 
 class GitSignatureState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -534,7 +574,7 @@ class GitSignatureState(sgqlc.types.Enum):
 
 class GitTimestamp(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -542,7 +582,7 @@ class GitTimestamp(sgqlc.types.Scalar):
 
 class HTML(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -553,7 +593,7 @@ ID = sgqlc.types.ID
 
 class IdentityProviderConfigurationState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -565,7 +605,7 @@ Int = sgqlc.types.Int
 
 class IpAllowListEnabledSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -574,7 +614,7 @@ class IpAllowListEnabledSettingValue(sgqlc.types.Enum):
 
 class IpAllowListEntryOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -583,7 +623,7 @@ class IpAllowListEntryOrderField(sgqlc.types.Enum):
 
 class IpAllowListForInstalledAppsEnabledSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -592,7 +632,7 @@ class IpAllowListForInstalledAppsEnabledSettingValue(sgqlc.types.Enum):
 
 class IssueClosedStateReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -601,7 +641,7 @@ class IssueClosedStateReason(sgqlc.types.Enum):
 
 class IssueCommentOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -610,7 +650,7 @@ class IssueCommentOrderField(sgqlc.types.Enum):
 
 class IssueOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -619,7 +659,7 @@ class IssueOrderField(sgqlc.types.Enum):
 
 class IssueState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -628,7 +668,7 @@ class IssueState(sgqlc.types.Enum):
 
 class IssueStateReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -637,7 +677,7 @@ class IssueStateReason(sgqlc.types.Enum):
 
 class IssueTimelineItemsItemType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -678,7 +718,7 @@ class IssueTimelineItemsItemType(sgqlc.types.Enum):
 
 class LabelOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -687,7 +727,7 @@ class LabelOrderField(sgqlc.types.Enum):
 
 class LanguageOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -696,16 +736,34 @@ class LanguageOrderField(sgqlc.types.Enum):
 
 class LockReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __choices__ = ("OFF_TOPIC", "RESOLVED", "SPAM", "TOO_HEATED")
 
 
+class MergeCommitMessage(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("BLANK", "PR_BODY", "PR_TITLE")
+
+
+class MergeCommitTitle(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("MERGE_MESSAGE", "PR_TITLE")
+
+
 class MergeableState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -714,22 +772,16 @@ class MergeableState(sgqlc.types.Enum):
 
 class MigrationSourceType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __choices__ = (
-        "AZURE_DEVOPS",
-        "BITBUCKET_SERVER",
-        "GITHUB",
-        "GITHUB_ARCHIVE",
-        "GITLAB",
-    )
+    __choices__ = ("AZURE_DEVOPS", "BITBUCKET_SERVER", "GITHUB_ARCHIVE")
 
 
 class MigrationState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -746,7 +798,7 @@ class MigrationState(sgqlc.types.Enum):
 
 class MilestoneOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -755,7 +807,7 @@ class MilestoneOrderField(sgqlc.types.Enum):
 
 class MilestoneState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -764,7 +816,7 @@ class MilestoneState(sgqlc.types.Enum):
 
 class NotificationRestrictionSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -773,7 +825,7 @@ class NotificationRestrictionSettingValue(sgqlc.types.Enum):
 
 class OIDCProviderType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -782,7 +834,7 @@ class OIDCProviderType(sgqlc.types.Enum):
 
 class OauthApplicationCreateAuditEntryState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -791,7 +843,7 @@ class OauthApplicationCreateAuditEntryState(sgqlc.types.Enum):
 
 class OperationType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -808,7 +860,7 @@ class OperationType(sgqlc.types.Enum):
 
 class OrderDirection(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -817,7 +869,7 @@ class OrderDirection(sgqlc.types.Enum):
 
 class OrgAddMemberAuditEntryPermission(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -826,7 +878,7 @@ class OrgAddMemberAuditEntryPermission(sgqlc.types.Enum):
 
 class OrgCreateAuditEntryBillingPlan(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -835,7 +887,7 @@ class OrgCreateAuditEntryBillingPlan(sgqlc.types.Enum):
 
 class OrgEnterpriseOwnerOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -844,7 +896,7 @@ class OrgEnterpriseOwnerOrderField(sgqlc.types.Enum):
 
 class OrgRemoveBillingManagerAuditEntryReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -857,7 +909,7 @@ class OrgRemoveBillingManagerAuditEntryReason(sgqlc.types.Enum):
 
 class OrgRemoveMemberAuditEntryMembershipType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -873,7 +925,7 @@ class OrgRemoveMemberAuditEntryMembershipType(sgqlc.types.Enum):
 
 class OrgRemoveMemberAuditEntryReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -888,7 +940,7 @@ class OrgRemoveMemberAuditEntryReason(sgqlc.types.Enum):
 
 class OrgRemoveOutsideCollaboratorAuditEntryMembershipType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -897,7 +949,7 @@ class OrgRemoveOutsideCollaboratorAuditEntryMembershipType(sgqlc.types.Enum):
 
 class OrgRemoveOutsideCollaboratorAuditEntryReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -909,7 +961,7 @@ class OrgRemoveOutsideCollaboratorAuditEntryReason(sgqlc.types.Enum):
 
 class OrgUpdateDefaultRepositoryPermissionAuditEntryPermission(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -918,7 +970,7 @@ class OrgUpdateDefaultRepositoryPermissionAuditEntryPermission(sgqlc.types.Enum)
 
 class OrgUpdateMemberAuditEntryPermission(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -927,7 +979,7 @@ class OrgUpdateMemberAuditEntryPermission(sgqlc.types.Enum):
 
 class OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -945,7 +997,7 @@ class OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility(sgqlc.type
 
 class OrganizationInvitationRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -954,7 +1006,7 @@ class OrganizationInvitationRole(sgqlc.types.Enum):
 
 class OrganizationInvitationType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -963,7 +1015,7 @@ class OrganizationInvitationType(sgqlc.types.Enum):
 
 class OrganizationMemberRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -972,7 +1024,7 @@ class OrganizationMemberRole(sgqlc.types.Enum):
 
 class OrganizationMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -981,7 +1033,7 @@ class OrganizationMembersCanCreateRepositoriesSettingValue(sgqlc.types.Enum):
 
 class OrganizationOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -990,7 +1042,7 @@ class OrganizationOrderField(sgqlc.types.Enum):
 
 class PackageFileOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -999,7 +1051,7 @@ class PackageFileOrderField(sgqlc.types.Enum):
 
 class PackageOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1008,7 +1060,7 @@ class PackageOrderField(sgqlc.types.Enum):
 
 class PackageType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1017,7 +1069,7 @@ class PackageType(sgqlc.types.Enum):
 
 class PackageVersionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1026,7 +1078,7 @@ class PackageVersionOrderField(sgqlc.types.Enum):
 
 class PatchStatus(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1035,7 +1087,7 @@ class PatchStatus(sgqlc.types.Enum):
 
 class PinnableItemType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1053,7 +1105,7 @@ class PinnableItemType(sgqlc.types.Enum):
 
 class PinnedDiscussionGradient(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1068,7 +1120,7 @@ class PinnedDiscussionGradient(sgqlc.types.Enum):
 
 class PinnedDiscussionPattern(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1077,7 +1129,7 @@ class PinnedDiscussionPattern(sgqlc.types.Enum):
 
 class PreciseDateTime(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1085,7 +1137,7 @@ class PreciseDateTime(sgqlc.types.Scalar):
 
 class ProjectCardArchivedState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1094,7 +1146,7 @@ class ProjectCardArchivedState(sgqlc.types.Enum):
 
 class ProjectCardState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1103,7 +1155,7 @@ class ProjectCardState(sgqlc.types.Enum):
 
 class ProjectColumnPurpose(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1112,7 +1164,7 @@ class ProjectColumnPurpose(sgqlc.types.Enum):
 
 class ProjectItemType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1121,7 +1173,7 @@ class ProjectItemType(sgqlc.types.Enum):
 
 class ProjectNextFieldType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1136,15 +1188,15 @@ class ProjectNextFieldType(sgqlc.types.Enum):
         "REPOSITORY",
         "REVIEWERS",
         "SINGLE_SELECT",
-        "TASKS",
         "TEXT",
         "TITLE",
+        "TRACKS",
     )
 
 
 class ProjectNextOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1153,7 +1205,7 @@ class ProjectNextOrderField(sgqlc.types.Enum):
 
 class ProjectOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1162,7 +1214,7 @@ class ProjectOrderField(sgqlc.types.Enum):
 
 class ProjectState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1171,7 +1223,7 @@ class ProjectState(sgqlc.types.Enum):
 
 class ProjectTemplate(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1185,7 +1237,7 @@ class ProjectTemplate(sgqlc.types.Enum):
 
 class ProjectV2FieldOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1194,7 +1246,7 @@ class ProjectV2FieldOrderField(sgqlc.types.Enum):
 
 class ProjectV2FieldType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1209,15 +1261,15 @@ class ProjectV2FieldType(sgqlc.types.Enum):
         "REPOSITORY",
         "REVIEWERS",
         "SINGLE_SELECT",
-        "TASKS",
         "TEXT",
         "TITLE",
+        "TRACKS",
     )
 
 
 class ProjectV2ItemFieldValueOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1226,7 +1278,7 @@ class ProjectV2ItemFieldValueOrderField(sgqlc.types.Enum):
 
 class ProjectV2ItemOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1235,7 +1287,7 @@ class ProjectV2ItemOrderField(sgqlc.types.Enum):
 
 class ProjectV2ItemType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1244,7 +1296,7 @@ class ProjectV2ItemType(sgqlc.types.Enum):
 
 class ProjectV2OrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1253,7 +1305,7 @@ class ProjectV2OrderField(sgqlc.types.Enum):
 
 class ProjectV2ViewLayout(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1262,7 +1314,7 @@ class ProjectV2ViewLayout(sgqlc.types.Enum):
 
 class ProjectV2ViewOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1271,7 +1323,7 @@ class ProjectV2ViewOrderField(sgqlc.types.Enum):
 
 class ProjectViewLayout(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1280,7 +1332,7 @@ class ProjectViewLayout(sgqlc.types.Enum):
 
 class PullRequestMergeMethod(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1289,7 +1341,7 @@ class PullRequestMergeMethod(sgqlc.types.Enum):
 
 class PullRequestOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1298,7 +1350,7 @@ class PullRequestOrderField(sgqlc.types.Enum):
 
 class PullRequestReviewCommentState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1307,7 +1359,7 @@ class PullRequestReviewCommentState(sgqlc.types.Enum):
 
 class PullRequestReviewDecision(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1316,7 +1368,7 @@ class PullRequestReviewDecision(sgqlc.types.Enum):
 
 class PullRequestReviewEvent(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1325,7 +1377,7 @@ class PullRequestReviewEvent(sgqlc.types.Enum):
 
 class PullRequestReviewState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1334,7 +1386,7 @@ class PullRequestReviewState(sgqlc.types.Enum):
 
 class PullRequestState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1343,7 +1395,7 @@ class PullRequestState(sgqlc.types.Enum):
 
 class PullRequestTimelineItemsItemType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1411,7 +1463,7 @@ class PullRequestTimelineItemsItemType(sgqlc.types.Enum):
 
 class PullRequestUpdateState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1420,7 +1472,7 @@ class PullRequestUpdateState(sgqlc.types.Enum):
 
 class ReactionContent(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1438,7 +1490,7 @@ class ReactionContent(sgqlc.types.Enum):
 
 class ReactionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1447,7 +1499,7 @@ class ReactionOrderField(sgqlc.types.Enum):
 
 class RefOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1456,7 +1508,7 @@ class RefOrderField(sgqlc.types.Enum):
 
 class ReleaseOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1465,7 +1517,7 @@ class ReleaseOrderField(sgqlc.types.Enum):
 
 class RepoAccessAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1474,7 +1526,7 @@ class RepoAccessAuditEntryVisibility(sgqlc.types.Enum):
 
 class RepoAddMemberAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1483,7 +1535,7 @@ class RepoAddMemberAuditEntryVisibility(sgqlc.types.Enum):
 
 class RepoArchivedAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1492,7 +1544,7 @@ class RepoArchivedAuditEntryVisibility(sgqlc.types.Enum):
 
 class RepoChangeMergeSettingAuditEntryMergeType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1501,7 +1553,7 @@ class RepoChangeMergeSettingAuditEntryMergeType(sgqlc.types.Enum):
 
 class RepoCreateAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1510,7 +1562,7 @@ class RepoCreateAuditEntryVisibility(sgqlc.types.Enum):
 
 class RepoDestroyAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1519,7 +1571,7 @@ class RepoDestroyAuditEntryVisibility(sgqlc.types.Enum):
 
 class RepoRemoveMemberAuditEntryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1528,7 +1580,7 @@ class RepoRemoveMemberAuditEntryVisibility(sgqlc.types.Enum):
 
 class ReportedContentClassifiers(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1537,7 +1589,7 @@ class ReportedContentClassifiers(sgqlc.types.Enum):
 
 class RepositoryAffiliation(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1546,7 +1598,7 @@ class RepositoryAffiliation(sgqlc.types.Enum):
 
 class RepositoryContributionType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1561,7 +1613,7 @@ class RepositoryContributionType(sgqlc.types.Enum):
 
 class RepositoryInteractionLimit(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1575,7 +1627,7 @@ class RepositoryInteractionLimit(sgqlc.types.Enum):
 
 class RepositoryInteractionLimitExpiry(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1584,7 +1636,7 @@ class RepositoryInteractionLimitExpiry(sgqlc.types.Enum):
 
 class RepositoryInteractionLimitOrigin(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1593,7 +1645,7 @@ class RepositoryInteractionLimitOrigin(sgqlc.types.Enum):
 
 class RepositoryInvitationOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1602,7 +1654,7 @@ class RepositoryInvitationOrderField(sgqlc.types.Enum):
 
 class RepositoryLockReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1611,7 +1663,7 @@ class RepositoryLockReason(sgqlc.types.Enum):
 
 class RepositoryMigrationOrderDirection(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1620,7 +1672,7 @@ class RepositoryMigrationOrderDirection(sgqlc.types.Enum):
 
 class RepositoryMigrationOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1629,7 +1681,7 @@ class RepositoryMigrationOrderField(sgqlc.types.Enum):
 
 class RepositoryOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1638,7 +1690,7 @@ class RepositoryOrderField(sgqlc.types.Enum):
 
 class RepositoryPermission(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1647,7 +1699,7 @@ class RepositoryPermission(sgqlc.types.Enum):
 
 class RepositoryPrivacy(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1656,7 +1708,7 @@ class RepositoryPrivacy(sgqlc.types.Enum):
 
 class RepositoryVisibility(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1665,7 +1717,7 @@ class RepositoryVisibility(sgqlc.types.Enum):
 
 class RepositoryVulnerabilityAlertDependencyScope(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1674,7 +1726,7 @@ class RepositoryVulnerabilityAlertDependencyScope(sgqlc.types.Enum):
 
 class RepositoryVulnerabilityAlertState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1683,7 +1735,7 @@ class RepositoryVulnerabilityAlertState(sgqlc.types.Enum):
 
 class RequestableCheckStatusState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1692,7 +1744,7 @@ class RequestableCheckStatusState(sgqlc.types.Enum):
 
 class RoleInOrganization(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1701,7 +1753,7 @@ class RoleInOrganization(sgqlc.types.Enum):
 
 class SamlDigestAlgorithm(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1710,7 +1762,7 @@ class SamlDigestAlgorithm(sgqlc.types.Enum):
 
 class SamlSignatureAlgorithm(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1719,7 +1771,7 @@ class SamlSignatureAlgorithm(sgqlc.types.Enum):
 
 class SavedReplyOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1728,7 +1780,7 @@ class SavedReplyOrderField(sgqlc.types.Enum):
 
 class SearchType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1737,7 +1789,7 @@ class SearchType(sgqlc.types.Enum):
 
 class SecurityAdvisoryClassification(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1746,7 +1798,7 @@ class SecurityAdvisoryClassification(sgqlc.types.Enum):
 
 class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1766,7 +1818,7 @@ class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
 
 class SecurityAdvisoryIdentifierType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1775,7 +1827,7 @@ class SecurityAdvisoryIdentifierType(sgqlc.types.Enum):
 
 class SecurityAdvisoryOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1784,7 +1836,7 @@ class SecurityAdvisoryOrderField(sgqlc.types.Enum):
 
 class SecurityAdvisorySeverity(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1793,7 +1845,7 @@ class SecurityAdvisorySeverity(sgqlc.types.Enum):
 
 class SecurityVulnerabilityOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1802,7 +1854,7 @@ class SecurityVulnerabilityOrderField(sgqlc.types.Enum):
 
 class SponsorOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1811,7 +1863,7 @@ class SponsorOrderField(sgqlc.types.Enum):
 
 class SponsorableOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1820,7 +1872,7 @@ class SponsorableOrderField(sgqlc.types.Enum):
 
 class SponsorsActivityAction(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1836,7 +1888,7 @@ class SponsorsActivityAction(sgqlc.types.Enum):
 
 class SponsorsActivityOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1845,7 +1897,7 @@ class SponsorsActivityOrderField(sgqlc.types.Enum):
 
 class SponsorsActivityPeriod(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1854,7 +1906,7 @@ class SponsorsActivityPeriod(sgqlc.types.Enum):
 
 class SponsorsGoalKind(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1863,7 +1915,7 @@ class SponsorsGoalKind(sgqlc.types.Enum):
 
 class SponsorsTierOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1872,7 +1924,7 @@ class SponsorsTierOrderField(sgqlc.types.Enum):
 
 class SponsorshipNewsletterOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1881,7 +1933,7 @@ class SponsorshipNewsletterOrderField(sgqlc.types.Enum):
 
 class SponsorshipOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1890,16 +1942,34 @@ class SponsorshipOrderField(sgqlc.types.Enum):
 
 class SponsorshipPrivacy(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __choices__ = ("PRIVATE", "PUBLIC")
 
 
+class SquashMergeCommitMessage(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("BLANK", "COMMIT_MESSAGES", "PR_BODY")
+
+
+class SquashMergeCommitTitle(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("COMMIT_OR_PR_TITLE", "PR_TITLE")
+
+
 class StarOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1908,7 +1978,7 @@ class StarOrderField(sgqlc.types.Enum):
 
 class StatusState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1920,7 +1990,7 @@ String = sgqlc.types.String
 
 class SubscriptionState(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1929,7 +1999,7 @@ class SubscriptionState(sgqlc.types.Enum):
 
 class TeamDiscussionCommentOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1938,7 +2008,7 @@ class TeamDiscussionCommentOrderField(sgqlc.types.Enum):
 
 class TeamDiscussionOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1947,7 +2017,7 @@ class TeamDiscussionOrderField(sgqlc.types.Enum):
 
 class TeamMemberOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1956,7 +2026,7 @@ class TeamMemberOrderField(sgqlc.types.Enum):
 
 class TeamMemberRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1965,7 +2035,7 @@ class TeamMemberRole(sgqlc.types.Enum):
 
 class TeamMembershipType(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1974,7 +2044,7 @@ class TeamMembershipType(sgqlc.types.Enum):
 
 class TeamOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1983,7 +2053,7 @@ class TeamOrderField(sgqlc.types.Enum):
 
 class TeamPrivacy(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -1992,7 +2062,7 @@ class TeamPrivacy(sgqlc.types.Enum):
 
 class TeamRepositoryOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2008,7 +2078,7 @@ class TeamRepositoryOrderField(sgqlc.types.Enum):
 
 class TeamRole(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2017,7 +2087,7 @@ class TeamRole(sgqlc.types.Enum):
 
 class TopicSuggestionDeclineReason(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2026,7 +2096,7 @@ class TopicSuggestionDeclineReason(sgqlc.types.Enum):
 
 class TrackedIssueStates(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2035,7 +2105,7 @@ class TrackedIssueStates(sgqlc.types.Enum):
 
 class URI(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2043,7 +2113,7 @@ class URI(sgqlc.types.Scalar):
 
 class UserBlockDuration(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2052,7 +2122,7 @@ class UserBlockDuration(sgqlc.types.Enum):
 
 class UserStatusOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2061,16 +2131,25 @@ class UserStatusOrderField(sgqlc.types.Enum):
 
 class VerifiableDomainOrderField(sgqlc.types.Enum):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __choices__ = ("CREATED_AT", "DOMAIN")
 
 
+class WorkflowRunOrderField(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("CREATED_AT",)
+
+
 class X509Certificate(sgqlc.types.Scalar):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2081,7 +2160,7 @@ class X509Certificate(sgqlc.types.Scalar):
 ########################################################################
 class AbortQueuedMigrationsInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2092,7 +2171,7 @@ class AbortQueuedMigrationsInput(sgqlc.types.Input):
 
 class AcceptEnterpriseAdministratorInvitationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2105,7 +2184,7 @@ class AcceptEnterpriseAdministratorInvitationInput(sgqlc.types.Input):
 
 class AcceptTopicSuggestionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2119,7 +2198,7 @@ class AcceptTopicSuggestionInput(sgqlc.types.Input):
 
 class AddAssigneesToAssignableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2136,7 +2215,7 @@ class AddAssigneesToAssignableInput(sgqlc.types.Input):
 
 class AddCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2148,7 +2227,7 @@ class AddCommentInput(sgqlc.types.Input):
 
 class AddDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2163,7 +2242,7 @@ class AddDiscussionCommentInput(sgqlc.types.Input):
 
 class AddDiscussionPollVoteInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2176,7 +2255,7 @@ class AddDiscussionPollVoteInput(sgqlc.types.Input):
 
 class AddEnterpriseSupportEntitlementInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2190,7 +2269,7 @@ class AddEnterpriseSupportEntitlementInput(sgqlc.types.Input):
 
 class AddLabelsToLabelableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2207,7 +2286,7 @@ class AddLabelsToLabelableInput(sgqlc.types.Input):
 
 class AddProjectCardInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2222,7 +2301,7 @@ class AddProjectCardInput(sgqlc.types.Input):
 
 class AddProjectColumnInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2234,7 +2313,7 @@ class AddProjectColumnInput(sgqlc.types.Input):
 
 class AddProjectDraftIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2256,7 +2335,7 @@ class AddProjectDraftIssueInput(sgqlc.types.Input):
 
 class AddProjectNextItemInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2268,7 +2347,7 @@ class AddProjectNextItemInput(sgqlc.types.Input):
 
 class AddProjectV2DraftIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2290,7 +2369,7 @@ class AddProjectV2DraftIssueInput(sgqlc.types.Input):
 
 class AddProjectV2ItemByIdInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2302,7 +2381,7 @@ class AddProjectV2ItemByIdInput(sgqlc.types.Input):
 
 class AddPullRequestReviewCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2328,7 +2407,7 @@ class AddPullRequestReviewCommentInput(sgqlc.types.Input):
 
 class AddPullRequestReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2358,7 +2437,7 @@ class AddPullRequestReviewInput(sgqlc.types.Input):
 
 class AddPullRequestReviewThreadInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2386,7 +2465,7 @@ class AddPullRequestReviewThreadInput(sgqlc.types.Input):
 
 class AddReactionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2400,7 +2479,7 @@ class AddReactionInput(sgqlc.types.Input):
 
 class AddStarInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2413,7 +2492,7 @@ class AddStarInput(sgqlc.types.Input):
 
 class AddUpvoteInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2424,7 +2503,7 @@ class AddUpvoteInput(sgqlc.types.Input):
 
 class AddVerifiableDomainInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2436,7 +2515,7 @@ class AddVerifiableDomainInput(sgqlc.types.Input):
 
 class ApproveDeploymentsInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2459,7 +2538,7 @@ class ApproveDeploymentsInput(sgqlc.types.Input):
 
 class ApproveVerifiableDomainInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2470,7 +2549,7 @@ class ApproveVerifiableDomainInput(sgqlc.types.Input):
 
 class ArchiveRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2483,7 +2562,7 @@ class ArchiveRepositoryInput(sgqlc.types.Input):
 
 class AuditLogOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2494,7 +2573,7 @@ class AuditLogOrder(sgqlc.types.Input):
 
 class CancelEnterpriseAdminInvitationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2507,7 +2586,7 @@ class CancelEnterpriseAdminInvitationInput(sgqlc.types.Input):
 
 class CancelSponsorshipInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2527,7 +2606,7 @@ class CancelSponsorshipInput(sgqlc.types.Input):
 
 class ChangeUserStatusInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2551,7 +2630,7 @@ class ChangeUserStatusInput(sgqlc.types.Input):
 
 class CheckAnnotationData(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2577,7 +2656,7 @@ class CheckAnnotationData(sgqlc.types.Input):
 
 class CheckAnnotationRange(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2590,7 +2669,7 @@ class CheckAnnotationRange(sgqlc.types.Input):
 
 class CheckRunAction(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2606,20 +2685,35 @@ class CheckRunAction(sgqlc.types.Input):
 
 class CheckRunFilter(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("check_type", "app_id", "check_name", "status")
+    __field_names__ = (
+        "check_type",
+        "app_id",
+        "check_name",
+        "status",
+        "statuses",
+        "conclusions",
+    )
     check_type = sgqlc.types.Field(CheckRunType, graphql_name="checkType")
     app_id = sgqlc.types.Field(Int, graphql_name="appId")
     check_name = sgqlc.types.Field(String, graphql_name="checkName")
     status = sgqlc.types.Field(CheckStatusState, graphql_name="status")
+    statuses = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null(CheckStatusState)),
+        graphql_name="statuses",
+    )
+    conclusions = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null(CheckConclusionState)),
+        graphql_name="conclusions",
+    )
 
 
 class CheckRunOutput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2639,7 +2733,7 @@ class CheckRunOutput(sgqlc.types.Input):
 
 class CheckRunOutputImage(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2651,7 +2745,7 @@ class CheckRunOutputImage(sgqlc.types.Input):
 
 class CheckSuiteAutoTriggerPreference(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2662,7 +2756,7 @@ class CheckSuiteAutoTriggerPreference(sgqlc.types.Input):
 
 class CheckSuiteFilter(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2673,7 +2767,7 @@ class CheckSuiteFilter(sgqlc.types.Input):
 
 class ClearLabelsFromLabelableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2684,9 +2778,22 @@ class ClearLabelsFromLabelableInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class ClearProjectV2ItemFieldValueInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "item_id", "field_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    item_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="itemId")
+    field_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="fieldId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class CloneProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2714,7 +2821,7 @@ class CloneProjectInput(sgqlc.types.Input):
 
 class CloneTemplateRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2742,7 +2849,7 @@ class CloneTemplateRepositoryInput(sgqlc.types.Input):
 
 class CloseIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2754,7 +2861,7 @@ class CloseIssueInput(sgqlc.types.Input):
 
 class ClosePullRequestInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2767,7 +2874,7 @@ class ClosePullRequestInput(sgqlc.types.Input):
 
 class CommitAuthor(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2780,7 +2887,7 @@ class CommitAuthor(sgqlc.types.Input):
 
 class CommitContributionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2795,7 +2902,7 @@ class CommitContributionOrder(sgqlc.types.Input):
 
 class CommitMessage(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2806,7 +2913,7 @@ class CommitMessage(sgqlc.types.Input):
 
 class CommittableBranch(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2820,7 +2927,7 @@ class CommittableBranch(sgqlc.types.Input):
 
 class ContributionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2832,7 +2939,7 @@ class ContributionOrder(sgqlc.types.Input):
 
 class ConvertProjectCardNoteToIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2856,7 +2963,7 @@ class ConvertProjectCardNoteToIssueInput(sgqlc.types.Input):
 
 class ConvertPullRequestToDraftInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2869,7 +2976,7 @@ class ConvertPullRequestToDraftInput(sgqlc.types.Input):
 
 class CreateBranchProtectionRuleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -2966,7 +3073,7 @@ class CreateBranchProtectionRuleInput(sgqlc.types.Input):
 
 class CreateCheckRunInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3007,7 +3114,7 @@ class CreateCheckRunInput(sgqlc.types.Input):
 
 class CreateCheckSuiteInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3023,7 +3130,7 @@ class CreateCheckSuiteInput(sgqlc.types.Input):
 
 class CreateCommitOnBranchInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3049,7 +3156,7 @@ class CreateCommitOnBranchInput(sgqlc.types.Input):
 
 class CreateDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3071,7 +3178,7 @@ class CreateDiscussionInput(sgqlc.types.Input):
 
 class CreateEnterpriseOrganizationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3102,7 +3209,7 @@ class CreateEnterpriseOrganizationInput(sgqlc.types.Input):
 
 class CreateEnvironmentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3116,7 +3223,7 @@ class CreateEnvironmentInput(sgqlc.types.Input):
 
 class CreateIpAllowListEntryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3140,7 +3247,7 @@ class CreateIpAllowListEntryInput(sgqlc.types.Input):
 
 class CreateIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3176,7 +3283,7 @@ class CreateIssueInput(sgqlc.types.Input):
 
 class CreateMigrationSourceInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3202,7 +3309,7 @@ class CreateMigrationSourceInput(sgqlc.types.Input):
 
 class CreateProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3226,7 +3333,7 @@ class CreateProjectInput(sgqlc.types.Input):
 
 class CreateProjectV2Input(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3238,7 +3345,7 @@ class CreateProjectV2Input(sgqlc.types.Input):
 
 class CreatePullRequestInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3272,7 +3379,7 @@ class CreatePullRequestInput(sgqlc.types.Input):
 
 class CreateRefInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3287,7 +3394,7 @@ class CreateRefInput(sgqlc.types.Input):
 
 class CreateRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3319,7 +3426,7 @@ class CreateRepositoryInput(sgqlc.types.Input):
 
 class CreateSponsorsTierInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3355,7 +3462,7 @@ class CreateSponsorsTierInput(sgqlc.types.Input):
 
 class CreateSponsorshipInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3385,7 +3492,7 @@ class CreateSponsorshipInput(sgqlc.types.Input):
 
 class CreateTeamDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3399,7 +3506,7 @@ class CreateTeamDiscussionCommentInput(sgqlc.types.Input):
 
 class CreateTeamDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3413,7 +3520,7 @@ class CreateTeamDiscussionInput(sgqlc.types.Input):
 
 class DeclineTopicSuggestionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3430,7 +3537,7 @@ class DeclineTopicSuggestionInput(sgqlc.types.Input):
 
 class DeleteBranchProtectionRuleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3443,7 +3550,7 @@ class DeleteBranchProtectionRuleInput(sgqlc.types.Input):
 
 class DeleteDeploymentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3454,7 +3561,7 @@ class DeleteDeploymentInput(sgqlc.types.Input):
 
 class DeleteDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3465,7 +3572,7 @@ class DeleteDiscussionCommentInput(sgqlc.types.Input):
 
 class DeleteDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3476,7 +3583,7 @@ class DeleteDiscussionInput(sgqlc.types.Input):
 
 class DeleteEnvironmentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3487,7 +3594,7 @@ class DeleteEnvironmentInput(sgqlc.types.Input):
 
 class DeleteIpAllowListEntryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3500,7 +3607,7 @@ class DeleteIpAllowListEntryInput(sgqlc.types.Input):
 
 class DeleteIssueCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3511,7 +3618,7 @@ class DeleteIssueCommentInput(sgqlc.types.Input):
 
 class DeleteIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3522,7 +3629,7 @@ class DeleteIssueInput(sgqlc.types.Input):
 
 class DeleteProjectCardInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3533,7 +3640,7 @@ class DeleteProjectCardInput(sgqlc.types.Input):
 
 class DeleteProjectColumnInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3544,7 +3651,7 @@ class DeleteProjectColumnInput(sgqlc.types.Input):
 
 class DeleteProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3555,7 +3662,7 @@ class DeleteProjectInput(sgqlc.types.Input):
 
 class DeleteProjectNextItemInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3567,7 +3674,7 @@ class DeleteProjectNextItemInput(sgqlc.types.Input):
 
 class DeleteProjectV2ItemInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3579,7 +3686,7 @@ class DeleteProjectV2ItemInput(sgqlc.types.Input):
 
 class DeletePullRequestReviewCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3590,7 +3697,7 @@ class DeletePullRequestReviewCommentInput(sgqlc.types.Input):
 
 class DeletePullRequestReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3603,7 +3710,7 @@ class DeletePullRequestReviewInput(sgqlc.types.Input):
 
 class DeleteRefInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3614,7 +3721,7 @@ class DeleteRefInput(sgqlc.types.Input):
 
 class DeleteTeamDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3625,7 +3732,7 @@ class DeleteTeamDiscussionCommentInput(sgqlc.types.Input):
 
 class DeleteTeamDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3636,7 +3743,7 @@ class DeleteTeamDiscussionInput(sgqlc.types.Input):
 
 class DeleteVerifiableDomainInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3647,7 +3754,7 @@ class DeleteVerifiableDomainInput(sgqlc.types.Input):
 
 class DeploymentOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3662,7 +3769,7 @@ class DeploymentOrder(sgqlc.types.Input):
 
 class DisablePullRequestAutoMergeInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3675,7 +3782,7 @@ class DisablePullRequestAutoMergeInput(sgqlc.types.Input):
 
 class DiscussionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3690,7 +3797,7 @@ class DiscussionOrder(sgqlc.types.Input):
 
 class DiscussionPollOptionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3705,7 +3812,7 @@ class DiscussionPollOptionOrder(sgqlc.types.Input):
 
 class DismissPullRequestReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3719,7 +3826,7 @@ class DismissPullRequestReviewInput(sgqlc.types.Input):
 
 class DismissRepositoryVulnerabilityAlertInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3739,7 +3846,7 @@ class DismissRepositoryVulnerabilityAlertInput(sgqlc.types.Input):
 
 class DraftPullRequestReviewComment(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3751,7 +3858,7 @@ class DraftPullRequestReviewComment(sgqlc.types.Input):
 
 class DraftPullRequestReviewThread(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3766,7 +3873,7 @@ class DraftPullRequestReviewThread(sgqlc.types.Input):
 
 class EnablePullRequestAutoMergeInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3790,7 +3897,7 @@ class EnablePullRequestAutoMergeInput(sgqlc.types.Input):
 
 class EnterpriseAdministratorInvitationOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3806,7 +3913,7 @@ class EnterpriseAdministratorInvitationOrder(sgqlc.types.Input):
 
 class EnterpriseMemberOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3821,7 +3928,7 @@ class EnterpriseMemberOrder(sgqlc.types.Input):
 
 class EnterpriseServerInstallationOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3837,7 +3944,7 @@ class EnterpriseServerInstallationOrder(sgqlc.types.Input):
 
 class EnterpriseServerUserAccountEmailOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3853,7 +3960,7 @@ class EnterpriseServerUserAccountEmailOrder(sgqlc.types.Input):
 
 class EnterpriseServerUserAccountOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3869,7 +3976,7 @@ class EnterpriseServerUserAccountOrder(sgqlc.types.Input):
 
 class EnterpriseServerUserAccountsUploadOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3885,7 +3992,7 @@ class EnterpriseServerUserAccountsUploadOrder(sgqlc.types.Input):
 
 class FileAddition(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3898,7 +4005,7 @@ class FileAddition(sgqlc.types.Input):
 
 class FileChanges(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3915,7 +4022,7 @@ class FileChanges(sgqlc.types.Input):
 
 class FileDeletion(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3925,7 +4032,7 @@ class FileDeletion(sgqlc.types.Input):
 
 class FollowOrganizationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3938,7 +4045,7 @@ class FollowOrganizationInput(sgqlc.types.Input):
 
 class FollowUserInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3949,7 +4056,7 @@ class FollowUserInput(sgqlc.types.Input):
 
 class GistOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3964,7 +4071,7 @@ class GistOrder(sgqlc.types.Input):
 
 class GrantEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3978,7 +4085,7 @@ class GrantEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
 
 class GrantMigratorRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -3995,7 +4102,7 @@ class GrantMigratorRoleInput(sgqlc.types.Input):
 
 class InviteEnterpriseAdminInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4017,7 +4124,7 @@ class InviteEnterpriseAdminInput(sgqlc.types.Input):
 
 class IpAllowListEntryOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4032,7 +4139,7 @@ class IpAllowListEntryOrder(sgqlc.types.Input):
 
 class IssueCommentOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4047,7 +4154,7 @@ class IssueCommentOrder(sgqlc.types.Input):
 
 class IssueFilters(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4079,7 +4186,7 @@ class IssueFilters(sgqlc.types.Input):
 
 class IssueOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4094,7 +4201,7 @@ class IssueOrder(sgqlc.types.Input):
 
 class LabelOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4109,7 +4216,7 @@ class LabelOrder(sgqlc.types.Input):
 
 class LanguageOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4124,7 +4231,7 @@ class LanguageOrder(sgqlc.types.Input):
 
 class LinkRepositoryToProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4138,7 +4245,7 @@ class LinkRepositoryToProjectInput(sgqlc.types.Input):
 
 class LockLockableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4150,7 +4257,7 @@ class LockLockableInput(sgqlc.types.Input):
 
 class MarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4161,7 +4268,7 @@ class MarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
 
 class MarkFileAsViewedInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4175,7 +4282,7 @@ class MarkFileAsViewedInput(sgqlc.types.Input):
 
 class MarkPullRequestReadyForReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4188,7 +4295,7 @@ class MarkPullRequestReadyForReviewInput(sgqlc.types.Input):
 
 class MergeBranchInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4212,7 +4319,7 @@ class MergeBranchInput(sgqlc.types.Input):
 
 class MergePullRequestInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4238,7 +4345,7 @@ class MergePullRequestInput(sgqlc.types.Input):
 
 class MilestoneOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4253,7 +4360,7 @@ class MilestoneOrder(sgqlc.types.Input):
 
 class MinimizeCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4267,7 +4374,7 @@ class MinimizeCommentInput(sgqlc.types.Input):
 
 class MoveProjectCardInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4280,7 +4387,7 @@ class MoveProjectCardInput(sgqlc.types.Input):
 
 class MoveProjectColumnInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4292,7 +4399,7 @@ class MoveProjectColumnInput(sgqlc.types.Input):
 
 class OrgEnterpriseOwnerOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4307,7 +4414,7 @@ class OrgEnterpriseOwnerOrder(sgqlc.types.Input):
 
 class OrganizationOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4322,7 +4429,7 @@ class OrganizationOrder(sgqlc.types.Input):
 
 class PackageFileOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4333,7 +4440,7 @@ class PackageFileOrder(sgqlc.types.Input):
 
 class PackageOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4344,7 +4451,7 @@ class PackageOrder(sgqlc.types.Input):
 
 class PackageVersionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4355,7 +4462,7 @@ class PackageVersionOrder(sgqlc.types.Input):
 
 class PinIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4366,7 +4473,7 @@ class PinIssueInput(sgqlc.types.Input):
 
 class ProjectOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4381,7 +4488,7 @@ class ProjectOrder(sgqlc.types.Input):
 
 class ProjectV2FieldOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4396,7 +4503,7 @@ class ProjectV2FieldOrder(sgqlc.types.Input):
 
 class ProjectV2FieldValue(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4418,7 +4525,7 @@ class ProjectV2FieldValue(sgqlc.types.Input):
 
 class ProjectV2ItemFieldValueOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4433,7 +4540,7 @@ class ProjectV2ItemFieldValueOrder(sgqlc.types.Input):
 
 class ProjectV2ItemOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4448,7 +4555,7 @@ class ProjectV2ItemOrder(sgqlc.types.Input):
 
 class ProjectV2Order(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4463,7 +4570,7 @@ class ProjectV2Order(sgqlc.types.Input):
 
 class ProjectV2ViewOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4478,7 +4585,7 @@ class ProjectV2ViewOrder(sgqlc.types.Input):
 
 class PullRequestOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4493,7 +4600,7 @@ class PullRequestOrder(sgqlc.types.Input):
 
 class ReactionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4508,7 +4615,7 @@ class ReactionOrder(sgqlc.types.Input):
 
 class RefOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4521,7 +4628,7 @@ class RefOrder(sgqlc.types.Input):
 
 class RegenerateEnterpriseIdentityProviderRecoveryCodesInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4534,7 +4641,7 @@ class RegenerateEnterpriseIdentityProviderRecoveryCodesInput(sgqlc.types.Input):
 
 class RegenerateVerifiableDomainTokenInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4545,7 +4652,7 @@ class RegenerateVerifiableDomainTokenInput(sgqlc.types.Input):
 
 class RejectDeploymentsInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4568,7 +4675,7 @@ class RejectDeploymentsInput(sgqlc.types.Input):
 
 class ReleaseOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4583,7 +4690,7 @@ class ReleaseOrder(sgqlc.types.Input):
 
 class RemoveAssigneesFromAssignableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4600,7 +4707,7 @@ class RemoveAssigneesFromAssignableInput(sgqlc.types.Input):
 
 class RemoveEnterpriseAdminInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4614,7 +4721,7 @@ class RemoveEnterpriseAdminInput(sgqlc.types.Input):
 
 class RemoveEnterpriseIdentityProviderInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4627,7 +4734,7 @@ class RemoveEnterpriseIdentityProviderInput(sgqlc.types.Input):
 
 class RemoveEnterpriseOrganizationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4643,7 +4750,7 @@ class RemoveEnterpriseOrganizationInput(sgqlc.types.Input):
 
 class RemoveEnterpriseSupportEntitlementInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4657,7 +4764,7 @@ class RemoveEnterpriseSupportEntitlementInput(sgqlc.types.Input):
 
 class RemoveLabelsFromLabelableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4674,7 +4781,7 @@ class RemoveLabelsFromLabelableInput(sgqlc.types.Input):
 
 class RemoveOutsideCollaboratorInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4688,7 +4795,7 @@ class RemoveOutsideCollaboratorInput(sgqlc.types.Input):
 
 class RemoveReactionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4702,7 +4809,7 @@ class RemoveReactionInput(sgqlc.types.Input):
 
 class RemoveStarInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4715,7 +4822,7 @@ class RemoveStarInput(sgqlc.types.Input):
 
 class RemoveUpvoteInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4726,7 +4833,7 @@ class RemoveUpvoteInput(sgqlc.types.Input):
 
 class ReopenIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4737,7 +4844,7 @@ class ReopenIssueInput(sgqlc.types.Input):
 
 class ReopenPullRequestInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4750,7 +4857,7 @@ class ReopenPullRequestInput(sgqlc.types.Input):
 
 class RepositoryInvitationOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4765,7 +4872,7 @@ class RepositoryInvitationOrder(sgqlc.types.Input):
 
 class RepositoryMigrationOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4781,7 +4888,7 @@ class RepositoryMigrationOrder(sgqlc.types.Input):
 
 class RepositoryOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4796,7 +4903,7 @@ class RepositoryOrder(sgqlc.types.Input):
 
 class RequestReviewsInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4822,7 +4929,7 @@ class RequestReviewsInput(sgqlc.types.Input):
 
 class RequiredStatusCheckInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4833,7 +4940,7 @@ class RequiredStatusCheckInput(sgqlc.types.Input):
 
 class RerequestCheckSuiteInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4849,7 +4956,7 @@ class RerequestCheckSuiteInput(sgqlc.types.Input):
 
 class ResolveReviewThreadInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4860,7 +4967,7 @@ class ResolveReviewThreadInput(sgqlc.types.Input):
 
 class RevokeEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4874,7 +4981,7 @@ class RevokeEnterpriseOrganizationsMigratorRoleInput(sgqlc.types.Input):
 
 class RevokeMigratorRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4891,7 +4998,7 @@ class RevokeMigratorRoleInput(sgqlc.types.Input):
 
 class SavedReplyOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4906,7 +5013,7 @@ class SavedReplyOrder(sgqlc.types.Input):
 
 class SecurityAdvisoryIdentifierFilter(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4919,7 +5026,7 @@ class SecurityAdvisoryIdentifierFilter(sgqlc.types.Input):
 
 class SecurityAdvisoryOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4934,7 +5041,7 @@ class SecurityAdvisoryOrder(sgqlc.types.Input):
 
 class SecurityVulnerabilityOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4949,7 +5056,7 @@ class SecurityVulnerabilityOrder(sgqlc.types.Input):
 
 class SetEnterpriseIdentityProviderInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4981,7 +5088,7 @@ class SetEnterpriseIdentityProviderInput(sgqlc.types.Input):
 
 class SetOrganizationInteractionLimitInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -4998,7 +5105,7 @@ class SetOrganizationInteractionLimitInput(sgqlc.types.Input):
 
 class SetRepositoryInteractionLimitInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5015,7 +5122,7 @@ class SetRepositoryInteractionLimitInput(sgqlc.types.Input):
 
 class SetUserInteractionLimitInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5030,7 +5137,7 @@ class SetUserInteractionLimitInput(sgqlc.types.Input):
 
 class SponsorOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5045,7 +5152,7 @@ class SponsorOrder(sgqlc.types.Input):
 
 class SponsorableOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5060,7 +5167,7 @@ class SponsorableOrder(sgqlc.types.Input):
 
 class SponsorsActivityOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5075,7 +5182,7 @@ class SponsorsActivityOrder(sgqlc.types.Input):
 
 class SponsorsTierOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5090,7 +5197,7 @@ class SponsorsTierOrder(sgqlc.types.Input):
 
 class SponsorshipNewsletterOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5105,7 +5212,7 @@ class SponsorshipNewsletterOrder(sgqlc.types.Input):
 
 class SponsorshipOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5120,7 +5227,7 @@ class SponsorshipOrder(sgqlc.types.Input):
 
 class StarOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5135,7 +5242,7 @@ class StarOrder(sgqlc.types.Input):
 
 class StartRepositoryMigrationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5151,6 +5258,7 @@ class StartRepositoryMigrationInput(sgqlc.types.Input):
         "github_pat",
         "skip_releases",
         "target_repo_visibility",
+        "lock_source",
         "client_mutation_id",
     )
     source_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="sourceId")
@@ -5172,12 +5280,13 @@ class StartRepositoryMigrationInput(sgqlc.types.Input):
     target_repo_visibility = sgqlc.types.Field(
         String, graphql_name="targetRepoVisibility"
     )
+    lock_source = sgqlc.types.Field(Boolean, graphql_name="lockSource")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class SubmitPullRequestReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5199,7 +5308,7 @@ class SubmitPullRequestReviewInput(sgqlc.types.Input):
 
 class TeamDiscussionCommentOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5214,7 +5323,7 @@ class TeamDiscussionCommentOrder(sgqlc.types.Input):
 
 class TeamDiscussionOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5229,7 +5338,7 @@ class TeamDiscussionOrder(sgqlc.types.Input):
 
 class TeamMemberOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5244,7 +5353,7 @@ class TeamMemberOrder(sgqlc.types.Input):
 
 class TeamOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5259,7 +5368,7 @@ class TeamOrder(sgqlc.types.Input):
 
 class TeamRepositoryOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5274,21 +5383,29 @@ class TeamRepositoryOrder(sgqlc.types.Input):
 
 class TransferIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("issue_id", "repository_id", "client_mutation_id")
+    __field_names__ = (
+        "issue_id",
+        "repository_id",
+        "create_labels_if_missing",
+        "client_mutation_id",
+    )
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
     repository_id = sgqlc.types.Field(
         sgqlc.types.non_null(ID), graphql_name="repositoryId"
+    )
+    create_labels_if_missing = sgqlc.types.Field(
+        Boolean, graphql_name="createLabelsIfMissing"
     )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class UnarchiveRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5301,7 +5418,7 @@ class UnarchiveRepositoryInput(sgqlc.types.Input):
 
 class UnfollowOrganizationInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5314,7 +5431,7 @@ class UnfollowOrganizationInput(sgqlc.types.Input):
 
 class UnfollowUserInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5325,7 +5442,7 @@ class UnfollowUserInput(sgqlc.types.Input):
 
 class UnlinkRepositoryFromProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5339,7 +5456,7 @@ class UnlinkRepositoryFromProjectInput(sgqlc.types.Input):
 
 class UnlockLockableInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5350,7 +5467,7 @@ class UnlockLockableInput(sgqlc.types.Input):
 
 class UnmarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5361,7 +5478,7 @@ class UnmarkDiscussionCommentAsAnswerInput(sgqlc.types.Input):
 
 class UnmarkFileAsViewedInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5375,7 +5492,7 @@ class UnmarkFileAsViewedInput(sgqlc.types.Input):
 
 class UnmarkIssueAsDuplicateInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5391,7 +5508,7 @@ class UnmarkIssueAsDuplicateInput(sgqlc.types.Input):
 
 class UnminimizeCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5402,7 +5519,7 @@ class UnminimizeCommentInput(sgqlc.types.Input):
 
 class UnpinIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5413,7 +5530,7 @@ class UnpinIssueInput(sgqlc.types.Input):
 
 class UnresolveReviewThreadInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5424,7 +5541,7 @@ class UnresolveReviewThreadInput(sgqlc.types.Input):
 
 class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5521,7 +5638,7 @@ class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
 
 class UpdateCheckRunInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5562,7 +5679,7 @@ class UpdateCheckRunInput(sgqlc.types.Input):
 
 class UpdateCheckSuitePreferencesInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5585,7 +5702,7 @@ class UpdateCheckSuitePreferencesInput(sgqlc.types.Input):
 
 class UpdateDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5597,7 +5714,7 @@ class UpdateDiscussionCommentInput(sgqlc.types.Input):
 
 class UpdateDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5619,7 +5736,7 @@ class UpdateDiscussionInput(sgqlc.types.Input):
 
 class UpdateEnterpriseAdministratorRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5636,11 +5753,16 @@ class UpdateEnterpriseAdministratorRoleInput(sgqlc.types.Input):
 
 class UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("enterprise_id", "setting_value", "client_mutation_id")
+    __field_names__ = (
+        "enterprise_id",
+        "setting_value",
+        "policy_value",
+        "client_mutation_id",
+    )
     enterprise_id = sgqlc.types.Field(
         sgqlc.types.non_null(ID), graphql_name="enterpriseId"
     )
@@ -5648,12 +5770,15 @@ class UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Inpu
         sgqlc.types.non_null(EnterpriseEnabledDisabledSettingValue),
         graphql_name="settingValue",
     )
+    policy_value = sgqlc.types.Field(
+        EnterpriseAllowPrivateRepositoryForkingPolicyValue, graphql_name="policyValue"
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class UpdateEnterpriseDefaultRepositoryPermissionSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5672,7 +5797,7 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput(
     sgqlc.types.Input
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5689,7 +5814,7 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput(
 
 class UpdateEnterpriseMembersCanCreateRepositoriesSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5725,7 +5850,7 @@ class UpdateEnterpriseMembersCanCreateRepositoriesSettingInput(sgqlc.types.Input
 
 class UpdateEnterpriseMembersCanDeleteIssuesSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5742,7 +5867,7 @@ class UpdateEnterpriseMembersCanDeleteIssuesSettingInput(sgqlc.types.Input):
 
 class UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5759,7 +5884,7 @@ class UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput(sgqlc.types.Input
 
 class UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5776,7 +5901,7 @@ class UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput(sgqlc.types.Inpu
 
 class UpdateEnterpriseMembersCanMakePurchasesSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5793,7 +5918,7 @@ class UpdateEnterpriseMembersCanMakePurchasesSettingInput(sgqlc.types.Input):
 
 class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5810,7 +5935,7 @@ class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput(sgqlc.types.
 
 class UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5827,7 +5952,7 @@ class UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput(sgqlc.types.I
 
 class UpdateEnterpriseOrganizationProjectsSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5844,7 +5969,7 @@ class UpdateEnterpriseOrganizationProjectsSettingInput(sgqlc.types.Input):
 
 class UpdateEnterpriseOwnerOrganizationRoleInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5868,7 +5993,7 @@ class UpdateEnterpriseOwnerOrganizationRoleInput(sgqlc.types.Input):
 
 class UpdateEnterpriseProfileInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5892,7 +6017,7 @@ class UpdateEnterpriseProfileInput(sgqlc.types.Input):
 
 class UpdateEnterpriseRepositoryProjectsSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5909,7 +6034,7 @@ class UpdateEnterpriseRepositoryProjectsSettingInput(sgqlc.types.Input):
 
 class UpdateEnterpriseTeamDiscussionsSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5926,7 +6051,7 @@ class UpdateEnterpriseTeamDiscussionsSettingInput(sgqlc.types.Input):
 
 class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5942,7 +6067,7 @@ class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput(sgqlc.types.In
 
 class UpdateEnvironmentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5964,7 +6089,7 @@ class UpdateEnvironmentInput(sgqlc.types.Input):
 
 class UpdateIpAllowListEnabledSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -5979,7 +6104,7 @@ class UpdateIpAllowListEnabledSettingInput(sgqlc.types.Input):
 
 class UpdateIpAllowListEntryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6005,7 +6130,7 @@ class UpdateIpAllowListEntryInput(sgqlc.types.Input):
 
 class UpdateIpAllowListForInstalledAppsEnabledSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6020,7 +6145,7 @@ class UpdateIpAllowListForInstalledAppsEnabledSettingInput(sgqlc.types.Input):
 
 class UpdateIssueCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6032,7 +6157,7 @@ class UpdateIssueCommentInput(sgqlc.types.Input):
 
 class UpdateIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6066,7 +6191,7 @@ class UpdateIssueInput(sgqlc.types.Input):
 
 class UpdateNotificationRestrictionSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6081,7 +6206,7 @@ class UpdateNotificationRestrictionSettingInput(sgqlc.types.Input):
 
 class UpdateOrganizationAllowPrivateRepositoryForkingSettingInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6095,9 +6220,29 @@ class UpdateOrganizationAllowPrivateRepositoryForkingSettingInput(sgqlc.types.In
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class UpdateOrganizationWebCommitSignoffSettingInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = (
+        "organization_id",
+        "web_commit_signoff_required",
+        "client_mutation_id",
+    )
+    organization_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="organizationId"
+    )
+    web_commit_signoff_required = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="webCommitSignoffRequired"
+    )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class UpdateProjectCardInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6112,7 +6257,7 @@ class UpdateProjectCardInput(sgqlc.types.Input):
 
 class UpdateProjectColumnInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6126,7 +6271,7 @@ class UpdateProjectColumnInput(sgqlc.types.Input):
 
 class UpdateProjectDraftIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6150,7 +6295,7 @@ class UpdateProjectDraftIssueInput(sgqlc.types.Input):
 
 class UpdateProjectInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6172,7 +6317,7 @@ class UpdateProjectInput(sgqlc.types.Input):
 
 class UpdateProjectNextInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6196,7 +6341,7 @@ class UpdateProjectNextInput(sgqlc.types.Input):
 
 class UpdateProjectNextItemFieldInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6216,7 +6361,7 @@ class UpdateProjectNextItemFieldInput(sgqlc.types.Input):
 
 class UpdateProjectV2DraftIssueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6240,7 +6385,7 @@ class UpdateProjectV2DraftIssueInput(sgqlc.types.Input):
 
 class UpdateProjectV2Input(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6264,7 +6409,7 @@ class UpdateProjectV2Input(sgqlc.types.Input):
 
 class UpdateProjectV2ItemFieldValueInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6286,7 +6431,7 @@ class UpdateProjectV2ItemFieldValueInput(sgqlc.types.Input):
 
 class UpdateProjectV2ItemPositionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6299,7 +6444,7 @@ class UpdateProjectV2ItemPositionInput(sgqlc.types.Input):
 
 class UpdatePullRequestBranchInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6313,7 +6458,7 @@ class UpdatePullRequestBranchInput(sgqlc.types.Input):
 
 class UpdatePullRequestInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6355,7 +6500,7 @@ class UpdatePullRequestInput(sgqlc.types.Input):
 
 class UpdatePullRequestReviewCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6369,7 +6514,7 @@ class UpdatePullRequestReviewCommentInput(sgqlc.types.Input):
 
 class UpdatePullRequestReviewInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6383,7 +6528,7 @@ class UpdatePullRequestReviewInput(sgqlc.types.Input):
 
 class UpdateRefInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6396,7 +6541,7 @@ class UpdateRefInput(sgqlc.types.Input):
 
 class UpdateRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6424,9 +6569,29 @@ class UpdateRepositoryInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class UpdateRepositoryWebCommitSignoffSettingInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = (
+        "repository_id",
+        "web_commit_signoff_required",
+        "client_mutation_id",
+    )
+    repository_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="repositoryId"
+    )
+    web_commit_signoff_required = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="webCommitSignoffRequired"
+    )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class UpdateSponsorshipPreferencesInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6450,7 +6615,7 @@ class UpdateSponsorshipPreferencesInput(sgqlc.types.Input):
 
 class UpdateSubscriptionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6466,7 +6631,7 @@ class UpdateSubscriptionInput(sgqlc.types.Input):
 
 class UpdateTeamDiscussionCommentInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6479,7 +6644,7 @@ class UpdateTeamDiscussionCommentInput(sgqlc.types.Input):
 
 class UpdateTeamDiscussionInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6501,7 +6666,7 @@ class UpdateTeamDiscussionInput(sgqlc.types.Input):
 
 class UpdateTeamsRepositoryInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6521,7 +6686,7 @@ class UpdateTeamsRepositoryInput(sgqlc.types.Input):
 
 class UpdateTopicsInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6538,7 +6703,7 @@ class UpdateTopicsInput(sgqlc.types.Input):
 
 class UserStatusOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6553,7 +6718,7 @@ class UserStatusOrder(sgqlc.types.Input):
 
 class VerifiableDomainOrder(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6568,7 +6733,7 @@ class VerifiableDomainOrder(sgqlc.types.Input):
 
 class VerifyVerifiableDomainInput(sgqlc.types.Input):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6577,12 +6742,27 @@ class VerifyVerifiableDomainInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class WorkflowRunOrder(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("field", "direction")
+    field = sgqlc.types.Field(
+        sgqlc.types.non_null(WorkflowRunOrderField), graphql_name="field"
+    )
+    direction = sgqlc.types.Field(
+        sgqlc.types.non_null(OrderDirection), graphql_name="direction"
+    )
+
+
 ########################################################################
 # Output Objects and Interfaces
 ########################################################################
 class AbortQueuedMigrationsPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6593,7 +6773,7 @@ class AbortQueuedMigrationsPayload(sgqlc.types.Type):
 
 class AcceptEnterpriseAdministratorInvitationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6607,7 +6787,7 @@ class AcceptEnterpriseAdministratorInvitationPayload(sgqlc.types.Type):
 
 class AcceptTopicSuggestionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6618,7 +6798,7 @@ class AcceptTopicSuggestionPayload(sgqlc.types.Type):
 
 class Actor(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6639,7 +6819,7 @@ class Actor(sgqlc.types.Interface):
 
 class ActorLocation(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6653,7 +6833,7 @@ class ActorLocation(sgqlc.types.Type):
 
 class AddAssigneesToAssignablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6664,7 +6844,7 @@ class AddAssigneesToAssignablePayload(sgqlc.types.Type):
 
 class AddCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6679,7 +6859,7 @@ class AddCommentPayload(sgqlc.types.Type):
 
 class AddDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6690,7 +6870,7 @@ class AddDiscussionCommentPayload(sgqlc.types.Type):
 
 class AddDiscussionPollVotePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6701,7 +6881,7 @@ class AddDiscussionPollVotePayload(sgqlc.types.Type):
 
 class AddEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6712,7 +6892,7 @@ class AddEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
 
 class AddLabelsToLabelablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6723,7 +6903,7 @@ class AddLabelsToLabelablePayload(sgqlc.types.Type):
 
 class AddProjectCardPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6735,7 +6915,7 @@ class AddProjectCardPayload(sgqlc.types.Type):
 
 class AddProjectColumnPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6747,7 +6927,7 @@ class AddProjectColumnPayload(sgqlc.types.Type):
 
 class AddProjectDraftIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6760,7 +6940,7 @@ class AddProjectDraftIssuePayload(sgqlc.types.Type):
 
 class AddProjectNextItemPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6773,7 +6953,7 @@ class AddProjectNextItemPayload(sgqlc.types.Type):
 
 class AddProjectV2DraftIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6784,7 +6964,7 @@ class AddProjectV2DraftIssuePayload(sgqlc.types.Type):
 
 class AddProjectV2ItemByIdPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6795,7 +6975,7 @@ class AddProjectV2ItemByIdPayload(sgqlc.types.Type):
 
 class AddPullRequestReviewCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6809,7 +6989,7 @@ class AddPullRequestReviewCommentPayload(sgqlc.types.Type):
 
 class AddPullRequestReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6823,7 +7003,7 @@ class AddPullRequestReviewPayload(sgqlc.types.Type):
 
 class AddPullRequestReviewThreadPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6834,7 +7014,7 @@ class AddPullRequestReviewThreadPayload(sgqlc.types.Type):
 
 class AddReactionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6846,7 +7026,7 @@ class AddReactionPayload(sgqlc.types.Type):
 
 class AddStarPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6857,7 +7037,7 @@ class AddStarPayload(sgqlc.types.Type):
 
 class AddUpvotePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6868,7 +7048,7 @@ class AddUpvotePayload(sgqlc.types.Type):
 
 class AddVerifiableDomainPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6879,7 +7059,7 @@ class AddVerifiableDomainPayload(sgqlc.types.Type):
 
 class ApproveDeploymentsPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6893,7 +7073,7 @@ class ApproveDeploymentsPayload(sgqlc.types.Type):
 
 class ApproveVerifiableDomainPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6904,7 +7084,7 @@ class ApproveVerifiableDomainPayload(sgqlc.types.Type):
 
 class ArchiveRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6915,7 +7095,7 @@ class ArchiveRepositoryPayload(sgqlc.types.Type):
 
 class Assignable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6939,7 +7119,7 @@ class Assignable(sgqlc.types.Interface):
 
 class AuditEntry(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -6977,7 +7157,7 @@ class AuditEntry(sgqlc.types.Interface):
 
 class AutoMergeRequest(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7005,7 +7185,7 @@ class AutoMergeRequest(sgqlc.types.Type):
 
 class Blame(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7018,7 +7198,7 @@ class Blame(sgqlc.types.Type):
 
 class BlameRange(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7035,7 +7215,7 @@ class BlameRange(sgqlc.types.Type):
 
 class BranchProtectionRuleConflict(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7055,7 +7235,7 @@ class BranchProtectionRuleConflict(sgqlc.types.Type):
 
 class BranchProtectionRuleConflictConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7076,7 +7256,7 @@ class BranchProtectionRuleConflictConnection(sgqlc.types.relay.Connection):
 
 class BranchProtectionRuleConflictEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7087,7 +7267,7 @@ class BranchProtectionRuleConflictEdge(sgqlc.types.Type):
 
 class BranchProtectionRuleConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7108,7 +7288,7 @@ class BranchProtectionRuleConnection(sgqlc.types.relay.Connection):
 
 class BranchProtectionRuleEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7119,7 +7299,7 @@ class BranchProtectionRuleEdge(sgqlc.types.Type):
 
 class BypassForcePushAllowanceConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7140,7 +7320,7 @@ class BypassForcePushAllowanceConnection(sgqlc.types.relay.Connection):
 
 class BypassForcePushAllowanceEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7151,7 +7331,7 @@ class BypassForcePushAllowanceEdge(sgqlc.types.Type):
 
 class BypassPullRequestAllowanceConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7172,7 +7352,7 @@ class BypassPullRequestAllowanceConnection(sgqlc.types.relay.Connection):
 
 class BypassPullRequestAllowanceEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7183,7 +7363,7 @@ class BypassPullRequestAllowanceEdge(sgqlc.types.Type):
 
 class CVSS(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7194,7 +7374,7 @@ class CVSS(sgqlc.types.Type):
 
 class CWEConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7211,7 +7391,7 @@ class CWEConnection(sgqlc.types.relay.Connection):
 
 class CWEEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7222,7 +7402,7 @@ class CWEEdge(sgqlc.types.Type):
 
 class CancelEnterpriseAdminInvitationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7236,7 +7416,7 @@ class CancelEnterpriseAdminInvitationPayload(sgqlc.types.Type):
 
 class CancelSponsorshipPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7247,7 +7427,7 @@ class CancelSponsorshipPayload(sgqlc.types.Type):
 
 class ChangeUserStatusPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7258,7 +7438,7 @@ class ChangeUserStatusPayload(sgqlc.types.Type):
 
 class CheckAnnotation(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7288,7 +7468,7 @@ class CheckAnnotation(sgqlc.types.Type):
 
 class CheckAnnotationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7309,7 +7489,7 @@ class CheckAnnotationConnection(sgqlc.types.relay.Connection):
 
 class CheckAnnotationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7320,7 +7500,7 @@ class CheckAnnotationEdge(sgqlc.types.Type):
 
 class CheckAnnotationPosition(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7331,7 +7511,7 @@ class CheckAnnotationPosition(sgqlc.types.Type):
 
 class CheckAnnotationSpan(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7346,7 +7526,7 @@ class CheckAnnotationSpan(sgqlc.types.Type):
 
 class CheckRunConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7363,7 +7543,7 @@ class CheckRunConnection(sgqlc.types.relay.Connection):
 
 class CheckRunEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7372,9 +7552,20 @@ class CheckRunEdge(sgqlc.types.Type):
     node = sgqlc.types.Field("CheckRun", graphql_name="node")
 
 
+class CheckRunStateCount(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("count", "state")
+    count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="count")
+    state = sgqlc.types.Field(sgqlc.types.non_null(CheckRunState), graphql_name="state")
+
+
 class CheckStep(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7402,7 +7593,7 @@ class CheckStep(sgqlc.types.Type):
 
 class CheckStepConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7421,7 +7612,7 @@ class CheckStepConnection(sgqlc.types.relay.Connection):
 
 class CheckStepEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7432,7 +7623,7 @@ class CheckStepEdge(sgqlc.types.Type):
 
 class CheckSuiteConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7451,7 +7642,7 @@ class CheckSuiteConnection(sgqlc.types.relay.Connection):
 
 class CheckSuiteEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7462,7 +7653,7 @@ class CheckSuiteEdge(sgqlc.types.Type):
 
 class ClearLabelsFromLabelablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7471,9 +7662,20 @@ class ClearLabelsFromLabelablePayload(sgqlc.types.Type):
     labelable = sgqlc.types.Field("Labelable", graphql_name="labelable")
 
 
+class ClearProjectV2ItemFieldValuePayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "project_v2_item")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    project_v2_item = sgqlc.types.Field("ProjectV2Item", graphql_name="projectV2Item")
+
+
 class CloneProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7485,7 +7687,7 @@ class CloneProjectPayload(sgqlc.types.Type):
 
 class CloneTemplateRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7496,7 +7698,7 @@ class CloneTemplateRepositoryPayload(sgqlc.types.Type):
 
 class Closable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7507,7 +7709,7 @@ class Closable(sgqlc.types.Interface):
 
 class CloseIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7518,7 +7720,7 @@ class CloseIssuePayload(sgqlc.types.Type):
 
 class ClosePullRequestPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7529,7 +7731,7 @@ class ClosePullRequestPayload(sgqlc.types.Type):
 
 class Comment(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7595,7 +7797,7 @@ class Comment(sgqlc.types.Interface):
 
 class CommitCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7616,7 +7818,7 @@ class CommitCommentConnection(sgqlc.types.relay.Connection):
 
 class CommitCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7627,7 +7829,7 @@ class CommitCommentEdge(sgqlc.types.Type):
 
 class CommitConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7644,7 +7846,7 @@ class CommitConnection(sgqlc.types.relay.Connection):
 
 class CommitContributionsByRepository(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7683,7 +7885,7 @@ class CommitContributionsByRepository(sgqlc.types.Type):
 
 class CommitEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7694,7 +7896,7 @@ class CommitEdge(sgqlc.types.Type):
 
 class CommitHistoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7711,7 +7913,7 @@ class CommitHistoryConnection(sgqlc.types.relay.Connection):
 
 class Contribution(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7731,7 +7933,7 @@ class Contribution(sgqlc.types.Interface):
 
 class ContributionCalendar(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7768,7 +7970,7 @@ class ContributionCalendar(sgqlc.types.Type):
 
 class ContributionCalendarDay(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7792,7 +7994,7 @@ class ContributionCalendarDay(sgqlc.types.Type):
 
 class ContributionCalendarMonth(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7807,7 +8009,7 @@ class ContributionCalendarMonth(sgqlc.types.Type):
 
 class ContributionCalendarWeek(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -7823,7 +8025,7 @@ class ContributionCalendarWeek(sgqlc.types.Type):
 
 class ContributionsCollection(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8247,7 +8449,7 @@ class ContributionsCollection(sgqlc.types.Type):
 
 class ConvertProjectCardNoteToIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8258,7 +8460,7 @@ class ConvertProjectCardNoteToIssuePayload(sgqlc.types.Type):
 
 class ConvertPullRequestToDraftPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8269,7 +8471,7 @@ class ConvertPullRequestToDraftPayload(sgqlc.types.Type):
 
 class CreateBranchProtectionRulePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8282,7 +8484,7 @@ class CreateBranchProtectionRulePayload(sgqlc.types.Type):
 
 class CreateCheckRunPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8293,7 +8495,7 @@ class CreateCheckRunPayload(sgqlc.types.Type):
 
 class CreateCheckSuitePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8304,7 +8506,7 @@ class CreateCheckSuitePayload(sgqlc.types.Type):
 
 class CreateCommitOnBranchPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8316,7 +8518,7 @@ class CreateCommitOnBranchPayload(sgqlc.types.Type):
 
 class CreateDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8327,7 +8529,7 @@ class CreateDiscussionPayload(sgqlc.types.Type):
 
 class CreateEnterpriseOrganizationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8339,7 +8541,7 @@ class CreateEnterpriseOrganizationPayload(sgqlc.types.Type):
 
 class CreateEnvironmentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8350,7 +8552,7 @@ class CreateEnvironmentPayload(sgqlc.types.Type):
 
 class CreateIpAllowListEntryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8363,7 +8565,7 @@ class CreateIpAllowListEntryPayload(sgqlc.types.Type):
 
 class CreateIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8374,7 +8576,7 @@ class CreateIssuePayload(sgqlc.types.Type):
 
 class CreateMigrationSourcePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8387,7 +8589,7 @@ class CreateMigrationSourcePayload(sgqlc.types.Type):
 
 class CreateProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8398,7 +8600,7 @@ class CreateProjectPayload(sgqlc.types.Type):
 
 class CreateProjectV2Payload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8409,7 +8611,7 @@ class CreateProjectV2Payload(sgqlc.types.Type):
 
 class CreatePullRequestPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8420,7 +8622,7 @@ class CreatePullRequestPayload(sgqlc.types.Type):
 
 class CreateRefPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8431,7 +8633,7 @@ class CreateRefPayload(sgqlc.types.Type):
 
 class CreateRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8442,7 +8644,7 @@ class CreateRepositoryPayload(sgqlc.types.Type):
 
 class CreateSponsorsTierPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8453,7 +8655,7 @@ class CreateSponsorsTierPayload(sgqlc.types.Type):
 
 class CreateSponsorshipPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8464,7 +8666,7 @@ class CreateSponsorshipPayload(sgqlc.types.Type):
 
 class CreateTeamDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8477,7 +8679,7 @@ class CreateTeamDiscussionCommentPayload(sgqlc.types.Type):
 
 class CreateTeamDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8488,7 +8690,7 @@ class CreateTeamDiscussionPayload(sgqlc.types.Type):
 
 class CreatedCommitContributionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8509,7 +8711,7 @@ class CreatedCommitContributionConnection(sgqlc.types.relay.Connection):
 
 class CreatedCommitContributionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8520,7 +8722,7 @@ class CreatedCommitContributionEdge(sgqlc.types.Type):
 
 class CreatedIssueContributionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8541,7 +8743,7 @@ class CreatedIssueContributionConnection(sgqlc.types.relay.Connection):
 
 class CreatedIssueContributionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8552,7 +8754,7 @@ class CreatedIssueContributionEdge(sgqlc.types.Type):
 
 class CreatedPullRequestContributionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8573,7 +8775,7 @@ class CreatedPullRequestContributionConnection(sgqlc.types.relay.Connection):
 
 class CreatedPullRequestContributionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8584,7 +8786,7 @@ class CreatedPullRequestContributionEdge(sgqlc.types.Type):
 
 class CreatedPullRequestReviewContributionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8607,7 +8809,7 @@ class CreatedPullRequestReviewContributionConnection(sgqlc.types.relay.Connectio
 
 class CreatedPullRequestReviewContributionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8620,7 +8822,7 @@ class CreatedPullRequestReviewContributionEdge(sgqlc.types.Type):
 
 class CreatedRepositoryContributionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8641,7 +8843,7 @@ class CreatedRepositoryContributionConnection(sgqlc.types.relay.Connection):
 
 class CreatedRepositoryContributionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8652,7 +8854,7 @@ class CreatedRepositoryContributionEdge(sgqlc.types.Type):
 
 class DeclineTopicSuggestionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8663,7 +8865,7 @@ class DeclineTopicSuggestionPayload(sgqlc.types.Type):
 
 class Deletable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8675,7 +8877,7 @@ class Deletable(sgqlc.types.Interface):
 
 class DeleteBranchProtectionRulePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8685,7 +8887,7 @@ class DeleteBranchProtectionRulePayload(sgqlc.types.Type):
 
 class DeleteDeploymentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8695,7 +8897,7 @@ class DeleteDeploymentPayload(sgqlc.types.Type):
 
 class DeleteDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8706,7 +8908,7 @@ class DeleteDiscussionCommentPayload(sgqlc.types.Type):
 
 class DeleteDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8717,7 +8919,7 @@ class DeleteDiscussionPayload(sgqlc.types.Type):
 
 class DeleteEnvironmentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8727,7 +8929,7 @@ class DeleteEnvironmentPayload(sgqlc.types.Type):
 
 class DeleteIpAllowListEntryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8740,7 +8942,7 @@ class DeleteIpAllowListEntryPayload(sgqlc.types.Type):
 
 class DeleteIssueCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8750,7 +8952,7 @@ class DeleteIssueCommentPayload(sgqlc.types.Type):
 
 class DeleteIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8761,7 +8963,7 @@ class DeleteIssuePayload(sgqlc.types.Type):
 
 class DeleteProjectCardPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8773,7 +8975,7 @@ class DeleteProjectCardPayload(sgqlc.types.Type):
 
 class DeleteProjectColumnPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8785,7 +8987,7 @@ class DeleteProjectColumnPayload(sgqlc.types.Type):
 
 class DeleteProjectNextItemPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8796,7 +8998,7 @@ class DeleteProjectNextItemPayload(sgqlc.types.Type):
 
 class DeleteProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8807,7 +9009,7 @@ class DeleteProjectPayload(sgqlc.types.Type):
 
 class DeleteProjectV2ItemPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8818,20 +9020,27 @@ class DeleteProjectV2ItemPayload(sgqlc.types.Type):
 
 class DeletePullRequestReviewCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("client_mutation_id", "pull_request_review")
+    __field_names__ = (
+        "client_mutation_id",
+        "pull_request_review",
+        "pull_request_review_comment",
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     pull_request_review = sgqlc.types.Field(
         "PullRequestReview", graphql_name="pullRequestReview"
+    )
+    pull_request_review_comment = sgqlc.types.Field(
+        "PullRequestReviewComment", graphql_name="pullRequestReviewComment"
     )
 
 
 class DeletePullRequestReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8844,7 +9053,7 @@ class DeletePullRequestReviewPayload(sgqlc.types.Type):
 
 class DeleteRefPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8854,7 +9063,7 @@ class DeleteRefPayload(sgqlc.types.Type):
 
 class DeleteTeamDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8864,7 +9073,7 @@ class DeleteTeamDiscussionCommentPayload(sgqlc.types.Type):
 
 class DeleteTeamDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8874,7 +9083,7 @@ class DeleteTeamDiscussionPayload(sgqlc.types.Type):
 
 class DeleteVerifiableDomainPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8885,7 +9094,7 @@ class DeleteVerifiableDomainPayload(sgqlc.types.Type):
 
 class DependabotUpdateError(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8899,7 +9108,7 @@ class DependabotUpdateError(sgqlc.types.Type):
 
 class DeployKeyConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8918,7 +9127,7 @@ class DeployKeyConnection(sgqlc.types.relay.Connection):
 
 class DeployKeyEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8929,7 +9138,7 @@ class DeployKeyEdge(sgqlc.types.Type):
 
 class DeploymentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8948,7 +9157,7 @@ class DeploymentConnection(sgqlc.types.relay.Connection):
 
 class DeploymentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8959,7 +9168,7 @@ class DeploymentEdge(sgqlc.types.Type):
 
 class DeploymentProtectionRule(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -8988,7 +9197,7 @@ class DeploymentProtectionRule(sgqlc.types.Type):
 
 class DeploymentProtectionRuleConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9009,7 +9218,7 @@ class DeploymentProtectionRuleConnection(sgqlc.types.relay.Connection):
 
 class DeploymentProtectionRuleEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9020,7 +9229,7 @@ class DeploymentProtectionRuleEdge(sgqlc.types.Type):
 
 class DeploymentRequest(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9060,7 +9269,7 @@ class DeploymentRequest(sgqlc.types.Type):
 
 class DeploymentRequestConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9081,7 +9290,7 @@ class DeploymentRequestConnection(sgqlc.types.relay.Connection):
 
 class DeploymentRequestEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9092,7 +9301,7 @@ class DeploymentRequestEdge(sgqlc.types.Type):
 
 class DeploymentReviewConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9113,7 +9322,7 @@ class DeploymentReviewConnection(sgqlc.types.relay.Connection):
 
 class DeploymentReviewEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9124,7 +9333,7 @@ class DeploymentReviewEdge(sgqlc.types.Type):
 
 class DeploymentReviewerConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9145,7 +9354,7 @@ class DeploymentReviewerConnection(sgqlc.types.relay.Connection):
 
 class DeploymentReviewerEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9156,7 +9365,7 @@ class DeploymentReviewerEdge(sgqlc.types.Type):
 
 class DeploymentStatusConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9177,7 +9386,7 @@ class DeploymentStatusConnection(sgqlc.types.relay.Connection):
 
 class DeploymentStatusEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9188,7 +9397,7 @@ class DeploymentStatusEdge(sgqlc.types.Type):
 
 class DisablePullRequestAutoMergePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9200,7 +9409,7 @@ class DisablePullRequestAutoMergePayload(sgqlc.types.Type):
 
 class DiscussionCategoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9221,7 +9430,7 @@ class DiscussionCategoryConnection(sgqlc.types.relay.Connection):
 
 class DiscussionCategoryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9232,7 +9441,7 @@ class DiscussionCategoryEdge(sgqlc.types.Type):
 
 class DiscussionCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9253,7 +9462,7 @@ class DiscussionCommentConnection(sgqlc.types.relay.Connection):
 
 class DiscussionCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9264,7 +9473,7 @@ class DiscussionCommentEdge(sgqlc.types.Type):
 
 class DiscussionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9283,7 +9492,7 @@ class DiscussionConnection(sgqlc.types.relay.Connection):
 
 class DiscussionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9294,7 +9503,7 @@ class DiscussionEdge(sgqlc.types.Type):
 
 class DiscussionPollOptionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9315,7 +9524,7 @@ class DiscussionPollOptionConnection(sgqlc.types.relay.Connection):
 
 class DiscussionPollOptionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9326,7 +9535,7 @@ class DiscussionPollOptionEdge(sgqlc.types.Type):
 
 class DismissPullRequestReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9339,7 +9548,7 @@ class DismissPullRequestReviewPayload(sgqlc.types.Type):
 
 class DismissRepositoryVulnerabilityAlertPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9352,7 +9561,7 @@ class DismissRepositoryVulnerabilityAlertPayload(sgqlc.types.Type):
 
 class EnablePullRequestAutoMergePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9364,7 +9573,7 @@ class EnablePullRequestAutoMergePayload(sgqlc.types.Type):
 
 class EnterpriseAdministratorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9383,7 +9592,7 @@ class EnterpriseAdministratorConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseAdministratorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9397,7 +9606,7 @@ class EnterpriseAdministratorEdge(sgqlc.types.Type):
 
 class EnterpriseAdministratorInvitationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9419,7 +9628,7 @@ class EnterpriseAdministratorInvitationConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseAdministratorInvitationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9430,7 +9639,7 @@ class EnterpriseAdministratorInvitationEdge(sgqlc.types.Type):
 
 class EnterpriseAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9444,7 +9653,7 @@ class EnterpriseAuditEntryData(sgqlc.types.Interface):
 
 class EnterpriseBillingInfo(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9494,7 +9703,7 @@ class EnterpriseBillingInfo(sgqlc.types.Type):
 
 class EnterpriseMemberConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9515,7 +9724,7 @@ class EnterpriseMemberConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseMemberEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9526,7 +9735,7 @@ class EnterpriseMemberEdge(sgqlc.types.Type):
 
 class EnterpriseOrganizationMembershipConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9546,7 +9755,7 @@ class EnterpriseOrganizationMembershipConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseOrganizationMembershipEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9560,7 +9769,7 @@ class EnterpriseOrganizationMembershipEdge(sgqlc.types.Type):
 
 class EnterpriseOutsideCollaboratorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9579,7 +9788,7 @@ class EnterpriseOutsideCollaboratorConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseOutsideCollaboratorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9613,7 +9822,7 @@ class EnterpriseOutsideCollaboratorEdge(sgqlc.types.Type):
 
 class EnterpriseOwnerInfo(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -9623,6 +9832,7 @@ class EnterpriseOwnerInfo(sgqlc.types.Type):
         "affiliated_users_with_two_factor_disabled_exist",
         "allow_private_repository_forking_setting",
         "allow_private_repository_forking_setting_organizations",
+        "allow_private_repository_forking_setting_policy_value",
         "default_repository_permission_setting",
         "default_repository_permission_setting_organizations",
         "domains",
@@ -9696,6 +9906,12 @@ class EnterpriseOwnerInfo(sgqlc.types.Type):
                         default={"field": "LOGIN", "direction": "ASC"},
                     ),
                 ),
+                (
+                    "has_two_factor_enabled",
+                    sgqlc.types.Arg(
+                        Boolean, graphql_name="hasTwoFactorEnabled", default=None
+                    ),
+                ),
                 ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
                 (
                     "before",
@@ -9759,6 +9975,10 @@ class EnterpriseOwnerInfo(sgqlc.types.Type):
                 ),
             )
         ),
+    )
+    allow_private_repository_forking_setting_policy_value = sgqlc.types.Field(
+        EnterpriseAllowPrivateRepositoryForkingPolicyValue,
+        graphql_name="allowPrivateRepositoryForkingSettingPolicyValue",
     )
     default_repository_permission_setting = sgqlc.types.Field(
         sgqlc.types.non_null(EnterpriseDefaultRepositoryPermissionSettingValue),
@@ -10482,7 +10702,7 @@ class EnterpriseOwnerInfo(sgqlc.types.Type):
 
 class EnterprisePendingMemberInvitationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10513,7 +10733,7 @@ class EnterprisePendingMemberInvitationConnection(sgqlc.types.relay.Connection):
 
 class EnterprisePendingMemberInvitationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10524,7 +10744,7 @@ class EnterprisePendingMemberInvitationEdge(sgqlc.types.Type):
 
 class EnterpriseRepositoryInfoConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10545,7 +10765,7 @@ class EnterpriseRepositoryInfoConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseRepositoryInfoEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10556,7 +10776,7 @@ class EnterpriseRepositoryInfoEdge(sgqlc.types.Type):
 
 class EnterpriseServerInstallationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10577,7 +10797,7 @@ class EnterpriseServerInstallationConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseServerInstallationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10588,7 +10808,7 @@ class EnterpriseServerInstallationEdge(sgqlc.types.Type):
 
 class EnterpriseServerUserAccountConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10609,7 +10829,7 @@ class EnterpriseServerUserAccountConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseServerUserAccountEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10620,7 +10840,7 @@ class EnterpriseServerUserAccountEdge(sgqlc.types.Type):
 
 class EnterpriseServerUserAccountEmailConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10642,7 +10862,7 @@ class EnterpriseServerUserAccountEmailConnection(sgqlc.types.relay.Connection):
 
 class EnterpriseServerUserAccountEmailEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10653,7 +10873,7 @@ class EnterpriseServerUserAccountEmailEdge(sgqlc.types.Type):
 
 class EnterpriseServerUserAccountsUploadConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10675,7 +10895,7 @@ class EnterpriseServerUserAccountsUploadConnection(sgqlc.types.relay.Connection)
 
 class EnterpriseServerUserAccountsUploadEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10686,7 +10906,7 @@ class EnterpriseServerUserAccountsUploadEdge(sgqlc.types.Type):
 
 class EnvironmentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10705,7 +10925,7 @@ class EnvironmentConnection(sgqlc.types.relay.Connection):
 
 class EnvironmentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10716,7 +10936,7 @@ class EnvironmentEdge(sgqlc.types.Type):
 
 class ExternalIdentityAttribute(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10728,7 +10948,7 @@ class ExternalIdentityAttribute(sgqlc.types.Type):
 
 class ExternalIdentityConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10749,7 +10969,7 @@ class ExternalIdentityConnection(sgqlc.types.relay.Connection):
 
 class ExternalIdentityEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10760,7 +10980,7 @@ class ExternalIdentityEdge(sgqlc.types.Type):
 
 class ExternalIdentitySamlAttributes(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10794,7 +11014,7 @@ class ExternalIdentitySamlAttributes(sgqlc.types.Type):
 
 class ExternalIdentityScimAttributes(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10813,7 +11033,7 @@ class ExternalIdentityScimAttributes(sgqlc.types.Type):
 
 class FollowOrganizationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10824,7 +11044,7 @@ class FollowOrganizationPayload(sgqlc.types.Type):
 
 class FollowUserPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10835,7 +11055,7 @@ class FollowUserPayload(sgqlc.types.Type):
 
 class FollowerConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10852,7 +11072,7 @@ class FollowerConnection(sgqlc.types.relay.Connection):
 
 class FollowingConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10869,7 +11089,7 @@ class FollowingConnection(sgqlc.types.relay.Connection):
 
 class FundingLink(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10882,7 +11102,7 @@ class FundingLink(sgqlc.types.Type):
 
 class GistCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10901,7 +11121,7 @@ class GistCommentConnection(sgqlc.types.relay.Connection):
 
 class GistCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10912,7 +11132,7 @@ class GistCommentEdge(sgqlc.types.Type):
 
 class GistConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10929,7 +11149,7 @@ class GistConnection(sgqlc.types.relay.Connection):
 
 class GistEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10940,7 +11160,7 @@ class GistEdge(sgqlc.types.Type):
 
 class GistFile(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10976,7 +11196,7 @@ class GistFile(sgqlc.types.Type):
 
 class GitActor(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -10996,7 +11216,7 @@ class GitActor(sgqlc.types.Type):
 
 class GitActorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11013,7 +11233,7 @@ class GitActorConnection(sgqlc.types.relay.Connection):
 
 class GitActorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11024,7 +11244,7 @@ class GitActorEdge(sgqlc.types.Type):
 
 class GitHubMetadata(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11061,7 +11281,7 @@ class GitHubMetadata(sgqlc.types.Type):
 
 class GitObject(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11089,7 +11309,7 @@ class GitObject(sgqlc.types.Interface):
 
 class GitSignature(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11119,7 +11339,7 @@ class GitSignature(sgqlc.types.Interface):
 
 class GrantEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11144,7 +11364,7 @@ class GrantEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
 
 class GrantMigratorRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11155,7 +11375,7 @@ class GrantMigratorRolePayload(sgqlc.types.Type):
 
 class Hovercard(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11170,7 +11390,7 @@ class Hovercard(sgqlc.types.Type):
 
 class HovercardContext(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11181,7 +11401,7 @@ class HovercardContext(sgqlc.types.Interface):
 
 class InviteEnterpriseAdminPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11194,7 +11414,7 @@ class InviteEnterpriseAdminPayload(sgqlc.types.Type):
 
 class IpAllowListEntryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11215,7 +11435,7 @@ class IpAllowListEntryConnection(sgqlc.types.relay.Connection):
 
 class IpAllowListEntryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11226,7 +11446,7 @@ class IpAllowListEntryEdge(sgqlc.types.Type):
 
 class IssueCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11245,7 +11465,7 @@ class IssueCommentConnection(sgqlc.types.relay.Connection):
 
 class IssueCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11256,7 +11476,7 @@ class IssueCommentEdge(sgqlc.types.Type):
 
 class IssueConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11273,7 +11493,7 @@ class IssueConnection(sgqlc.types.relay.Connection):
 
 class IssueContributionsByRepository(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11308,7 +11528,7 @@ class IssueContributionsByRepository(sgqlc.types.Type):
 
 class IssueEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11319,7 +11539,7 @@ class IssueEdge(sgqlc.types.Type):
 
 class IssueTemplate(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11332,7 +11552,7 @@ class IssueTemplate(sgqlc.types.Type):
 
 class IssueTimelineConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11353,7 +11573,7 @@ class IssueTimelineConnection(sgqlc.types.relay.Connection):
 
 class IssueTimelineItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11364,7 +11584,7 @@ class IssueTimelineItemEdge(sgqlc.types.Type):
 
 class IssueTimelineItemsConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11400,7 +11620,7 @@ class IssueTimelineItemsConnection(sgqlc.types.relay.Connection):
 
 class IssueTimelineItemsEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11411,7 +11631,7 @@ class IssueTimelineItemsEdge(sgqlc.types.Type):
 
 class LabelConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11428,7 +11648,7 @@ class LabelConnection(sgqlc.types.relay.Connection):
 
 class LabelEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11439,7 +11659,7 @@ class LabelEdge(sgqlc.types.Type):
 
 class Labelable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11471,7 +11691,7 @@ class Labelable(sgqlc.types.Interface):
 
 class LanguageConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11489,7 +11709,7 @@ class LanguageConnection(sgqlc.types.relay.Connection):
 
 class LanguageEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11501,7 +11721,7 @@ class LanguageEdge(sgqlc.types.Type):
 
 class LicenseRule(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11515,7 +11735,7 @@ class LicenseRule(sgqlc.types.Type):
 
 class LinkRepositoryToProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11527,7 +11747,7 @@ class LinkRepositoryToProjectPayload(sgqlc.types.Type):
 
 class LockLockablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11539,7 +11759,7 @@ class LockLockablePayload(sgqlc.types.Type):
 
 class Lockable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11550,7 +11770,7 @@ class Lockable(sgqlc.types.Interface):
 
 class MarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11561,7 +11781,7 @@ class MarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
 
 class MarkFileAsViewedPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11572,7 +11792,7 @@ class MarkFileAsViewedPayload(sgqlc.types.Type):
 
 class MarkPullRequestReadyForReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11583,7 +11803,7 @@ class MarkPullRequestReadyForReviewPayload(sgqlc.types.Type):
 
 class MarketplaceListingConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11604,7 +11824,7 @@ class MarketplaceListingConnection(sgqlc.types.relay.Connection):
 
 class MarketplaceListingEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11615,7 +11835,7 @@ class MarketplaceListingEdge(sgqlc.types.Type):
 
 class MemberStatusable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11647,7 +11867,7 @@ class MemberStatusable(sgqlc.types.Interface):
 
 class MergeBranchPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11658,7 +11878,7 @@ class MergeBranchPayload(sgqlc.types.Type):
 
 class MergePullRequestPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11670,13 +11890,14 @@ class MergePullRequestPayload(sgqlc.types.Type):
 
 class Migration(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __field_names__ = (
         "continue_on_error",
         "created_at",
+        "database_id",
         "failure_reason",
         "id",
         "migration_log_url",
@@ -11691,6 +11912,7 @@ class Migration(sgqlc.types.Interface):
     created_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="createdAt"
     )
+    database_id = sgqlc.types.Field(String, graphql_name="databaseId")
     failure_reason = sgqlc.types.Field(String, graphql_name="failureReason")
     id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="id")
     migration_log_url = sgqlc.types.Field(URI, graphql_name="migrationLogUrl")
@@ -11708,7 +11930,7 @@ class Migration(sgqlc.types.Interface):
 
 class MilestoneConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11727,7 +11949,7 @@ class MilestoneConnection(sgqlc.types.relay.Connection):
 
 class MilestoneEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11738,7 +11960,7 @@ class MilestoneEdge(sgqlc.types.Type):
 
 class Minimizable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11754,7 +11976,7 @@ class Minimizable(sgqlc.types.Interface):
 
 class MinimizeCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11765,7 +11987,7 @@ class MinimizeCommentPayload(sgqlc.types.Type):
 
 class MoveProjectCardPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11776,7 +11998,7 @@ class MoveProjectCardPayload(sgqlc.types.Type):
 
 class MoveProjectColumnPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11787,7 +12009,7 @@ class MoveProjectColumnPayload(sgqlc.types.Type):
 
 class Mutation(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -11821,6 +12043,7 @@ class Mutation(sgqlc.types.Type):
         "cancel_sponsorship",
         "change_user_status",
         "clear_labels_from_labelable",
+        "clear_project_v2_item_field_value",
         "clone_project",
         "clone_template_repository",
         "close_issue",
@@ -11954,6 +12177,7 @@ class Mutation(sgqlc.types.Type):
         "update_issue_comment",
         "update_notification_restriction_setting",
         "update_organization_allow_private_repository_forking_setting",
+        "update_organization_web_commit_signoff_setting",
         "update_project",
         "update_project_card",
         "update_project_column",
@@ -11970,6 +12194,7 @@ class Mutation(sgqlc.types.Type):
         "update_pull_request_review_comment",
         "update_ref",
         "update_repository",
+        "update_repository_web_commit_signoff_setting",
         "update_sponsorship_preferences",
         "update_subscription",
         "update_team_discussion",
@@ -12437,6 +12662,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(ClearLabelsFromLabelableInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    clear_project_v2_item_field_value = sgqlc.types.Field(
+        ClearProjectV2ItemFieldValuePayload,
+        graphql_name="clearProjectV2ItemFieldValue",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(ClearProjectV2ItemFieldValueInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -14612,6 +14853,24 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    update_organization_web_commit_signoff_setting = sgqlc.types.Field(
+        "UpdateOrganizationWebCommitSignoffSettingPayload",
+        graphql_name="updateOrganizationWebCommitSignoffSetting",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(
+                            UpdateOrganizationWebCommitSignoffSettingInput
+                        ),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     update_project = sgqlc.types.Field(
         "UpdateProjectPayload",
         graphql_name="updateProject",
@@ -14868,6 +15127,24 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    update_repository_web_commit_signoff_setting = sgqlc.types.Field(
+        "UpdateRepositoryWebCommitSignoffSettingPayload",
+        graphql_name="updateRepositoryWebCommitSignoffSetting",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(
+                            UpdateRepositoryWebCommitSignoffSettingInput
+                        ),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     update_sponsorship_preferences = sgqlc.types.Field(
         "UpdateSponsorshipPreferencesPayload",
         graphql_name="updateSponsorshipPreferences",
@@ -14984,7 +15261,7 @@ class Mutation(sgqlc.types.Type):
 
 class Node(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -14994,7 +15271,7 @@ class Node(sgqlc.types.Interface):
 
 class OauthApplicationAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15014,7 +15291,7 @@ class OauthApplicationAuditEntryData(sgqlc.types.Interface):
 
 class OrganizationAuditEntryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15035,7 +15312,7 @@ class OrganizationAuditEntryConnection(sgqlc.types.relay.Connection):
 
 class OrganizationAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15055,7 +15332,7 @@ class OrganizationAuditEntryData(sgqlc.types.Interface):
 
 class OrganizationAuditEntryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15066,7 +15343,7 @@ class OrganizationAuditEntryEdge(sgqlc.types.Type):
 
 class OrganizationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15085,7 +15362,7 @@ class OrganizationConnection(sgqlc.types.relay.Connection):
 
 class OrganizationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15096,7 +15373,7 @@ class OrganizationEdge(sgqlc.types.Type):
 
 class OrganizationEnterpriseOwnerConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15115,7 +15392,7 @@ class OrganizationEnterpriseOwnerConnection(sgqlc.types.relay.Connection):
 
 class OrganizationEnterpriseOwnerEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15129,7 +15406,7 @@ class OrganizationEnterpriseOwnerEdge(sgqlc.types.Type):
 
 class OrganizationInvitationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15150,7 +15427,7 @@ class OrganizationInvitationConnection(sgqlc.types.relay.Connection):
 
 class OrganizationInvitationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15161,7 +15438,7 @@ class OrganizationInvitationEdge(sgqlc.types.Type):
 
 class OrganizationMemberConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15180,7 +15457,7 @@ class OrganizationMemberConnection(sgqlc.types.relay.Connection):
 
 class OrganizationMemberEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15195,7 +15472,7 @@ class OrganizationMemberEdge(sgqlc.types.Type):
 
 class PackageConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15212,7 +15489,7 @@ class PackageConnection(sgqlc.types.relay.Connection):
 
 class PackageEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15223,7 +15500,7 @@ class PackageEdge(sgqlc.types.Type):
 
 class PackageFileConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15242,7 +15519,7 @@ class PackageFileConnection(sgqlc.types.relay.Connection):
 
 class PackageFileEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15253,7 +15530,7 @@ class PackageFileEdge(sgqlc.types.Type):
 
 class PackageOwner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15302,7 +15579,7 @@ class PackageOwner(sgqlc.types.Interface):
 
 class PackageStatistics(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15314,7 +15591,7 @@ class PackageStatistics(sgqlc.types.Type):
 
 class PackageVersionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15335,7 +15612,7 @@ class PackageVersionConnection(sgqlc.types.relay.Connection):
 
 class PackageVersionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15346,7 +15623,7 @@ class PackageVersionEdge(sgqlc.types.Type):
 
 class PackageVersionStatistics(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15358,7 +15635,7 @@ class PackageVersionStatistics(sgqlc.types.Type):
 
 class PageInfo(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15380,7 +15657,7 @@ class PageInfo(sgqlc.types.Type):
 
 class PermissionSource(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15399,7 +15676,7 @@ class PermissionSource(sgqlc.types.Type):
 
 class PinIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15410,7 +15687,7 @@ class PinIssuePayload(sgqlc.types.Type):
 
 class PinnableItemConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15429,7 +15706,7 @@ class PinnableItemConnection(sgqlc.types.relay.Connection):
 
 class PinnableItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15440,7 +15717,7 @@ class PinnableItemEdge(sgqlc.types.Type):
 
 class PinnedDiscussionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15461,7 +15738,7 @@ class PinnedDiscussionConnection(sgqlc.types.relay.Connection):
 
 class PinnedDiscussionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15472,7 +15749,7 @@ class PinnedDiscussionEdge(sgqlc.types.Type):
 
 class PinnedIssueConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15491,7 +15768,7 @@ class PinnedIssueConnection(sgqlc.types.relay.Connection):
 
 class PinnedIssueEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15502,7 +15779,7 @@ class PinnedIssueEdge(sgqlc.types.Type):
 
 class ProfileItemShowcase(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15529,7 +15806,7 @@ class ProfileItemShowcase(sgqlc.types.Type):
 
 class ProfileOwner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15626,7 +15903,7 @@ class ProfileOwner(sgqlc.types.Interface):
 
 class ProjectCardConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15645,7 +15922,7 @@ class ProjectCardConnection(sgqlc.types.relay.Connection):
 
 class ProjectCardEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15656,7 +15933,7 @@ class ProjectCardEdge(sgqlc.types.Type):
 
 class ProjectColumnConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15677,7 +15954,7 @@ class ProjectColumnConnection(sgqlc.types.relay.Connection):
 
 class ProjectColumnEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15688,7 +15965,7 @@ class ProjectColumnEdge(sgqlc.types.Type):
 
 class ProjectConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15705,7 +15982,7 @@ class ProjectConnection(sgqlc.types.relay.Connection):
 
 class ProjectEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15716,7 +15993,7 @@ class ProjectEdge(sgqlc.types.Type):
 
 class ProjectNextConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15735,7 +16012,7 @@ class ProjectNextConnection(sgqlc.types.relay.Connection):
 
 class ProjectNextEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15746,7 +16023,7 @@ class ProjectNextEdge(sgqlc.types.Type):
 
 class ProjectNextFieldCommon(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15780,7 +16057,7 @@ class ProjectNextFieldCommon(sgqlc.types.Interface):
 
 class ProjectNextFieldConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15801,7 +16078,7 @@ class ProjectNextFieldConnection(sgqlc.types.relay.Connection):
 
 class ProjectNextFieldEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15812,7 +16089,7 @@ class ProjectNextFieldEdge(sgqlc.types.Type):
 
 class ProjectNextItemConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15833,7 +16110,7 @@ class ProjectNextItemConnection(sgqlc.types.relay.Connection):
 
 class ProjectNextItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15844,7 +16121,7 @@ class ProjectNextItemEdge(sgqlc.types.Type):
 
 class ProjectNextItemFieldValueConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15865,7 +16142,7 @@ class ProjectNextItemFieldValueConnection(sgqlc.types.relay.Connection):
 
 class ProjectNextItemFieldValueEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15876,7 +16153,7 @@ class ProjectNextItemFieldValueEdge(sgqlc.types.Type):
 
 class ProjectNextOwner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15922,7 +16199,7 @@ class ProjectNextOwner(sgqlc.types.Interface):
 
 class ProjectOwner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -15993,7 +16270,7 @@ class ProjectOwner(sgqlc.types.Interface):
 
 class ProjectProgress(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16025,7 +16302,7 @@ class ProjectProgress(sgqlc.types.Type):
 
 class ProjectV2Connection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16044,7 +16321,7 @@ class ProjectV2Connection(sgqlc.types.relay.Connection):
 
 class ProjectV2Edge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16055,7 +16332,7 @@ class ProjectV2Edge(sgqlc.types.Type):
 
 class ProjectV2FieldCommon(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16087,7 +16364,7 @@ class ProjectV2FieldCommon(sgqlc.types.Interface):
 
 class ProjectV2FieldConfigurationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16108,7 +16385,7 @@ class ProjectV2FieldConfigurationConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2FieldConfigurationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16119,7 +16396,7 @@ class ProjectV2FieldConfigurationEdge(sgqlc.types.Type):
 
 class ProjectV2FieldConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16140,7 +16417,7 @@ class ProjectV2FieldConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2FieldEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16151,7 +16428,7 @@ class ProjectV2FieldEdge(sgqlc.types.Type):
 
 class ProjectV2ItemConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16172,7 +16449,7 @@ class ProjectV2ItemConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2ItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16183,7 +16460,7 @@ class ProjectV2ItemEdge(sgqlc.types.Type):
 
 class ProjectV2ItemFieldLabelValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16210,7 +16487,7 @@ class ProjectV2ItemFieldLabelValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldMilestoneValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16223,7 +16500,7 @@ class ProjectV2ItemFieldMilestoneValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldPullRequestValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16258,7 +16535,7 @@ class ProjectV2ItemFieldPullRequestValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldRepositoryValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16271,7 +16548,7 @@ class ProjectV2ItemFieldRepositoryValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldReviewerValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16298,7 +16575,7 @@ class ProjectV2ItemFieldReviewerValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldUserValue(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16325,7 +16602,7 @@ class ProjectV2ItemFieldUserValue(sgqlc.types.Type):
 
 class ProjectV2ItemFieldValueCommon(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16355,7 +16632,7 @@ class ProjectV2ItemFieldValueCommon(sgqlc.types.Interface):
 
 class ProjectV2ItemFieldValueConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16376,7 +16653,7 @@ class ProjectV2ItemFieldValueConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2ItemFieldValueEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16387,7 +16664,7 @@ class ProjectV2ItemFieldValueEdge(sgqlc.types.Type):
 
 class ProjectV2IterationFieldConfiguration(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16414,7 +16691,7 @@ class ProjectV2IterationFieldConfiguration(sgqlc.types.Type):
 
 class ProjectV2IterationFieldIteration(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16430,7 +16707,7 @@ class ProjectV2IterationFieldIteration(sgqlc.types.Type):
 
 class ProjectV2Owner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16478,7 +16755,7 @@ class ProjectV2Owner(sgqlc.types.Interface):
 
 class ProjectV2Recent(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16502,7 +16779,7 @@ class ProjectV2Recent(sgqlc.types.Interface):
 
 class ProjectV2SingleSelectFieldOption(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16514,7 +16791,7 @@ class ProjectV2SingleSelectFieldOption(sgqlc.types.Type):
 
 class ProjectV2SortBy(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16529,7 +16806,7 @@ class ProjectV2SortBy(sgqlc.types.Type):
 
 class ProjectV2SortByConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16550,7 +16827,7 @@ class ProjectV2SortByConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2SortByEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16561,7 +16838,7 @@ class ProjectV2SortByEdge(sgqlc.types.Type):
 
 class ProjectV2ViewConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16582,7 +16859,7 @@ class ProjectV2ViewConnection(sgqlc.types.relay.Connection):
 
 class ProjectV2ViewEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16593,7 +16870,7 @@ class ProjectV2ViewEdge(sgqlc.types.Type):
 
 class ProjectViewConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16612,7 +16889,7 @@ class ProjectViewConnection(sgqlc.types.relay.Connection):
 
 class ProjectViewEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16623,7 +16900,7 @@ class ProjectViewEdge(sgqlc.types.Type):
 
 class PublicKeyConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16642,7 +16919,7 @@ class PublicKeyConnection(sgqlc.types.relay.Connection):
 
 class PublicKeyEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16653,7 +16930,7 @@ class PublicKeyEdge(sgqlc.types.Type):
 
 class PullRequestChangedFile(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16677,7 +16954,7 @@ class PullRequestChangedFile(sgqlc.types.Type):
 
 class PullRequestChangedFileConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16698,7 +16975,7 @@ class PullRequestChangedFileConnection(sgqlc.types.relay.Connection):
 
 class PullRequestChangedFileEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16709,7 +16986,7 @@ class PullRequestChangedFileEdge(sgqlc.types.Type):
 
 class PullRequestCommitConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16730,7 +17007,7 @@ class PullRequestCommitConnection(sgqlc.types.relay.Connection):
 
 class PullRequestCommitEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16741,7 +17018,7 @@ class PullRequestCommitEdge(sgqlc.types.Type):
 
 class PullRequestConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16760,7 +17037,7 @@ class PullRequestConnection(sgqlc.types.relay.Connection):
 
 class PullRequestContributionsByRepository(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16795,7 +17072,7 @@ class PullRequestContributionsByRepository(sgqlc.types.Type):
 
 class PullRequestEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16806,7 +17083,7 @@ class PullRequestEdge(sgqlc.types.Type):
 
 class PullRequestReviewCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16827,7 +17104,7 @@ class PullRequestReviewCommentConnection(sgqlc.types.relay.Connection):
 
 class PullRequestReviewCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16838,7 +17115,7 @@ class PullRequestReviewCommentEdge(sgqlc.types.Type):
 
 class PullRequestReviewConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16859,7 +17136,7 @@ class PullRequestReviewConnection(sgqlc.types.relay.Connection):
 
 class PullRequestReviewContributionsByRepository(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16894,7 +17171,7 @@ class PullRequestReviewContributionsByRepository(sgqlc.types.Type):
 
 class PullRequestReviewEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16905,7 +17182,7 @@ class PullRequestReviewEdge(sgqlc.types.Type):
 
 class PullRequestReviewThreadConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16926,7 +17203,7 @@ class PullRequestReviewThreadConnection(sgqlc.types.relay.Connection):
 
 class PullRequestReviewThreadEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16937,7 +17214,7 @@ class PullRequestReviewThreadEdge(sgqlc.types.Type):
 
 class PullRequestRevisionMarker(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16955,7 +17232,7 @@ class PullRequestRevisionMarker(sgqlc.types.Type):
 
 class PullRequestTemplate(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16969,7 +17246,7 @@ class PullRequestTemplate(sgqlc.types.Type):
 
 class PullRequestTimelineConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -16990,7 +17267,7 @@ class PullRequestTimelineConnection(sgqlc.types.relay.Connection):
 
 class PullRequestTimelineItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17001,7 +17278,7 @@ class PullRequestTimelineItemEdge(sgqlc.types.Type):
 
 class PullRequestTimelineItemsConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17037,7 +17314,7 @@ class PullRequestTimelineItemsConnection(sgqlc.types.relay.Connection):
 
 class PullRequestTimelineItemsEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17048,7 +17325,7 @@ class PullRequestTimelineItemsEdge(sgqlc.types.Type):
 
 class PushAllowanceConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17069,7 +17346,7 @@ class PushAllowanceConnection(sgqlc.types.relay.Connection):
 
 class PushAllowanceEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17080,7 +17357,7 @@ class PushAllowanceEdge(sgqlc.types.Type):
 
 class Query(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17685,7 +17962,7 @@ class Query(sgqlc.types.Type):
 
 class RateLimit(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17700,7 +17977,7 @@ class RateLimit(sgqlc.types.Type):
 
 class Reactable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17751,7 +18028,7 @@ class Reactable(sgqlc.types.Interface):
 
 class ReactingUserConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17770,7 +18047,7 @@ class ReactingUserConnection(sgqlc.types.relay.Connection):
 
 class ReactingUserEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17784,7 +18061,7 @@ class ReactingUserEdge(sgqlc.types.Type):
 
 class ReactionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17810,7 +18087,7 @@ class ReactionConnection(sgqlc.types.relay.Connection):
 
 class ReactionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17821,7 +18098,7 @@ class ReactionEdge(sgqlc.types.Type):
 
 class ReactionGroup(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17875,7 +18152,7 @@ class ReactionGroup(sgqlc.types.Type):
 
 class ReactorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17892,7 +18169,7 @@ class ReactorConnection(sgqlc.types.relay.Connection):
 
 class ReactorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17906,7 +18183,7 @@ class ReactorEdge(sgqlc.types.Type):
 
 class RefConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17923,7 +18200,7 @@ class RefConnection(sgqlc.types.relay.Connection):
 
 class RefEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17934,7 +18211,7 @@ class RefEdge(sgqlc.types.Type):
 
 class RefUpdateRule(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -17990,7 +18267,7 @@ class RefUpdateRule(sgqlc.types.Type):
 
 class RegenerateEnterpriseIdentityProviderRecoveryCodesPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18003,7 +18280,7 @@ class RegenerateEnterpriseIdentityProviderRecoveryCodesPayload(sgqlc.types.Type)
 
 class RegenerateVerifiableDomainTokenPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18014,7 +18291,7 @@ class RegenerateVerifiableDomainTokenPayload(sgqlc.types.Type):
 
 class RejectDeploymentsPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18028,7 +18305,7 @@ class RejectDeploymentsPayload(sgqlc.types.Type):
 
 class ReleaseAssetConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18047,7 +18324,7 @@ class ReleaseAssetConnection(sgqlc.types.relay.Connection):
 
 class ReleaseAssetEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18058,7 +18335,7 @@ class ReleaseAssetEdge(sgqlc.types.Type):
 
 class ReleaseConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18075,7 +18352,7 @@ class ReleaseConnection(sgqlc.types.relay.Connection):
 
 class ReleaseEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18086,7 +18363,7 @@ class ReleaseEdge(sgqlc.types.Type):
 
 class RemoveAssigneesFromAssignablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18097,7 +18374,7 @@ class RemoveAssigneesFromAssignablePayload(sgqlc.types.Type):
 
 class RemoveEnterpriseAdminPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18111,7 +18388,7 @@ class RemoveEnterpriseAdminPayload(sgqlc.types.Type):
 
 class RemoveEnterpriseIdentityProviderPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18124,7 +18401,7 @@ class RemoveEnterpriseIdentityProviderPayload(sgqlc.types.Type):
 
 class RemoveEnterpriseOrganizationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18137,7 +18414,7 @@ class RemoveEnterpriseOrganizationPayload(sgqlc.types.Type):
 
 class RemoveEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18148,7 +18425,7 @@ class RemoveEnterpriseSupportEntitlementPayload(sgqlc.types.Type):
 
 class RemoveLabelsFromLabelablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18159,7 +18436,7 @@ class RemoveLabelsFromLabelablePayload(sgqlc.types.Type):
 
 class RemoveOutsideCollaboratorPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18170,7 +18447,7 @@ class RemoveOutsideCollaboratorPayload(sgqlc.types.Type):
 
 class RemoveReactionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18182,7 +18459,7 @@ class RemoveReactionPayload(sgqlc.types.Type):
 
 class RemoveStarPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18193,7 +18470,7 @@ class RemoveStarPayload(sgqlc.types.Type):
 
 class RemoveUpvotePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18204,7 +18481,7 @@ class RemoveUpvotePayload(sgqlc.types.Type):
 
 class ReopenIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18215,7 +18492,7 @@ class ReopenIssuePayload(sgqlc.types.Type):
 
 class ReopenPullRequestPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18226,7 +18503,7 @@ class ReopenPullRequestPayload(sgqlc.types.Type):
 
 class RepositoryAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18246,7 +18523,7 @@ class RepositoryAuditEntryData(sgqlc.types.Interface):
 
 class RepositoryCodeowners(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18261,7 +18538,7 @@ class RepositoryCodeowners(sgqlc.types.Type):
 
 class RepositoryCodeownersError(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18285,7 +18562,7 @@ class RepositoryCodeownersError(sgqlc.types.Type):
 
 class RepositoryCollaboratorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18304,7 +18581,7 @@ class RepositoryCollaboratorConnection(sgqlc.types.relay.Connection):
 
 class RepositoryCollaboratorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18322,7 +18599,7 @@ class RepositoryCollaboratorEdge(sgqlc.types.Type):
 
 class RepositoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18344,7 +18621,7 @@ class RepositoryConnection(sgqlc.types.relay.Connection):
 
 class RepositoryContactLink(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18356,7 +18633,7 @@ class RepositoryContactLink(sgqlc.types.Type):
 
 class RepositoryDiscussionAuthor(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18396,7 +18673,7 @@ class RepositoryDiscussionAuthor(sgqlc.types.Interface):
 
 class RepositoryDiscussionCommentAuthor(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18428,7 +18705,7 @@ class RepositoryDiscussionCommentAuthor(sgqlc.types.Interface):
 
 class RepositoryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18439,7 +18716,7 @@ class RepositoryEdge(sgqlc.types.Type):
 
 class RepositoryInfo(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18549,7 +18826,7 @@ class RepositoryInfo(sgqlc.types.Interface):
 
 class RepositoryInteractionAbility(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18565,7 +18842,7 @@ class RepositoryInteractionAbility(sgqlc.types.Type):
 
 class RepositoryInvitationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18586,7 +18863,7 @@ class RepositoryInvitationConnection(sgqlc.types.relay.Connection):
 
 class RepositoryInvitationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18597,7 +18874,7 @@ class RepositoryInvitationEdge(sgqlc.types.Type):
 
 class RepositoryMigrationConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18618,7 +18895,7 @@ class RepositoryMigrationConnection(sgqlc.types.relay.Connection):
 
 class RepositoryMigrationEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18629,7 +18906,7 @@ class RepositoryMigrationEdge(sgqlc.types.Type):
 
 class RepositoryNode(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18641,7 +18918,7 @@ class RepositoryNode(sgqlc.types.Interface):
 
 class RepositoryOwner(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18693,7 +18970,7 @@ class RepositoryOwner(sgqlc.types.Interface):
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(RepositoryAffiliation),
                         graphql_name="ownerAffiliations",
-                        default=["OWNER", "COLLABORATOR"],
+                        default=("OWNER", "COLLABORATOR"),
                     ),
                 ),
                 (
@@ -18742,7 +19019,7 @@ class RepositoryOwner(sgqlc.types.Interface):
 
 class RepositoryTopicConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18763,7 +19040,7 @@ class RepositoryTopicConnection(sgqlc.types.relay.Connection):
 
 class RepositoryTopicEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18774,7 +19051,7 @@ class RepositoryTopicEdge(sgqlc.types.Type):
 
 class RepositoryVulnerabilityAlertConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18795,7 +19072,7 @@ class RepositoryVulnerabilityAlertConnection(sgqlc.types.relay.Connection):
 
 class RepositoryVulnerabilityAlertEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18806,7 +19083,7 @@ class RepositoryVulnerabilityAlertEdge(sgqlc.types.Type):
 
 class RequestReviewsPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18826,7 +19103,7 @@ class RequestReviewsPayload(sgqlc.types.Type):
 
 class RequestedReviewerConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18847,7 +19124,7 @@ class RequestedReviewerConnection(sgqlc.types.relay.Connection):
 
 class RequestedReviewerEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18858,7 +19135,7 @@ class RequestedReviewerEdge(sgqlc.types.Type):
 
 class RequirableByPullRequest(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18885,7 +19162,7 @@ class RequirableByPullRequest(sgqlc.types.Interface):
 
 class RequiredStatusCheckDescription(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18896,7 +19173,7 @@ class RequiredStatusCheckDescription(sgqlc.types.Type):
 
 class RerequestCheckSuitePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18907,7 +19184,7 @@ class RerequestCheckSuitePayload(sgqlc.types.Type):
 
 class ResolveReviewThreadPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18918,7 +19195,7 @@ class ResolveReviewThreadPayload(sgqlc.types.Type):
 
 class ReviewDismissalAllowanceConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18939,7 +19216,7 @@ class ReviewDismissalAllowanceConnection(sgqlc.types.relay.Connection):
 
 class ReviewDismissalAllowanceEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18950,7 +19227,7 @@ class ReviewDismissalAllowanceEdge(sgqlc.types.Type):
 
 class ReviewRequestConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18971,7 +19248,7 @@ class ReviewRequestConnection(sgqlc.types.relay.Connection):
 
 class ReviewRequestEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -18982,7 +19259,7 @@ class ReviewRequestEdge(sgqlc.types.Type):
 
 class RevokeEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19007,7 +19284,7 @@ class RevokeEnterpriseOrganizationsMigratorRolePayload(sgqlc.types.Type):
 
 class RevokeMigratorRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19018,7 +19295,7 @@ class RevokeMigratorRolePayload(sgqlc.types.Type):
 
 class SavedReplyConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19037,7 +19314,7 @@ class SavedReplyConnection(sgqlc.types.relay.Connection):
 
 class SavedReplyEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19048,7 +19325,7 @@ class SavedReplyEdge(sgqlc.types.Type):
 
 class SearchResultItemConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19088,7 +19365,7 @@ class SearchResultItemConnection(sgqlc.types.relay.Connection):
 
 class SearchResultItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19102,7 +19379,7 @@ class SearchResultItemEdge(sgqlc.types.Type):
 
 class SecurityAdvisoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19123,7 +19400,7 @@ class SecurityAdvisoryConnection(sgqlc.types.relay.Connection):
 
 class SecurityAdvisoryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19134,7 +19411,7 @@ class SecurityAdvisoryEdge(sgqlc.types.Type):
 
 class SecurityAdvisoryIdentifier(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19145,7 +19422,7 @@ class SecurityAdvisoryIdentifier(sgqlc.types.Type):
 
 class SecurityAdvisoryPackage(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19158,7 +19435,7 @@ class SecurityAdvisoryPackage(sgqlc.types.Type):
 
 class SecurityAdvisoryPackageVersion(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19170,7 +19447,7 @@ class SecurityAdvisoryPackageVersion(sgqlc.types.Type):
 
 class SecurityAdvisoryReference(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19180,7 +19457,7 @@ class SecurityAdvisoryReference(sgqlc.types.Type):
 
 class SecurityVulnerability(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19214,7 +19491,7 @@ class SecurityVulnerability(sgqlc.types.Type):
 
 class SecurityVulnerabilityConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19235,7 +19512,7 @@ class SecurityVulnerabilityConnection(sgqlc.types.relay.Connection):
 
 class SecurityVulnerabilityEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19246,7 +19523,7 @@ class SecurityVulnerabilityEdge(sgqlc.types.Type):
 
 class SetEnterpriseIdentityProviderPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19259,7 +19536,7 @@ class SetEnterpriseIdentityProviderPayload(sgqlc.types.Type):
 
 class SetOrganizationInteractionLimitPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19270,7 +19547,7 @@ class SetOrganizationInteractionLimitPayload(sgqlc.types.Type):
 
 class SetRepositoryInteractionLimitPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19281,7 +19558,7 @@ class SetRepositoryInteractionLimitPayload(sgqlc.types.Type):
 
 class SetUserInteractionLimitPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19292,7 +19569,7 @@ class SetUserInteractionLimitPayload(sgqlc.types.Type):
 
 class SortBy(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19305,7 +19582,7 @@ class SortBy(sgqlc.types.Type):
 
 class SponsorConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19322,7 +19599,7 @@ class SponsorConnection(sgqlc.types.relay.Connection):
 
 class SponsorEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19333,7 +19610,7 @@ class SponsorEdge(sgqlc.types.Type):
 
 class Sponsorable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19463,7 +19740,7 @@ class Sponsorable(sgqlc.types.Interface):
                             sgqlc.types.non_null(SponsorsActivityAction)
                         ),
                         graphql_name="actions",
-                        default=[],
+                        default=(),
                     ),
                 ),
             )
@@ -19559,7 +19836,7 @@ class Sponsorable(sgqlc.types.Interface):
 
 class SponsorableItemConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19580,7 +19857,7 @@ class SponsorableItemConnection(sgqlc.types.relay.Connection):
 
 class SponsorableItemEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19591,7 +19868,7 @@ class SponsorableItemEdge(sgqlc.types.Type):
 
 class SponsorsActivityConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19612,7 +19889,7 @@ class SponsorsActivityConnection(sgqlc.types.relay.Connection):
 
 class SponsorsActivityEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19623,7 +19900,7 @@ class SponsorsActivityEdge(sgqlc.types.Type):
 
 class SponsorsGoal(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19649,7 +19926,7 @@ class SponsorsGoal(sgqlc.types.Type):
 
 class SponsorsTierAdminInfo(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19685,7 +19962,7 @@ class SponsorsTierAdminInfo(sgqlc.types.Type):
 
 class SponsorsTierConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19704,7 +19981,7 @@ class SponsorsTierConnection(sgqlc.types.relay.Connection):
 
 class SponsorsTierEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19715,7 +19992,7 @@ class SponsorsTierEdge(sgqlc.types.Type):
 
 class SponsorshipConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19747,7 +20024,7 @@ class SponsorshipConnection(sgqlc.types.relay.Connection):
 
 class SponsorshipEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19758,7 +20035,7 @@ class SponsorshipEdge(sgqlc.types.Type):
 
 class SponsorshipNewsletterConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19779,7 +20056,7 @@ class SponsorshipNewsletterConnection(sgqlc.types.relay.Connection):
 
 class SponsorshipNewsletterEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19790,7 +20067,7 @@ class SponsorshipNewsletterEdge(sgqlc.types.Type):
 
 class StargazerConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19809,7 +20086,7 @@ class StargazerConnection(sgqlc.types.relay.Connection):
 
 class StargazerEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19823,7 +20100,7 @@ class StargazerEdge(sgqlc.types.Type):
 
 class Starrable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19858,7 +20135,7 @@ class Starrable(sgqlc.types.Interface):
 
 class StarredRepositoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19880,7 +20157,7 @@ class StarredRepositoryConnection(sgqlc.types.relay.Connection):
 
 class StarredRepositoryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19894,7 +20171,7 @@ class StarredRepositoryEdge(sgqlc.types.Type):
 
 class StartRepositoryMigrationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19907,11 +20184,27 @@ class StartRepositoryMigrationPayload(sgqlc.types.Type):
 
 class StatusCheckRollupContextConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("edges", "nodes", "page_info", "total_count")
+    __field_names__ = (
+        "check_run_count",
+        "check_run_counts_by_state",
+        "edges",
+        "nodes",
+        "page_info",
+        "status_context_count",
+        "status_context_counts_by_state",
+        "total_count",
+    )
+    check_run_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="checkRunCount"
+    )
+    check_run_counts_by_state = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null(CheckRunStateCount)),
+        graphql_name="checkRunCountsByState",
+    )
     edges = sgqlc.types.Field(
         sgqlc.types.list_of("StatusCheckRollupContextEdge"), graphql_name="edges"
     )
@@ -19921,6 +20214,13 @@ class StatusCheckRollupContextConnection(sgqlc.types.relay.Connection):
     page_info = sgqlc.types.Field(
         sgqlc.types.non_null(PageInfo), graphql_name="pageInfo"
     )
+    status_context_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="statusContextCount"
+    )
+    status_context_counts_by_state = sgqlc.types.Field(
+        sgqlc.types.list_of(sgqlc.types.non_null("StatusContextStateCount")),
+        graphql_name="statusContextCountsByState",
+    )
     total_count = sgqlc.types.Field(
         sgqlc.types.non_null(Int), graphql_name="totalCount"
     )
@@ -19928,7 +20228,7 @@ class StatusCheckRollupContextConnection(sgqlc.types.relay.Connection):
 
 class StatusCheckRollupContextEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19937,9 +20237,20 @@ class StatusCheckRollupContextEdge(sgqlc.types.Type):
     node = sgqlc.types.Field("StatusCheckRollupContext", graphql_name="node")
 
 
+class StatusContextStateCount(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("count", "state")
+    count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="count")
+    state = sgqlc.types.Field(sgqlc.types.non_null(StatusState), graphql_name="state")
+
+
 class SubmitPullRequestReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19952,7 +20263,7 @@ class SubmitPullRequestReviewPayload(sgqlc.types.Type):
 
 class Submodule(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19968,7 +20279,7 @@ class Submodule(sgqlc.types.Type):
 
 class SubmoduleConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19987,7 +20298,7 @@ class SubmoduleConnection(sgqlc.types.relay.Connection):
 
 class SubmoduleEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -19998,7 +20309,7 @@ class SubmoduleEdge(sgqlc.types.Type):
 
 class Subscribable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20014,7 +20325,7 @@ class Subscribable(sgqlc.types.Interface):
 
 class SuggestedReviewer(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20030,7 +20341,7 @@ class SuggestedReviewer(sgqlc.types.Type):
 
 class TeamAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20043,7 +20354,7 @@ class TeamAuditEntryData(sgqlc.types.Interface):
 
 class TeamConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20060,7 +20371,7 @@ class TeamConnection(sgqlc.types.relay.Connection):
 
 class TeamDiscussionCommentConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20081,7 +20392,7 @@ class TeamDiscussionCommentConnection(sgqlc.types.relay.Connection):
 
 class TeamDiscussionCommentEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20092,7 +20403,7 @@ class TeamDiscussionCommentEdge(sgqlc.types.Type):
 
 class TeamDiscussionConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20113,7 +20424,7 @@ class TeamDiscussionConnection(sgqlc.types.relay.Connection):
 
 class TeamDiscussionEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20124,7 +20435,7 @@ class TeamDiscussionEdge(sgqlc.types.Type):
 
 class TeamEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20135,7 +20446,7 @@ class TeamEdge(sgqlc.types.Type):
 
 class TeamMemberConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20154,7 +20465,7 @@ class TeamMemberConnection(sgqlc.types.relay.Connection):
 
 class TeamMemberEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20178,7 +20489,7 @@ class TeamMemberEdge(sgqlc.types.Type):
 
 class TeamRepositoryConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20197,7 +20508,7 @@ class TeamRepositoryConnection(sgqlc.types.relay.Connection):
 
 class TeamRepositoryEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20211,7 +20522,7 @@ class TeamRepositoryEdge(sgqlc.types.Type):
 
 class TextMatch(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20228,7 +20539,7 @@ class TextMatch(sgqlc.types.Type):
 
 class TextMatchHighlight(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20242,7 +20553,7 @@ class TextMatchHighlight(sgqlc.types.Type):
 
 class TopicAuditEntryData(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20253,7 +20564,7 @@ class TopicAuditEntryData(sgqlc.types.Interface):
 
 class TransferIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20264,7 +20575,7 @@ class TransferIssuePayload(sgqlc.types.Type):
 
 class TreeEntry(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20302,7 +20613,7 @@ class TreeEntry(sgqlc.types.Type):
 
 class UnarchiveRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20313,7 +20624,7 @@ class UnarchiveRepositoryPayload(sgqlc.types.Type):
 
 class UnfollowOrganizationPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20324,7 +20635,7 @@ class UnfollowOrganizationPayload(sgqlc.types.Type):
 
 class UnfollowUserPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20335,7 +20646,7 @@ class UnfollowUserPayload(sgqlc.types.Type):
 
 class UniformResourceLocatable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20348,7 +20659,7 @@ class UniformResourceLocatable(sgqlc.types.Interface):
 
 class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20360,7 +20671,7 @@ class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
 
 class UnlockLockablePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20372,7 +20683,7 @@ class UnlockLockablePayload(sgqlc.types.Type):
 
 class UnmarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20383,7 +20694,7 @@ class UnmarkDiscussionCommentAsAnswerPayload(sgqlc.types.Type):
 
 class UnmarkFileAsViewedPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20394,7 +20705,7 @@ class UnmarkFileAsViewedPayload(sgqlc.types.Type):
 
 class UnmarkIssueAsDuplicatePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20405,7 +20716,7 @@ class UnmarkIssueAsDuplicatePayload(sgqlc.types.Type):
 
 class UnminimizeCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20418,7 +20729,7 @@ class UnminimizeCommentPayload(sgqlc.types.Type):
 
 class UnpinIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20429,7 +20740,7 @@ class UnpinIssuePayload(sgqlc.types.Type):
 
 class UnresolveReviewThreadPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20440,7 +20751,7 @@ class UnresolveReviewThreadPayload(sgqlc.types.Type):
 
 class Updatable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20452,7 +20763,7 @@ class Updatable(sgqlc.types.Interface):
 
 class UpdatableComment(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20467,7 +20778,7 @@ class UpdatableComment(sgqlc.types.Interface):
 
 class UpdateBranchProtectionRulePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20480,7 +20791,7 @@ class UpdateBranchProtectionRulePayload(sgqlc.types.Type):
 
 class UpdateCheckRunPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20491,7 +20802,7 @@ class UpdateCheckRunPayload(sgqlc.types.Type):
 
 class UpdateCheckSuitePreferencesPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20502,7 +20813,7 @@ class UpdateCheckSuitePreferencesPayload(sgqlc.types.Type):
 
 class UpdateDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20513,7 +20824,7 @@ class UpdateDiscussionCommentPayload(sgqlc.types.Type):
 
 class UpdateDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20524,7 +20835,7 @@ class UpdateDiscussionPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseAdministratorRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20535,7 +20846,7 @@ class UpdateEnterpriseAdministratorRolePayload(sgqlc.types.Type):
 
 class UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20547,7 +20858,7 @@ class UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Ty
 
 class UpdateEnterpriseDefaultRepositoryPermissionSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20561,7 +20872,7 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload(
     sgqlc.types.Type
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20573,7 +20884,7 @@ class UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload(
 
 class UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20585,7 +20896,7 @@ class UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload(sgqlc.types.Typ
 
 class UpdateEnterpriseMembersCanDeleteIssuesSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20597,7 +20908,7 @@ class UpdateEnterpriseMembersCanDeleteIssuesSettingPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20609,7 +20920,7 @@ class UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload(sgqlc.types.Typ
 
 class UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20621,7 +20932,7 @@ class UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload(sgqlc.types.Ty
 
 class UpdateEnterpriseMembersCanMakePurchasesSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20633,7 +20944,7 @@ class UpdateEnterpriseMembersCanMakePurchasesSettingPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20645,7 +20956,7 @@ class UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload(sgqlc.type
 
 class UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20657,7 +20968,7 @@ class UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload(sgqlc.types
 
 class UpdateEnterpriseOrganizationProjectsSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20669,7 +20980,7 @@ class UpdateEnterpriseOrganizationProjectsSettingPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseOwnerOrganizationRolePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20680,7 +20991,7 @@ class UpdateEnterpriseOwnerOrganizationRolePayload(sgqlc.types.Type):
 
 class UpdateEnterpriseProfilePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20691,7 +21002,7 @@ class UpdateEnterpriseProfilePayload(sgqlc.types.Type):
 
 class UpdateEnterpriseRepositoryProjectsSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20703,7 +21014,7 @@ class UpdateEnterpriseRepositoryProjectsSettingPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseTeamDiscussionsSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20715,7 +21026,7 @@ class UpdateEnterpriseTeamDiscussionsSettingPayload(sgqlc.types.Type):
 
 class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20727,7 +21038,7 @@ class UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload(sgqlc.types.
 
 class UpdateEnvironmentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20738,7 +21049,7 @@ class UpdateEnvironmentPayload(sgqlc.types.Type):
 
 class UpdateIpAllowListEnabledSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20749,7 +21060,7 @@ class UpdateIpAllowListEnabledSettingPayload(sgqlc.types.Type):
 
 class UpdateIpAllowListEntryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20762,7 +21073,7 @@ class UpdateIpAllowListEntryPayload(sgqlc.types.Type):
 
 class UpdateIpAllowListForInstalledAppsEnabledSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20773,7 +21084,7 @@ class UpdateIpAllowListForInstalledAppsEnabledSettingPayload(sgqlc.types.Type):
 
 class UpdateIssueCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20784,7 +21095,7 @@ class UpdateIssueCommentPayload(sgqlc.types.Type):
 
 class UpdateIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20796,7 +21107,7 @@ class UpdateIssuePayload(sgqlc.types.Type):
 
 class UpdateNotificationRestrictionSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20807,7 +21118,19 @@ class UpdateNotificationRestrictionSettingPayload(sgqlc.types.Type):
 
 class UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "message", "organization")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    message = sgqlc.types.Field(String, graphql_name="message")
+    organization = sgqlc.types.Field("Organization", graphql_name="organization")
+
+
+class UpdateOrganizationWebCommitSignoffSettingPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20819,7 +21142,7 @@ class UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload(sgqlc.types.
 
 class UpdateProjectCardPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20830,7 +21153,7 @@ class UpdateProjectCardPayload(sgqlc.types.Type):
 
 class UpdateProjectColumnPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20841,7 +21164,7 @@ class UpdateProjectColumnPayload(sgqlc.types.Type):
 
 class UpdateProjectDraftIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20852,7 +21175,7 @@ class UpdateProjectDraftIssuePayload(sgqlc.types.Type):
 
 class UpdateProjectNextItemFieldPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20865,7 +21188,7 @@ class UpdateProjectNextItemFieldPayload(sgqlc.types.Type):
 
 class UpdateProjectNextPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20876,7 +21199,7 @@ class UpdateProjectNextPayload(sgqlc.types.Type):
 
 class UpdateProjectPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20887,7 +21210,7 @@ class UpdateProjectPayload(sgqlc.types.Type):
 
 class UpdateProjectV2DraftIssuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20898,7 +21221,7 @@ class UpdateProjectV2DraftIssuePayload(sgqlc.types.Type):
 
 class UpdateProjectV2ItemFieldValuePayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20909,7 +21232,7 @@ class UpdateProjectV2ItemFieldValuePayload(sgqlc.types.Type):
 
 class UpdateProjectV2ItemPositionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20934,7 +21257,7 @@ class UpdateProjectV2ItemPositionPayload(sgqlc.types.Type):
 
 class UpdateProjectV2Payload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20945,7 +21268,7 @@ class UpdateProjectV2Payload(sgqlc.types.Type):
 
 class UpdatePullRequestBranchPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20956,7 +21279,7 @@ class UpdatePullRequestBranchPayload(sgqlc.types.Type):
 
 class UpdatePullRequestPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20968,7 +21291,7 @@ class UpdatePullRequestPayload(sgqlc.types.Type):
 
 class UpdatePullRequestReviewCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20981,7 +21304,7 @@ class UpdatePullRequestReviewCommentPayload(sgqlc.types.Type):
 
 class UpdatePullRequestReviewPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -20994,7 +21317,7 @@ class UpdatePullRequestReviewPayload(sgqlc.types.Type):
 
 class UpdateRefPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21005,7 +21328,7 @@ class UpdateRefPayload(sgqlc.types.Type):
 
 class UpdateRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21014,9 +21337,21 @@ class UpdateRepositoryPayload(sgqlc.types.Type):
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
 
 
+class UpdateRepositoryWebCommitSignoffSettingPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "message", "repository")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    message = sgqlc.types.Field(String, graphql_name="message")
+    repository = sgqlc.types.Field("Repository", graphql_name="repository")
+
+
 class UpdateSponsorshipPreferencesPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21027,7 +21362,7 @@ class UpdateSponsorshipPreferencesPayload(sgqlc.types.Type):
 
 class UpdateSubscriptionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21038,7 +21373,7 @@ class UpdateSubscriptionPayload(sgqlc.types.Type):
 
 class UpdateTeamDiscussionCommentPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21051,7 +21386,7 @@ class UpdateTeamDiscussionCommentPayload(sgqlc.types.Type):
 
 class UpdateTeamDiscussionPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21062,7 +21397,7 @@ class UpdateTeamDiscussionPayload(sgqlc.types.Type):
 
 class UpdateTeamsRepositoryPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21076,7 +21411,7 @@ class UpdateTeamsRepositoryPayload(sgqlc.types.Type):
 
 class UpdateTopicsPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21091,7 +21426,7 @@ class UpdateTopicsPayload(sgqlc.types.Type):
 
 class UserConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21108,7 +21443,7 @@ class UserConnection(sgqlc.types.relay.Connection):
 
 class UserContentEditConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21129,7 +21464,7 @@ class UserContentEditConnection(sgqlc.types.relay.Connection):
 
 class UserContentEditEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21140,7 +21475,7 @@ class UserContentEditEdge(sgqlc.types.Type):
 
 class UserEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21151,7 +21486,7 @@ class UserEdge(sgqlc.types.Type):
 
 class UserEmailMetadata(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21163,7 +21498,7 @@ class UserEmailMetadata(sgqlc.types.Type):
 
 class UserStatusConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21182,7 +21517,7 @@ class UserStatusConnection(sgqlc.types.relay.Connection):
 
 class UserStatusEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21193,7 +21528,7 @@ class UserStatusEdge(sgqlc.types.Type):
 
 class VerifiableDomainConnection(sgqlc.types.relay.Connection):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21214,7 +21549,7 @@ class VerifiableDomainConnection(sgqlc.types.relay.Connection):
 
 class VerifiableDomainEdge(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21225,7 +21560,7 @@ class VerifiableDomainEdge(sgqlc.types.Type):
 
 class VerifyVerifiableDomainPayload(sgqlc.types.Type):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21236,7 +21571,7 @@ class VerifyVerifiableDomainPayload(sgqlc.types.Type):
 
 class Votable(sgqlc.types.Interface):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21252,9 +21587,39 @@ class Votable(sgqlc.types.Interface):
     )
 
 
+class WorkflowRunConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("edges", "nodes", "page_info", "total_count")
+    edges = sgqlc.types.Field(
+        sgqlc.types.list_of("WorkflowRunEdge"), graphql_name="edges"
+    )
+    nodes = sgqlc.types.Field(sgqlc.types.list_of("WorkflowRun"), graphql_name="nodes")
+    page_info = sgqlc.types.Field(
+        sgqlc.types.non_null(PageInfo), graphql_name="pageInfo"
+    )
+    total_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="totalCount"
+    )
+
+
+class WorkflowRunEdge(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("cursor", "node")
+    cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
+    node = sgqlc.types.Field("WorkflowRun", graphql_name="node")
+
+
 class AddedToProjectEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21268,7 +21633,7 @@ class AddedToProjectEvent(sgqlc.types.Type, Node):
 
 class App(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21332,7 +21697,7 @@ class App(sgqlc.types.Type, Node):
 
 class AssignedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21350,7 +21715,7 @@ class AssignedEvent(sgqlc.types.Type, Node):
 
 class AutoMergeDisabledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21374,7 +21739,7 @@ class AutoMergeDisabledEvent(sgqlc.types.Type, Node):
 
 class AutoMergeEnabledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21389,7 +21754,7 @@ class AutoMergeEnabledEvent(sgqlc.types.Type, Node):
 
 class AutoRebaseEnabledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21404,7 +21769,7 @@ class AutoRebaseEnabledEvent(sgqlc.types.Type, Node):
 
 class AutoSquashEnabledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21419,7 +21784,7 @@ class AutoSquashEnabledEvent(sgqlc.types.Type, Node):
 
 class AutomaticBaseChangeFailedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21437,7 +21802,7 @@ class AutomaticBaseChangeFailedEvent(sgqlc.types.Type, Node):
 
 class AutomaticBaseChangeSucceededEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21455,7 +21820,7 @@ class AutomaticBaseChangeSucceededEvent(sgqlc.types.Type, Node):
 
 class BaseRefChangedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21485,7 +21850,7 @@ class BaseRefChangedEvent(sgqlc.types.Type, Node):
 
 class BaseRefDeletedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21500,7 +21865,7 @@ class BaseRefDeletedEvent(sgqlc.types.Type, Node):
 
 class BaseRefForcePushedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21526,7 +21891,7 @@ class BaseRefForcePushedEvent(sgqlc.types.Type, Node):
 
 class Blob(sgqlc.types.Type, GitObject, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21541,7 +21906,7 @@ class Blob(sgqlc.types.Type, GitObject, Node):
 
 class Bot(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21557,7 +21922,7 @@ class Bot(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
 
 class BranchProtectionRule(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21741,7 +22106,7 @@ class BranchProtectionRule(sgqlc.types.Type, Node):
 
 class BypassForcePushAllowance(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21754,7 +22119,7 @@ class BypassForcePushAllowance(sgqlc.types.Type, Node):
 
 class BypassPullRequestAllowance(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21767,7 +22132,7 @@ class BypassPullRequestAllowance(sgqlc.types.Type, Node):
 
 class CWE(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21783,7 +22148,7 @@ class CheckRun(
     sgqlc.types.Type, Node, UniformResourceLocatable, RequirableByPullRequest
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21866,7 +22231,7 @@ class CheckRun(
 
 class CheckSuite(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21980,7 +22345,7 @@ class CheckSuite(sgqlc.types.Type, Node):
 
 class ClosedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -21998,7 +22363,7 @@ class ClosedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class CodeOfConduct(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22012,7 +22377,7 @@ class CodeOfConduct(sgqlc.types.Type, Node):
 
 class CommentDeletedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22029,7 +22394,7 @@ class CommentDeletedEvent(sgqlc.types.Type, Node):
 
 class Commit(sgqlc.types.Type, Node, GitObject, Subscribable, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22042,6 +22407,7 @@ class Commit(sgqlc.types.Type, Node, GitObject, Subscribable, UniformResourceLoc
         "authors",
         "blame",
         "changed_files",
+        "changed_files_if_available",
         "check_suites",
         "comments",
         "committed_date",
@@ -22131,6 +22497,9 @@ class Commit(sgqlc.types.Type, Node, GitObject, Subscribable, UniformResourceLoc
     )
     changed_files = sgqlc.types.Field(
         sgqlc.types.non_null(Int), graphql_name="changedFiles"
+    )
+    changed_files_if_available = sgqlc.types.Field(
+        Int, graphql_name="changedFilesIfAvailable"
     )
     check_suites = sgqlc.types.Field(
         CheckSuiteConnection,
@@ -22324,7 +22693,7 @@ class CommitComment(
     RepositoryNode,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22340,7 +22709,7 @@ class CommitComment(
 
 class CommitCommentThread(sgqlc.types.Type, Node, RepositoryNode):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22367,7 +22736,7 @@ class CommitCommentThread(sgqlc.types.Type, Node, RepositoryNode):
 
 class ConnectedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22395,7 +22764,7 @@ class ConnectedEvent(sgqlc.types.Type, Node):
 
 class ConvertToDraftEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22411,7 +22780,7 @@ class ConvertToDraftEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class ConvertedNoteToIssueEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22425,7 +22794,7 @@ class ConvertedNoteToIssueEvent(sgqlc.types.Type, Node):
 
 class ConvertedToDiscussionEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22439,7 +22808,7 @@ class ConvertedToDiscussionEvent(sgqlc.types.Type, Node):
 
 class CreatedCommitContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22454,7 +22823,7 @@ class CreatedCommitContribution(sgqlc.types.Type, Contribution):
 
 class CreatedIssueContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22464,7 +22833,7 @@ class CreatedIssueContribution(sgqlc.types.Type, Contribution):
 
 class CreatedPullRequestContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22476,7 +22845,7 @@ class CreatedPullRequestContribution(sgqlc.types.Type, Contribution):
 
 class CreatedPullRequestReviewContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22494,7 +22863,7 @@ class CreatedPullRequestReviewContribution(sgqlc.types.Type, Contribution):
 
 class CreatedRepositoryContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22506,7 +22875,7 @@ class CreatedRepositoryContribution(sgqlc.types.Type, Contribution):
 
 class CrossReferencedEvent(sgqlc.types.Type, UniformResourceLocatable, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22542,7 +22911,7 @@ class CrossReferencedEvent(sgqlc.types.Type, UniformResourceLocatable, Node):
 
 class DemilestonedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22561,7 +22930,7 @@ class DemilestonedEvent(sgqlc.types.Type, Node):
 
 class DependabotUpdate(sgqlc.types.Type, RepositoryNode):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22572,7 +22941,7 @@ class DependabotUpdate(sgqlc.types.Type, RepositoryNode):
 
 class DeployKey(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22590,7 +22959,7 @@ class DeployKey(sgqlc.types.Type, Node):
 
 class DeployedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22618,7 +22987,7 @@ class DeployedEvent(sgqlc.types.Type, Node):
 
 class Deployment(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22684,7 +23053,7 @@ class Deployment(sgqlc.types.Type, Node):
 
 class DeploymentEnvironmentChangedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22703,7 +23072,7 @@ class DeploymentEnvironmentChangedEvent(sgqlc.types.Type, Node):
 
 class DeploymentReview(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22733,7 +23102,7 @@ class DeploymentReview(sgqlc.types.Type, Node):
 
 class DeploymentStatus(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22767,7 +23136,7 @@ class DeploymentStatus(sgqlc.types.Type, Node):
 
 class DisconnectedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22807,7 +23176,7 @@ class Discussion(
     Node,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22855,7 +23224,7 @@ class Discussion(
 
 class DiscussionCategory(sgqlc.types.Type, Node, RepositoryNode):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22897,7 +23266,7 @@ class DiscussionComment(
     Node,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22947,7 +23316,7 @@ class DiscussionComment(
 
 class DiscussionPoll(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -22997,7 +23366,7 @@ class DiscussionPoll(sgqlc.types.Type, Node):
 
 class DiscussionPollOption(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23014,7 +23383,7 @@ class DiscussionPollOption(sgqlc.types.Type, Node):
 
 class DraftIssue(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23098,7 +23467,7 @@ class DraftIssue(sgqlc.types.Type, Node):
 
 class Enterprise(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23175,6 +23544,12 @@ class Enterprise(sgqlc.types.Type, Node):
                         default=None,
                     ),
                 ),
+                (
+                    "has_two_factor_enabled",
+                    sgqlc.types.Arg(
+                        Boolean, graphql_name="hasTwoFactorEnabled", default=None
+                    ),
+                ),
                 ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
                 (
                     "before",
@@ -23232,7 +23607,7 @@ class Enterprise(sgqlc.types.Type, Node):
 
 class EnterpriseAdministratorInvitation(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23260,7 +23635,7 @@ class EnterpriseAdministratorInvitation(sgqlc.types.Type, Node):
 
 class EnterpriseIdentityProvider(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23313,7 +23688,7 @@ class EnterpriseIdentityProvider(sgqlc.types.Type, Node):
 
 class EnterpriseRepositoryInfo(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23329,7 +23704,7 @@ class EnterpriseRepositoryInfo(sgqlc.types.Type, Node):
 
 class EnterpriseServerInstallation(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23405,7 +23780,7 @@ class EnterpriseServerInstallation(sgqlc.types.Type, Node):
 
 class EnterpriseServerUserAccount(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23468,7 +23843,7 @@ class EnterpriseServerUserAccount(sgqlc.types.Type, Node):
 
 class EnterpriseServerUserAccountEmail(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23496,7 +23871,7 @@ class EnterpriseServerUserAccountEmail(sgqlc.types.Type, Node):
 
 class EnterpriseServerUserAccountsUpload(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23530,7 +23905,7 @@ class EnterpriseServerUserAccountsUpload(sgqlc.types.Type, Node):
 
 class EnterpriseUserAccount(sgqlc.types.Type, Actor, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23589,7 +23964,7 @@ class EnterpriseUserAccount(sgqlc.types.Type, Actor, Node):
 
 class Environment(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23615,7 +23990,7 @@ class Environment(sgqlc.types.Type, Node):
 
 class ExternalIdentity(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23641,7 +24016,7 @@ class ExternalIdentity(sgqlc.types.Type, Node):
 
 class GenericHovercardContext(sgqlc.types.Type, HovercardContext):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23650,7 +24025,7 @@ class GenericHovercardContext(sgqlc.types.Type, HovercardContext):
 
 class Gist(sgqlc.types.Type, Node, Starrable, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23731,7 +24106,7 @@ class GistComment(
     sgqlc.types.Type, Node, Comment, Deletable, Minimizable, Updatable, UpdatableComment
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23742,7 +24117,7 @@ class GistComment(
 
 class GpgSignature(sgqlc.types.Type, GitSignature):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23752,7 +24127,7 @@ class GpgSignature(sgqlc.types.Type, GitSignature):
 
 class HeadRefDeletedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23778,7 +24153,7 @@ class HeadRefDeletedEvent(sgqlc.types.Type, Node):
 
 class HeadRefForcePushedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23804,7 +24179,7 @@ class HeadRefForcePushedEvent(sgqlc.types.Type, Node):
 
 class HeadRefRestoredEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23820,7 +24195,7 @@ class HeadRefRestoredEvent(sgqlc.types.Type, Node):
 
 class IpAllowListEntry(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23868,7 +24243,7 @@ class Issue(
     ProjectV2Owner,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -23972,7 +24347,7 @@ class Issue(
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(ProjectCardArchivedState),
                         graphql_name="archivedStates",
-                        default=["ARCHIVED", "NOT_ARCHIVED"],
+                        default=("ARCHIVED", "NOT_ARCHIVED"),
                     ),
                 ),
             )
@@ -24135,7 +24510,7 @@ class IssueComment(
     RepositoryNode,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24150,7 +24525,7 @@ class IssueComment(
 
 class JoinedGitHubContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24159,7 +24534,7 @@ class JoinedGitHubContribution(sgqlc.types.Type, Contribution):
 
 class Label(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24279,7 +24654,7 @@ class Label(sgqlc.types.Type, Node):
 
 class LabeledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24296,7 +24671,7 @@ class LabeledEvent(sgqlc.types.Type, Node):
 
 class Language(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24307,7 +24682,7 @@ class Language(sgqlc.types.Type, Node):
 
 class License(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24356,7 +24731,7 @@ class License(sgqlc.types.Type, Node):
 
 class LockedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24373,7 +24748,7 @@ class LockedEvent(sgqlc.types.Type, Node):
 
 class Mannequin(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24391,7 +24766,7 @@ class Mannequin(sgqlc.types.Type, Node, Actor, UniformResourceLocatable):
 
 class MarkedAsDuplicateEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24415,7 +24790,7 @@ class MarkedAsDuplicateEvent(sgqlc.types.Type, Node):
 
 class MarketplaceCategory(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24447,7 +24822,7 @@ class MarketplaceCategory(sgqlc.types.Type, Node):
 
 class MarketplaceListing(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24659,7 +25034,7 @@ class MembersCanDeleteReposClearAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24674,7 +25049,7 @@ class MembersCanDeleteReposDisableAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24689,7 +25064,7 @@ class MembersCanDeleteReposEnableAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24698,7 +25073,7 @@ class MembersCanDeleteReposEnableAuditEntry(
 
 class MentionedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24712,7 +25087,7 @@ class MentionedEvent(sgqlc.types.Type, Node):
 
 class MergedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24740,7 +25115,7 @@ class MergedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class MigrationSource(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24754,7 +25129,7 @@ class MigrationSource(sgqlc.types.Type, Node):
 
 class Milestone(sgqlc.types.Type, Node, Closable, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24880,7 +25255,7 @@ class Milestone(sgqlc.types.Type, Node, Closable, UniformResourceLocatable):
 
 class MilestonedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24899,7 +25274,7 @@ class MilestonedEvent(sgqlc.types.Type, Node):
 
 class MovedColumnsInProjectEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24913,7 +25288,7 @@ class MovedColumnsInProjectEvent(sgqlc.types.Type, Node):
 
 class OIDCProvider(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24962,7 +25337,7 @@ class OauthApplicationCreateAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24979,7 +25354,7 @@ class OrgAddBillingManagerAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -24991,7 +25366,7 @@ class OrgAddMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25005,7 +25380,7 @@ class OrgBlockUserAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25027,7 +25402,7 @@ class OrgConfigDisableCollaboratorsOnlyAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25038,7 +25413,7 @@ class OrgConfigEnableCollaboratorsOnlyAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25049,7 +25424,7 @@ class OrgCreateAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25063,7 +25438,7 @@ class OrgDisableOauthAppRestrictionsAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25074,7 +25449,7 @@ class OrgDisableSamlAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25094,7 +25469,7 @@ class OrgDisableTwoFactorRequirementAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25105,7 +25480,7 @@ class OrgEnableOauthAppRestrictionsAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25116,7 +25491,7 @@ class OrgEnableSamlAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25136,7 +25511,7 @@ class OrgEnableTwoFactorRequirementAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25147,7 +25522,7 @@ class OrgInviteMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25166,7 +25541,7 @@ class OrgInviteToBusinessAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25181,7 +25556,7 @@ class OrgOauthAppAccessApprovedAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25196,7 +25571,7 @@ class OrgOauthAppAccessDeniedAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25211,7 +25586,7 @@ class OrgOauthAppAccessRequestedAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25222,7 +25597,7 @@ class OrgRemoveBillingManagerAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25236,7 +25611,7 @@ class OrgRemoveMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25254,7 +25629,7 @@ class OrgRemoveOutsideCollaboratorAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25274,7 +25649,7 @@ class OrgRestoreMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25317,7 +25692,7 @@ class OrgRestoreMemberMembershipOrganizationAuditEntryData(
     sgqlc.types.Type, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25328,7 +25703,7 @@ class OrgRestoreMemberMembershipRepositoryAuditEntryData(
     sgqlc.types.Type, RepositoryAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25339,7 +25714,7 @@ class OrgRestoreMemberMembershipTeamAuditEntryData(
     sgqlc.types.Type, TeamAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25350,7 +25725,7 @@ class OrgUnblockUserAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25372,7 +25747,7 @@ class OrgUpdateDefaultRepositoryPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25391,7 +25766,7 @@ class OrgUpdateMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25408,7 +25783,7 @@ class OrgUpdateMemberRepositoryCreationPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25426,7 +25801,7 @@ class OrgUpdateMemberRepositoryInvitationPermissionAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25454,7 +25829,7 @@ class Organization(
     Sponsorable,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25492,6 +25867,7 @@ class Organization(
         "viewer_can_create_teams",
         "viewer_is_amember",
         "viewer_is_following",
+        "web_commit_signoff_required",
     )
     audit_log = sgqlc.types.Field(
         sgqlc.types.non_null(OrganizationAuditEntryConnection),
@@ -25788,11 +26164,14 @@ class Organization(
     viewer_is_following = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="viewerIsFollowing"
     )
+    web_commit_signoff_required = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="webCommitSignoffRequired"
+    )
 
 
 class OrganizationIdentityProvider(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25839,7 +26218,7 @@ class OrganizationIdentityProvider(sgqlc.types.Type, Node):
 
 class OrganizationInvitation(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25871,7 +26250,7 @@ class OrganizationInvitation(sgqlc.types.Type, Node):
 
 class OrganizationTeamsHovercardContext(sgqlc.types.Type, HovercardContext):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25907,7 +26286,7 @@ class OrganizationTeamsHovercardContext(sgqlc.types.Type, HovercardContext):
 
 class OrganizationsHovercardContext(sgqlc.types.Type, HovercardContext):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25934,7 +26313,7 @@ class OrganizationsHovercardContext(sgqlc.types.Type, HovercardContext):
 
 class Package(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -25997,7 +26376,7 @@ class Package(sgqlc.types.Type, Node):
 
 class PackageFile(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26025,7 +26404,7 @@ class PackageFile(sgqlc.types.Type, Node):
 
 class PackageTag(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26036,7 +26415,7 @@ class PackageTag(sgqlc.types.Type, Node):
 
 class PackageVersion(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26088,7 +26467,7 @@ class PackageVersion(sgqlc.types.Type, Node):
 
 class PinnedDiscussion(sgqlc.types.Type, Node, RepositoryNode):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26127,7 +26506,7 @@ class PinnedDiscussion(sgqlc.types.Type, Node, RepositoryNode):
 
 class PinnedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26141,7 +26520,7 @@ class PinnedEvent(sgqlc.types.Type, Node):
 
 class PinnedIssue(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26163,7 +26542,7 @@ class PrivateRepositoryForkingDisableAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26179,7 +26558,7 @@ class PrivateRepositoryForkingEnableAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26188,7 +26567,7 @@ class PrivateRepositoryForkingEnableAuditEntry(
 
 class Project(sgqlc.types.Type, Node, Closable, Updatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26251,7 +26630,7 @@ class Project(sgqlc.types.Type, Node, Closable, Updatable):
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(ProjectCardArchivedState),
                         graphql_name="archivedStates",
-                        default=["ARCHIVED", "NOT_ARCHIVED"],
+                        default=("ARCHIVED", "NOT_ARCHIVED"),
                     ),
                 ),
             )
@@ -26272,7 +26651,7 @@ class Project(sgqlc.types.Type, Node, Closable, Updatable):
 
 class ProjectCard(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26314,7 +26693,7 @@ class ProjectCard(sgqlc.types.Type, Node):
 
 class ProjectColumn(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26346,7 +26725,7 @@ class ProjectColumn(sgqlc.types.Type, Node):
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(ProjectCardArchivedState),
                         graphql_name="archivedStates",
-                        default=["ARCHIVED", "NOT_ARCHIVED"],
+                        default=("ARCHIVED", "NOT_ARCHIVED"),
                     ),
                 ),
             )
@@ -26370,7 +26749,7 @@ class ProjectColumn(sgqlc.types.Type, Node):
 
 class ProjectNext(sgqlc.types.Type, Node, Closable, Updatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26476,7 +26855,7 @@ class ProjectNext(sgqlc.types.Type, Node, Closable, Updatable):
 
 class ProjectNextField(sgqlc.types.Type, ProjectNextFieldCommon, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26485,7 +26864,7 @@ class ProjectNextField(sgqlc.types.Type, ProjectNextFieldCommon, Node):
 
 class ProjectNextItem(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26537,7 +26916,7 @@ class ProjectNextItem(sgqlc.types.Type, Node):
 
 class ProjectNextItemFieldValue(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26569,7 +26948,7 @@ class ProjectNextItemFieldValue(sgqlc.types.Type, Node):
 
 class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26590,6 +26969,7 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
         "title",
         "updated_at",
         "url",
+        "view",
         "views",
     )
     created_at = sgqlc.types.Field(
@@ -26695,6 +27075,20 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
         sgqlc.types.non_null(DateTime), graphql_name="updatedAt"
     )
     url = sgqlc.types.Field(sgqlc.types.non_null(URI), graphql_name="url")
+    view = sgqlc.types.Field(
+        "ProjectV2View",
+        graphql_name="view",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "number",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(Int), graphql_name="number", default=None
+                    ),
+                ),
+            )
+        ),
+    )
     views = sgqlc.types.Field(
         sgqlc.types.non_null(ProjectV2ViewConnection),
         graphql_name="views",
@@ -26722,7 +27116,7 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
 
 class ProjectV2Field(sgqlc.types.Type, ProjectV2FieldCommon, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26731,7 +27125,7 @@ class ProjectV2Field(sgqlc.types.Type, ProjectV2FieldCommon, Node):
 
 class ProjectV2Item(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26806,7 +27200,7 @@ class ProjectV2ItemFieldDateValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26818,7 +27212,7 @@ class ProjectV2ItemFieldIterationValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26838,7 +27232,7 @@ class ProjectV2ItemFieldNumberValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26850,7 +27244,7 @@ class ProjectV2ItemFieldSingleSelectValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26864,7 +27258,7 @@ class ProjectV2ItemFieldTextValue(
     sgqlc.types.Type, ProjectV2ItemFieldValueCommon, Node
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26874,7 +27268,7 @@ class ProjectV2ItemFieldTextValue(
 
 class ProjectV2IterationField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26887,7 +27281,7 @@ class ProjectV2IterationField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
 
 class ProjectV2SingleSelectField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -26902,13 +27296,14 @@ class ProjectV2SingleSelectField(sgqlc.types.Type, ProjectV2FieldCommon, Node):
 
 class ProjectV2View(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __field_names__ = (
         "created_at",
         "database_id",
+        "fields",
         "filter",
         "group_by",
         "layout",
@@ -26924,6 +27319,29 @@ class ProjectV2View(sgqlc.types.Type, Node):
         sgqlc.types.non_null(DateTime), graphql_name="createdAt"
     )
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
+    fields = sgqlc.types.Field(
+        ProjectV2FieldConfigurationConnection,
+        graphql_name="fields",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        ProjectV2FieldOrder,
+                        graphql_name="orderBy",
+                        default={"field": "POSITION", "direction": "ASC"},
+                    ),
+                ),
+            )
+        ),
+    )
     filter = sgqlc.types.Field(String, graphql_name="filter")
     group_by = sgqlc.types.Field(
         ProjectV2FieldConnection,
@@ -27022,7 +27440,7 @@ class ProjectV2View(sgqlc.types.Type, Node):
 
 class ProjectView(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27072,7 +27490,7 @@ class ProjectView(sgqlc.types.Type, Node):
 
 class PublicKey(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27112,7 +27530,7 @@ class PullRequest(
     ProjectV2Owner,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27389,7 +27807,7 @@ class PullRequest(
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(ProjectCardArchivedState),
                         graphql_name="archivedStates",
-                        default=["ARCHIVED", "NOT_ARCHIVED"],
+                        default=("ARCHIVED", "NOT_ARCHIVED"),
                     ),
                 ),
             )
@@ -27617,7 +28035,7 @@ class PullRequest(
 
 class PullRequestCommit(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27630,7 +28048,7 @@ class PullRequestCommit(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class PullRequestCommitCommentThread(sgqlc.types.Type, RepositoryNode, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27669,7 +28087,7 @@ class PullRequestReview(
     RepositoryNode,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27743,7 +28161,7 @@ class PullRequestReviewComment(
     RepositoryNode,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27793,7 +28211,7 @@ class PullRequestReviewComment(
 
 class PullRequestReviewThread(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27870,18 +28288,22 @@ class PullRequestReviewThread(sgqlc.types.Type, Node):
 
 class PullRequestThread(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __field_names__ = (
         "comments",
+        "diff_side",
         "is_collapsed",
         "is_outdated",
         "is_resolved",
+        "line",
         "pull_request",
         "repository",
         "resolved_by",
+        "start_diff_side",
+        "start_line",
         "viewer_can_reply",
         "viewer_can_resolve",
         "viewer_can_unresolve",
@@ -27902,6 +28324,9 @@ class PullRequestThread(sgqlc.types.Type, Node):
             )
         ),
     )
+    diff_side = sgqlc.types.Field(
+        sgqlc.types.non_null(DiffSide), graphql_name="diffSide"
+    )
     is_collapsed = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="isCollapsed"
     )
@@ -27911,6 +28336,7 @@ class PullRequestThread(sgqlc.types.Type, Node):
     is_resolved = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="isResolved"
     )
+    line = sgqlc.types.Field(Int, graphql_name="line")
     pull_request = sgqlc.types.Field(
         sgqlc.types.non_null(PullRequest), graphql_name="pullRequest"
     )
@@ -27918,6 +28344,8 @@ class PullRequestThread(sgqlc.types.Type, Node):
         sgqlc.types.non_null("Repository"), graphql_name="repository"
     )
     resolved_by = sgqlc.types.Field("User", graphql_name="resolvedBy")
+    start_diff_side = sgqlc.types.Field(DiffSide, graphql_name="startDiffSide")
+    start_line = sgqlc.types.Field(Int, graphql_name="startLine")
     viewer_can_reply = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="viewerCanReply"
     )
@@ -27931,7 +28359,7 @@ class PullRequestThread(sgqlc.types.Type, Node):
 
 class Push(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27947,7 +28375,7 @@ class Push(sgqlc.types.Type, Node):
 
 class PushAllowance(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27960,7 +28388,7 @@ class PushAllowance(sgqlc.types.Type, Node):
 
 class Reaction(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27980,7 +28408,7 @@ class Reaction(sgqlc.types.Type, Node):
 
 class ReadyForReviewEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -27996,7 +28424,7 @@ class ReadyForReviewEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class Ref(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28066,7 +28494,7 @@ class Ref(sgqlc.types.Type, Node):
 
 class ReferencedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28100,7 +28528,7 @@ class ReferencedEvent(sgqlc.types.Type, Node):
 
 class Release(sgqlc.types.Type, Node, UniformResourceLocatable, Reactable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28189,7 +28617,7 @@ class Release(sgqlc.types.Type, Node, UniformResourceLocatable, Reactable):
 
 class ReleaseAsset(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28231,7 +28659,7 @@ class ReleaseAsset(sgqlc.types.Type, Node):
 
 class RemovedFromProjectEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28245,7 +28673,7 @@ class RemovedFromProjectEvent(sgqlc.types.Type, Node):
 
 class RenamedTitleEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28273,7 +28701,7 @@ class RenamedTitleEvent(sgqlc.types.Type, Node):
 
 class ReopenedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28296,7 +28724,7 @@ class RepoAccessAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28314,7 +28742,7 @@ class RepoAddMemberAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28333,7 +28761,7 @@ class RepoAddTopicAuditEntry(
     TopicAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28348,7 +28776,7 @@ class RepoArchivedAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28366,7 +28794,7 @@ class RepoChangeMergeSettingAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28385,7 +28813,7 @@ class RepoConfigDisableAnonymousGitAccessAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28400,7 +28828,7 @@ class RepoConfigDisableCollaboratorsOnlyAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28415,7 +28843,7 @@ class RepoConfigDisableContributorsOnlyAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28430,7 +28858,7 @@ class RepoConfigDisableSockpuppetDisallowedAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28445,7 +28873,7 @@ class RepoConfigEnableAnonymousGitAccessAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28460,7 +28888,7 @@ class RepoConfigEnableCollaboratorsOnlyAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28475,7 +28903,7 @@ class RepoConfigEnableContributorsOnlyAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28490,7 +28918,7 @@ class RepoConfigEnableSockpuppetDisallowedAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28505,7 +28933,7 @@ class RepoConfigLockAnonymousGitAccessAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28520,7 +28948,7 @@ class RepoConfigUnlockAnonymousGitAccessAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28535,7 +28963,7 @@ class RepoCreateAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28555,7 +28983,7 @@ class RepoDestroyAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28573,7 +29001,7 @@ class RepoRemoveMemberAuditEntry(
     RepositoryAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28592,7 +29020,7 @@ class RepoRemoveTopicAuditEntry(
     TopicAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28611,7 +29039,7 @@ class Repository(
     RepositoryInfo,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -28656,6 +29084,8 @@ class Repository(
         "latest_release",
         "mentionable_users",
         "merge_commit_allowed",
+        "merge_commit_message",
+        "merge_commit_title",
         "milestone",
         "milestones",
         "object",
@@ -28678,6 +29108,8 @@ class Repository(
         "repository_topics",
         "security_policy_url",
         "squash_merge_allowed",
+        "squash_merge_commit_message",
+        "squash_merge_commit_title",
         "squash_pr_title_used_as_default",
         "ssh_url",
         "submodules",
@@ -28691,6 +29123,7 @@ class Repository(
         "viewer_possible_commit_emails",
         "vulnerability_alerts",
         "watchers",
+        "web_commit_signoff_required",
     )
     allow_update_branch = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="allowUpdateBranch"
@@ -28975,7 +29408,7 @@ class Repository(
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(RepositoryAffiliation),
                         graphql_name="ownerAffiliations",
-                        default=["OWNER", "COLLABORATOR"],
+                        default=("OWNER", "COLLABORATOR"),
                     ),
                 ),
                 (
@@ -29163,6 +29596,12 @@ class Repository(
     )
     merge_commit_allowed = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="mergeCommitAllowed"
+    )
+    merge_commit_message = sgqlc.types.Field(
+        sgqlc.types.non_null(MergeCommitMessage), graphql_name="mergeCommitMessage"
+    )
+    merge_commit_title = sgqlc.types.Field(
+        sgqlc.types.non_null(MergeCommitTitle), graphql_name="mergeCommitTitle"
     )
     milestone = sgqlc.types.Field(
         Milestone,
@@ -29495,6 +29934,14 @@ class Repository(
     squash_merge_allowed = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="squashMergeAllowed"
     )
+    squash_merge_commit_message = sgqlc.types.Field(
+        sgqlc.types.non_null(SquashMergeCommitMessage),
+        graphql_name="squashMergeCommitMessage",
+    )
+    squash_merge_commit_title = sgqlc.types.Field(
+        sgqlc.types.non_null(SquashMergeCommitTitle),
+        graphql_name="squashMergeCommitTitle",
+    )
     squash_pr_title_used_as_default = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="squashPrTitleUsedAsDefault"
     )
@@ -29592,11 +30039,14 @@ class Repository(
             )
         ),
     )
+    web_commit_signoff_required = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="webCommitSignoffRequired"
+    )
 
 
 class RepositoryInvitation(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29620,7 +30070,7 @@ class RepositoryInvitation(sgqlc.types.Type, Node):
 
 class RepositoryMigration(sgqlc.types.Type, Node, Migration):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29629,7 +30079,7 @@ class RepositoryMigration(sgqlc.types.Type, Node, Migration):
 
 class RepositoryTopic(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29645,7 +30095,7 @@ class RepositoryVisibilityChangeDisableAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29660,7 +30110,7 @@ class RepositoryVisibilityChangeEnableAuditEntry(
     OrganizationAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29669,7 +30119,7 @@ class RepositoryVisibilityChangeEnableAuditEntry(
 
 class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29677,6 +30127,7 @@ class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
         "created_at",
         "dependabot_update",
         "dependency_scope",
+        "dismiss_comment",
         "dismiss_reason",
         "dismissed_at",
         "dismisser",
@@ -29699,6 +30150,7 @@ class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
     dependency_scope = sgqlc.types.Field(
         RepositoryVulnerabilityAlertDependencyScope, graphql_name="dependencyScope"
     )
+    dismiss_comment = sgqlc.types.Field(String, graphql_name="dismissComment")
     dismiss_reason = sgqlc.types.Field(String, graphql_name="dismissReason")
     dismissed_at = sgqlc.types.Field(DateTime, graphql_name="dismissedAt")
     dismisser = sgqlc.types.Field("User", graphql_name="dismisser")
@@ -29727,7 +30179,7 @@ class RepositoryVulnerabilityAlert(sgqlc.types.Type, Node, RepositoryNode):
 
 class RestrictedContribution(sgqlc.types.Type, Contribution):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29736,7 +30188,7 @@ class RestrictedContribution(sgqlc.types.Type, Contribution):
 
 class ReviewDismissalAllowance(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29749,7 +30201,7 @@ class ReviewDismissalAllowance(sgqlc.types.Type, Node):
 
 class ReviewDismissedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29787,7 +30239,7 @@ class ReviewDismissedEvent(sgqlc.types.Type, Node, UniformResourceLocatable):
 
 class ReviewRequest(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29811,7 +30263,7 @@ class ReviewRequest(sgqlc.types.Type, Node):
 
 class ReviewRequestRemovedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29830,7 +30282,7 @@ class ReviewRequestRemovedEvent(sgqlc.types.Type, Node):
 
 class ReviewRequestedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29849,7 +30301,7 @@ class ReviewRequestedEvent(sgqlc.types.Type, Node):
 
 class ReviewStatusHovercardContext(sgqlc.types.Type, HovercardContext):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29861,7 +30313,7 @@ class ReviewStatusHovercardContext(sgqlc.types.Type, HovercardContext):
 
 class SavedReply(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -29875,7 +30327,7 @@ class SavedReply(sgqlc.types.Type, Node):
 
 class SecurityAdvisory(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30010,7 +30462,7 @@ class SecurityAdvisory(sgqlc.types.Type, Node):
 
 class SmimeSignature(sgqlc.types.Type, GitSignature):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30019,7 +30471,7 @@ class SmimeSignature(sgqlc.types.Type, GitSignature):
 
 class SponsorsActivity(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30047,26 +30499,36 @@ class SponsorsActivity(sgqlc.types.Type, Node):
 
 class SponsorsListing(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
     __field_names__ = (
         "active_goal",
         "created_at",
+        "dashboard_resource_path",
+        "dashboard_url",
         "full_description",
         "full_description_html",
         "is_public",
         "name",
         "next_payout_date",
+        "resource_path",
         "short_description",
         "slug",
         "sponsorable",
         "tiers",
+        "url",
     )
     active_goal = sgqlc.types.Field(SponsorsGoal, graphql_name="activeGoal")
     created_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="createdAt"
+    )
+    dashboard_resource_path = sgqlc.types.Field(
+        sgqlc.types.non_null(URI), graphql_name="dashboardResourcePath"
+    )
+    dashboard_url = sgqlc.types.Field(
+        sgqlc.types.non_null(URI), graphql_name="dashboardUrl"
     )
     full_description = sgqlc.types.Field(
         sgqlc.types.non_null(String), graphql_name="fullDescription"
@@ -30079,6 +30541,9 @@ class SponsorsListing(sgqlc.types.Type, Node):
     )
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
     next_payout_date = sgqlc.types.Field(Date, graphql_name="nextPayoutDate")
+    resource_path = sgqlc.types.Field(
+        sgqlc.types.non_null(URI), graphql_name="resourcePath"
+    )
     short_description = sgqlc.types.Field(
         sgqlc.types.non_null(String), graphql_name="shortDescription"
     )
@@ -30109,11 +30574,12 @@ class SponsorsListing(sgqlc.types.Type, Node):
             )
         ),
     )
+    url = sgqlc.types.Field(sgqlc.types.non_null(URI), graphql_name="url")
 
 
 class SponsorsTier(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30167,7 +30633,7 @@ class SponsorsTier(sgqlc.types.Type, Node):
 
 class Sponsorship(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30209,7 +30675,7 @@ class Sponsorship(sgqlc.types.Type, Node):
 
 class SponsorshipNewsletter(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30237,9 +30703,19 @@ class SponsorshipNewsletter(sgqlc.types.Type, Node):
     )
 
 
+class SshSignature(sgqlc.types.Type, GitSignature):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("key_fingerprint",)
+    key_fingerprint = sgqlc.types.Field(String, graphql_name="keyFingerprint")
+
+
 class Status(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30285,7 +30761,7 @@ class Status(sgqlc.types.Type, Node):
 
 class StatusCheckRollup(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30311,7 +30787,7 @@ class StatusCheckRollup(sgqlc.types.Type, Node):
 
 class StatusContext(sgqlc.types.Type, RequirableByPullRequest, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30345,7 +30821,7 @@ class StatusContext(sgqlc.types.Type, RequirableByPullRequest, Node):
 
 class SubscribedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30361,7 +30837,7 @@ class SubscribedEvent(sgqlc.types.Type, Node):
 
 class Tag(sgqlc.types.Type, Node, GitObject):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30374,7 +30850,7 @@ class Tag(sgqlc.types.Type, Node, GitObject):
 
 class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30643,7 +31119,7 @@ class TeamAddMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30660,7 +31136,7 @@ class TeamAddRepositoryAuditEntry(
     TeamAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30672,7 +31148,7 @@ class TeamChangeParentTeamAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30714,7 +31190,7 @@ class TeamDiscussion(
     UpdatableComment,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30789,7 +31265,7 @@ class TeamDiscussionComment(
     UpdatableComment,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30807,7 +31283,7 @@ class TeamRemoveMemberAuditEntry(
     sgqlc.types.Type, Node, AuditEntry, OrganizationAuditEntryData, TeamAuditEntryData
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30824,7 +31300,7 @@ class TeamRemoveRepositoryAuditEntry(
     TeamAuditEntryData,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30834,7 +31310,7 @@ class TeamRemoveRepositoryAuditEntry(
 
 class Topic(sgqlc.types.Type, Node, Starrable):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30877,7 +31353,7 @@ class Topic(sgqlc.types.Type, Node, Starrable):
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(RepositoryAffiliation),
                         graphql_name="ownerAffiliations",
-                        default=["OWNER", "COLLABORATOR"],
+                        default=("OWNER", "COLLABORATOR"),
                     ),
                 ),
                 (
@@ -30904,7 +31380,7 @@ class Topic(sgqlc.types.Type, Node, Starrable):
 
 class TransferredEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30919,7 +31395,7 @@ class TransferredEvent(sgqlc.types.Type, Node):
 
 class Tree(sgqlc.types.Type, Node, GitObject):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30931,7 +31407,7 @@ class Tree(sgqlc.types.Type, Node, GitObject):
 
 class UnassignedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30949,7 +31425,7 @@ class UnassignedEvent(sgqlc.types.Type, Node):
 
 class UnknownSignature(sgqlc.types.Type, GitSignature):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30958,7 +31434,7 @@ class UnknownSignature(sgqlc.types.Type, GitSignature):
 
 class UnlabeledEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30975,7 +31451,7 @@ class UnlabeledEvent(sgqlc.types.Type, Node):
 
 class UnlockedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -30991,7 +31467,7 @@ class UnlockedEvent(sgqlc.types.Type, Node):
 
 class UnmarkedAsDuplicateEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31015,7 +31491,7 @@ class UnmarkedAsDuplicateEvent(sgqlc.types.Type, Node):
 
 class UnpinnedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31029,7 +31505,7 @@ class UnpinnedEvent(sgqlc.types.Type, Node):
 
 class UnsubscribedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31060,7 +31536,7 @@ class User(
     Sponsorable,
 ):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31609,7 +32085,7 @@ class User(
                     sgqlc.types.Arg(
                         sgqlc.types.list_of(RepositoryAffiliation),
                         graphql_name="ownerAffiliations",
-                        default=["OWNER", "COLLABORATOR"],
+                        default=("OWNER", "COLLABORATOR"),
                     ),
                 ),
                 (
@@ -31630,7 +32106,7 @@ class User(
 
 class UserBlockedEvent(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31647,7 +32123,7 @@ class UserBlockedEvent(sgqlc.types.Type, Node):
 
 class UserContentEdit(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31677,7 +32153,7 @@ class UserContentEdit(sgqlc.types.Type, Node):
 
 class UserStatus(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31711,7 +32187,7 @@ class UserStatus(sgqlc.types.Type, Node):
 
 class VerifiableDomain(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31769,7 +32245,7 @@ class VerifiableDomain(sgqlc.types.Type, Node):
 
 class ViewerHovercardContext(sgqlc.types.Type, HovercardContext):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31779,16 +32255,39 @@ class ViewerHovercardContext(sgqlc.types.Type, HovercardContext):
 
 class Workflow(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("created_at", "database_id", "name", "updated_at")
+    __field_names__ = ("created_at", "database_id", "name", "runs", "updated_at")
     created_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="createdAt"
     )
     database_id = sgqlc.types.Field(Int, graphql_name="databaseId")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
+    runs = sgqlc.types.Field(
+        sgqlc.types.non_null(WorkflowRunConnection),
+        graphql_name="runs",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        WorkflowRunOrder,
+                        graphql_name="orderBy",
+                        default={"field": "CREATED_AT", "direction": "DESC"},
+                    ),
+                ),
+            )
+        ),
+    )
     updated_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="updatedAt"
     )
@@ -31796,7 +32295,7 @@ class Workflow(sgqlc.types.Type, Node):
 
 class WorkflowRun(sgqlc.types.Type, Node):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31867,7 +32366,7 @@ class WorkflowRun(sgqlc.types.Type, Node):
 ########################################################################
 class Assignee(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31876,7 +32375,7 @@ class Assignee(sgqlc.types.Union):
 
 class AuditEntryActor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31885,7 +32384,7 @@ class AuditEntryActor(sgqlc.types.Union):
 
 class BranchActorAllowanceActor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31894,7 +32393,7 @@ class BranchActorAllowanceActor(sgqlc.types.Union):
 
 class Closer(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31903,7 +32402,7 @@ class Closer(sgqlc.types.Union):
 
 class CreatedIssueOrRestrictedContribution(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31912,7 +32411,7 @@ class CreatedIssueOrRestrictedContribution(sgqlc.types.Union):
 
 class CreatedPullRequestOrRestrictedContribution(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31921,7 +32420,7 @@ class CreatedPullRequestOrRestrictedContribution(sgqlc.types.Union):
 
 class CreatedRepositoryOrRestrictedContribution(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31930,7 +32429,7 @@ class CreatedRepositoryOrRestrictedContribution(sgqlc.types.Union):
 
 class DeploymentReviewer(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31939,7 +32438,7 @@ class DeploymentReviewer(sgqlc.types.Union):
 
 class EnterpriseMember(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31948,7 +32447,7 @@ class EnterpriseMember(sgqlc.types.Union):
 
 class IpAllowListOwner(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31957,7 +32456,7 @@ class IpAllowListOwner(sgqlc.types.Union):
 
 class IssueOrPullRequest(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31966,7 +32465,7 @@ class IssueOrPullRequest(sgqlc.types.Union):
 
 class IssueTimelineItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -31995,7 +32494,7 @@ class IssueTimelineItem(sgqlc.types.Union):
 
 class IssueTimelineItems(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32036,7 +32535,7 @@ class IssueTimelineItems(sgqlc.types.Union):
 
 class MilestoneItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32045,7 +32544,7 @@ class MilestoneItem(sgqlc.types.Union):
 
 class OrgRestoreMemberAuditEntryMembership(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32058,7 +32557,7 @@ class OrgRestoreMemberAuditEntryMembership(sgqlc.types.Union):
 
 class OrganizationAuditEntry(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32126,7 +32625,7 @@ class OrganizationAuditEntry(sgqlc.types.Union):
 
 class OrganizationOrUser(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32135,7 +32634,7 @@ class OrganizationOrUser(sgqlc.types.Union):
 
 class PermissionGranter(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32144,7 +32643,7 @@ class PermissionGranter(sgqlc.types.Union):
 
 class PinnableItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32153,7 +32652,7 @@ class PinnableItem(sgqlc.types.Union):
 
 class ProjectCardItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32162,7 +32661,7 @@ class ProjectCardItem(sgqlc.types.Union):
 
 class ProjectNextItemContent(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32171,7 +32670,7 @@ class ProjectNextItemContent(sgqlc.types.Union):
 
 class ProjectV2FieldConfiguration(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32180,7 +32679,7 @@ class ProjectV2FieldConfiguration(sgqlc.types.Union):
 
 class ProjectV2ItemContent(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32189,7 +32688,7 @@ class ProjectV2ItemContent(sgqlc.types.Union):
 
 class ProjectV2ItemFieldValue(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32210,7 +32709,7 @@ class ProjectV2ItemFieldValue(sgqlc.types.Union):
 
 class PullRequestTimelineItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32253,7 +32752,7 @@ class PullRequestTimelineItem(sgqlc.types.Union):
 
 class PullRequestTimelineItems(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32319,7 +32818,7 @@ class PullRequestTimelineItems(sgqlc.types.Union):
 
 class PushAllowanceActor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32328,7 +32827,7 @@ class PushAllowanceActor(sgqlc.types.Union):
 
 class Reactor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32337,7 +32836,7 @@ class Reactor(sgqlc.types.Union):
 
 class ReferencedSubject(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32346,7 +32845,7 @@ class ReferencedSubject(sgqlc.types.Union):
 
 class RenamedTitleSubject(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32355,7 +32854,7 @@ class RenamedTitleSubject(sgqlc.types.Union):
 
 class RequestedReviewer(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32364,7 +32863,7 @@ class RequestedReviewer(sgqlc.types.Union):
 
 class ReviewDismissalAllowanceActor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32373,7 +32872,7 @@ class ReviewDismissalAllowanceActor(sgqlc.types.Union):
 
 class SearchResultItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32391,7 +32890,7 @@ class SearchResultItem(sgqlc.types.Union):
 
 class Sponsor(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32400,7 +32899,7 @@ class Sponsor(sgqlc.types.Union):
 
 class SponsorableItem(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32409,7 +32908,7 @@ class SponsorableItem(sgqlc.types.Union):
 
 class StatusCheckRollupContext(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
@@ -32418,7 +32917,7 @@ class StatusCheckRollupContext(sgqlc.types.Union):
 
 class VerifiableDomainOwner(sgqlc.types.Union):
     """
-    See source code for the more info.
+    See source code for more info.
     """
 
     __schema__ = graphql_schema
