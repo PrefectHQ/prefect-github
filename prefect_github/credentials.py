@@ -21,7 +21,7 @@ class GitHubCredentials(Block):
     """
 
     _block_type_name = "GitHub Credentials"
-    # _logo_url = "<LOGO_URL_HERE>"  # noqa
+    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"  # noqa
 
     token: SecretStr = None
 
