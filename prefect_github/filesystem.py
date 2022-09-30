@@ -1,8 +1,9 @@
 """The GitHub filesystem for Prefect"""
 import io
 import shutil
-import tempfile
 from pathlib import Path
+from shutil import copytree
+from tempfile import TemporaryDirectory
 from typing import Optional
 
 from prefect.filesystems import ReadableDeploymentStorage
@@ -99,7 +100,7 @@ class GitHubRepository(ReadableDeploymentStorage):
 
         # in this case, we clone to a temporary directory and move the subdirectory over
         tmp_dir = None
-        tmp_dir = tempfile.TemporaryDirectory(suffix="prefect")
+        tmp_dir = TemporaryDirectory(suffix="prefect")
         path_to_move = str(Path(tmp_dir.name).joinpath(from_path))
         if from_path:
             destination_path = local_path.joinpath(from_path)
@@ -114,9 +115,9 @@ class GitHubRepository(ReadableDeploymentStorage):
             process = await run_process(cmd, stream_output=(out_stream, err_stream))
 
             # move directory from temp folder to designated directory
-            shutil.copytree(
-                path_to_move,
-                destination_path,
+            copytree(
+                src=path_to_move,
+                dst=destination_path,
                 copy_function=shutil.move,
                 dirs_exist_ok=True,
             )
