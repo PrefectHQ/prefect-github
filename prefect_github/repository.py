@@ -24,13 +24,13 @@ return_fields_defaults = initialize_return_fields_defaults(config_path)
 
 
 @task
-async def query_repository(
+async def query_repository(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The query root of GitHub's GraphQL interface.
 
@@ -65,14 +65,14 @@ async def query_repository(
 
 
 @task
-async def query_repository_ref(
+async def query_repository_ref(  # noqa
     owner: str,
     name: str,
     qualified_name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Fetch a given ref from the repository.
 
@@ -117,7 +117,7 @@ async def query_repository_ref(
 
 
 @task
-async def query_repository_refs(
+async def query_repository_refs(  # noqa
     owner: str,
     name: str,
     ref_prefix: str,
@@ -131,7 +131,7 @@ async def query_repository_refs(
     direction: graphql_schema.OrderDirection = None,
     order_by: graphql_schema.RefOrder = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Fetch a list of refs from the repository.
 
@@ -191,13 +191,13 @@ async def query_repository_refs(
 
 
 @task
-async def query_repository_owner(
+async def query_repository_owner(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The User owner of the repository.
 
@@ -235,7 +235,7 @@ async def query_repository_owner(
 
 
 @task
-async def query_repository_forks(
+async def query_repository_forks(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -243,17 +243,17 @@ async def query_repository_forks(
     privacy: graphql_schema.RepositoryPrivacy = None,
     order_by: graphql_schema.RepositoryOrder = None,
     affiliations: Iterable[graphql_schema.RepositoryAffiliation] = None,
-    owner_affiliations: Iterable[graphql_schema.RepositoryAffiliation] = [
+    owner_affiliations: Iterable[graphql_schema.RepositoryAffiliation] = (
         "OWNER",
         "COLLABORATOR",
-    ],
+    ),
     is_locked: bool = None,
     after: str = None,
     before: str = None,
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of direct forked repositories.
 
@@ -322,14 +322,14 @@ async def query_repository_forks(
 
 
 @task
-async def query_repository_issue(
+async def query_repository_issue(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single issue from the current repository by number.
 
@@ -372,14 +372,14 @@ async def query_repository_issue(
 
 
 @task
-async def query_repository_label(
+async def query_repository_label(  # noqa
     owner: str,
     name: str,
     label_name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single label by name.
 
@@ -422,7 +422,7 @@ async def query_repository_label(
 
 
 @task
-async def query_repository_issues(
+async def query_repository_issues(  # noqa
     owner: str,
     name: str,
     labels: Iterable[str],
@@ -436,7 +436,7 @@ async def query_repository_issues(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of issues that have been opened in the repository.
 
@@ -497,7 +497,7 @@ async def query_repository_issues(
 
 
 @task
-async def query_repository_labels(
+async def query_repository_labels(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -509,7 +509,7 @@ async def query_repository_labels(
     last: int = None,
     query: str = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of labels associated with the repository.
 
@@ -565,7 +565,7 @@ async def query_repository_labels(
 
 
 @task
-async def query_repository_object(
+async def query_repository_object(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -573,7 +573,7 @@ async def query_repository_object(
     oid: datetime = None,
     expression: str = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A Git object in the repository.
 
@@ -618,14 +618,14 @@ async def query_repository_object(
 
 
 @task
-async def query_repository_project(
+async def query_repository_project(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Find project by number.
 
@@ -668,14 +668,14 @@ async def query_repository_project(
 
 
 @task
-async def query_repository_release(
+async def query_repository_release(  # noqa
     owner: str,
     name: str,
     tag_name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Lookup a single release given various criteria.
 
@@ -718,7 +718,7 @@ async def query_repository_release(
 
 
 @task
-async def query_repository_projects(
+async def query_repository_projects(  # noqa
     owner: str,
     name: str,
     states: Iterable[graphql_schema.ProjectState],
@@ -731,7 +731,7 @@ async def query_repository_projects(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of projects under the owner.
 
@@ -790,7 +790,7 @@ async def query_repository_projects(
 
 
 @task
-async def query_repository_packages(
+async def query_repository_packages(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -807,7 +807,7 @@ async def query_repository_packages(
         "direction": "DESC",
     },
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of packages under the owner.
 
@@ -866,7 +866,7 @@ async def query_repository_packages(
 
 
 @task
-async def query_repository_releases(
+async def query_repository_releases(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -877,7 +877,7 @@ async def query_repository_releases(
     last: int = None,
     order_by: graphql_schema.ReleaseOrder = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     List of releases which are dependent on this repository.
 
@@ -930,7 +930,7 @@ async def query_repository_releases(
 
 
 @task
-async def query_repository_watchers(
+async def query_repository_watchers(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -940,7 +940,7 @@ async def query_repository_watchers(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of users watching the repository.
 
@@ -991,7 +991,7 @@ async def query_repository_watchers(
 
 
 @task
-async def query_repository_languages(
+async def query_repository_languages(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1002,7 +1002,7 @@ async def query_repository_languages(
     last: int = None,
     order_by: graphql_schema.LanguageOrder = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list containing a breakdown of the language composition of the repository.
 
@@ -1055,14 +1055,14 @@ async def query_repository_languages(
 
 
 @task
-async def query_repository_milestone(
+async def query_repository_milestone(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single milestone from the current repository by number.
 
@@ -1105,14 +1105,14 @@ async def query_repository_milestone(
 
 
 @task
-async def query_repository_project_v2(
+async def query_repository_project_v2(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Finds and returns the Project according to the provided Project number.
 
@@ -1155,7 +1155,7 @@ async def query_repository_project_v2(
 
 
 @task
-async def query_repository_stargazers(
+async def query_repository_stargazers(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1166,7 +1166,7 @@ async def query_repository_stargazers(
     last: int = None,
     order_by: graphql_schema.StarOrder = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of users who have starred this starrable.
 
@@ -1219,7 +1219,7 @@ async def query_repository_stargazers(
 
 
 @task
-async def query_repository_deploy_keys(
+async def query_repository_deploy_keys(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1229,7 +1229,7 @@ async def query_repository_deploy_keys(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of deploy keys that are on this repository.
 
@@ -1280,14 +1280,14 @@ async def query_repository_deploy_keys(
 
 
 @task
-async def query_repository_discussion(
+async def query_repository_discussion(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single discussion from the current repository by number.
 
@@ -1330,7 +1330,7 @@ async def query_repository_discussion(
 
 
 @task
-async def query_repository_milestones(
+async def query_repository_milestones(  # noqa
     owner: str,
     name: str,
     states: Iterable[graphql_schema.MilestoneState],
@@ -1343,7 +1343,7 @@ async def query_repository_milestones(
     order_by: graphql_schema.MilestoneOrder = None,
     query: str = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of milestones associated with the repository.
 
@@ -1400,7 +1400,7 @@ async def query_repository_milestones(
 
 
 @task
-async def query_repository_projects_v2(
+async def query_repository_projects_v2(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1412,7 +1412,7 @@ async def query_repository_projects_v2(
     query: str = None,
     order_by: graphql_schema.ProjectV2Order = {"field": "NUMBER", "direction": "DESC"},
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     List of projects linked to this repository.
 
@@ -1467,7 +1467,7 @@ async def query_repository_projects_v2(
 
 
 @task
-async def query_repository_submodules(
+async def query_repository_submodules(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1477,7 +1477,7 @@ async def query_repository_submodules(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a list of all submodules in this repository parsed from the .gitmodules
     file as of the default branch's HEAD commit.
@@ -1529,13 +1529,13 @@ async def query_repository_submodules(
 
 
 @task
-async def query_repository_license_info(
+async def query_repository_license_info(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The license associated with the repository.
 
@@ -1573,7 +1573,7 @@ async def query_repository_license_info(
 
 
 @task
-async def query_repository_deployments(
+async def query_repository_deployments(  # noqa
     owner: str,
     name: str,
     environments: Iterable[str],
@@ -1588,7 +1588,7 @@ async def query_repository_deployments(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Deployments associated with the repository.
 
@@ -1644,7 +1644,7 @@ async def query_repository_deployments(
 
 
 @task
-async def query_repository_discussions(
+async def query_repository_discussions(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1659,7 +1659,7 @@ async def query_repository_discussions(
         "direction": "DESC",
     },
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of discussions that have been opened in the repository.
 
@@ -1716,14 +1716,14 @@ async def query_repository_discussions(
 
 
 @task
-async def query_repository_environment(
+async def query_repository_environment(  # noqa
     owner: str,
     name: str,
     environment_name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single active environment from the current repository by name.
 
@@ -1766,14 +1766,14 @@ async def query_repository_environment(
 
 
 @task
-async def query_repository_project_next(
+async def query_repository_project_next(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Finds and returns the Project (beta) according to the provided Project (beta)
     number.
@@ -1817,14 +1817,14 @@ async def query_repository_project_next(
 
 
 @task
-async def query_repository_pull_request(
+async def query_repository_pull_request(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single pull request from the current repository by number.
 
@@ -1867,13 +1867,13 @@ async def query_repository_pull_request(
 
 
 @task
-async def query_repository_contact_links(
+async def query_repository_contact_links(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a list of contact links associated to the repository.
 
@@ -1911,7 +1911,7 @@ async def query_repository_contact_links(
 
 
 @task
-async def query_repository_environments(
+async def query_repository_environments(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -1921,7 +1921,7 @@ async def query_repository_environments(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of environments that are in this repository.
 
@@ -1972,13 +1972,13 @@ async def query_repository_environments(
 
 
 @task
-async def query_repository_funding_links(
+async def query_repository_funding_links(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The funding links for this repository.
 
@@ -2016,7 +2016,7 @@ async def query_repository_funding_links(
 
 
 @task
-async def query_repository_pinned_issues(
+async def query_repository_pinned_issues(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2026,7 +2026,7 @@ async def query_repository_pinned_issues(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of pinned issues for this repository.
 
@@ -2077,7 +2077,7 @@ async def query_repository_pinned_issues(
 
 
 @task
-async def query_repository_projects_next(
+async def query_repository_projects_next(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2089,7 +2089,7 @@ async def query_repository_projects_next(
     query: str = None,
     sort_by: graphql_schema.ProjectNextOrderField = "TITLE",
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     List of projects (beta) linked to this repository.
 
@@ -2144,7 +2144,7 @@ async def query_repository_projects_next(
 
 
 @task
-async def query_repository_pull_requests(
+async def query_repository_pull_requests(  # noqa
     owner: str,
     name: str,
     states: Iterable[graphql_schema.PullRequestState],
@@ -2159,7 +2159,7 @@ async def query_repository_pull_requests(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of pull requests that have been opened in the repository.
 
@@ -2224,13 +2224,13 @@ async def query_repository_pull_requests(
 
 
 @task
-async def query_repository_code_of_conduct(
+async def query_repository_code_of_conduct(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns the code of conduct for this repository.
 
@@ -2268,7 +2268,7 @@ async def query_repository_code_of_conduct(
 
 
 @task
-async def query_repository_collaborators(
+async def query_repository_collaborators(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2280,7 +2280,7 @@ async def query_repository_collaborators(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of collaborators associated with the repository.
 
@@ -2336,13 +2336,13 @@ async def query_repository_collaborators(
 
 
 @task
-async def query_repository_latest_release(
+async def query_repository_latest_release(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Get the latest release for the repository if one exists.
 
@@ -2380,7 +2380,7 @@ async def query_repository_latest_release(
 
 
 @task
-async def query_repository_recent_projects(
+async def query_repository_recent_projects(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2390,7 +2390,7 @@ async def query_repository_recent_projects(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Recent projects that this user has modified in the context of the owner.
 
@@ -2441,7 +2441,7 @@ async def query_repository_recent_projects(
 
 
 @task
-async def query_repository_commit_comments(
+async def query_repository_commit_comments(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2451,7 +2451,7 @@ async def query_repository_commit_comments(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of commit comments associated with the repository.
 
@@ -2502,13 +2502,13 @@ async def query_repository_commit_comments(
 
 
 @task
-async def query_repository_issue_templates(
+async def query_repository_issue_templates(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a list of issue templates associated to the repository.
 
@@ -2546,7 +2546,7 @@ async def query_repository_issue_templates(
 
 
 @task
-async def query_repository_assignable_users(
+async def query_repository_assignable_users(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2557,7 +2557,7 @@ async def query_repository_assignable_users(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of users that can be assigned to issues in this repository.
 
@@ -2610,13 +2610,13 @@ async def query_repository_assignable_users(
 
 
 @task
-async def query_repository_primary_language(
+async def query_repository_primary_language(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The primary language of the repository's code.
 
@@ -2654,13 +2654,13 @@ async def query_repository_primary_language(
 
 
 @task
-async def query_repository_default_branch_ref(
+async def query_repository_default_branch_ref(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The Ref associated with the repository's default branch.
 
@@ -2698,7 +2698,7 @@ async def query_repository_default_branch_ref(
 
 
 @task
-async def query_repository_mentionable_users(
+async def query_repository_mentionable_users(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2709,7 +2709,7 @@ async def query_repository_mentionable_users(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of Users that can be mentioned in the context of the repository.
 
@@ -2762,7 +2762,7 @@ async def query_repository_mentionable_users(
 
 
 @task
-async def query_repository_repository_topics(
+async def query_repository_repository_topics(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2772,7 +2772,7 @@ async def query_repository_repository_topics(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of applied repository-topic associations for this repository.
 
@@ -2823,7 +2823,7 @@ async def query_repository_repository_topics(
 
 
 @task
-async def query_repository_pinned_discussions(
+async def query_repository_pinned_discussions(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -2833,7 +2833,7 @@ async def query_repository_pinned_discussions(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of discussions that have been pinned in this repository.
 
@@ -2884,14 +2884,14 @@ async def query_repository_pinned_discussions(
 
 
 @task
-async def query_repository_discussion_category(
+async def query_repository_discussion_category(  # noqa
     owner: str,
     name: str,
     slug: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A discussion category by slug.
 
@@ -2935,13 +2935,13 @@ async def query_repository_discussion_category(
 
 
 @task
-async def query_repository_interaction_ability(
+async def query_repository_interaction_ability(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     The interaction ability settings for this repository.
 
@@ -2979,14 +2979,14 @@ async def query_repository_interaction_ability(
 
 
 @task
-async def query_repository_issue_or_pull_request(
+async def query_repository_issue_or_pull_request(  # noqa
     owner: str,
     name: str,
     number: int,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a single issue-like object from the current repository by number.
 
@@ -3029,7 +3029,7 @@ async def query_repository_issue_or_pull_request(
 
 
 @task
-async def query_repository_vulnerability_alerts(
+async def query_repository_vulnerability_alerts(  # noqa
     owner: str,
     name: str,
     states: Iterable[graphql_schema.RepositoryVulnerabilityAlertState],
@@ -3043,7 +3043,7 @@ async def query_repository_vulnerability_alerts(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of vulnerability alerts that are on this repository.
 
@@ -3100,7 +3100,7 @@ async def query_repository_vulnerability_alerts(
 
 
 @task
-async def query_repository_discussion_categories(
+async def query_repository_discussion_categories(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3111,7 +3111,7 @@ async def query_repository_discussion_categories(
     last: int = None,
     filter_by_assignable: bool = False,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of discussion categories that are available in the repository.
 
@@ -3166,13 +3166,13 @@ async def query_repository_discussion_categories(
 
 
 @task
-async def query_repository_pull_request_templates(
+async def query_repository_pull_request_templates(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
     follow_renames: bool = True,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     Returns a list of pull request templates associated to the repository.
 
@@ -3210,7 +3210,7 @@ async def query_repository_pull_request_templates(
 
 
 @task
-async def query_repository_branch_protection_rules(
+async def query_repository_branch_protection_rules(  # noqa
     owner: str,
     name: str,
     github_credentials: GitHubCredentials,
@@ -3220,7 +3220,7 @@ async def query_repository_branch_protection_rules(
     first: int = None,
     last: int = None,
     return_fields: Iterable[str] = None,
-) -> Dict[str, Any]:
+) -> Dict[str, Any]:  # pragma: no cover
     """
     A list of branch protection rules for this repository.
 
