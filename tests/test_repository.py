@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Tuple
-from unittest.mock import Mock
 
 import pytest
 from prefect.testing.utilities import AsyncMock
@@ -120,10 +119,24 @@ class TestGitHubRepository:
 
         return parent_contents, child_contents
 
-    async def test_that_contents_are_copied_correctly(self, monkeypatch):
-        """Check that get_directory successfully moves contents from one directory
-        to another.
-        """
+    class MockTmpDir:
+        """Utility for having `TemporaryDirectory` return a known location."""
+
+        dir = None
+
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __enter__(self):
+            return self.dir
+
+        def __exit__(self, *args, **kwargs):
+            pass
+
+    async def test_dir_contents_copied_correctly_with_get_directory(
+        self, monkeypatch
+    ):  # noqa
+        """Check that `get_directory` is able to correctly copy contents from src->dst"""  # noqa
 
         class p:
             returncode = 0
@@ -137,100 +150,60 @@ class TestGitHubRepository:
             parent_contents, child_contents = self.setup_test_directory(
                 tmp_src, sub_dir_name
             )
-
-            # move file contents to tmp_dst
-            with TemporaryDirectory() as tmp_dst:
-                mock_get_paths = Mock(return_value=(tmp_src, tmp_dst))
-                monkeypatch.setattr(
-                    prefect_github.repository.GitHubRepository,
-                    "_get_paths",
-                    mock_get_paths,
-                )
-
-                g = GitHubRepository(
-                    repository="https://github.com/PrefectHQ/prefect.git",
-                )
-                await g.get_directory()
-
-                assert set(os.listdir(tmp_dst)) == parent_contents
-                assert set(os.listdir(Path(tmp_dst) / sub_dir_name)) == child_contents
-
-    async def test_from_path_works(self, monkeypatch):
-        """Check that adding `from_path` results in correct sub_dir being moved."""
-
-        class MockTmpDir:
-            dir = None
-
-            def __init__(self, *args, **kwargs):
-                pass
-
-            def __enter__(self):
-                yield self.dir
-
-            def __exit__(self):
-                pass
-
-        class p:
-            returncode = 0
-
-        mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
-
-        sub_dir_name = "puppy"
-
-        with TemporaryDirectory() as tmp_src:
-            parent_contents, child_contents = self.setup_test_directory(
-                tmp_src, sub_dir_name
-            )
-            MockTmpDir.dir = tmp_src
+            self.MockTmpDir.dir = tmp_src
 
             # move file contents to tmp_dst
             with TemporaryDirectory() as tmp_dst:
                 monkeypatch.setattr(
                     prefect_github.repository,
                     "TemporaryDirectory",
-                    MockTmpDir,
+                    self.MockTmpDir,
                 )
 
                 g = GitHubRepository(
                     repository="https://github.com/PrefectHQ/prefect.git",
                 )
-                await g.get_directory()
+                await g.get_directory(local_path=tmp_dst)
 
                 assert set(os.listdir(tmp_dst)) == parent_contents
                 assert set(os.listdir(Path(tmp_dst) / sub_dir_name)) == child_contents
 
-    async def test_copy_contents_works_with_path(self):
-        """Sanity check for function to make sure that contents are moved as expected
-        when passing a sub-directory.
+    async def test_dir_contents_copied_correctly_with_get_directory_and_from_path(
+        self, monkeypatch
+    ):  # noqa
+        """Check that `get_directory` is able to correctly copy contents from src->dst
+        when `from_path` is included.
+
+        It is expected that the directory specified by `from_path` will be moved to the
+        specified destination, along with all of its contents.
         """
+
+        class p:
+            returncode = 0
+
+        mock = AsyncMock(return_value=p())
+        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+
+        sub_dir_name = "puppy"
+
         with TemporaryDirectory() as tmp_src:
-            # add file to tmp_src
-            f1_name = "dog.text"
-            f1_path = Path(tmp_src) / f1_name
-            f1 = open(f1_path, "w")
-            f1.close()
+            parent_contents, child_contents = self.setup_test_directory(
+                tmp_src, sub_dir_name
+            )
+            self.MockTmpDir.dir = tmp_src
 
-            # add directory with file to tmp_src
-            sub_dir_name = "puppy"
-            sub_dir_path = Path(tmp_src) / sub_dir_name
-            os.mkdir(sub_dir_path)
-
-            f2_name = "cat.txt"
-            f2_path = sub_dir_path / f2_name
-            f2 = open(f2_path, "w")
-            f2.close()
-
-            expected_parent_contents = {f1_name, sub_dir_name}
-            expected_child_contents = {f2_name}
-
-            assert set(os.listdir(tmp_src)) == expected_parent_contents
-            assert set(os.listdir(sub_dir_path)) == expected_child_contents
-            breakpoint()
             # move file contents to tmp_dst
             with TemporaryDirectory() as tmp_dst:
-                GitHubRepository._get_paths(
-                    dst_dir=tmp_dst, src_dir=tmp_src, sub_directory=sub_dir_name
+                monkeypatch.setattr(
+                    prefect_github.repository,
+                    "TemporaryDirectory",
+                    self.MockTmpDir,
                 )
 
-                assert set(os.listdir(tmp_dst)) == expected_child_contents
+                g = GitHubRepository(
+                    repository="https://github.com/PrefectHQ/prefect.git",
+                )
+                await g.get_directory(local_path=tmp_dst, from_path=sub_dir_name)
+
+                assert set(os.listdir(tmp_dst)) == set([sub_dir_name])
+                assert set(os.listdir(Path(tmp_dst) / sub_dir_name)) == child_contents
