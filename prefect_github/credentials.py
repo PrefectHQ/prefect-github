@@ -9,7 +9,7 @@ class GitHubCredentials(Block):
     """
     Block used to manage GitHub authentication.
 
-    Args:
+    Attributes:
         token: the token to authenticate into GitHub.
 
     Examples:

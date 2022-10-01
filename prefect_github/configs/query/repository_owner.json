@@ -58,9 +58,13 @@
         "isSecurityPolicyEnabled",
         "isUserConfigurationRepository",
         "mergeCommitAllowed",
+        "mergeCommitMessage",
+        "mergeCommitTitle",
         "rebaseMergeAllowed",
         "securityPolicyUrl",
         "squashMergeAllowed",
+        "squashMergeCommitMessage",
+        "squashMergeCommitTitle",
         "squashPrTitleUsedAsDefault",
         "sshUrl",
         "tempCloneToken",
@@ -69,7 +73,8 @@
         "viewerDefaultCommitEmail",
         "viewerDefaultMergeMethod",
         "viewerPermission",
-        "viewerPossibleCommitEmails"
+        "viewerPossibleCommitEmails",
+        "webCommitSignoffRequired"
       ]
     },
     "resourcePath",

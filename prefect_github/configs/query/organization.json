@@ -152,9 +152,13 @@
         "isSecurityPolicyEnabled",
         "isUserConfigurationRepository",
         "mergeCommitAllowed",
+        "mergeCommitMessage",
+        "mergeCommitTitle",
         "rebaseMergeAllowed",
         "securityPolicyUrl",
         "squashMergeAllowed",
+        "squashMergeCommitMessage",
+        "squashMergeCommitTitle",
         "squashPrTitleUsedAsDefault",
         "sshUrl",
         "tempCloneToken",
@@ -163,7 +167,8 @@
         "viewerDefaultCommitEmail",
         "viewerDefaultMergeMethod",
         "viewerPermission",
-        "viewerPossibleCommitEmails"
+        "viewerPossibleCommitEmails",
+        "webCommitSignoffRequired"
       ]
     },
     {
@@ -217,13 +222,17 @@
       "sponsorsListing": [
         "id",
         "createdAt",
+        "dashboardResourcePath",
+        "dashboardUrl",
         "fullDescription",
         "fullDescriptionHTML",
         "isPublic",
         "name",
         "nextPayoutDate",
+        "resourcePath",
         "shortDescription",
-        "slug"
+        "slug",
+        "url"
       ]
     },
     {
@@ -376,6 +385,7 @@
     "viewerCanCreateRepositories",
     "viewerCanCreateTeams",
     "viewerIsAMember",
-    "viewerIsFollowing"
+    "viewerIsFollowing",
+    "webCommitSignoffRequired"
   ]
 }
