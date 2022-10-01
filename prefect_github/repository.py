@@ -8,12 +8,11 @@ GitHub query_repository* tasks and the GitHub storage block.
 # is outdated, rerun scripts/generate.py.
 
 import io
-import shutil
 from datetime import datetime
+from distutils.dir_util import copy_tree
 from pathlib import Path
-from shutil import copytree
 from tempfile import TemporaryDirectory
-from typing import Any, Dict, Iterable, Optional, Union
+from typing import Any, Dict, Iterable, Optional, Tuple, Union
 
 from prefect import task
 from prefect.filesystems import ReadableDeploymentStorage
@@ -90,10 +89,12 @@ class GitHubRepository(ReadableDeploymentStorage):
         return full_url
 
     @staticmethod
-    def _move_contents_to_path(
+    def _get_paths(
         dst_dir: Union[str, None], src_dir: str, sub_directory: str
-    ):
-        """Move contents of a directory to another directory."""
+    ) -> Tuple[str, str]:
+        """Returns the fully formed paths for GitHubRepository contents in the form
+        (content_source, content_destination).
+        """
         if dst_dir is None:
             content_destination = Path(".").absolute()
         else:
@@ -105,12 +106,7 @@ class GitHubRepository(ReadableDeploymentStorage):
             content_destination = content_destination.joinpath(sub_directory)
             content_source = content_source.joinpath(sub_directory)
 
-        copytree(
-            src=content_source,
-            dst=content_destination,
-            copy_function=shutil.move,
-            dirs_exist_ok=True,
-        )
+        return content_source, content_destination
 
     @sync_compatible
     async def get_directory(
@@ -140,8 +136,13 @@ class GitHubRepository(ReadableDeploymentStorage):
             out_stream = io.StringIO()
             process = await run_process(cmd, stream_output=(out_stream, err_stream))
 
-            self._move_contents_to_path(
+            content_source, content_destination = self._get_paths(
                 dst_dir=local_path, src_dir=tmp_path_str, sub_directory=from_path
+            )
+
+            copy_tree(
+                src=str(content_source),
+                dst=str(content_destination),
             )
 
         if process.returncode != 0:

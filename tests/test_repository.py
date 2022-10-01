@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from unittest.mock import Mock
 
 import pytest
 from prefect.testing.utilities import AsyncMock
@@ -88,8 +89,15 @@ class TestGitHub:
                 credentials=credential,
             )
 
-    async def test_copy_contents_works(self):
+    async def test_copy_contents_works(self, monkeypatch):
         """Sanity check for function to make sure that contents are moved as expected."""  # noqa
+
+        class p:
+            returncode = 0
+
+        mock = AsyncMock(return_value=p())
+        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+
         with TemporaryDirectory() as tmp_src:
             # add file to tmp_src
             f1_name = "dog.text"
@@ -115,12 +123,55 @@ class TestGitHub:
 
             # move file contents to tmp_dst
             with TemporaryDirectory() as tmp_dst:
-                GitHubRepository._move_contents_to_path(
-                    dst_dir=tmp_dst, src_dir=tmp_src, sub_directory=None
+                mock_get_paths = Mock(return_value=(tmp_src, tmp_dst))
+                monkeypatch.setattr(
+                    prefect_github.repository.GitHubRepository,
+                    "_get_paths",
+                    mock_get_paths,
                 )
+
+                g = GitHubRepository(
+                    repository="https://github.com/PrefectHQ/prefect.git",
+                )
+                await g.get_directory()
 
                 assert set(os.listdir(tmp_dst)) == expected_parent_contents
                 assert (
                     set(os.listdir(Path(tmp_dst) / sub_dir_name))
                     == expected_child_contents
                 )
+
+    async def test_copy_contents_works_with_path(self):
+        """Sanity check for function to make sure that contents are moved as expected
+        when passing a sub-directory.
+        """
+        with TemporaryDirectory() as tmp_src:
+            # add file to tmp_src
+            f1_name = "dog.text"
+            f1_path = Path(tmp_src) / f1_name
+            f1 = open(f1_path, "w")
+            f1.close()
+
+            # add directory with file to tmp_src
+            sub_dir_name = "puppy"
+            sub_dir_path = Path(tmp_src) / sub_dir_name
+            os.mkdir(sub_dir_path)
+
+            f2_name = "cat.txt"
+            f2_path = sub_dir_path / f2_name
+            f2 = open(f2_path, "w")
+            f2.close()
+
+            expected_parent_contents = {f1_name, sub_dir_name}
+            expected_child_contents = {f2_name}
+
+            assert set(os.listdir(tmp_src)) == expected_parent_contents
+            assert set(os.listdir(sub_dir_path)) == expected_child_contents
+            breakpoint()
+            # move file contents to tmp_dst
+            with TemporaryDirectory() as tmp_dst:
+                GitHubRepository._get_paths(
+                    dst_dir=tmp_dst, src_dir=tmp_src, sub_directory=sub_dir_name
+                )
+
+                assert set(os.listdir(tmp_dst)) == expected_child_contents
