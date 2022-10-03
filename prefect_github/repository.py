@@ -110,7 +110,7 @@ class GitHubRepository(ReadableDeploymentStorage):
 
     @sync_compatible
     async def get_directory(
-        self, from_path: str = None, local_path: str = None
+        self, from_path: Optional[str] = None, local_path: Optional[str] = None
     ) -> None:
         """
         Clones a GitHub project specified in `from_path` to the provided `local_path`;
@@ -125,7 +125,7 @@ class GitHubRepository(ReadableDeploymentStorage):
         # CONSTRUCT COMMAND
         cmd = f"git clone {self._create_repo_url()}"
         if self.reference:
-            cmd += f" --branch {self.reference} --depth 1"
+            cmd += f" -b {self.reference} --depth 1"
 
         # Clone to a temporary directory and move the subdirectory over
         with TemporaryDirectory(suffix="prefect") as tmp_dir:
