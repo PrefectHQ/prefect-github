@@ -125,7 +125,7 @@ class GitHubRepository(ReadableDeploymentStorage):
         # CONSTRUCT COMMAND
         cmd = f"git clone {self._create_repo_url()}"
         if self.reference:
-            cmd += f" -b {self.reference} --depth 1"
+            cmd += f" --branch {self.reference} --depth 1"
 
         # Clone to a temporary directory and move the subdirectory over
         with TemporaryDirectory(suffix="prefect") as tmp_dir:
@@ -135,16 +135,15 @@ class GitHubRepository(ReadableDeploymentStorage):
             err_stream = io.StringIO()
             out_stream = io.StringIO()
             process = await run_process(cmd, stream_output=(out_stream, err_stream))
+            if process.returncode != 0:
+                err_stream.seek(0)
+                raise OSError(f"Failed to pull from remote:\n {err_stream.read()}")
 
             content_source, content_destination = self._get_paths(
                 dst_dir=local_path, src_dir=tmp_path_str, sub_directory=from_path
             )
 
             copy_tree(src=content_source, dst=content_destination)
-
-        if process.returncode != 0:
-            err_stream.seek(0)
-            raise OSError(f"Failed to pull from remote:\n {err_stream.read()}")
 
 
 @task
