@@ -13,6 +13,7 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any, Dict, Iterable, Optional, Tuple, Union
+from urllib.parse import urlparse
 
 from prefect import task
 from prefect.filesystems import ReadableDeploymentStorage
@@ -60,7 +61,7 @@ class GitHubRepository(ReadableDeploymentStorage):
     def _ensure_credentials_go_with_https(cls, v: str, values: dict):
         """Ensure that credentials are not provided with 'SSH' formatted GitHub URLs."""
         if v is not None:
-            if not values["repository"].startswith("https://"):
+            if urlparse(values["repository_url"]).scheme != "https":
                 raise InvalidRepositoryURLError(
                     (
                         "Crendentials can only be used with GitHub repositories "
@@ -79,9 +80,9 @@ class GitHubRepository(ReadableDeploymentStorage):
         For private repos: https://<oauth-key>@github.com/<username>/<repo>.git
         All other repos should be the same as `self.repository`.
         """
-
-        if self.repository_url.startswith("https://") and self.credentials is not None:
-            repo_url = self.repository_url[8:]
+        url_components = urlparse(self.repository_url)
+        if url_components.scheme == "https" and self.credentials is not None:
+            repo_url = url_components.netloc + url_components.path
             token_value = self.credentials.token.get_secret_value()
             full_url = f"https://{token_value}@{repo_url}"
         else:
