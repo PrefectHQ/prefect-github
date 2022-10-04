@@ -16,7 +16,8 @@ class TestGitHubRepository:
         """Ensure that errors from GitHub are being surfaced to users."""
         g = GitHubRepository(repository_url="incorrect-url-scheme")
         with pytest.raises(
-            OSError, match="fatal: repository 'incorrect-url-scheme' does not exist"
+            RuntimeError,
+            match="fatal: repository 'incorrect-url-scheme' does not exist",
         ):
             await g.get_directory()
 
@@ -68,7 +69,7 @@ class TestGitHubRepository:
         await g.get_directory()
         assert mock.await_count == 1
         assert (
-            "git clone https://XYZ@github.com/PrefectHQ/prefect.git"
+            "git clone https://XYZ@github.com/PrefectHQ/prefect.git --depth 1"
             in mock.await_args[0][0]
         )
 
