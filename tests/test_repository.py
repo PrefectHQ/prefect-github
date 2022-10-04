@@ -5,6 +5,7 @@ from typing import Tuple
 
 import pytest
 from prefect.testing.utilities import AsyncMock
+from pydantic.error_wrappers import ValidationError
 
 import prefect_github
 from prefect_github import GitHubCredentials
@@ -84,7 +85,12 @@ class TestGitHubRepository:
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.repository, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
-        with pytest.raises(ValueError):
+        error_msg = (
+            "Crendentials can only be used with GitHub repositories using the 'HTTPS' format"  # noqa
+            ".*"
+            "(type=value_error.invalidrepositoryurl)"
+        )
+        with pytest.raises(ValidationError, match=error_msg):
             GitHubRepository(
                 repository_url="git@github.com:PrefectHQ/prefect.git",
                 credentials=credential,
