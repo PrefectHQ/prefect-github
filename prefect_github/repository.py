@@ -39,8 +39,9 @@ class GitHubRepository(ReadableDeploymentStorage):
     _block_type_name = "GitHub Repository"
     _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"  # noqa: E501
 
-    repository: str = Field(
+    repository_url: str = Field(
         default=...,
+        title="Repository URL",
         description=(
             "The URL of a GitHub repository to read from, in either HTTPS or SSH "
             "format. If you are using a private repo, it must be in the HTTPS format."
@@ -79,12 +80,12 @@ class GitHubRepository(ReadableDeploymentStorage):
         All other repos should be the same as `self.repository`.
         """
 
-        if self.repository.startswith("https://") and self.credentials is not None:
-            repo_url = self.repository[8:]
+        if self.repository_url.startswith("https://") and self.credentials is not None:
+            repo_url = self.repository_url[8:]
             token_value = self.credentials.token.get_secret_value()
             full_url = f"https://{token_value}@{repo_url}"
         else:
-            full_url = self.repository
+            full_url = self.repository_url
 
         return full_url
 

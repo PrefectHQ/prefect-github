@@ -14,7 +14,7 @@ from prefect_github.repository import GitHubRepository
 class TestGitHubRepository:
     async def test_subprocess_errors_are_surfaced(self):
         """Ensure that errors from GitHub are being surfaced to users."""
-        g = GitHubRepository(repository="incorrect-url-scheme")
+        g = GitHubRepository(repository_url="incorrect-url-scheme")
         with pytest.raises(
             OSError, match="fatal: repository 'incorrect-url-scheme' does not exist"
         ):
@@ -30,7 +30,7 @@ class TestGitHubRepository:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.repository, "run_process", mock)
-        g = GitHubRepository(repository="prefect")
+        g = GitHubRepository(repository_url="prefect")
         await g.get_directory()
 
         assert mock.await_count == 1
@@ -46,7 +46,7 @@ class TestGitHubRepository:
 
         mock = AsyncMock(return_value=p())
         monkeypatch.setattr(prefect_github.repository, "run_process", mock)
-        g = GitHubRepository(repository="prefect", reference="2.0.0")
+        g = GitHubRepository(repository_url="prefect", reference="2.0.0")
         await g.get_directory()
 
         assert mock.await_count == 1
@@ -62,7 +62,7 @@ class TestGitHubRepository:
         monkeypatch.setattr(prefect_github.repository, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
         g = GitHubRepository(
-            repository="https://github.com/PrefectHQ/prefect.git",
+            repository_url="https://github.com/PrefectHQ/prefect.git",
             credentials=credential,
         )
         await g.get_directory()
@@ -85,7 +85,7 @@ class TestGitHubRepository:
         credential = GitHubCredentials(token="XYZ")
         with pytest.raises(ValueError):
             GitHubRepository(
-                repository="git@github.com:PrefectHQ/prefect.git",
+                repository_url="git@github.com:PrefectHQ/prefect.git",
                 credentials=credential,
             )
 
@@ -161,7 +161,7 @@ class TestGitHubRepository:
                 )
 
                 g = GitHubRepository(
-                    repository="https://github.com/PrefectHQ/prefect.git",
+                    repository_url="https://github.com/PrefectHQ/prefect.git",
                 )
                 await g.get_directory(local_path=tmp_dst)
 
@@ -201,7 +201,7 @@ class TestGitHubRepository:
                 )
 
                 g = GitHubRepository(
-                    repository="https://github.com/PrefectHQ/prefect.git",
+                    repository_url="https://github.com/PrefectHQ/prefect.git",
                 )
                 await g.get_directory(local_path=tmp_dst, from_path=sub_dir_name)
 
