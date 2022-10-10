@@ -13,7 +13,7 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any, Dict, Iterable, Optional, Tuple, Union
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlunparse
 
 from prefect import task
 from prefect.filesystems import ReadableDeploymentStorage
@@ -82,9 +82,11 @@ class GitHubRepository(ReadableDeploymentStorage):
         """
         url_components = urlparse(self.repository_url)
         if url_components.scheme == "https" and self.credentials is not None:
-            repo_url = url_components.netloc + url_components.path
             token_value = self.credentials.token.get_secret_value()
-            full_url = f"https://{token_value}@{repo_url}"
+            updated_components = url_components._replace(
+                netloc=f"{token_value}@{url_components.netloc}"
+            )
+            full_url = urlunparse(updated_components)
         else:
             full_url = self.repository_url
 
