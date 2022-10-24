@@ -1,0 +1,20 @@
+{
+  "template": "https://github.com/PrefectHQ/prefect-collection-template",
+  "commit": "5fc733df6d1eaa5d560de4d81dd727245f2bb697",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Prefect Technologies, Inc.",
+      "email": "help@prefect.io",
+      "github_organization": "PrefectHQ",
+      "collection_name": "prefect-github",
+      "collection_slug": "prefect_github",
+      "collection_short_description": "Prefect integration for working with github",
+      "_copy_without_render": [
+        ".github/workflows/*.yml"
+      ],
+      "_template": "https://github.com/PrefectHQ/prefect-collection-template"
+    }
+  },
+  "directory": null
+}
