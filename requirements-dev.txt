@@ -6,6 +6,7 @@ mkdocs
 mkdocs-material
 mkdocstrings[python]
 isort
+pillow
 pre-commit
 pytest-asyncio
 mock; python_version < '3.8'
