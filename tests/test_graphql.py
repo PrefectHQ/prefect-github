@@ -2,7 +2,7 @@ import pytest
 from prefect import flow
 from sgqlc.operation import Operation, Selector
 
-from prefect_github.graphql import _subset_return_fields, execute_graphql
+from prefect_github.graphql.generated import _subset_return_fields, execute_graphql
 from prefect_github.schemas import graphql_schema
 
 

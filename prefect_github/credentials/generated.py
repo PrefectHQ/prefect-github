@@ -1,7 +1,7 @@
 """Credential classes used to perform authenticated interactions with GitHub"""
 
 from prefect.blocks.core import Block
-from pydantic import SecretStr
+from pydantic import Field, SecretStr
 from sgqlc.endpoint.http import HTTPEndpoint
 
 
@@ -23,14 +23,16 @@ class GitHubCredentials(Block):
     _block_type_name = "GitHub Credentials"
     # _logo_url = "<LOGO_URL_HERE>"  # noqa
 
-    token: SecretStr = None
+    token: SecretStr = Field(
+        default=..., description="Token used to authenticate to service."
+    )
 
     def get_endpoint(self) -> HTTPEndpoint:
         """
         Gets an authenticated GitHub GraphQL HTTPEndpoint.
 
         Returns:
-            An authenticated GitHub GraphQL HTTPEndpoint
+            An authenticated GitHub GraphQL HTTPEndpoint.
 
         Example:
             Gets an authenticated GitHub GraphQL HTTPEndpoint.
