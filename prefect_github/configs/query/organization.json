@@ -146,6 +146,7 @@
         "deleteBranchOnMerge",
         "diskUsage",
         "forkingAllowed",
+        "hasDiscussionsEnabled",
         "isBlankIssuesEnabled",
         "isDisabled",
         "isEmpty",

@@ -172,6 +172,15 @@ class CommitContributionOrderField(sgqlc.types.Enum):
     __choices__ = ("COMMIT_COUNT", "OCCURRED_AT")
 
 
+class ComparisonStatus(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("AHEAD", "BEHIND", "DIVERGED", "IDENTICAL")
+
+
 class ContributionLevel(sgqlc.types.Enum):
     """
     See source code for more info.
@@ -215,6 +224,7 @@ class DependencyGraphEcosystem(sgqlc.types.Enum):
         "NPM",
         "NUGET",
         "PIP",
+        "PUB",
         "RUBYGEMS",
         "RUST",
     )
@@ -1190,6 +1200,7 @@ class ProjectNextFieldType(sgqlc.types.Enum):
         "SINGLE_SELECT",
         "TEXT",
         "TITLE",
+        "TRACKED_BY",
         "TRACKS",
     )
 
@@ -1263,6 +1274,7 @@ class ProjectV2FieldType(sgqlc.types.Enum):
         "SINGLE_SELECT",
         "TEXT",
         "TITLE",
+        "TRACKED_BY",
         "TRACKS",
     )
 
@@ -1811,6 +1823,7 @@ class SecurityAdvisoryEcosystem(sgqlc.types.Enum):
         "NPM",
         "NUGET",
         "PIP",
+        "PUB",
         "RUBYGEMS",
         "RUST",
     )
@@ -2547,6 +2560,18 @@ class ApproveVerifiableDomainInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class ArchiveProjectV2ItemInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "item_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    item_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="itemId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class ArchiveRepositoryInput(sgqlc.types.Input):
     """
     See source code for more info.
@@ -3004,6 +3029,9 @@ class CreateBranchProtectionRuleInput(sgqlc.types.Input):
         "required_status_check_contexts",
         "required_status_checks",
         "requires_conversation_resolution",
+        "require_last_push_approval",
+        "lock_branch",
+        "lock_allows_fetch_and_merge",
         "client_mutation_id",
     )
     repository_id = sgqlc.types.Field(
@@ -3067,6 +3095,13 @@ class CreateBranchProtectionRuleInput(sgqlc.types.Input):
     )
     requires_conversation_resolution = sgqlc.types.Field(
         Boolean, graphql_name="requiresConversationResolution"
+    )
+    require_last_push_approval = sgqlc.types.Field(
+        Boolean, graphql_name="requireLastPushApproval"
+    )
+    lock_branch = sgqlc.types.Field(Boolean, graphql_name="lockBranch")
+    lock_allows_fetch_and_merge = sgqlc.types.Field(
+        Boolean, graphql_name="lockAllowsFetchAndMerge"
     )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
@@ -3278,6 +3313,20 @@ class CreateIssueInput(sgqlc.types.Input):
         sgqlc.types.list_of(sgqlc.types.non_null(ID)), graphql_name="projectIds"
     )
     issue_template = sgqlc.types.Field(String, graphql_name="issueTemplate")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
+class CreateLinkedBranchInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("issue_id", "oid", "name", "repository_id", "client_mutation_id")
+    issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
+    oid = sgqlc.types.Field(sgqlc.types.non_null(GitObjectID), graphql_name="oid")
+    name = sgqlc.types.Field(String, graphql_name="name")
+    repository_id = sgqlc.types.Field(ID, graphql_name="repositoryId")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -3624,6 +3673,19 @@ class DeleteIssueInput(sgqlc.types.Input):
     __schema__ = graphql_schema
     __field_names__ = ("issue_id", "client_mutation_id")
     issue_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="issueId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
+class DeleteLinkedBranchInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("linked_branch_id", "client_mutation_id")
+    linked_branch_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="linkedBranchId"
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -4227,6 +4289,20 @@ class LanguageOrder(sgqlc.types.Input):
     direction = sgqlc.types.Field(
         sgqlc.types.non_null(OrderDirection), graphql_name="direction"
     )
+
+
+class LinkProjectV2ToRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "repository_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    repository_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="repositoryId"
+    )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
 class LinkRepositoryToProjectInput(sgqlc.types.Input):
@@ -5403,6 +5479,18 @@ class TransferIssueInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class UnarchiveProjectV2ItemInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "item_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    item_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="itemId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class UnarchiveRepositoryInput(sgqlc.types.Input):
     """
     See source code for more info.
@@ -5437,6 +5525,20 @@ class UnfollowUserInput(sgqlc.types.Input):
     __schema__ = graphql_schema
     __field_names__ = ("user_id", "client_mutation_id")
     user_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="userId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
+class UnlinkProjectV2FromRepositoryInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "repository_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    repository_id = sgqlc.types.Field(
+        sgqlc.types.non_null(ID), graphql_name="repositoryId"
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -5569,6 +5671,9 @@ class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
         "required_status_check_contexts",
         "required_status_checks",
         "requires_conversation_resolution",
+        "require_last_push_approval",
+        "lock_branch",
+        "lock_allows_fetch_and_merge",
         "client_mutation_id",
     )
     branch_protection_rule_id = sgqlc.types.Field(
@@ -5632,6 +5737,13 @@ class UpdateBranchProtectionRuleInput(sgqlc.types.Input):
     )
     requires_conversation_resolution = sgqlc.types.Field(
         Boolean, graphql_name="requiresConversationResolution"
+    )
+    require_last_push_approval = sgqlc.types.Field(
+        Boolean, graphql_name="requireLastPushApproval"
+    )
+    lock_branch = sgqlc.types.Field(Boolean, graphql_name="lockBranch")
+    lock_allows_fetch_and_merge = sgqlc.types.Field(
+        Boolean, graphql_name="lockAllowsFetchAndMerge"
     )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
@@ -6554,6 +6666,7 @@ class UpdateRepositoryInput(sgqlc.types.Input):
         "has_wiki_enabled",
         "has_issues_enabled",
         "has_projects_enabled",
+        "has_discussions_enabled",
         "client_mutation_id",
     )
     repository_id = sgqlc.types.Field(
@@ -6566,6 +6679,9 @@ class UpdateRepositoryInput(sgqlc.types.Input):
     has_wiki_enabled = sgqlc.types.Field(Boolean, graphql_name="hasWikiEnabled")
     has_issues_enabled = sgqlc.types.Field(Boolean, graphql_name="hasIssuesEnabled")
     has_projects_enabled = sgqlc.types.Field(Boolean, graphql_name="hasProjectsEnabled")
+    has_discussions_enabled = sgqlc.types.Field(
+        Boolean, graphql_name="hasDiscussionsEnabled"
+    )
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -7080,6 +7196,17 @@ class ApproveVerifiableDomainPayload(sgqlc.types.Type):
     __field_names__ = ("client_mutation_id", "domain")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     domain = sgqlc.types.Field("VerifiableDomain", graphql_name="domain")
+
+
+class ArchiveProjectV2ItemPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "item")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    item = sgqlc.types.Field("ProjectV2Item", graphql_name="item")
 
 
 class ArchiveRepositoryPayload(sgqlc.types.Type):
@@ -7911,6 +8038,26 @@ class CommitHistoryConnection(sgqlc.types.relay.Connection):
     )
 
 
+class ComparisonCommitConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("author_count", "edges", "nodes", "page_info", "total_count")
+    author_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="authorCount"
+    )
+    edges = sgqlc.types.Field(sgqlc.types.list_of(CommitEdge), graphql_name="edges")
+    nodes = sgqlc.types.Field(sgqlc.types.list_of("Commit"), graphql_name="nodes")
+    page_info = sgqlc.types.Field(
+        sgqlc.types.non_null("PageInfo"), graphql_name="pageInfo"
+    )
+    total_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="totalCount"
+    )
+
+
 class Contribution(sgqlc.types.Interface):
     """
     See source code for more info.
@@ -8574,6 +8721,17 @@ class CreateIssuePayload(sgqlc.types.Type):
     issue = sgqlc.types.Field("Issue", graphql_name="issue")
 
 
+class CreateLinkedBranchPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "linked_branch")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    linked_branch = sgqlc.types.Field("LinkedBranch", graphql_name="linkedBranch")
+
+
 class CreateMigrationSourcePayload(sgqlc.types.Type):
     """
     See source code for more info.
@@ -8959,6 +9117,17 @@ class DeleteIssuePayload(sgqlc.types.Type):
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
+
+
+class DeleteLinkedBranchPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "issue")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    issue = sgqlc.types.Field("Issue", graphql_name="issue")
 
 
 class DeleteProjectCardPayload(sgqlc.types.Type):
@@ -11543,9 +11712,10 @@ class IssueTemplate(sgqlc.types.Type):
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("about", "body", "name", "title")
+    __field_names__ = ("about", "body", "filename", "name", "title")
     about = sgqlc.types.Field(String, graphql_name="about")
     body = sgqlc.types.Field(String, graphql_name="body")
+    filename = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="filename")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
     title = sgqlc.types.Field(String, graphql_name="title")
 
@@ -11733,6 +11903,17 @@ class LicenseRule(sgqlc.types.Type):
     label = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="label")
 
 
+class LinkProjectV2ToRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "repository")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    repository = sgqlc.types.Field("Repository", graphql_name="repository")
+
+
 class LinkRepositoryToProjectPayload(sgqlc.types.Type):
     """
     See source code for more info.
@@ -11743,6 +11924,36 @@ class LinkRepositoryToProjectPayload(sgqlc.types.Type):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     project = sgqlc.types.Field("Project", graphql_name="project")
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
+
+
+class LinkedBranchConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("edges", "nodes", "page_info", "total_count")
+    edges = sgqlc.types.Field(
+        sgqlc.types.list_of("LinkedBranchEdge"), graphql_name="edges"
+    )
+    nodes = sgqlc.types.Field(sgqlc.types.list_of("LinkedBranch"), graphql_name="nodes")
+    page_info = sgqlc.types.Field(
+        sgqlc.types.non_null("PageInfo"), graphql_name="pageInfo"
+    )
+    total_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="totalCount"
+    )
+
+
+class LinkedBranchEdge(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("cursor", "node")
+    cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
+    node = sgqlc.types.Field("LinkedBranch", graphql_name="node")
 
 
 class LockLockablePayload(sgqlc.types.Type):
@@ -12038,6 +12249,7 @@ class Mutation(sgqlc.types.Type):
         "add_verifiable_domain",
         "approve_deployments",
         "approve_verifiable_domain",
+        "archive_project_v2_item",
         "archive_repository",
         "cancel_enterprise_admin_invitation",
         "cancel_sponsorship",
@@ -12059,6 +12271,7 @@ class Mutation(sgqlc.types.Type):
         "create_environment",
         "create_ip_allow_list_entry",
         "create_issue",
+        "create_linked_branch",
         "create_migration_source",
         "create_project",
         "create_project_v2",
@@ -12078,6 +12291,7 @@ class Mutation(sgqlc.types.Type):
         "delete_ip_allow_list_entry",
         "delete_issue",
         "delete_issue_comment",
+        "delete_linked_branch",
         "delete_project",
         "delete_project_card",
         "delete_project_column",
@@ -12098,6 +12312,7 @@ class Mutation(sgqlc.types.Type):
         "grant_enterprise_organizations_migrator_role",
         "grant_migrator_role",
         "invite_enterprise_admin",
+        "link_project_v2_to_repository",
         "link_repository_to_project",
         "lock_lockable",
         "mark_discussion_comment_as_answer",
@@ -12136,9 +12351,11 @@ class Mutation(sgqlc.types.Type):
         "start_repository_migration",
         "submit_pull_request_review",
         "transfer_issue",
+        "unarchive_project_v2_item",
         "unarchive_repository",
         "unfollow_organization",
         "unfollow_user",
+        "unlink_project_v2_from_repository",
         "unlink_repository_from_project",
         "unlock_lockable",
         "unmark_discussion_comment_as_answer",
@@ -12589,6 +12806,22 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    archive_project_v2_item = sgqlc.types.Field(
+        ArchiveProjectV2ItemPayload,
+        graphql_name="archiveProjectV2Item",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(ArchiveProjectV2ItemInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     archive_repository = sgqlc.types.Field(
         ArchiveRepositoryPayload,
         graphql_name="archiveRepository",
@@ -12925,6 +13158,22 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    create_linked_branch = sgqlc.types.Field(
+        CreateLinkedBranchPayload,
+        graphql_name="createLinkedBranch",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(CreateLinkedBranchInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     create_migration_source = sgqlc.types.Field(
         CreateMigrationSourcePayload,
         graphql_name="createMigrationSource",
@@ -13222,6 +13471,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(DeleteIssueCommentInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    delete_linked_branch = sgqlc.types.Field(
+        DeleteLinkedBranchPayload,
+        graphql_name="deleteLinkedBranch",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(DeleteLinkedBranchInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -13544,6 +13809,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(InviteEnterpriseAdminInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    link_project_v2_to_repository = sgqlc.types.Field(
+        LinkProjectV2ToRepositoryPayload,
+        graphql_name="linkProjectV2ToRepository",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(LinkProjectV2ToRepositoryInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -14163,6 +14444,22 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    unarchive_project_v2_item = sgqlc.types.Field(
+        "UnarchiveProjectV2ItemPayload",
+        graphql_name="unarchiveProjectV2Item",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(UnarchiveProjectV2ItemInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     unarchive_repository = sgqlc.types.Field(
         "UnarchiveRepositoryPayload",
         graphql_name="unarchiveRepository",
@@ -14204,6 +14501,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(UnfollowUserInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    unlink_project_v2_from_repository = sgqlc.types.Field(
+        "UnlinkProjectV2FromRepositoryPayload",
+        graphql_name="unlinkProjectV2FromRepository",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(UnlinkProjectV2FromRepositoryInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -16834,6 +17147,53 @@ class ProjectV2SortByEdge(sgqlc.types.Type):
     __field_names__ = ("cursor", "node")
     cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
     node = sgqlc.types.Field(ProjectV2SortBy, graphql_name="node")
+
+
+class ProjectV2SortByField(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("direction", "field")
+    direction = sgqlc.types.Field(
+        sgqlc.types.non_null(OrderDirection), graphql_name="direction"
+    )
+    field = sgqlc.types.Field(
+        sgqlc.types.non_null("ProjectV2FieldConfiguration"), graphql_name="field"
+    )
+
+
+class ProjectV2SortByFieldConnection(sgqlc.types.relay.Connection):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("edges", "nodes", "page_info", "total_count")
+    edges = sgqlc.types.Field(
+        sgqlc.types.list_of("ProjectV2SortByFieldEdge"), graphql_name="edges"
+    )
+    nodes = sgqlc.types.Field(
+        sgqlc.types.list_of(ProjectV2SortByField), graphql_name="nodes"
+    )
+    page_info = sgqlc.types.Field(
+        sgqlc.types.non_null(PageInfo), graphql_name="pageInfo"
+    )
+    total_count = sgqlc.types.Field(
+        sgqlc.types.non_null(Int), graphql_name="totalCount"
+    )
+
+
+class ProjectV2SortByFieldEdge(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("cursor", "node")
+    cursor = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="cursor")
+    node = sgqlc.types.Field(ProjectV2SortByField, graphql_name="node")
 
 
 class ProjectV2ViewConnection(sgqlc.types.relay.Connection):
@@ -20582,6 +20942,7 @@ class TreeEntry(sgqlc.types.Type):
     __field_names__ = (
         "extension",
         "is_generated",
+        "language",
         "line_count",
         "mode",
         "name",
@@ -20597,6 +20958,7 @@ class TreeEntry(sgqlc.types.Type):
     is_generated = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="isGenerated"
     )
+    language = sgqlc.types.Field("Language", graphql_name="language")
     line_count = sgqlc.types.Field(Int, graphql_name="lineCount")
     mode = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="mode")
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
@@ -20609,6 +20971,17 @@ class TreeEntry(sgqlc.types.Type):
     size = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="size")
     submodule = sgqlc.types.Field(Submodule, graphql_name="submodule")
     type = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="type")
+
+
+class UnarchiveProjectV2ItemPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "item")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    item = sgqlc.types.Field("ProjectV2Item", graphql_name="item")
 
 
 class UnarchiveRepositoryPayload(sgqlc.types.Type):
@@ -20655,6 +21028,17 @@ class UniformResourceLocatable(sgqlc.types.Interface):
         sgqlc.types.non_null(URI), graphql_name="resourcePath"
     )
     url = sgqlc.types.Field(sgqlc.types.non_null(URI), graphql_name="url")
+
+
+class UnlinkProjectV2FromRepositoryPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "repository")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    repository = sgqlc.types.Field("Repository", graphql_name="repository")
 
 
 class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
@@ -21937,10 +22321,13 @@ class BranchProtectionRule(sgqlc.types.Type, Node):
         "database_id",
         "dismisses_stale_reviews",
         "is_admin_enforced",
+        "lock_allows_fetch_and_merge",
+        "lock_branch",
         "matching_refs",
         "pattern",
         "push_allowances",
         "repository",
+        "require_last_push_approval",
         "required_approving_review_count",
         "required_status_check_contexts",
         "required_status_checks",
@@ -22017,6 +22404,12 @@ class BranchProtectionRule(sgqlc.types.Type, Node):
     is_admin_enforced = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="isAdminEnforced"
     )
+    lock_allows_fetch_and_merge = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="lockAllowsFetchAndMerge"
+    )
+    lock_branch = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="lockBranch"
+    )
     matching_refs = sgqlc.types.Field(
         sgqlc.types.non_null(RefConnection),
         graphql_name="matchingRefs",
@@ -22050,6 +22443,9 @@ class BranchProtectionRule(sgqlc.types.Type, Node):
         ),
     )
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
+    require_last_push_approval = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="requireLastPushApproval"
+    )
     required_approving_review_count = sgqlc.types.Field(
         Int, graphql_name="requiredApprovingReviewCount"
     )
@@ -22732,6 +23128,48 @@ class CommitCommentThread(sgqlc.types.Type, Node, RepositoryNode):
     commit = sgqlc.types.Field(Commit, graphql_name="commit")
     path = sgqlc.types.Field(String, graphql_name="path")
     position = sgqlc.types.Field(Int, graphql_name="position")
+
+
+class Comparison(sgqlc.types.Type, Node):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = (
+        "ahead_by",
+        "base_target",
+        "behind_by",
+        "commits",
+        "head_target",
+        "status",
+    )
+    ahead_by = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="aheadBy")
+    base_target = sgqlc.types.Field(
+        sgqlc.types.non_null(GitObject), graphql_name="baseTarget"
+    )
+    behind_by = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="behindBy")
+    commits = sgqlc.types.Field(
+        sgqlc.types.non_null(ComparisonCommitConnection),
+        graphql_name="commits",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+            )
+        ),
+    )
+    head_target = sgqlc.types.Field(
+        sgqlc.types.non_null(GitObject), graphql_name="headTarget"
+    )
+    status = sgqlc.types.Field(
+        sgqlc.types.non_null(ComparisonStatus), graphql_name="status"
+    )
 
 
 class ConnectedEvent(sgqlc.types.Type, Node):
@@ -24254,6 +24692,7 @@ class Issue(
         "hovercard",
         "is_pinned",
         "is_read_by_viewer",
+        "linked_branches",
         "milestone",
         "number",
         "participants",
@@ -24313,6 +24752,21 @@ class Issue(
     )
     is_pinned = sgqlc.types.Field(Boolean, graphql_name="isPinned")
     is_read_by_viewer = sgqlc.types.Field(Boolean, graphql_name="isReadByViewer")
+    linked_branches = sgqlc.types.Field(
+        sgqlc.types.non_null(LinkedBranchConnection),
+        graphql_name="linkedBranches",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+            )
+        ),
+    )
     milestone = sgqlc.types.Field("Milestone", graphql_name="milestone")
     number = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="number")
     participants = sgqlc.types.Field(
@@ -24727,6 +25181,16 @@ class License(sgqlc.types.Type, Node):
     )
     spdx_id = sgqlc.types.Field(String, graphql_name="spdxId")
     url = sgqlc.types.Field(URI, graphql_name="url")
+
+
+class LinkedBranch(sgqlc.types.Type, Node):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("ref",)
+    ref = sgqlc.types.Field("Ref", graphql_name="ref")
 
 
 class LockedEvent(sgqlc.types.Type, Node):
@@ -26966,6 +27430,7 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
         "repositories",
         "resource_path",
         "short_description",
+        "teams",
         "title",
         "updated_at",
         "url",
@@ -27070,6 +27535,29 @@ class ProjectV2(sgqlc.types.Type, Closable, Updatable, Node):
         sgqlc.types.non_null(URI), graphql_name="resourcePath"
     )
     short_description = sgqlc.types.Field(String, graphql_name="shortDescription")
+    teams = sgqlc.types.Field(
+        sgqlc.types.non_null(TeamConnection),
+        graphql_name="teams",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        TeamOrder,
+                        graphql_name="orderBy",
+                        default={"field": "NAME", "direction": "ASC"},
+                    ),
+                ),
+            )
+        ),
+    )
     title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="title")
     updated_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="updatedAt"
@@ -27306,13 +27794,16 @@ class ProjectV2View(sgqlc.types.Type, Node):
         "fields",
         "filter",
         "group_by",
+        "group_by_fields",
         "layout",
         "name",
         "number",
         "project",
         "sort_by",
+        "sort_by_fields",
         "updated_at",
         "vertical_group_by",
+        "vertical_group_by_fields",
         "visible_fields",
     )
     created_at = sgqlc.types.Field(
@@ -27366,6 +27857,29 @@ class ProjectV2View(sgqlc.types.Type, Node):
             )
         ),
     )
+    group_by_fields = sgqlc.types.Field(
+        ProjectV2FieldConfigurationConnection,
+        graphql_name="groupByFields",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        ProjectV2FieldOrder,
+                        graphql_name="orderBy",
+                        default={"field": "POSITION", "direction": "ASC"},
+                    ),
+                ),
+            )
+        ),
+    )
     layout = sgqlc.types.Field(
         sgqlc.types.non_null(ProjectV2ViewLayout), graphql_name="layout"
     )
@@ -27387,12 +27901,50 @@ class ProjectV2View(sgqlc.types.Type, Node):
             )
         ),
     )
+    sort_by_fields = sgqlc.types.Field(
+        ProjectV2SortByFieldConnection,
+        graphql_name="sortByFields",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+            )
+        ),
+    )
     updated_at = sgqlc.types.Field(
         sgqlc.types.non_null(DateTime), graphql_name="updatedAt"
     )
     vertical_group_by = sgqlc.types.Field(
         ProjectV2FieldConnection,
         graphql_name="verticalGroupBy",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        ProjectV2FieldOrder,
+                        graphql_name="orderBy",
+                        default={"field": "POSITION", "direction": "ASC"},
+                    ),
+                ),
+            )
+        ),
+    )
+    vertical_group_by_fields = sgqlc.types.Field(
+        ProjectV2FieldConfigurationConnection,
+        graphql_name="verticalGroupByFields",
         args=sgqlc.types.ArgDict(
             (
                 ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
@@ -28431,6 +28983,7 @@ class Ref(sgqlc.types.Type, Node):
     __field_names__ = (
         "associated_pull_requests",
         "branch_protection_rule",
+        "compare",
         "name",
         "prefix",
         "ref_update_rule",
@@ -28482,6 +29035,22 @@ class Ref(sgqlc.types.Type, Node):
     )
     branch_protection_rule = sgqlc.types.Field(
         BranchProtectionRule, graphql_name="branchProtectionRule"
+    )
+    compare = sgqlc.types.Field(
+        Comparison,
+        graphql_name="compare",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "head_ref",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(String),
+                        graphql_name="headRef",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
     )
     name = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="name")
     prefix = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="prefix")
@@ -29068,6 +29637,7 @@ class Repository(
         "forking_allowed",
         "forks",
         "funding_links",
+        "has_discussions_enabled",
         "interaction_ability",
         "is_blank_issues_enabled",
         "is_disabled",
@@ -29428,6 +29998,9 @@ class Repository(
     funding_links = sgqlc.types.Field(
         sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(FundingLink))),
         graphql_name="fundingLinks",
+    )
+    has_discussions_enabled = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="hasDiscussionsEnabled"
     )
     interaction_ability = sgqlc.types.Field(
         RepositoryInteractionAbility, graphql_name="interactionAbility"
@@ -30878,6 +31451,8 @@ class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
         "organization",
         "parent_team",
         "privacy",
+        "project_v2",
+        "projects_v2",
         "repositories",
         "repositories_resource_path",
         "repositories_url",
@@ -31069,6 +31644,43 @@ class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
     parent_team = sgqlc.types.Field("Team", graphql_name="parentTeam")
     privacy = sgqlc.types.Field(
         sgqlc.types.non_null(TeamPrivacy), graphql_name="privacy"
+    )
+    project_v2 = sgqlc.types.Field(
+        ProjectV2,
+        graphql_name="projectV2",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "number",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(Int), graphql_name="number", default=None
+                    ),
+                ),
+            )
+        ),
+    )
+    projects_v2 = sgqlc.types.Field(
+        sgqlc.types.non_null(ProjectV2Connection),
+        graphql_name="projectsV2",
+        args=sgqlc.types.ArgDict(
+            (
+                ("after", sgqlc.types.Arg(String, graphql_name="after", default=None)),
+                (
+                    "before",
+                    sgqlc.types.Arg(String, graphql_name="before", default=None),
+                ),
+                ("first", sgqlc.types.Arg(Int, graphql_name="first", default=None)),
+                ("last", sgqlc.types.Arg(Int, graphql_name="last", default=None)),
+                (
+                    "order_by",
+                    sgqlc.types.Arg(
+                        ProjectV2Order,
+                        graphql_name="orderBy",
+                        default={"field": "NUMBER", "direction": "DESC"},
+                    ),
+                ),
+            )
+        ),
     )
     repositories = sgqlc.types.Field(
         sgqlc.types.non_null(TeamRepositoryConnection),
