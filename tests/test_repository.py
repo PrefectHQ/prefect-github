@@ -9,7 +9,7 @@ from pydantic.error_wrappers import ValidationError
 
 import prefect_github
 from prefect_github import GitHubCredentials
-from prefect_github.repository import GitHubRepository
+from prefect_github.repository.blocks import GitHubRepository
 
 
 class TestGitHubRepository:
@@ -31,7 +31,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
         g = GitHubRepository(repository_url="prefect")
         await g.get_directory()
 
@@ -47,7 +47,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
         g = GitHubRepository(repository_url="prefect", reference="2.0.0")
         await g.get_directory()
 
@@ -61,7 +61,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
         g = GitHubRepository(
             repository_url="https://github.com/PrefectHQ/prefect.git",
@@ -83,7 +83,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
         credential = GitHubCredentials(token="XYZ")
         error_msg = (
             "Crendentials can only be used with GitHub repositories using the 'HTTPS' format"  # noqa
@@ -149,7 +149,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
 
         sub_dir_name = "puppy"
 
@@ -162,7 +162,7 @@ class TestGitHubRepository:
             # move file contents to tmp_dst
             with TemporaryDirectory() as tmp_dst:
                 monkeypatch.setattr(
-                    prefect_github.repository,
+                    prefect_github.repository.blocks,
                     "TemporaryDirectory",
                     self.MockTmpDir,
                 )
@@ -189,7 +189,7 @@ class TestGitHubRepository:
             returncode = 0
 
         mock = AsyncMock(return_value=p())
-        monkeypatch.setattr(prefect_github.repository, "run_process", mock)
+        monkeypatch.setattr(prefect_github.repository.blocks, "run_process", mock)
 
         sub_dir_name = "puppy"
 
@@ -202,7 +202,7 @@ class TestGitHubRepository:
             # move file contents to tmp_dst
             with TemporaryDirectory() as tmp_dst:
                 monkeypatch.setattr(
-                    prefect_github.repository,
+                    prefect_github.repository.blocks,
                     "TemporaryDirectory",
                     self.MockTmpDir,
                 )

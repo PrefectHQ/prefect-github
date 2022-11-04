@@ -1,5 +1,7 @@
 """Credential classes used to perform authenticated interactions with GitHub"""
 
+from typing import Optional
+
 from prefect.blocks.core import Block
 from pydantic import Field, SecretStr
 from sgqlc.endpoint.http import HTTPEndpoint
@@ -23,8 +25,8 @@ class GitHubCredentials(Block):
     _block_type_name = "GitHub Credentials"
     # _logo_url = "<LOGO_URL_HERE>"  # noqa
 
-    token: SecretStr = Field(
-        default=..., description="Token used to authenticate to service."
+    token: Optional[SecretStr] = Field(
+        default=None, description="Token used to authenticate to service."
     )
 
     def get_endpoint(self) -> HTTPEndpoint:
