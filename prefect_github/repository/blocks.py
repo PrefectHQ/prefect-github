@@ -109,17 +109,16 @@ class GitHubRepository(ReadableDeploymentStorage):
             local_path: A local path to clone to; defaults to present working directory.
         """
         # CONSTRUCT COMMAND
-        cmd = f"git clone {self._create_repo_url()}"
+        cmd = ["git", "clone", self._create_repo_url()]
         if self.reference:
-            cmd += f" -b {self.reference}"
+            cmd += ["-b", self.reference]
 
         # Limit git history
-        cmd += " --depth 1"
+        cmd += ["--depth", "1"]
 
         # Clone to a temporary directory and move the subdirectory over
         with TemporaryDirectory(suffix="prefect") as tmp_dir:
-            tmp_path_str = tmp_dir
-            cmd += f" {tmp_path_str}"
+            cmd.append(tmp_dir)
 
             err_stream = io.StringIO()
             out_stream = io.StringIO()
@@ -129,7 +128,7 @@ class GitHubRepository(ReadableDeploymentStorage):
                 raise RuntimeError(f"Failed to pull from remote:\n {err_stream.read()}")
 
             content_source, content_destination = self._get_paths(
-                dst_dir=local_path, src_dir=tmp_path_str, sub_directory=from_path
+                dst_dir=local_path, src_dir=tmp_dir, sub_directory=from_path
             )
 
             copy_tree(src=content_source, dst=content_destination)
