@@ -1315,6 +1315,15 @@ class ProjectV2OrderField(sgqlc.types.Enum):
     __choices__ = ("CREATED_AT", "NUMBER", "TITLE", "UPDATED_AT")
 
 
+class ProjectV2State(sgqlc.types.Enum):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __choices__ = ("CLOSED", "OPEN")
+
+
 class ProjectV2ViewLayout(sgqlc.types.Enum):
     """
     See source code for more info.
@@ -3386,9 +3395,10 @@ class CreateProjectV2Input(sgqlc.types.Input):
     """
 
     __schema__ = graphql_schema
-    __field_names__ = ("owner_id", "title", "client_mutation_id")
+    __field_names__ = ("owner_id", "title", "repository_id", "client_mutation_id")
     owner_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="ownerId")
     title = sgqlc.types.Field(sgqlc.types.non_null(String), graphql_name="title")
+    repository_id = sgqlc.types.Field(ID, graphql_name="repositoryId")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -4305,6 +4315,18 @@ class LinkProjectV2ToRepositoryInput(sgqlc.types.Input):
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
+class LinkProjectV2ToTeamInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "team_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    team_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="teamId")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
 class LinkRepositoryToProjectInput(sgqlc.types.Input):
     """
     See source code for more info.
@@ -4597,6 +4619,16 @@ class ProjectV2FieldValue(sgqlc.types.Input):
         String, graphql_name="singleSelectOptionId"
     )
     iteration_id = sgqlc.types.Field(String, graphql_name="iterationId")
+
+
+class ProjectV2Filters(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("state",)
+    state = sgqlc.types.Field(ProjectV2State, graphql_name="state")
 
 
 class ProjectV2ItemFieldValueOrder(sgqlc.types.Input):
@@ -5539,6 +5571,18 @@ class UnlinkProjectV2FromRepositoryInput(sgqlc.types.Input):
     repository_id = sgqlc.types.Field(
         sgqlc.types.non_null(ID), graphql_name="repositoryId"
     )
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+
+
+class UnlinkProjectV2FromTeamInput(sgqlc.types.Input):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("project_id", "team_id", "client_mutation_id")
+    project_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="projectId")
+    team_id = sgqlc.types.Field(sgqlc.types.non_null(ID), graphql_name="teamId")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
 
 
@@ -11914,6 +11958,17 @@ class LinkProjectV2ToRepositoryPayload(sgqlc.types.Type):
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
 
 
+class LinkProjectV2ToTeamPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "team")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    team = sgqlc.types.Field("Team", graphql_name="team")
+
+
 class LinkRepositoryToProjectPayload(sgqlc.types.Type):
     """
     See source code for more info.
@@ -12313,6 +12368,7 @@ class Mutation(sgqlc.types.Type):
         "grant_migrator_role",
         "invite_enterprise_admin",
         "link_project_v2_to_repository",
+        "link_project_v2_to_team",
         "link_repository_to_project",
         "lock_lockable",
         "mark_discussion_comment_as_answer",
@@ -12356,6 +12412,7 @@ class Mutation(sgqlc.types.Type):
         "unfollow_organization",
         "unfollow_user",
         "unlink_project_v2_from_repository",
+        "unlink_project_v2_from_team",
         "unlink_repository_from_project",
         "unlock_lockable",
         "unmark_discussion_comment_as_answer",
@@ -13832,6 +13889,22 @@ class Mutation(sgqlc.types.Type):
             )
         ),
     )
+    link_project_v2_to_team = sgqlc.types.Field(
+        LinkProjectV2ToTeamPayload,
+        graphql_name="linkProjectV2ToTeam",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(LinkProjectV2ToTeamInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
     link_repository_to_project = sgqlc.types.Field(
         LinkRepositoryToProjectPayload,
         graphql_name="linkRepositoryToProject",
@@ -14517,6 +14590,22 @@ class Mutation(sgqlc.types.Type):
                     "input",
                     sgqlc.types.Arg(
                         sgqlc.types.non_null(UnlinkProjectV2FromRepositoryInput),
+                        graphql_name="input",
+                        default=None,
+                    ),
+                ),
+            )
+        ),
+    )
+    unlink_project_v2_from_team = sgqlc.types.Field(
+        "UnlinkProjectV2FromTeamPayload",
+        graphql_name="unlinkProjectV2FromTeam",
+        args=sgqlc.types.ArgDict(
+            (
+                (
+                    "input",
+                    sgqlc.types.Arg(
+                        sgqlc.types.non_null(UnlinkProjectV2FromTeamInput),
                         graphql_name="input",
                         default=None,
                     ),
@@ -19085,6 +19174,7 @@ class RepositoryInfo(sgqlc.types.Interface):
         "description",
         "description_html",
         "fork_count",
+        "has_discussions_enabled",
         "has_issues_enabled",
         "has_projects_enabled",
         "has_wiki_enabled",
@@ -19119,6 +19209,9 @@ class RepositoryInfo(sgqlc.types.Interface):
         sgqlc.types.non_null(HTML), graphql_name="descriptionHTML"
     )
     fork_count = sgqlc.types.Field(sgqlc.types.non_null(Int), graphql_name="forkCount")
+    has_discussions_enabled = sgqlc.types.Field(
+        sgqlc.types.non_null(Boolean), graphql_name="hasDiscussionsEnabled"
+    )
     has_issues_enabled = sgqlc.types.Field(
         sgqlc.types.non_null(Boolean), graphql_name="hasIssuesEnabled"
     )
@@ -20086,6 +20179,14 @@ class Sponsorable(sgqlc.types.Interface):
                     ),
                 ),
                 (
+                    "since",
+                    sgqlc.types.Arg(DateTime, graphql_name="since", default=None),
+                ),
+                (
+                    "until",
+                    sgqlc.types.Arg(DateTime, graphql_name="until", default=None),
+                ),
+                (
                     "order_by",
                     sgqlc.types.Arg(
                         SponsorsActivityOrder,
@@ -21039,6 +21140,17 @@ class UnlinkProjectV2FromRepositoryPayload(sgqlc.types.Type):
     __field_names__ = ("client_mutation_id", "repository")
     client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
     repository = sgqlc.types.Field("Repository", graphql_name="repository")
+
+
+class UnlinkProjectV2FromTeamPayload(sgqlc.types.Type):
+    """
+    See source code for more info.
+    """
+
+    __schema__ = graphql_schema
+    __field_names__ = ("client_mutation_id", "team")
+    client_mutation_id = sgqlc.types.Field(String, graphql_name="clientMutationId")
+    team = sgqlc.types.Field("Team", graphql_name="team")
 
 
 class UnlinkRepositoryFromProjectPayload(sgqlc.types.Type):
@@ -29637,7 +29749,6 @@ class Repository(
         "forking_allowed",
         "forks",
         "funding_links",
-        "has_discussions_enabled",
         "interaction_ability",
         "is_blank_issues_enabled",
         "is_disabled",
@@ -29998,9 +30109,6 @@ class Repository(
     funding_links = sgqlc.types.Field(
         sgqlc.types.non_null(sgqlc.types.list_of(sgqlc.types.non_null(FundingLink))),
         graphql_name="fundingLinks",
-    )
-    has_discussions_enabled = sgqlc.types.Field(
-        sgqlc.types.non_null(Boolean), graphql_name="hasDiscussionsEnabled"
     )
     interaction_ability = sgqlc.types.Field(
         RepositoryInteractionAbility, graphql_name="interactionAbility"
@@ -31679,6 +31787,13 @@ class Team(sgqlc.types.Type, Node, Subscribable, MemberStatusable):
                         default={"field": "NUMBER", "direction": "DESC"},
                     ),
                 ),
+                (
+                    "filter_by",
+                    sgqlc.types.Arg(
+                        ProjectV2Filters, graphql_name="filterBy", default={}
+                    ),
+                ),
+                ("query", sgqlc.types.Arg(String, graphql_name="query", default="")),
             )
         ),
     )

@@ -23,7 +23,7 @@ class GitHubCredentials(Block):
     """
 
     _block_type_name = "GitHub Credentials"
-    # _logo_url = "<LOGO_URL_HERE>"  # noqa
+    # _logo_url = "<UPDATE _logo_url IN __init__.py>"  # noqa
 
     token: Optional[SecretStr] = Field(
         default=None, description="Token used to authenticate to service."

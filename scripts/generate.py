@@ -37,7 +37,7 @@ token_path = Path("~/.secrets/github").expanduser()
 with open(token_path, "r") as f:
     token = f.read().strip()
 root_to_op_types = {
-    "query": ["repository", "user", "repository_owner", "organization", "viewer"],
+    # "query": ["repository", "user", "repository_owner", "organization", "viewer"],
     "mutation": [
         "add_comment",
         "create_pull_request",

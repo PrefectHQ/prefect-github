@@ -52,6 +52,7 @@
     "description",
     "descriptionHTML",
     "forkCount",
+    "hasDiscussionsEnabled",
     "hasIssuesEnabled",
     "hasProjectsEnabled",
     "hasWikiEnabled",
@@ -237,7 +238,6 @@
         "url"
       ]
     },
-    "hasDiscussionsEnabled",
     {
       "interactionAbility": [
         "expiresAt",

@@ -1659,6 +1659,8 @@ async def query_viewer_sponsors_activities(  # noqa
     first: int = None,
     last: int = None,
     period: graphql_schema.SponsorsActivityPeriod = "MONTH",
+    since: datetime = None,
+    until: datetime = None,
     order_by: graphql_schema.SponsorsActivityOrder = {
         "field": "TIMESTAMP",
         "direction": "DESC",
@@ -1681,6 +1683,11 @@ async def query_viewer_sponsors_activities(  # noqa
         period: Filter activities returned to only those
             that occurred in the most recent specified time period. Set
             to ALL to avoid filtering by when the activity occurred.
+            Will be ignored if `since` or `until` is given.
+        since: Filter activities to those that occurred on
+            or after this time.
+        until: Filter activities to those that occurred
+            before this time.
         order_by: Ordering options for activity returned
             from the connection.
         return_fields: Subset the return fields (as snake_case); defaults to
@@ -1698,6 +1705,8 @@ async def query_viewer_sponsors_activities(  # noqa
             first=first,
             last=last,
             period=period,
+            since=since,
+            until=until,
             order_by=order_by,
         )
     )
