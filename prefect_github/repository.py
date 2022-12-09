@@ -8,6 +8,7 @@ GitHub query_repository* tasks and the GitHub storage block.
 # is outdated, rerun scripts/generate.py.
 
 import io
+import shlex
 from datetime import datetime
 from distutils.dir_util import copy_tree
 from pathlib import Path
@@ -138,6 +139,7 @@ class GitHubRepository(ReadableDeploymentStorage):
         with TemporaryDirectory(suffix="prefect") as tmp_dir:
             tmp_path_str = tmp_dir
             cmd += f" {tmp_path_str}"
+            cmd = shlex.split(cmd)
 
             err_stream = io.StringIO()
             out_stream = io.StringIO()
