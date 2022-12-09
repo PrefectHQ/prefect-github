@@ -36,7 +36,7 @@ class TestGitHubRepository:
         await g.get_directory()
 
         assert mock.await_count == 1
-        assert "git clone prefect" in mock.await_args[0][0]
+        assert ["git", "clone", "prefect"] == mock.await_args[0][0][:3]
 
     async def test_reference_default(self, monkeypatch):
         """Ensure that default command is 'git clone <repo name> -b <reference> --depth 1'  # noqa: E501
@@ -52,7 +52,7 @@ class TestGitHubRepository:
         await g.get_directory()
 
         assert mock.await_count == 1
-        assert "git clone prefect -b 2.0.0 --depth 1" in mock.await_args[0][0]
+        assert "git clone prefect -b 2.0.0 --depth 1" in " ".join(mock.await_args[0][0])
 
     async def test_token_added_correctly_from_credential(self, monkeypatch):
         """Ensure that the repo url is in the format `https://<oauth-key>@github.com/<username>/<repo>.git`."""  # noqa: E501
@@ -71,7 +71,7 @@ class TestGitHubRepository:
         assert mock.await_count == 1
         assert (
             "git clone https://XYZ@github.com/PrefectHQ/prefect.git --depth 1"
-            in mock.await_args[0][0]
+            in " ".join(mock.await_args[0][0])
         )
 
     async def test_ssh_fails_with_credential(self, monkeypatch):
