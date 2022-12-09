@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
-`GitHubRepository` storage block with private repo support - [#30](https://github.com/PrefectHQ/prefect-github/pull/30)
 
 ### Changed
 
@@ -20,9 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.4
+
+Released on December 9th, 2022.
+
+### Added
+`GitHubRepository` storage block with private repo support - [#30](https://github.com/PrefectHQ/prefect-github/pull/30)
+
 ## 0.1.3
 
 Released on August 4th, 2022.
+
 ### Added
 `add_pull_request_review*` task - [#16](https://github.com/PrefectHQ/prefect-github/pull/16)
 `*_v2` tasks - [#20](https://github.com/PrefectHQ/prefect-github/pull/20)
