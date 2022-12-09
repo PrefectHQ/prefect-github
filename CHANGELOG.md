@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## 0.1.5
+
+Released on December 9th, 2022.
+
+### Fixed
+
+Missing `configs/*/*.json` in `MANIFEST.in` - [#40](https://github.com/PrefectHQ/prefect-github/pull/40)
+
 ## 0.1.4
 
 Released on December 9th, 2022.
