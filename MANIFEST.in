@@ -6,9 +6,10 @@ global-exclude __pycache__/**
 
 # Top-level Config
 include versioneer.py
-include prefect_aws/_version.py
+include prefect_github/_version.py
 include LICENSE
 include MANIFEST.in
 include setup.cfg
 include requirements.txt
 include requirements-dev.txt
+include prefect_github/configs/*/*.json
