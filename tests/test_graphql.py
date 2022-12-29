@@ -32,6 +32,9 @@ class MockCredentials:
     def get_endpoint(self):
         return lambda op, vars: self.result
 
+    def get_client(self):
+        return lambda op, vars: self.result
+
 
 @pytest.mark.parametrize("error_key", ["errors", False])
 def test_execute_graphql(error_key):

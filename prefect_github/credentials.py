@@ -1,5 +1,7 @@
 """Credential classes used to perform authenticated interactions with GitHub"""
 
+import warnings
+
 from prefect.blocks.abstract import CredentialsBlock
 from pydantic import Field, SecretStr
 from sgqlc.endpoint.http import HTTPEndpoint
@@ -77,4 +79,9 @@ class GitHubCredentials(CredentialsBlock):
             example_get_endpoint_flow()
             ```
         """
+        warnings.warn(
+            "`get_endpoint` is deprecated and will be removed March 2023, "
+            "use `get_client` instead.",
+            DeprecationWarning,
+        )
         return self.get_client()
