@@ -9,9 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+`get_client` method for `GitHubCredentials` - [#41](https://github.com/PrefectHQ/prefect-github/pull/41)
+
 ### Changed
 
 ### Deprecated
+
+`get_endpoint` in favor of `get_client` in `GitHubCredentials` - [#41](https://github.com/PrefectHQ/prefect-github/pull/41)
 
 ### Removed
 

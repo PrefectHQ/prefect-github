@@ -1,11 +1,13 @@
 """Credential classes used to perform authenticated interactions with GitHub"""
 
-from prefect.blocks.core import Block
+import warnings
+
+from prefect.blocks.abstract import CredentialsBlock
 from pydantic import Field, SecretStr
 from sgqlc.endpoint.http import HTTPEndpoint
 
 
-class GitHubCredentials(Block):
+class GitHubCredentials(CredentialsBlock):
     """
     Block used to manage GitHub authentication.
 
@@ -26,6 +28,33 @@ class GitHubCredentials(Block):
     token: SecretStr = Field(
         default=None, description="A GitHub personal access token (PAT)."
     )
+
+    def get_client(self) -> HTTPEndpoint:
+        """
+        Gets an authenticated GitHub GraphQL HTTPEndpoint client.
+
+        Returns:
+            An authenticated GitHub GraphQL HTTPEndpoint client.
+
+        Example:
+            Gets an authenticated GitHub GraphQL HTTPEndpoint client.
+            ```python
+            from prefect_github import GitHubCredentials
+
+            github_credentials = GitHubCredentials(token=token)
+            client = github_credentials.get_client()
+            ```
+        """
+
+        if self.token is not None:
+            base_headers = {"Authorization": f"Bearer {self.token.get_secret_value()}"}
+        else:
+            base_headers = None
+
+        endpoint = HTTPEndpoint(
+            "https://api.github.com/graphql", base_headers=base_headers
+        )
+        return endpoint
 
     def get_endpoint(self) -> HTTPEndpoint:
         """
@@ -50,11 +79,9 @@ class GitHubCredentials(Block):
             example_get_endpoint_flow()
             ```
         """
-        if self.token is not None:
-            base_headers = {"Authorization": f"Bearer {self.token.get_secret_value()}"}
-        else:
-            base_headers = None
-        endpoint = HTTPEndpoint(
-            "https://api.github.com/graphql", base_headers=base_headers
+        warnings.warn(
+            "`get_endpoint` is deprecated and will be removed March 31st, 2023, "
+            "use `get_client` instead.",
+            DeprecationWarning,
         )
-        return endpoint
+        return self.get_client()

@@ -26,7 +26,7 @@ async def _execute_graphql_op(
     """
     Helper function for executing GraphQL operations.
     """
-    endpoint = github_credentials.get_endpoint()
+    endpoint = github_credentials.get_client()
     partial_endpoint = partial(endpoint, op, vars)
     result = await to_thread.run_sync(partial_endpoint)
     if error_key in result:
