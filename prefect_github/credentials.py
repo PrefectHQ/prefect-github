@@ -80,7 +80,7 @@ class GitHubCredentials(CredentialsBlock):
             ```
         """
         warnings.warn(
-            "`get_endpoint` is deprecated and will be removed March 2023, "
+            "`get_endpoint` is deprecated and will be removed March 31st, 2023, "
             "use `get_client` instead.",
             DeprecationWarning,
         )
