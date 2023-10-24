@@ -20,7 +20,13 @@ from prefect import task
 from prefect.filesystems import ReadableDeploymentStorage
 from prefect.utilities.asyncutils import sync_compatible
 from prefect.utilities.processutils import run_process
-from pydantic import Field, validator
+from pydantic import VERSION as PYDANTIC_VERSION
+
+if PYDANTIC_VERSION.startswith("2."):
+    from pydantic.v1 import Field, validator
+else:
+    from pydantic import Field, validator
+
 from sgqlc.operation import Operation
 
 from prefect_github import GitHubCredentials

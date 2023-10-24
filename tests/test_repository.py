@@ -5,7 +5,12 @@ from typing import Tuple
 
 import pytest
 from prefect.testing.utilities import AsyncMock
-from pydantic.error_wrappers import ValidationError
+from pydantic import VERSION as PYDANTIC_VERSION
+
+if PYDANTIC_VERSION.startswith("2."):
+    from pydantic.v1.error_wrappers import ValidationError
+else:
+    from pydantic.error_wrappers import ValidationError
 
 import prefect_github
 from prefect_github import GitHubCredentials
