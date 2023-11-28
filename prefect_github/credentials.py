@@ -29,7 +29,7 @@ class GitHubCredentials(CredentialsBlock):
     """
 
     _block_type_name = "GitHub Credentials"
-    _logo_url = "https://images.ctfassets.net/gm98wzqotmnx/187oCWsD18m5yooahq1vU0/ace41e99ab6dc40c53e5584365a33821/github.png?h=250"  # noqa
+    _logo_url = "https://cdn.sanity.io/images/3ugk85nk/production/41971cfecfea5f79ff334164f06ecb34d1038dd4-250x250.png"  # noqa
     _documentation_url = "https://prefecthq.github.io/prefect-github/credentials/#prefect_github.credentials.GitHubCredentials"  # noqa
 
     token: SecretStr = Field(
