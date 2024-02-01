@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+Update branding and links
+
 ### Deprecated
 
 `get_endpoint` in favor of `get_client` in `GitHubCredentials` - [#41](https://github.com/PrefectHQ/prefect-github/pull/41)
